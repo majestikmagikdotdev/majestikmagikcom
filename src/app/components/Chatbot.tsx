@@ -42,7 +42,6 @@ const Chatbot: React.FC<ChatbotProps> = ({
         onClick={handleToggleChat}
         className="fixed bottom-6 right-6 border-2 border-indigo-300/10 bg-indigo-400/10 hover:bg-indigo-500/30 text-indigo-400 p-4 rounded-full transform hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-[#07080e]"
         aria-label={isChatOpen ? "Close chat" : "Open chat assistant"}
-        disabled={!isGeminiInitialized && chatMessages.length === 0}
         type="button"
       >
         <div className="relative w-8 h-8 flex items-center justify-center">
