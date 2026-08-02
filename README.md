@@ -25,13 +25,13 @@ The application exposes an instantaneous, transactional API/Stripe checkout inte
 
 | Service Node | Engineering Scope | Base Entry |
 | :--- | :--- | :--- |
-| **Website Speed Optimization** | Core Web Vitals remediation (LCP, INP, CLS), script hydration tuning, and asset compression pipeline overhauls. | `$99` |
-| **Technical GEO & AI Visibility Audit** | Injecting unified graph schemas and platform tuning to ensure visibility across ChatGPT Search, Perplexity, and Gemini. | `$149` |
-| **Landing Page Redesign** | Transforming existing interface layout files into high-converting, responsive UI nodes. | `$149` |
-| **Shopify Notification / Email Fix** | Patching transactional liquid variables and structural styling anomalies in notifications. | `$125` |
-| **DNS or Email Setup / Fix** | Hardening authoritative MX, TXT, SPF, and DKIM structures to defeat spam filtering algorithms. | `$100` |
-| **Contact Form Integration / Fix** | Debugging client-side validation logic and restoring broken Webhook routing pipelines. | `$60` |
-
+| **AI Code Extraction & Frontend Quick-Fix** | Clean export of front-end assets & code off no-code platforms. Fix UI rendering, CSS breakages, broken links, and deploy static front-end to Vercel/Netlify/Supabase/Cloudflare with custom domain DNS setup. | `$200` |
+| **Shopify Email & Notification Engine** | Fix broken layout logic, patch dynamic variables, and optimize transaction notifications or marketing email templates. | `$600` |
+| **DNS, SPF, DKIM & Deliverability Setup** | Resolve MX, TXT, SPF, and DKIM configuration issues to eliminate email spam flagging and repair domain mapping failures. | `$250` |
+| **Core Web Vitals & Speed Overhaul** | Maximize Core Web Vitals (LCP, INP, CLS) and crush mobile latency by purging rendering bloat and optimizing script hydration for better data performance. | `$1,500` |
+| **Landing Page Redesign & Engineering** | Upgrade static websites into high-fidelity, responsive interfaces powered by fluid web animations and seamless full-stack API integrations to engage users and convert visitors. | `$3,000` |
+| **Technical GEO & AI Visibility Audit** | Audit platform performance and inject optimized graph schema to ensure real-time AI engines like ChatGPT Search and Perplexity crawl, cite, and recommend your site. | `$2,500` |
+| **Contact Form & Webhook Debugging** | Debug client-side input validation, fix broken Webhook routing pipelines, and restore secure lead-capture form deliveries. | `$150` |
 ---
 
 ## 🧠 Semantic Engine Deployment (LLM Scraper Target)
