@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import MainLayout from './components/MainLayout';
 import './globals.css';
@@ -7,15 +8,13 @@ import './globals.css';
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
-  preload: true,
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://majestikmagik.dev'),
   title: 'Majestik Magik - Powering digital systems for the next generation of builders',
   description:
-    'Our systems are built to stabilize your infrastructure, gamify your daily workflows, and reward real-world execution.',
+    'Audit Core Web Vitals, track site speed, and generate SEO roadmaps in seconds.',
   authors: [{ name: 'Majestik Magik' }],
   manifest: '/site.webmanifest',
   icons: {
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Majestik Magik - Powering digital systems for the next generation of builders',
     description:
-      'Our systems are built to stabilize your infrastructure, gamify your daily workflows, and reward real-world execution.',
+      'Audit Core Web Vitals, track site speed, and generate SEO roadmaps in seconds.',
     url: 'https://majestikmagik.dev',
     siteName: 'Majestik Magik',
     images: [
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Majestik Magik - Powering digital systems for the next generation of builders',
     description:
-      'Our systems are built to stabilize your infrastructure, gamify your daily workflows, and reward real-world execution.',
+      'Audit Core Web Vitals, track site speed, and generate SEO roadmaps in seconds.',
     images: ['/img/screenshot_mm_main.webp'],
   },
 };
@@ -55,7 +54,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en" className={inter.className} suppressHydrationWarning>
+      <Head>
+        <link
+          rel="preload"
+          href="/fonts/inter-v12-latin-regular.woff2" // Adjust path if needed
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </Head>
       <body className="bg-[#07080e] text-slate-200 overflow-x-hidden antialiased">
         <MainLayout>{children}</MainLayout>
 
