@@ -27,10 +27,11 @@ export default function MainLayout({
     { name: 'Home', url: '/#home' },
     { name: 'Core Engine', url: '/#core-engine' },
     { name: 'Services', url: '/#services' },
-    { name: 'About', url: '/#about' },
-    { name: 'Portfolio', url: '/portfolio' },
+    { name: 'About', url: '/#about' },    
     { name: 'Testimonials', url: '/#testimonials' },
     { name: 'Contact', url: '/#contact' },
+    { name: 'Portfolio', url: '/portfolio' },
+    { name: 'Case Studies', url: '/case-studies' },
     { name: 'Login', url: 'https://app.majestikmagik.dev/dashboard', external: true }
   ];
 
