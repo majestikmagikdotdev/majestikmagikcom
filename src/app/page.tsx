@@ -12,7 +12,7 @@ export default function App() {
   return (
     <>
       <ScrollAnimator />
-      <main>
+      <main aria-label="Majestik Magik - Web Engineering & AI Optimization Services">
         <HeroSection />
         <CoreEngineSection />
         <PricingSection pricingPlans={[]} />

@@ -39,11 +39,12 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         </div>
 
         {/* Massive Apple-Inspired Header Stack */}
-        <h1 className="mb-6 text-5xl md:text-7xl lg:text-8xl text-slate-100 font-bold tracking-tighter leading-[0.9] scroll-animate opacity-90 ease-in-out duration-500">
+        <h1 id="home-heading" className="mb-6 text-5xl md:text-7xl lg:text-8xl text-slate-100 font-bold tracking-tighter leading-[0.9] scroll-animate opacity-90 ease-in-out duration-500">
           Introducing <br className="hidden sm:inline" />
           <span className="text-transparent bg-clip-text bg-gradient-to-b from-indigo-300 via-indigo-400 to-white scroll-animate opacity-90 ease-in-out duration-1000">
             Pivot Quest
           </span>
+          <span className="sr-only"> by Majestik Magik — Web Engineering & AI Optimization Services</span>
         </h1>
 
         {/* Elegant Centered Description */}

@@ -111,6 +111,7 @@ export const CoreEngineSection = () => {
     <section
       ref={sectionRef}
       id="core-engine"
+      aria-labelledby="core-engine-heading"
       style={{
         position: "relative",
         padding: "100px 20px",
@@ -189,7 +190,7 @@ export const CoreEngineSection = () => {
             </span>
           </div>
 
-          <h2 style={{ color: "#ffffff", fontSize: "36px", fontWeight: "bold", lineHeight: "1.2", marginBottom: "20px" }}>
+          <h2 id="core-engine-heading" style={{ color: "#ffffff", fontSize: "36px", fontWeight: "bold", lineHeight: "1.2", marginBottom: "20px" }}>
             Meet Majestik Core
           </h2>
 

@@ -12,9 +12,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://majestikmagik.dev'),
-  title: 'Majestik Magik - Powering digital systems for the next generation of builders',
+  title: 'Majestik Magik - Web Engineering & AI Optimization Services',
   description:
-    'Audit Core Web Vitals, track site speed, and generate SEO roadmaps in seconds.',
+    'High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.',
   authors: [{ name: 'Majestik Magik' }],
   manifest: '/site.webmanifest',
   icons: {
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     apple: '/img/majestikmagik_logo_indigo-64x64.webp',
   },
   openGraph: {
-    title: 'Majestik Magik - Powering digital systems for the next generation of builders',
+    title: 'Majestik Magik - Web Engineering & AI Optimization Services',
     description:
-      'Audit Core Web Vitals, track site speed, and generate SEO roadmaps in seconds.',
+      'High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.',
     url: 'https://majestikmagik.dev',
     siteName: 'Majestik Magik',
     images: [
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Majestik Magik - Powering digital systems for the next generation of builders',
+    title: 'Majestik Magik - Web Engineering & AI Optimization Services',
     description:
-      'Audit Core Web Vitals, track site speed, and generate SEO roadmaps in seconds.',
+      'High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.',
     images: ['/img/screenshot_mm_main.webp'],
   },
 };
