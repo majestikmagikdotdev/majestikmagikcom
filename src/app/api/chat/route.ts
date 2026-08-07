@@ -5,31 +5,52 @@ export const runtime = 'edge';
 const SYSTEM_INSTRUCTION =
   "You are a friendly and helpful AI assistant for Majestik Magik, a company specializing in AI-powered website design and digital systems solutions. Your goal is to answer user questions about Majestik Magik, its services (Custom Web Development, SEO, Digital Marketing, Pivot Quest), and help them navigate the website. Be concise and informative. If asked about pricing, politely state that more information can be found by visiting the relevant page. If a custom website inquiry is needed, politely state that an invoice may be issued for the service provided. If asked about pricing or specific features not detailed, politely state that more information can be found by contacting Majestik Magik directly through the contact options on the website or by visiting the relevant page.";
 
+function base64url(str: string): string {
+  return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function base64urlFromUint8Array(buf: Uint8Array): string {
+  return btoa(String.fromCharCode(...buf)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+async function signJWT(clientEmail: string, privateKeyPem: string): Promise<string> {
+  const now = Math.floor(Date.now() / 1000);
+  const header = base64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
+  const payload = base64url(JSON.stringify({
+    iss: clientEmail,
+    sub: clientEmail,
+    aud: 'https://oauth2.googleapis.com/token',
+    iat: now,
+    exp: now + 3600,
+    scope: 'https://www.googleapis.com/auth/cloud-platform',
+  }));
+
+  const pemBody = privateKeyPem
+    .replace(/-----BEGIN PRIVATE KEY-----|-----END PRIVATE KEY-----/g, '')
+    .replace(/\s+/g, '');
+  const keyBytes = Uint8Array.from(atob(pemBody), c => c.charCodeAt(0));
+
+  const cryptoKey = await crypto.subtle.importKey(
+    'pkcs8',
+    keyBytes,
+    { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+
+  const data = new TextEncoder().encode(`${header}.${payload}`);
+  const sigBuf = await crypto.subtle.sign('RSASSA-PKCS1-v1_5', cryptoKey, data);
+  const signature = base64urlFromUint8Array(new Uint8Array(sigBuf));
+
+  return `${header}.${payload}.${signature}`;
+}
+
 async function getAccessToken(): Promise<string> {
-  const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  const credJson = process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON;
 
-  if (credPath) {
-    // Local dev: sign a JWT with the service account key using dynamic imports
-    const [{ readFileSync }, { createSign }] = await Promise.all([
-      import('fs'),
-      import('crypto'),
-    ]);
-    const key = JSON.parse(readFileSync(credPath, 'utf8'));
-    const now = Math.floor(Date.now() / 1000);
-    const header = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT' })).toString('base64url');
-    const payload = Buffer.from(JSON.stringify({
-      iss: key.client_email,
-      sub: key.client_email,
-      aud: 'https://oauth2.googleapis.com/token',
-      iat: now,
-      exp: now + 3600,
-      scope: 'https://www.googleapis.com/auth/cloud-platform',
-    })).toString('base64url');
-    const sign = createSign('RSA-SHA256');
-    sign.update(`${header}.${payload}`);
-    const signature = sign.sign(key.private_key, 'base64url');
-    const jwt = `${header}.${payload}.${signature}`;
-
+  if (credJson) {
+    const key = JSON.parse(credJson);
+    const jwt = await signJWT(key.client_email, key.private_key);
     const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
