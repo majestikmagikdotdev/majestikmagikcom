@@ -9,10 +9,10 @@ interface ChatMessage {
   sender: 'user' | 'ai';
 }
 
-const GEMINI_API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-
-const SYSTEM_INSTRUCTION =
-  "You are a friendly and helpful AI assistant for Majestik Magik, a company specializing in AI-powered website design and digital systems solutions. Your goal is to answer user questions about Majestik Magik, its services (Custom Web Development, SEO, Digital Marketing, Pivot Quest), and help them navigate the website. Be concise and informative. If asked about pricing, politely state that more information can be found by visiting the relevant page. If a custom website inquiry is needed, politely state that an invoice may be issued for the service provided. If asked about pricing or specific features not detailed, politely state that more information can be found by contacting Majestik Magik directly through the contact options on the website or by visiting the relevant page.";
+interface VertexHistoryEntry {
+  role: 'user' | 'model';
+  parts: { text: string }[];
+}
 
 export default function ChatbotController() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -20,33 +20,19 @@ export default function ChatbotController() {
   const [chatInput, setChatInput] = useState('');
   const [isChatLoading, setIsChatLoading] = useState(false);
   const [chatError, setChatError] = useState<string | null>(null);
-  const [isGeminiInitialized, setIsGeminiInitialized] = useState(false);
+  const [isAIInitialized, setIsAIInitialized] = useState(false);
   const chatMessagesEndRef = useRef<HTMLDivElement | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const geminiRef = useRef<any>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const chatSessionRef = useRef<any>(null);
+  const historyRef = useRef<VertexHistoryEntry[]>([]);
 
   useEffect(() => {
     chatMessagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chatMessages]);
 
-  const initGemini = async () => {
-    if (geminiRef.current || !GEMINI_API_KEY) return;
-    try {
-      const { GoogleGenAI } = await import('@google/genai');
-      geminiRef.current = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
-      setIsGeminiInitialized(true);
-    } catch {
-      setIsGeminiInitialized(false);
-    }
-  };
-
-  const handleToggleChat = async () => {
+  const handleToggleChat = () => {
     const opening = !isChatOpen;
     setIsChatOpen(opening);
     if (opening) {
-      await initGemini();
+      setIsAIInitialized(true);
       if (chatMessages.length === 0) {
         setChatMessages([{
           id: Date.now().toString(),
@@ -64,7 +50,7 @@ export default function ChatbotController() {
   const handleSendChatMessage = async (e?: React.FormEvent<HTMLFormElement>) => {
     if (e) e.preventDefault();
     const messageText = chatInput.trim();
-    if (!messageText || !geminiRef.current) return;
+    if (!messageText) return;
 
     setChatMessages(prev => [...prev, { id: Date.now().toString(), text: messageText, sender: 'user' }]);
     setChatInput('');
@@ -72,14 +58,23 @@ export default function ChatbotController() {
     setChatError(null);
 
     try {
-      if (!chatSessionRef.current) {
-        chatSessionRef.current = geminiRef.current.chats.create({
-          model: 'gemini-2.5-flash',
-          config: { systemInstruction: SYSTEM_INSTRUCTION },
-        });
-      }
-      const response = await chatSessionRef.current.sendMessage({ message: messageText });
-      setChatMessages(prev => [...prev, { id: (Date.now() + 1).toString(), text: response.text, sender: 'ai' }]);
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: messageText, history: historyRef.current }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error ?? 'Unknown error');
+
+      historyRef.current = [
+        ...historyRef.current,
+        { role: 'user', parts: [{ text: messageText }] },
+        { role: 'model', parts: [{ text: data.text }] },
+      ];
+
+      setChatMessages(prev => [...prev, { id: (Date.now() + 1).toString(), text: data.text, sender: 'ai' }]);
     } catch {
       setChatError("Sorry, I couldn't connect to the AI");
       setChatMessages(prev => [...prev, {
@@ -102,7 +97,7 @@ export default function ChatbotController() {
       handleSendChatMessage={handleSendChatMessage}
       isChatLoading={isChatLoading}
       chatError={chatError}
-      isGeminiInitialized={isGeminiInitialized}
+      isAIInitialized={isAIInitialized}
       chatMessagesEndRef={chatMessagesEndRef as React.RefObject<HTMLDivElement>}
     />
   );

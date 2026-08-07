@@ -19,7 +19,7 @@ interface ChatbotProps {
   handleSendChatMessage: (e?: React.FormEvent<HTMLFormElement>) => Promise<void>;
   isChatLoading: boolean;
   chatError: string | null;
-  isGeminiInitialized: boolean;
+  isAIInitialized: boolean;
   chatMessagesEndRef: React.RefObject<HTMLDivElement>;
 }
 
@@ -32,7 +32,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
   handleSendChatMessage,
   isChatLoading,
   chatError,
-  isGeminiInitialized,
+  isAIInitialized,
   chatMessagesEndRef
 }) => {
   return (
@@ -122,7 +122,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
             {chatError}
           </p>
         )}
-        {!isGeminiInitialized && !chatError && chatMessages.length > 0 && chatMessages[0].text && chatMessages[0].text.includes("unavailable") && (
+        {!isAIInitialized && !chatError && chatMessages.length > 0 && chatMessages[0].text && chatMessages[0].text.includes("unavailable") && (
           <p className="px-4 py-2 text-[10px] text-center text-yellow-400 bg-yellow-950/10 border-t border-yellow-500/10" role="status">
             Chatbot requires Gemini AI initialization.
           </p>
@@ -148,14 +148,14 @@ const Chatbot: React.FC<ChatbotProps> = ({
             type="text"
             value={chatInput}
             onChange={handleChatInputChange}
-            placeholder={isGeminiInitialized ? "Ask about Majestik Magik..." : "Chat unavailable..."}
+            placeholder={isAIInitialized ? "Ask about Majestik Magik..." : "Chat unavailable..."}
             className="flex-grow px-3.5 py-2.5 text-xs transition-all duration-300 border rounded-xl bg-[#0d0f1a] text-slate-200 border-indigo-500/10 focus:border-indigo-500/40 focus:ring-1 focus:ring-indigo-500/40 placeholder-slate-600 outline-none"
             aria-label="Chat message input"
-            disabled={isChatLoading || !isGeminiInitialized}
+            disabled={isChatLoading || !isAIInitialized}
           />
           <button
             type="submit"
-            disabled={isChatLoading || !chatInput.trim() || !isGeminiInitialized}
+            disabled={isChatLoading || !chatInput.trim() || !isAIInitialized}
             className="cursor-pointer p-2.5 text-white transition-all duration-300 rounded-xl shadow-md bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-800/80 disabled:text-slate-600 disabled:cursor-not-allowed flex items-center justify-center border border-indigo-500/10"
             aria-label="Send chat message"
           >

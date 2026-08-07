@@ -6,7 +6,7 @@ const cspHeader = `
     style-src 'self' 'unsafe-inline';
     img-src 'self' data: seeklogo.com upload.wikimedia.org www.svgrepo.com avatars.githubusercontent.com placehold.co images.pexels.com https://widget.trustpilot.com;
     font-src 'self' data:;
-    connect-src 'self' https://widget.trustpilot.com https://static.cloudflareinsights.com https://generativelanguage.googleapis.com;
+    connect-src 'self' https://widget.trustpilot.com https://static.cloudflareinsights.com https://*.aiplatform.googleapis.com;
     media-src 'self' data:;
     frame-src 'self' https://widget.trustpilot.com;
     object-src 'none';
