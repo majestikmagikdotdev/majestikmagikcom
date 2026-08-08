@@ -15,11 +15,12 @@ export default function MainLayout({
 }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   
-  // Non-blocking asynchronous loading of keyframes and logo animations
+  // Non-blocking asynchronous loading of keyframes — desktop only (mobile doesn't use these animations)
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/animations.css'; // Must be saved inside your /public directory
+    link.href = '/animations.css';
     document.head.appendChild(link);
   }, []);
 

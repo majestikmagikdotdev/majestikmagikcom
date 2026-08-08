@@ -67,7 +67,7 @@ export default function RootLayout({
       <body className="bg-[#07080e] text-slate-200 overflow-x-hidden antialiased">
         <MainLayout>{children}</MainLayout>
 
-        {/* Global Trustpilot Widget - Loaded lazily */}
+        {/* Global Trustpilot Widget - Desktop only, loaded after page is idle */}
         <Script
           strategy="lazyOnload"
           src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
