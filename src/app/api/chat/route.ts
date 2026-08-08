@@ -49,8 +49,10 @@ async function getAccessToken(): Promise<string> {
   const credJson = process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON;
 
   if (credJson) {
-    const key = JSON.parse(credJson);
-    const jwt = await signJWT(key.client_email, key.private_key);
+    const cleaned = credJson.replace(/^'+|'+$/g, '').trim();
+    const key = JSON.parse(cleaned);
+    const privateKey = key.private_key.replace(/\\n/g, '\n');
+    const jwt = await signJWT(key.client_email, privateKey);
     const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
