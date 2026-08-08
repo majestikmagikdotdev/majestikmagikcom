@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import useMediaQuery from '../hooks/useMediaQuery';
 
 interface LogLine {
   text: string;
@@ -16,9 +17,8 @@ export const CoreEngineSection = () => {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const terminalBodyRef = useRef<HTMLDivElement>(null);
-
-  // NEW: Ref to target the background video directly
   const videoRef = useRef<HTMLVideoElement>(null);
+  const isMobile = useMediaQuery('(max-width: 767px)');
 
 
   useEffect(() => {
@@ -122,33 +122,33 @@ export const CoreEngineSection = () => {
       }}
     >
 
-      {/* Optimized Background Video Frame */}
-      <video
-        ref={videoRef}
-        loop
-        muted
-        playsInline
-        preload="none" // Don't download/decode until needed
-        aria-label="Decorative background network visual"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: 1,
-          opacity: 0.18,
-          // CSS Hardware Acceleration Hacks:
-          transform: "translateZ(0)",
-          willChange: "transform",
-          backfaceVisibility: "hidden"
-        }}
-      >
-        {/* WebM is vastly more hardware-efficient. Use it as primary if available! */}
-        <source src="/videos/bare-metal-hardware.webm" type="video/webm" />
-        <track kind="captions" src="data:text/vtt," label="No audio captions" default />
-      </video>
+      {/* Background video — desktop only to avoid blocking mobile LCP */}
+      {!isMobile && (
+        <video
+          ref={videoRef}
+          loop
+          muted
+          playsInline
+          preload="none"
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 1,
+            opacity: 0.18,
+            transform: "translateZ(0)",
+            willChange: "transform",
+            backfaceVisibility: "hidden"
+          }}
+        >
+          <source src="/videos/bare-metal-hardware.webm" type="video/webm" />
+          <track kind="captions" src="data:text/vtt," label="No audio captions" default />
+        </video>
+      )}
 
       {/* Micro Dot Matrix Overlay Pattern Layer */}
       <div
