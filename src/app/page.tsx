@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import {
   HeroSection,
   PricingSection,
@@ -5,8 +6,9 @@ import {
   TeamSection,
   TestimonialsSection,
 } from './components';
-import ChatbotController from './components/ChatbotController';
 import ScrollAnimator from './components/ScrollAnimator';
+
+const ChatbotController = dynamic(() => import('./components/ChatbotController'));
 
 export default function App() {
   return (

@@ -86,7 +86,8 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
               width={1920}
               height={1080}
               priority
-              fetchPriority="high" // Force browser to prioritize this request immediately
+              fetchPriority="high"
+              loading="eager"
               className="w-full h-auto rounded-xl border border-indigo-950/50 transition-transform"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
             />
