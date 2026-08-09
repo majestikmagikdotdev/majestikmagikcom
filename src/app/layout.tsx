@@ -12,6 +12,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://majestikmagik.dev'),
+  alternates: {
+    canonical: 'https://majestikmagik.dev',
+  },
   title: 'Majestik Magik - Web Engineering & AI Optimization Services',
   description:
     'High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.',

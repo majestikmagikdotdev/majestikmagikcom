@@ -1,7 +1,14 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Image from 'next/image';
 import portfolioData from '@/data/portfolio-links.json';
 import { ExternalLink, Github, Youtube, Zap } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Case Studies – Majestik Magik',
+  description: 'Real client work organized as strategic case studies. Problems solved, systems delivered, and measurable outcomes across automotive, e-commerce, SaaS, and service industries.',
+  alternates: { canonical: 'https://majestikmagik.dev/case-studies' },
+};
 
 const storyHighlights: Record<string, string> = {
     'cearco-chemicals':

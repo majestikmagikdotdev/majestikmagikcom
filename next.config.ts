@@ -44,7 +44,19 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   output: 'standalone',
-  
+  trailingSlash: false,
+
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.majestikmagik.dev' }],
+        destination: 'https://majestikmagik.dev/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion', 'clsx', 'tailwind-merge'],
   },
