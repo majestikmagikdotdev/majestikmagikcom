@@ -76,11 +76,11 @@ const Header: React.FC<HeaderProps> = ({
     <header
       ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled || isMobileMenuOpen
-          ? 'bg-[#1e293b/95] backdrop-blur-lg border-b border-indigo-500/10 shadow-xl'
+          ? 'bg-[#0f172a] backdrop-blur-lg border-b border-[#1e2130] shadow-xl'
           : 'bg-transparent border-b border-transparent shadow-none'
         }`}
     >
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
+      <div className="w-full px-6 py-4 flex justify-between items-center">
         <button
           onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
           className="flex items-center space-x-3 text-lg font-bold font-mono uppercase tracking-wider text-slate-100 cursor-pointer"
@@ -128,7 +128,7 @@ const Header: React.FC<HeaderProps> = ({
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-indigo-400/30 hover:bg-indigo-300/30 text-indigo-300 border border-indigo-400/30 font-mono uppercase tracking-wider text-xs py-2 px-4 rounded-lg transition-all duration-200"
+                className="bg-indigo-400/30 hover:bg-indigo-300/30 text-indigo-300 border border-indigo-400/30 font-mono uppercase tracking-wider text-sm py-2 px-4 rounded-lg transition-all duration-200"
               >
                 {item.name}
               </a>
@@ -136,7 +136,7 @@ const Header: React.FC<HeaderProps> = ({
               <a
                 key={item.name}
                 href={item.url}
-                className="text-slate-400 hover:text-indigo-400 transition-colors font-mono uppercase text-xs tracking-wider duration-200 py-1"
+                className="text-slate-400 hover:text-indigo-400 transition-colors font-mono uppercase text-sm tracking-wider duration-200 py-1"
                 onClick={(e) => handleNavClick(e, item)}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -169,7 +169,7 @@ const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden absolute top-full left-0 right-0 bg-[#0f172a] border-b border-indigo-500/10 shadow-2xl z-40" id="mobile-menu">
+        <div className="xl:hidden absolute top-full left-0 right-0 bg-[#0f172a] border-b border-[#1e2130] shadow-2xl z-40" id="mobile-menu">
           <div className="px-4 pt-2 pb-6 space-y-2">
             {navItems.map((item) => (
               item.external ? (
@@ -178,7 +178,7 @@ const Header: React.FC<HeaderProps> = ({
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block rounded-lg px-3 py-2.5 text-xs font-mono uppercase tracking-widest border border-indigo-400/30 bg-indigo-300/10 hover:bg-indigo-400/30 text-indigo-300 text-center transition-colors duration-200"
+                  className="block rounded-lg px-3 py-2.5 text-md font-mono uppercase tracking-widest border border-indigo-400/30 bg-indigo-300/10 hover:bg-indigo-400/30 text-indigo-300 text-center transition-colors duration-200"
                 >
                   {item.name}
                 </a>

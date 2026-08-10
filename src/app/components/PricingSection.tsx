@@ -118,7 +118,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
       ref={sectionRef}
       id="services"
       aria-labelledby="micro-services-heading"
-      className="relative z-0 py-24 md:py-36 overflow-hidden bg-slate-950"
+      className="relative z-0 py-24 md:py-36 overflow-hidden"
       style={{
         position: "relative",
         padding: "100px 20px",
@@ -139,7 +139,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
         }}
       ></div>
 
-      <div className="container relative px-6 mx-auto z-20 max-w-7xl">
+      <div className="w-full relative px-6 mx-auto z-20">
         {/* Micro Services */}
         <div
           id="micro-services"
@@ -148,20 +148,20 @@ const PricingSection: React.FC<PricingSectionProps> = ({
         >
           {/* Header block with progressive fade-in */}
           <div 
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center mx-auto mb-16"
             style={{
               opacity: isIntersected ? 1 : 0,
               transform: isIntersected ? 'translateY(0)' : 'translateY(30px)',
               transition: 'opacity 2s ease-in, transform 2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)'
             }}
           >
-            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-slate-900/90 px-3 py-1 rounded border border-slate-800">
+            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
               On-Demand Core Execution V1.0
             </span>
             
             <h2
               id="micro-services-heading"
-              className="mb-6 text-4xl md:text-5xl lg:text-6xl text-slate-100 font-bold tracking-tight"
+              className="mb-6 text-7xl md:text-8xl lg:text-9xl xl:text-13xl text-slate-100 font-bold tracking-tight"
             >
               On-Demand <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-200 to-white">
@@ -179,7 +179,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             {microServices.map((m, idx) => (
               <div
                 key={m.service}
-                className="services-card-hover-animate flex flex-col justify-between rounded-xl bg-slate-800 border border-slate-700/50 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-sm hover:border-indigo-500/50 transition duration-300"
+                className="services-card-hover-animate flex flex-col justify-between rounded-lg bg-[#1e293b] border border-[#334155] p-6 shadow-[0_4px_24px_rgba(0,0,0,0.4)] hover:border-indigo-500/30 hover:shadow-[0_4px_32px_rgba(99,102,241,0.08)] transition duration-200"
                 style={{
                   opacity: isIntersected ? 1 : 0,
                   transform: isIntersected ? 'translateY(0)' : 'translateY(40px)',
@@ -206,7 +206,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
                     href={m.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center rounded-lg px-4 py-2.5 text-xs font-mono font-bold uppercase tracking-wider bg-indigo-400/30 hover:bg-indigo-300/30 text-indigo-300 border border-indigo-400/30 transition-all duration-200"
+                    className="inline-flex w-full items-center justify-center rounded px-4 py-2.5 text-xs font-mono font-bold uppercase tracking-wider bg-indigo-600 hover:bg-indigo-500 text-white border border-indigo-500/50 transition-all duration-200"
                   >
                     Buy Now
                   </a>

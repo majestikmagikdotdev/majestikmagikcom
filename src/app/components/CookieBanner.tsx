@@ -28,7 +28,7 @@ export default function CookieBanner() {
       aria-label="Cookie consent"
       aria-describedby="cookie-message"
     >
-      <div className="container mx-auto flex flex-col items-center justify-between md:flex-row max-w-7xl">
+      <div className="w-full flex flex-col items-center justify-between md:flex-row">
         <p id="cookie-message" className="mb-3 text-xs font-mono tracking-tight text-slate-400 md:mb-0 md:mr-4 max-w-4xl">
           [System Event Matrix]: We map data cookies to safely optimize user telemetry and analyze site pipeline routing. By committing &quot;Accept&quot;, you assign execution authorization. Details in our <Link href="/privacy-policy" className="text-indigo-400 hover:text-indigo-300 underline font-medium">Privacy Policy Documentation</Link>.
         </p>

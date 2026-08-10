@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { GithubIcon } from './Icons'; // Assuming GithubIcon is exported from Icons.tsx
+import { GithubIcon, LinkedInIcon } from './Icons'; // Assuming GithubIcon is exported from Icons.tsx
 
 interface TeamMember {
   name: string;
@@ -27,6 +27,7 @@ const teamMembers: TeamMember[] = [
     url: "/about/jamil-matheny",
     social: [
       { name: "GitHub", url: "https://github.com/jmathtech", icon: <GithubIcon className="w-5 h-5" /> },
+      { name: "LinkedIn", url: "https://www.linkedin.com/in/jamil-matheny", icon: <LinkedInIcon className="w-5 h-5" /> },
     ]
   },
 ];
@@ -51,14 +52,14 @@ const TeamSection: React.FC = () => {
         }}
       ></div>
 
-      <div className="container relative px-6 mx-auto z-20 max-w-7xl">
+      <div className="w-full relative px-6 z-20">
         {/* Header Section */}
-        <div className="mb-16 text-center max-w-3xl mx-auto">
-          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-slate-900/90 px-3 py-1 rounded border border-slate-800">
-            Human Architecture V1.0
+        <div className="mb-16 text-center mx-auto">
+          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
+            Human Architecture
           </span>
           
-          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-4xl md:text-5xl lg:text-6xl text-slate-100 font-bold tracking-tight scroll-animate">
+          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-7xl md:text-8xl lg:text-9xl xl:text-13xl text-slate-100 font-bold tracking-tight scroll-animate">
             <Image
               src="https://www.svgrepo.com/show/500929/magic.svg"
               className="lazy-logo w-8 h-8 mr-3 filter invert opacity-80"
@@ -78,15 +79,30 @@ const TeamSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Profile Card Container */}
-        <div className="grid max-w-2xl gap-10 mx-auto md:grid-cols-1 lg:gap-16 scroll-animate">
+        {/* Stats Bar */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 scroll-animate">
+          {[
+            { value: '10+', label: 'Years Experience' },
+            { value: '50+', label: 'Projects Shipped' },
+            { value: '24–72hr', label: 'Delivery Window', note: 'Project timeline may vary depending on scope' },
+            { value: '100%', label: 'Client Satisfaction' },
+          ].map((stat) => (
+            <div key={stat.label} className="flex flex-col items-center justify-center p-6 rounded-lg bg-[#1e293b] border border-[#334155] text-center">
+              <span className="text-3xl font-bold text-indigo-300 font-mono">{stat.value}</span>
+              <span className="mt-1 text-xs font-mono uppercase tracking-widest text-slate-400">{stat.label}</span>
+              {'note' in stat && <span className="mt-2 text-[10px] font-sans text-slate-500 italic">{stat.note}</span>}
+            </div>
+          ))}
+        </div>
+
+        {/* Profile Card + Tech Stack */}
+        <div className="grid gap-6 md:grid-cols-2 scroll-animate">
           {teamMembers.map((member, index) => (
             <div
               key={member.name}
-              className="flex flex-col items-center p-8 text-center rounded-2xl bg-slate-800 border border-slate-700/50 shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-sm team-card-hover-animate duration-300 transform hover:-translate-y-1 hover:border-indigo-500/50 transition-all"
+              className="flex flex-col items-center p-8 text-center rounded-lg bg-[#1e293b] border border-[#334155] shadow-[0_4px_24px_rgba(0,0,0,0.4)] team-card-hover-animate duration-200 hover:border-indigo-500/30 transition-all"
               style={{ transitionDelay: `${0.2 + index * 0.15}s` }}
             >
-              {/* Profile Image Frame */}
               <div className="relative mb-6 p-1 rounded-full bg-gradient-to-b from-indigo-500/30 to-transparent border border-slate-800 shadow-[0_0_30px_rgba(26,81,244,0.15)]">
                 <Image
                   src={member.imageUrl}
@@ -99,37 +115,29 @@ const TeamSection: React.FC = () => {
                   sizes="(max-width: 767px) 128px, 160px"
                 />
               </div>
-
-              {/* Identity Matrix */}
               <h3 className="mb-1 text-3xl font-bold tracking-tight text-slate-100">{member.name}</h3>
-              <p className="mb-2 font-mono text-xs font-bold uppercase tracking-wider text-indigo-400">{member.title}</p>              
+              <p className="mb-2 font-mono text-xs font-bold uppercase tracking-wider text-indigo-400">{member.title}</p>
               <p className="mb-6 font-mono text-xs text-slate-500 hover:text-indigo-400 transition-colors">
                 <a href={member.emailUrl}>{member.email}</a>
               </p>
-              
-              {/* Ink Identity Signature Asset */}
               <div className="relative mb-6 opacity-80 filter brightness-115 contrast-125">
                 <Image src="/img/my_signature.webp" alt="Jamil Matheny Signature" width={160} height={106} className="h-16 invert w-auto object-contain" />
               </div>
-
-              {/* Bio Block */}
-              <p className="flex-grow px-2 mb-6 text-md text-slate-400 leading-relaxed font-sans max-w-xl">
+              <p className="flex-grow px-2 mb-6 text-md text-slate-400 leading-relaxed font-sans">
                 {member.bio}
                 <Link href={member.url} className="transition-colors duration-300 font-mono font-bold text-xs text-indigo-400 hover:text-indigo-300 ml-2 whitespace-nowrap">
                   [Read Full Protocol]
                 </Link>
               </p>
-
-              {/* Tech Handles Stack */}
               <div className="flex mt-auto space-x-4 border-t border-slate-900/80 pt-4 w-full justify-center">
-                {member.social.map(socialLink => (
+                {member.social.map((socialLink, i) => (
                   <a
-                    key={socialLink.name}
+                    key={`${socialLink.name}-${i}`}
                     href={socialLink.url}
                     title={socialLink.name}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-colors duration-300 text-slate-500 hover:text-indigo-400 p-2 bg-slate-950/40 rounded-lg border border-slate-900"
+                    className="transition-colors duration-200 text-slate-500 hover:text-indigo-400 p-2 bg-[#1e293b] rounded border border-[#334155]"
                     aria-label={`Connect with ${member.name} on ${socialLink.name}`}
                   >
                     {socialLink.icon}
@@ -138,6 +146,40 @@ const TeamSection: React.FC = () => {
               </div>
             </div>
           ))}
+
+          {/* Tech Stack Card */}
+          <div className="flex flex-col p-8 rounded-lg bg-[#1e293b] border border-[#334155] hover:border-indigo-500/30 transition-all duration-200 scroll-animate">
+            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155] self-start">
+              Tech Stack
+            </span>
+            <h3 className="text-2xl font-bold text-slate-100 mb-2">Core Competencies</h3>
+            <p className="text-sm text-slate-400 font-sans mb-6">Languages, frameworks, and platforms used to ship production-grade systems.</p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                'Next.js', 'React', 'TypeScript', 'Node.js', 'Python',
+                'Tailwind CSS', 'PostgreSQL', 'Supabase', 'AWS', 'Cloudflare',
+                'Stripe', 'GraphQL', 'Docker', 'GitHub Actions', 'Vercel',
+                'WordPress', 'Shopify', 'Gemini AI', 'OpenAI',
+              ].map((tech) => (
+                <span
+                  key={tech}
+                  className="text-xs font-mono text-indigo-300/80 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1.5 rounded-full tracking-wide hover:bg-indigo-500/20 hover:text-indigo-200 transition-colors duration-200"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Partners */}
+            <div className="mt-auto pt-6 border-t border-slate-700/50">
+              <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-4">Partners & Programs</p>
+              <div className="flex flex-wrap items-center gap-6">
+                <Image src="/img/partners/aws-activate-logo_white.webp" alt="AWS Activate" width={100} height={36} className="opacity-60 hover:opacity-100 transition-opacity" />
+                <Image src="/img/partners/wpengine_member-badge.webp" alt="WP Engine Member" width={60} height={21} className="opacity-60 hover:opacity-100 transition-opacity" />
+                <Image src="/img/partners/gcp-logo.webp" alt="Google Cloud" width={100} height={36} className="opacity-60 hover:opacity-100 transition-opacity" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

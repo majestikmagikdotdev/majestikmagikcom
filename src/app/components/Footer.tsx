@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
   }, []);
 
   return (
-    <footer id="contact" aria-labelledby="contact-heading" className="relative z-0 bg-slate-900 text-slate-400 border-t border-slate-900 font-sans overflow-hidden">
+    <footer id="contact" aria-labelledby="contact-heading" className="relative z-0 text-slate-400 border-t border-[#334155] font-sans overflow-hidden" style={{ background: 'rgb(15, 23, 42)' }}>
 
       {/* Dynamic ambient radial core glow - Base layer (z-10) */}
       <div
@@ -79,12 +79,12 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
         }}
       ></div>
 
-      <div className="container relative px-6 py-16 mx-auto w-full max-w-7xl z-20">
+      <div className="w-full relative px-6 py-16 mx-auto z-20">
 
         {/* Top Contact Bar styled like node routing configurations */}
         <div className={`mx-auto grid grid-cols-1 gap-8 mb-14 md:grid-cols-2 justify-items-stretch ${isAlwaysVisible ? 'is-visible' : ''}`}>
 
-          <div className="flex items-start space-x-4 p-4 rounded-xl bg-slate-900/40 border border-slate-900/60 backdrop-blur-sm">
+          <div className="flex items-start space-x-4 p-4 rounded-lg bg-[#1e293b] border border-[#334155]">
             <div className="mt-1"><PhoneIcon /></div>
             <div>
               <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">Voice Telemetry</p>
@@ -92,7 +92,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
             </div>
           </div>
 
-          <div className="flex items-start space-x-4 p-4 rounded-xl bg-slate-900/40 border border-slate-900/60 backdrop-blur-sm">
+          <div className="flex items-start space-x-4 p-4 rounded-lg bg-[#1e293b] border border-[#334155]">
             <div className="mt-1"><EmailIcon /></div>
             <div>
               <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">Direct Signal Packet</p>
@@ -105,7 +105,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
           </div>
         </div>
 
-        <div className="border-t border-slate-900 mb-12"></div>
+        <div className="border-t border-[#334155] mb-12"></div>
 
         {/* Links Grid */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 justify-items-stretch">
@@ -174,8 +174,8 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
       </div>
 
       {/* Bottom Copyright Bar built inside full deep canvas layout */}
-      <div className="relative bg-slate-900 backdrop-blur-md border-t border-slate-900/60 py-6 z-20">
-        <div className="container px-6 mx-auto max-w-7xl flex flex-col items-center justify-between text-xs font-mono text-slate-400 md:flex-row">
+      <div className="relative border-t border-[#334155] py-6 z-20" style={{ background: 'rgb(15, 23, 42)' }}>
+        <div className="w-full px-6 mx-auto flex flex-col items-center justify-between text-xs font-mono text-slate-400 md:flex-row">
           <p className="mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Majestik Magik, Inc. All nodes protected.
           </p>

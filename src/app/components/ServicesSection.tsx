@@ -48,21 +48,21 @@ const servicesData: Service[] = [
 
 const ServicesSection: React.FC = () => {
   return (
-    <section id="services" aria-labelledby="services-heading" className="py-16 md:py-24 bg-slate-900">
-      <div className="container px-6 mx-auto">
-        <div className="mb-12 text-center max-w-6xl mx-auto scroll-animate">
-          <h1 id="services-heading" className="mb-4 text-3xl text-slate-100 font-bold scroll-animate md:text-4xl">Unleash Your Digital Magik: Services Engineered for Growth</h1>
-          <p className="mx-auto text-slate-400 md:text-xl scroll-animate" style={{ transitionDelay: '0.3s' }}>
+    <section id="services" aria-labelledby="services-heading" className="py-16 md:py-24 border-t border-[#334155]" style={{ background: 'rgb(15, 23, 42)' }}>
+      <div className="w-full px-6 mx-auto">
+        <div className="mb-12 text-center mx-auto scroll-animate">
+          <h1 id="services-heading" className="mb-4 text-3xl text-slate-100 font-bold tracking-tight scroll-animate md:text-4xl">Unleash Your Digital Magik: Services Engineered for Growth</h1>
+          <p className="mx-auto text-slate-400 md:text-lg scroll-animate" style={{ transitionDelay: '0.3s' }}>
             We don&apos;t just build websites; we engineer <b>revenue-generating platforms</b>. Fusing artificial intelligence with strategic design, and relentless execution, our services are specifically designed to <b>capture more leads, accelerate sales, and establish your market dominance</b>. Experience the difference of a truly intelligent online presence that drives your bottom line.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 scroll-animate border border-slate-800/60 rounded-2xl p-4">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 scroll-animate">
           {servicesData.map((service, index) => (
             <div
               key={service.title}
-              className="p-6 transition-shadow duration-300 transform bg-slate-800 rounded-lg border border-slate-700/50 services-card-hover-animate shadow-xl hover:shadow-indigo-500/30 hover:border-indigo-500/50 hover:-translate-y-1 scroll-animate"
+              className="p-6 transition-all duration-200 bg-[#1e293b] rounded-lg border border-[#334155] hover:border-indigo-500/30 hover:shadow-[0_4px_32px_rgba(99,102,241,0.08)] scroll-animate"
               style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
             >
               {service.icon}
