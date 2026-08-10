@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import {
   HeroSection,
   PricingSection,
-  CoreEngineSection,
+  // CoreEngineSection,
   TeamSection,
   TestimonialsSection,
 } from './components';
