@@ -83,7 +83,7 @@ const TeamSection: React.FC = () => {
           {teamMembers.map((member, index) => (
             <div
               key={member.name}
-              className="flex flex-col items-center p-8 text-center rounded-2xl bg-slate-900/40 border border-slate-900/80 shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-sm team-card-hover-animate duration-300 transform hover:-translate-y-1 hover:border-slate-700/80 transition-all"
+              className="flex flex-col items-center p-8 text-center rounded-2xl bg-slate-800 border border-slate-700/50 shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-sm team-card-hover-animate duration-300 transform hover:-translate-y-1 hover:border-indigo-500/50 transition-all"
               style={{ transitionDelay: `${0.2 + index * 0.15}s` }}
             >
               {/* Profile Image Frame */}

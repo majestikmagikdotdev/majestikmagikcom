@@ -179,7 +179,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             {microServices.map((m, idx) => (
               <div
                 key={m.service}
-                className="services-card-hover-animate flex flex-col justify-between rounded-xl bg-slate-900/40 border border-slate-900/80 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-sm hover:border-slate-700/80 transition duration-300"
+                className="services-card-hover-animate flex flex-col justify-between rounded-xl bg-slate-800 border border-slate-700/50 p-6 shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-sm hover:border-indigo-500/50 transition duration-300"
                 style={{
                   opacity: isIntersected ? 1 : 0,
                   transform: isIntersected ? 'translateY(0)' : 'translateY(40px)',

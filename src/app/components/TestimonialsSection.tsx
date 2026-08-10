@@ -90,11 +90,11 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Testimonials Matrix Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch border border-slate-800/60 rounded-2xl p-4">
           {testimonials.map((t, index) => (
             <article
               key={`${t.name}-${index}`}
-              className="flex h-full flex-col rounded-xl bg-slate-900/40 p-6 shadow-[0_15px_40px_rgba(0,0,0,0.4)] border border-slate-900/80 backdrop-blur-sm hover:border-slate-700/80 transition-all duration-300 transform hover:-translate-y-1 scroll-animate"
+              className="flex h-full flex-col rounded-xl bg-slate-800 p-6 shadow-[0_15px_40px_rgba(0,0,0,0.4)] border border-slate-700/50 backdrop-blur-sm hover:border-indigo-500/50 transition-all duration-300 transform hover:-translate-y-1 scroll-animate"
               style={{ transitionDelay: `${0.2 + index * 0.06}s` }}
             >
               <header className="flex items-center mb-4">

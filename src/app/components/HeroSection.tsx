@@ -10,14 +10,15 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = () => {
 
   return (
-    <section id="home" aria-labelledby="home-heading" className="relative z-0 pt-32 pb-24 md:pt-48 md:pb-36 overflow-hidden">
+    <section id="home" aria-labelledby="home-heading" className="relative z-0 pt-32 pb-24 md:pt-48 md:pb-36 overflow-hidden" style={{ background: 'rgb(15, 23, 42)' }}>
 
       {/* Apple-style centered cinematic ambient radial core glow */}
       <div
         className="absolute inset-0 z-10 opacity-90 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.85) 0%, rgb(15, 23, 42) 65%)',
-          animation: 'pulse 3s infinite'
+          background: 'radial-gradient(ellipse at 50% 30%, rgba(99, 102, 241, 0.5) 0%, rgba(99, 102, 241, 0.2) 30%, rgb(15, 23, 42) 65%)',
+          animation: 'pulse 4s ease-in-out infinite',
+          
         }}        
       ></div>
 
@@ -58,7 +59,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
             href="https://app.majestikmagik.dev/sign-up"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-indigo-300/10 hover:bg-indigo-400/30 text-indigo-300 font-mono uppercase tracking-wider text-xs py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_40px_rgba(99,102,241,0.65)] hover:shadow-[0_0_65px_rgba(99,102,241,0.95)] border border-indigo-300/30"
+            className="inline-block bg-indigo-300/10 hover:bg-indigo-400/30 text-indigo-300 font-mono uppercase tracking-wider text-xs py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-[rgba(99,102,241,0.95)] border border-indigo-300/30"
           >
             LEARN MORE
           </a>
@@ -72,10 +73,10 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
           {/* Dynamic Aurora Ambient Glow Wrapper (Fades in/out behind the mockup) */}
           <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500/30 via-purple-600/20 to-indigo-500/30 rounded-3xl blur-3xl opacity-75 animate-[pulse_6s_ease-in-out_infinite] pointer-events-none z-0" />
-          <div className="absolute -inset-2 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-2xl blur-2xl opacity-50 animate-[pulse_4s_ease-in-out_infinite] pointer-events-none z-0" />
+          <div className="absolute -inset-2 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-2xl blur-2xl opacity-50 pointer-events-none z-0" />
 
           {/* Mobile: Hidden for instant LCP / Desktop: Rendered frame */}
-          <div className="hidden md:block group relative z-10 border border-indigo-500/30 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(99,102,241,0.15)] bg-indigo-950/20 p-2.5 backdrop-blur-md transition-all duration-300 hover:border-indigo-400/60 hover:shadow-[0_0_60px_rgba(99,102,241,0.35)]">
+          <div className="hidden md:block group relative z-10 border border-indigo-500/30 rounded-2xl overflow-hidden shadow-[0_0_20px_rgba(99,102,241,0.15)] bg-indigo-450/20 p-2.5 backdrop-blur-md transition-all duration-300 hover:border-indigo-400/60 hover:shadow-[0_0_60px_rgba(99,102,241,0.35)]">
 
             {/* Top glass reflection highlight with an indigo-tinted gradient across the hardware frame */}
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-indigo-300/10 to-white/5 pointer-events-none z-30" />

@@ -58,11 +58,11 @@ const ServicesSection: React.FC = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 scroll-animate">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 scroll-animate border border-slate-800/60 rounded-2xl p-4">
           {servicesData.map((service, index) => (
             <div
               key={service.title}
-              className="p-6 transition-shadow duration-300 transform bg-slate-800 rounded-lg services-card-hover-animate shadow-xl hover:shadow-indigo-500/30 hover:-translate-y-1 scroll-animate"
+              className="p-6 transition-shadow duration-300 transform bg-slate-800 rounded-lg border border-slate-700/50 services-card-hover-animate shadow-xl hover:shadow-indigo-500/30 hover:border-indigo-500/50 hover:-translate-y-1 scroll-animate"
               style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
             >
               {service.icon}
