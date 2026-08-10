@@ -26,7 +26,7 @@ export default function MainLayout({
 
   const navItems = [
     { name: 'Home', url: '/#home' },
-    { name: 'Core Engine', url: '/#core-engine' },
+    // { name: 'Core Engine', url: '/#core-engine' },
     { name: 'Services', url: '/#services' },
     { name: 'About', url: '/#about' },    
     { name: 'Testimonials', url: '/#testimonials' },
