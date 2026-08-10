@@ -35,7 +35,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         {/* Floating Pill Badge */}
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-indigo-300 backdrop-blur-md scroll-animate opacity-90 ease-in-out duration-500">
           <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-          ENTERPRISE PERFORMANCE & SEO ENGINE
+          WEB ENGINEERING & AI OPTIMIZATION PLATFORM
         </div>
 
         {/* Massive Apple-Inspired Header Stack */}
@@ -49,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
         {/* Elegant Centered Description */}
         <p className="max-w-3xl mx-auto mb-10 text-base md:text-xl text-slate-400 font-sans leading-relaxed scroll-animate opacity-90 ease-in-out duration-500">
-          Audit Core Web Vitals, track site speed, and generate SEO roadmaps in seconds.
+          A platform powering high-performance web architecture, AI workflow, and end-to-end digital operations.
         </p>
 
         {/* Clean Call To Action Layer */}
@@ -60,7 +60,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
             rel="noopener noreferrer"
             className="inline-block bg-indigo-300/10 hover:bg-indigo-400/30 text-indigo-300 font-mono uppercase tracking-wider text-xs py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_40px_rgba(99,102,241,0.65)] hover:shadow-[0_0_65px_rgba(99,102,241,0.95)] border border-indigo-300/30"
           >
-            Check Site Speed Instantly
+            LEARN MORE
           </a>
           <p className="mt-3 text-xs text-slate-500 tracking-wide">
             Built for founders, by a solo founder
@@ -108,7 +108,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         </div>
 
         <p className="sr-only">
-          From chaos to clarity, Pivot Quest is a gamified AI engine that keeps your business decisions sharp, your team aligned, and your execution on track.
+          Pivot Quest is a gamified AI engine that keeps your business decisions sharp, your team aligned, and your execution on track.
         </p>
 
       </div>
