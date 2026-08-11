@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import MainLayout from './components/MainLayout';
 import './globals.css';
@@ -58,14 +57,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
-      <Head>
-        <link
-          rel="preload"
-          href="/fonts/inter-v12-latin-regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+      <head>
         <link
           rel="preload"
           as="image"
@@ -73,7 +65,7 @@ export default function RootLayout({
           type="image/webp"
           media="(min-width: 768px)"
         />
-      </Head>
+      </head>
       <body className="bg-[#07080e] text-slate-200 overflow-x-hidden antialiased">
         <MainLayout>{children}</MainLayout>
 
