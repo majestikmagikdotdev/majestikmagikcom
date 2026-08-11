@@ -61,8 +61,8 @@ const RefundPolicyContent = () => {
         <ol className="list-decimal list-inside space-y-3 pl-2">
           <li>
             <strong className="text-slate-200">Contact Us:</strong> Send an email to{' '}
-            <a href="mailto:jamil.matheny@majestikmagik.dev" className="text-indigo-400 hover:text-indigo-300 underline transition-colors">
-              jamil.matheny@majestikmagik.dev
+            <a href="mailto:contact@majestikmagik.dev" className="text-indigo-400 hover:text-indigo-300 underline transition-colors">
+              contact@majestikmagik.dev
             </a>{' '}
             with your order number and a detailed explanation of why you are requesting a refund.
           </li>
