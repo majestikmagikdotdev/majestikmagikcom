@@ -61,6 +61,9 @@ export default {
       typography: {
         DEFAULT: {
           css: {
+            'h1, h2, h3, h4, h5, h6': {
+              fontFamily: 'var(--font-geist-sans)',
+            },
             '--tw-prose-body': 'var(--tw-prose-light-body)',
             '--tw-prose-headings': 'var(--tw-prose-light-headings)',
             '--tw-prose-bold': 'var(--tw-prose-light-bold)',
