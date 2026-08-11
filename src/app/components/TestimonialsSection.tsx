@@ -34,7 +34,7 @@ const TestimonialsSection = () => {
       source: 'Verified Node Operator',
     },
     {
-      name: 'Parris Gainer',
+      name: 'Dr. Parris Gainer',
       image: '/img/parrisgainer.webp',
       testimonial: 'Majestik Magik didn\u2019t just build a website \u2014 they built a platform that empowers my voice and mission.',
       stars: 5,

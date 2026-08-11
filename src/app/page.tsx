@@ -6,6 +6,7 @@ import {
   TeamSection,
   TestimonialsSection,
   FAQSection,
+  AIContentLayer,
 } from './components';
 import ScrollAnimator from './components/ScrollAnimator';
 
@@ -17,6 +18,7 @@ export default function App() {
       <ScrollAnimator />
       <main aria-label="Majestik Magik - Web Engineering & AI Optimization Services">
         <HeroSection />
+        <AIContentLayer />
         {/* <CoreEngineSection /> */}
         <PricingSection pricingPlans={[]} />
         <TeamSection />

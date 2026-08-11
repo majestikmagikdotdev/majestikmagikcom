@@ -187,7 +187,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
               </div>
 
               <div className="mt-2 text-[11px] leading-relaxed text-slate-400 italic">
-                “Majestik Magik didn’t just build a website — they built a platform that empowers my voice and mission.” <span className="text-slate-400 not-italic font-sans block mt-0.5">– Parris Gainer</span>
+                “Majestik Magik didn’t just build a website - they built a platform that empowers my voice and mission.” <span className="text-slate-400 not-italic font-sans block mt-0.5">– Dr. Parris Gainer</span>
               </div>
             </div>
           )}

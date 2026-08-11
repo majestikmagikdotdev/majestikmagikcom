@@ -11,3 +11,4 @@ export * from './Icons'; // Assuming Icons.tsx exports multiple named icons
 export { default as AIConceptTemplateSection } from './AIConceptTemplateSection';
 export { default as TestimonialsSection } from './TestimonialsSection';
 export { default as FAQSection } from './FAQSection';
+export { default as AIContentLayer } from './AIContentLayer';

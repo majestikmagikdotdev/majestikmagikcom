@@ -95,7 +95,7 @@ const Header: React.FC<HeaderProps> = ({
             sizes="32px"
             className="w-8 h-8 opacity-90 rounded-md"
           />
-          <span className="bg-clip-text text-transparent text-2xl bg-gradient-to-r from-white to-slate-300" style={{ letterSpacing: '-0.08em' }}>
+          <span className="bg-clip-text text-transparent text-2xl bg-gradient-to-r from-white to-slate-300" style={{ letterSpacing: '-0.06em' }}>
             Majestik Magik
           </span>
         </button>

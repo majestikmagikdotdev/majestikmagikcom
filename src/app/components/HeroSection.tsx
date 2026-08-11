@@ -41,13 +41,14 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         {/* H1 */}
         <h1
           id="home-heading"
-          className="mb-6 text-8xl md:text-9xl lg:text-[11rem] text-white font-bold leading-[0.85] scroll-animate opacity-90 ease-in-out duration-500"
-          style={{ letterSpacing: '-0.08em' }}
-        ><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-400 to-white">
-          Introducing{' '}
+          className="mb-6 text-8xl md:text-9xl lg:text-[11rem] text-white leading-[0.85] scroll-animate opacity-90 ease-in-out duration-500"
+          style={{ letterSpacing: '-0.06em' }}
+        >
+          <span className="font-light text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-400 to-white">
+            Introducing{' '}
           </span>
-            Pivot Quest
-          
+          <span className="font-black">Pivot Quest</span>
+
           <span className="sr-only"> by Majestik Magik — Web Engineering & AI Optimization Services</span>
         </h1>
 
