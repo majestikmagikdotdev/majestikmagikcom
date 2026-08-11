@@ -44,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <h1
           id="home-heading"
           className="mb-6 text-[3.25rem] sm:text-[5rem] md:text-[7rem] lg:text-[11rem] text-white leading-[0.9] opacity-90"
-          style={{ letterSpacing: '-0.06em', animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
+          style={{ letterSpacing: '-0.04em', animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
         >
           <span className="font-light text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-400 to-white">
             Introducing{' '}

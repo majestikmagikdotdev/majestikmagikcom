@@ -61,7 +61,14 @@ const TestimonialsSection = () => {
       ref={ref}
       id="testimonials"
       className="relative z-0 py-24 md:py-36 overflow-hidden border-t border-[#334155]"
-      style={{ background: 'rgb(15, 23, 42)' }}
+      style={{
+        position: "relative",
+        padding: "140px 20px",
+        background: "rgb(15, 23, 42)",
+        display: "flex",
+        justifyContent: "center",
+        overflow: "hidden"
+      }}
     >
       <div className="w-full relative px-6 z-20">
         {/* Section Header */}
@@ -69,7 +76,7 @@ const TestimonialsSection = () => {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
             Customer Satisfaction
           </span>
-          <h2 className="mb-4 text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.08em', ...fadeUp }}>
+          <h2 className="mb-4 text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.06em', ...fadeUp }}>
             What Clients{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-slate-300">
               Say

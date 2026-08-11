@@ -150,7 +150,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
       className="relative z-0 py-24 md:py-36 overflow-hidden"
       style={{
         position: "relative",
-        padding: "100px 20px",
+        padding: "120px 20px",
         background: "rgb(15, 23, 42)",
         display: "flex",
         justifyContent: "center",
@@ -191,7 +191,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             <h2
               id="micro-services-heading"
               className="mb-2 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight"
-              style={{ letterSpacing: '-0.08em' }}
+              style={{ letterSpacing: '-0.04em' }}
             >
               On-Demand {' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-200 to-white">

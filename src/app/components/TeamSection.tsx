@@ -48,7 +48,14 @@ const TeamSection: React.FC = () => {
       aria-labelledby="team-heading"
       aria-describedby="team-desc" 
       className="relative z-0 py-8 md:py-15 overflow-hidden"
-      style={{ background: "rgb(15, 23, 42)" }}
+      style={{
+        position: "relative",
+        padding: "120px 20px",
+        background: "rgb(15, 23, 42)",
+        display: "flex",
+        justifyContent: "center",
+        overflow: "hidden"
+      }}
     >      
 
       {/* High-end hardware processor micro-dot matrix pattern - Stacked safely on top (z-11) */}
@@ -67,7 +74,7 @@ const TeamSection: React.FC = () => {
             Human Architecture
           </span>
           
-          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.08em', ...fadeUp }}>
+          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.06em', ...fadeUp }}>
             <Image
               src="https://www.svgrepo.com/show/500929/magic.svg"
               className="lazy-logo w-12 h-12 mr-3 filter invert opacity-80"
