@@ -191,8 +191,8 @@ const TermsOfServiceContent: React.FC = () => {
                     <p className="text-slate-300 text-sm">405 E. Laburnum Ave Ste #3</p>
                     <p className="text-slate-300 text-sm mb-2">Richmond, VA 23222</p>
                     <div className="space-y-1">
-                        <a href="mailto:jamil.matheny@majestikmagik.dev" className="text-sm text-indigo-400 hover:text-indigo-300 underline block">
-                            jamil.matheny@majestikmagik.dev
+                        <a href="mailto:contact@majestikmagik.dev" className="text-sm text-indigo-400 hover:text-indigo-300 underline block">
+                            contact@majestikmagik.dev
                         </a>
                         <a href="tel:8043627561" className="text-sm text-indigo-400 hover:text-indigo-300 underline block">
                             804.362.7561

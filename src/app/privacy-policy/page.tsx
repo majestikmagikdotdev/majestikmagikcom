@@ -137,8 +137,8 @@ const PrivacyPolicyContent: React.FC = () => {
                 <div className="p-4 bg-indigo-500/5 border border-indigo-500/10 rounded-xl inline-block min-w-[200px]">
                     <p className="font-bold text-slate-100">Majestik Magik</p>
                     <p className="text-indigo-400">804.362.7561</p>
-                    <a href="mailto:info@majestikmagik.dev" className="text-xs text-slate-400 hover:text-indigo-300 underline block mt-1">
-                        info@majestikmagik.dev
+                    <a href="mailto:contact@majestikmagik.dev" className="text-xs text-slate-400 hover:text-indigo-300 underline block mt-1">
+                        contact@majestikmagik.dev
                     </a>
                 </div>
                 <p className="mt-4 text-xs text-slate-400">By using our Site, you consent to the terms of this Privacy Policy.</p>

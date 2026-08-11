@@ -73,8 +73,8 @@ const CyberSecurityPolicyContent: React.FC = () => {
             <div className="pt-6 border-t border-indigo-500/10">
                 <p className="text-slate-400 text-sm">
                     If you have any questions or concerns about our security practices, please do not hesitate to contact our core security team at{' '}
-                    <a href="mailto:info@majestikmagik.dev" className="text-indigo-400 hover:text-indigo-300 underline transition-colors">
-                        info@majestikmagik.dev
+                    <a href="mailto:contact@majestikmagik.dev" className="text-indigo-400 hover:text-indigo-300 underline transition-colors">
+                        contact@majestikmagik.dev
                     </a>
                     .
                 </p>
