@@ -41,7 +41,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         {/* H1 */}
         <h1
           id="home-heading"
-          className="mb-6 text-[3rem] md:text-[6rem] lg:text-[11rem] text-white leading-[0.85] scroll-animate opacity-90 ease-in-out duration-500"
+          className="mb-6 text-[1.75rem] xs:text-[2.25rem] sm:text-[3rem] md:text-[6rem] lg:text-[11rem] text-white leading-[0.9] scroll-animate opacity-90 ease-in-out duration-500"
           style={{ letterSpacing: '-0.06em' }}
         >
           <span className="font-light text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-400 to-white">

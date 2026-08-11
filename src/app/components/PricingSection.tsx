@@ -190,7 +190,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             
             <h2
               id="micro-services-heading"
-              className="mb-2 text-7xl md:text-8xl lg:text-9xl xl:text-13xl text-slate-100 font-bold tracking-tight"
+              className="mb-2 text-[1.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight"
               style={{ letterSpacing: '-0.08em' }}
             >
               On-Demand {' '}

@@ -9,6 +9,14 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      xs: '280px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       transitionProperty: {
         'focus-effect': 'border-color, box-shadow',

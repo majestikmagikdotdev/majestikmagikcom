@@ -60,7 +60,7 @@ const TeamSection: React.FC = () => {
             Human Architecture
           </span>
           
-          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-7xl md:text-8xl lg:text-9xl xl:text-11xl text-slate-100 font-bold tracking-tight scroll-animate" style={{ letterSpacing: '-0.09em' }}>
+          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-[1.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight scroll-animate" style={{ letterSpacing: '-0.09em' }}>
             <Image
               src="https://www.svgrepo.com/show/500929/magic.svg"
               className="lazy-logo w-12 h-12 mr-3 filter invert opacity-80"

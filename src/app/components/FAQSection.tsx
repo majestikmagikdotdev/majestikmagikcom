@@ -49,7 +49,7 @@ const FAQSection: React.FC = () => {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
             FAQ
           </span>
-          <h2 id="faq-heading" className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-100 tracking-tight mb-3" style={{ letterSpacing: '-0.08em' }}>
+          <h2 id="faq-heading" className="text-[1.75rem] sm:text-3xl md:text-5xl lg:text-7xl font-bold text-slate-100 tracking-tight mb-3" style={{ letterSpacing: '-0.08em' }}>
             Frequently Asked{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-slate-300">
               Questions
