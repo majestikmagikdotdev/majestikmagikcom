@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import ScrollToServices from './ScrollToServices';
 
 interface HeroSectionProps {
   onLearnMore?: () => void;
@@ -31,7 +32,10 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
       <div className="w-full relative px-6 mx-auto z-20 text-center">
 
         {/* Status Badge */}
-        <div className="mb-6 inline-flex items-center gap-2 rounded border border-white/10 bg-white/5 backdrop-blur-md px-4 py-1.5 text-xs font-mono font-semibold uppercase tracking-widest text-indigo-300 scroll-animate">
+        <div
+          className="mb-6 inline-flex items-center gap-2 rounded border border-white/10 bg-white/5 backdrop-blur-md px-4 py-1.5 text-xs font-mono font-semibold uppercase tracking-widest text-indigo-300"
+          style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
+        >
           <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
           WEB ENGINEERING & AI OPTIMIZATION PLATFORM
         </div>
@@ -39,8 +43,8 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         {/* H1 */}
         <h1
           id="home-heading"
-          className="mb-6 text-[1.75rem] xs:text-[2.25rem] sm:text-[3rem] md:text-[6rem] lg:text-[11rem] text-white leading-[0.9] scroll-animate opacity-90 ease-in-out duration-500"
-          style={{ letterSpacing: '-0.06em' }}
+          className="mb-6 text-[3.25rem] sm:text-[5rem] md:text-[7rem] lg:text-[11rem] text-white leading-[0.9] opacity-90"
+          style={{ letterSpacing: '-0.06em', animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
         >
           <span className="font-light text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-400 to-white">
             Introducing{' '}
@@ -51,26 +55,25 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         </h1>
 
         {/* Subheadline */}
-        <p id="home-desc" className="mx-auto mb-10 text-lg md:text-xl text-slate-200 font-sans leading-relaxed scroll-animate opacity-95 ease-in-out duration-500">
+        <p id="home-desc" className="mx-auto mb-10 text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
+          style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
+        >
           Web engineering and AI optimization for small-to-mid size businesses that need results fast.
         </p>
 
         {/* Dual CTA */}
-        <div className="mb-20 md:mb-28 flex flex-col sm:flex-row items-center justify-center gap-4 scroll-animate opacity-90 ease-in-out duration-500">
+        <div className="mb-20 md:mb-28 flex flex-col sm:flex-row items-center justify-center gap-4"
+          style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards' }}
+        >
           <a
             href="https://app.majestikmagik.dev/sign-up"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white hover:bg-slate-100 text-slate-900 font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-200 shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.25)]"
+            className="inline-block bg-white hover:bg-slate-100 text-slate-900 font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.25)]"
           >
             Get Started Free
           </a>
-          <a
-            href="https://majestikmagik.dev/#services"
-            className="inline-block text-slate-200 font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-200 border border-white/20 hover:border-white/40 hover:text-white bg-white/5 hover:bg-white/10"
-          >
-            Explore Services →
-          </a>
+          <ScrollToServices />
         </div>
 
         {/* Dashboard Preview */}

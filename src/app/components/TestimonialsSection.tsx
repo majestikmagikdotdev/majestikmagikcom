@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { useIntersect } from '../hooks/useIntersect';
 
 type Testimonial = {
   name: string;
@@ -25,6 +26,12 @@ const Star = ({ filled }: { filled: boolean }) => (
 );
 
 const TestimonialsSection = () => {
+  const { ref, intersected } = useIntersect();
+  const fadeUp = {
+    opacity: intersected ? 1 : 0,
+    transform: intersected ? 'translateY(0)' : 'translateY(30px)',
+    transition: 'opacity 2s ease-in, transform 2s cubic-bezier(0.16, 1, 0.3, 1)',
+  };
   const testimonials: Testimonial[] = [
     {
       name: 'Noel Customs',
@@ -51,6 +58,7 @@ const TestimonialsSection = () => {
 
   return (
     <section
+      ref={ref}
       id="testimonials"
       className="relative z-0 py-24 md:py-36 overflow-hidden border-t border-[#334155]"
       style={{ background: 'rgb(15, 23, 42)' }}
@@ -61,13 +69,13 @@ const TestimonialsSection = () => {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
             Customer Satisfaction
           </span>
-          <h2 className="mb-4 text-[1.75rem] sm:text-3xl md:text-5xl lg:text-7xl text-slate-100 font-bold tracking-tight scroll-animate" style={{ letterSpacing: '-0.08em' }}>
+          <h2 className="mb-4 text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.08em', ...fadeUp }}>
             What Clients{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-slate-300">
               Say
             </span>
           </h2>
-          <p className="text-base text-slate-400 font-sans leading-relaxed scroll-animate">
+          <p className="text-base text-slate-400 font-sans leading-relaxed" style={{ ...fadeUp, transitionDelay: '0.2s' }}>
             Real feedback from founders, creators, and platform builders.
           </p>
         </div>
@@ -77,8 +85,8 @@ const TestimonialsSection = () => {
           {testimonials.map((t, index) => (
             <article
               key={`${t.name}-${index}`}
-              className="flex h-full flex-col rounded-lg bg-[#1e293b] p-6 border border-[#334155] hover:border-indigo-500/30 hover:shadow-[0_4px_32px_rgba(99,102,241,0.08)] transition-all duration-200 scroll-animate"
-              style={{ transitionDelay: `${0.2 + index * 0.06}s` }}
+              className="flex h-full flex-col rounded-lg bg-[#1e293b] p-6 border border-[#334155] hover:border-indigo-500/30 hover:shadow-[0_4px_32px_rgba(99,102,241,0.08)] transition-all duration-200"
+              style={{ ...fadeUp, transitionDelay: `${0.3 + index * 0.1}s` }}
             >
               <header className="flex items-center mb-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3 bg-[#334155] border border-[#2a2f45] flex-shrink-0">

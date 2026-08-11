@@ -3,7 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { GithubIcon, LinkedInIcon } from './Icons'; // Assuming GithubIcon is exported from Icons.tsx
+import { GithubIcon, LinkedInIcon } from './Icons';
+import { useIntersect } from '../hooks/useIntersect'; // Assuming GithubIcon is exported from Icons.tsx
 
 interface TeamMember {
   name: string;
@@ -33,15 +34,21 @@ const teamMembers: TeamMember[] = [
 ];
 
 const TeamSection: React.FC = () => {
+  const { ref, intersected } = useIntersect();
+  const fadeUp = {
+    opacity: intersected ? 1 : 0,
+    transform: intersected ? 'translateY(0)' : 'translateY(30px)',
+    transition: 'opacity 2s ease-in, transform 2s cubic-bezier(0.16, 1, 0.3, 1)',
+  };
+
   return (
     <section 
+      ref={ref}
       id="about" 
       aria-labelledby="team-heading"
       aria-describedby="team-desc" 
       className="relative z-0 py-8 md:py-15 overflow-hidden"
-      style={{
-        background: "rgb(15, 23, 42)",        
-      }}
+      style={{ background: "rgb(15, 23, 42)" }}
     >      
 
       {/* High-end hardware processor micro-dot matrix pattern - Stacked safely on top (z-11) */}
@@ -60,7 +67,7 @@ const TeamSection: React.FC = () => {
             Human Architecture
           </span>
           
-          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-[1.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight scroll-animate" style={{ letterSpacing: '-0.09em' }}>
+          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.08em', ...fadeUp }}>
             <Image
               src="https://www.svgrepo.com/show/500929/magic.svg"
               className="lazy-logo w-12 h-12 mr-3 filter invert opacity-80"
@@ -75,13 +82,13 @@ const TeamSection: React.FC = () => {
             </span>
           </h2>
           
-          <p id="team-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed scroll-animate" style={{ transitionDelay: '0.3s' }}>
+          <p id="team-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed" style={{ ...fadeUp, transitionDelay: '0.2s' }}>
             The creative mind and tech wizard turning your digital dreams into production-ready infrastructure.
           </p>
         </div>
 
         {/* Stats Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 scroll-animate">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" style={{ ...fadeUp, transitionDelay: '0.3s' }}>
           {[
             { value: '10+', label: 'Years Experience' },
             { value: '50+', label: 'Projects Shipped' },
@@ -97,7 +104,7 @@ const TeamSection: React.FC = () => {
         </div>
 
         {/* Profile Card + Tech Stack */}
-        <div className="grid gap-6 md:grid-cols-2 scroll-animate">
+        <div className="grid gap-6 md:grid-cols-2" style={{ ...fadeUp, transitionDelay: '0.4s' }}>
           {teamMembers.map((member, index) => (
             <div
               key={member.name}
@@ -149,7 +156,7 @@ const TeamSection: React.FC = () => {
           ))}
 
           {/* Tech Stack Card */}
-          <div className="flex flex-col p-8 rounded-lg bg-[#1e293b] border border-[#334155] hover:border-indigo-500/30 transition-all duration-200 scroll-animate">
+          <div className="flex flex-col p-8 rounded-lg bg-[#1e293b] border border-[#334155] hover:border-indigo-500/30 transition-all duration-200" style={{ ...fadeUp, transitionDelay: '0.5s' }}>
             <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155] self-start">
               Tech Stack
             </span>

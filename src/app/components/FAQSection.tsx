@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useIntersect } from '../hooks/useIntersect';
 
 const faqs = [
   {
@@ -35,9 +36,16 @@ const faqs = [
 
 const FAQSection: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { ref, intersected } = useIntersect();
+  const fadeUp = {
+    opacity: intersected ? 1 : 0,
+    transform: intersected ? 'translateY(0)' : 'translateY(30px)',
+    transition: 'opacity 2s ease-in, transform 2s cubic-bezier(0.16, 1, 0.3, 1)',
+  };
 
   return (
     <section
+      ref={ref}
       id="faq"
       aria-labelledby="faq-heading"
       aria-describedby="faq-desc"
@@ -49,18 +57,18 @@ const FAQSection: React.FC = () => {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
             FAQ
           </span>
-          <h2 id="faq-heading" className="text-[1.75rem] sm:text-3xl md:text-5xl lg:text-7xl font-bold text-slate-100 tracking-tight mb-3" style={{ letterSpacing: '-0.08em' }}>
+          <h2 id="faq-heading" className="text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl font-bold text-slate-100 tracking-tight mb-3" style={{ letterSpacing: '-0.08em', ...fadeUp }}>
             Frequently Asked{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-slate-300">
               Questions
             </span>
           </h2>
-          <p id="faq-desc" className="text-slate-400 text-base">
+          <p id="faq-desc" className="text-slate-400 text-base" style={{ ...fadeUp, transitionDelay: '0.2s' }}>
             Quick answers to the most common questions about our services and process.
           </p>
         </div>
 
-        <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
+        <div className="space-y-3" style={{ ...fadeUp, transitionDelay: '0.3s' }} itemScope itemType="https://schema.org/FAQPage">
           {faqs.map((faq, i) => (
             <div
               key={i}
