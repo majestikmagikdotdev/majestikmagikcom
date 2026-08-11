@@ -112,14 +112,14 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
           <div className="flex flex-col items-start space-y-4">
             <h3 className="text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">System Core Links</h3>
             <ul className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm w-full">
-              <li><a href="/privacy-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-xs">Privacy Policy</a></li>
-              <li><a href="/terms-of-service" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-xs">Terms of Service</a></li>
-              <li><a href="/cookie-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-xs">Cookie Policy</a></li>
-              <li><a href="/refund-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-xs">Refund Policy</a></li>
-              <li><a href="/intellectual-property" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-xs">Intellectual Property</a></li>
-              <li><a href="/cyber-security-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-xs">Cyber Security</a></li>
-              <li><a href="/sitemap.xml" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-xs font-mono text-xs">Sitemap</a></li>
-              <li><a href="/faq" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-xs">FAQ</a></li>
+              <li><a href="/privacy-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Terms of Service</a></li>
+              <li><a href="/cookie-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Cookie Policy</a></li>
+              <li><a href="/refund-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Refund Policy</a></li>
+              <li><a href="/intellectual-property" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Intellectual Property</a></li>
+              <li><a href="/cyber-security-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Cyber Security</a></li>
+              <li><a href="/sitemap.xml" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm font-mono text-sm">Sitemap</a></li>
+              <li><a href="/faq" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">FAQ</a></li>
             </ul>
           </div>
 

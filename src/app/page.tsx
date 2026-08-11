@@ -5,6 +5,7 @@ import {
   // CoreEngineSection,
   TeamSection,
   TestimonialsSection,
+  FAQSection,
 } from './components';
 import ScrollAnimator from './components/ScrollAnimator';
 
@@ -20,6 +21,7 @@ export default function App() {
         <PricingSection pricingPlans={[]} />
         <TeamSection />
         <TestimonialsSection />
+        <FAQSection />
       </main>
       <ChatbotController />
     </>

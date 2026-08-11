@@ -76,6 +76,44 @@ export default function RootLayout({
           src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
         />
 
+        {/* Speakable Schema — signals key chunks to AI crawlers */}
+        <script
+          type="application/ld+json"
+          id="speakable-structured-data"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "@id": "https://majestikmagik.dev",
+              "name": "Majestik Magik - Web Engineering & AI Optimization Services",
+              "description": "High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.",
+              "speakable": {
+                "@type": "SpeakableSpecification",
+                "cssSelector": [
+                  "#home-heading",
+                  "#services-heading",
+                  "#micro-services-heading",
+                  "#team-heading",
+                  "[aria-label='Majestik Magik - Web Engineering & AI Optimization Services']"
+                ]
+              },
+              "mainEntity": {
+                "@type": "ItemList",
+                "name": "Core Services",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "AI Infrastructure & Growth Systems", "description": "Custom AI workflow integrations, scalable infrastructure on AWS and Cloudflare, automated pipelines, and new revenue streams through AI-driven precision." },
+                  { "@type": "ListItem", "position": 2, "name": "Custom Website Engineering", "description": "React and Next.js architecture optimized for speed and SEO, tailored UI/UX, full-stack API integrations, deployed to Vercel, Cloudflare, or AWS." },
+                  { "@type": "ListItem", "position": 3, "name": "Technical SEO & AI Visibility", "description": "Structured JSON-LD schema for Google and LLM crawlers, Core Web Vitals optimization, GEO strategy for ChatGPT Search and Perplexity." },
+                  { "@type": "ListItem", "position": 4, "name": "Digital Marketing & Paid Campaigns", "description": "Meta and Google campaign setup, CRM integrations, conversion tracking, and monthly performance reporting." },
+                  { "@type": "ListItem", "position": 5, "name": "AI Code Extraction & Frontend Quick-Fix", "description": "Clean export of front-end assets off no-code platforms. Fix UI rendering, CSS breakages, and deploy to Vercel, Netlify, or Cloudflare. Starting at $200." },
+                  { "@type": "ListItem", "position": 6, "name": "Core Web Vitals & Speed Overhaul", "description": "Maximize LCP, INP, and CLS scores. Crush mobile latency by purging rendering bloat and optimizing script hydration. Starting at $1,500." },
+                  { "@type": "ListItem", "position": 7, "name": "Technical GEO & AI Visibility Audit", "description": "Audit platform performance and inject optimized graph schema so AI engines like ChatGPT Search and Perplexity crawl, cite, and recommend your site. Starting at $2,500." }
+                ]
+              }
+            })
+          }}
+        />
+
         {/* Website Search Schema */}
         <script
           type="application/ld+json"

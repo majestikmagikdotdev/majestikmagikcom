@@ -34,7 +34,7 @@ interface PricingPlan {
 type MicroService = {
   service: string;
   price: string;
-  blurb?: string;
+  bullets: string[];
   url: string;
 };
 
@@ -47,45 +47,73 @@ interface PricingSectionProps {
 const DEFAULT_MICRO_SERVICES: MicroService[] = [
   {
     service: 'AI Code Extraction & Frontend Quick-Fix',
-    blurb: 'Clean export of the front end assets & code off the no-code platform. Fix UI rendering, CSS breakages, and broken links. Deploy static front end to Vercel/Netlify/Supabase/Cloudflare with custom domain DNS setup.',
+    bullets: [
+      'Export clean front-end code off Lovable, Bolt.new, or Webflow',
+      'Fix UI rendering issues, CSS breakages, and broken links',
+      'Deploy to Vercel, Netlify, or Cloudflare with custom DNS',
+    ],
     price: '$200',
     url: 'https://book.stripe.com/bJe00jd8y0qi4tE11ddEs09'
   },
-  { 
-    service: 'Shopify Email & Notification Engine', 
-    blurb: 'Fix broken layout logic, patch dynamic variables, and optimize transaction notifications or marketing email templates.', 
-    price: '$600', 
-    url: 'https://book.stripe.com/bJefZh2tU7SK2lw6lxdEs03' 
+  {
+    service: 'Shopify Email & Notification Engine',
+    bullets: [
+      'Fix broken layout logic in transactional email templates',
+      'Patch dynamic variables and Liquid syntax errors',
+      'Optimize marketing email templates for deliverability',
+    ],
+    price: '$600',
+    url: 'https://book.stripe.com/bJefZh2tU7SK2lw6lxdEs03'
   },
-  { 
-    service: 'DNS, SPF, DKIM & Deliverability Setup', 
-    blurb: 'Resolve MX, TXT, SPF, and DKIM configuration issues to eliminate email spam flagging and repair domain mapping failures.', 
-    price: '$250', 
-    url: 'https://book.stripe.com/14AaEX1pQeh82lw39ldEs04' 
+  {
+    service: 'DNS, SPF, DKIM & Deliverability Setup',
+    bullets: [
+      'Resolve MX, TXT, SPF, and DKIM configuration failures',
+      'Eliminate email spam flagging and domain blacklisting',
+      'Repair domain mapping and email routing issues',
+    ],
+    price: '$250',
+    url: 'https://book.stripe.com/14AaEX1pQeh82lw39ldEs04'
   },
-  { 
-    service: 'Core Web Vitals & Speed Overhaul', 
-    blurb: 'Maximize Core Web Vitals (LCP, INP, CLS) and crush mobile latency by purging rendering bloat and optimizing script hydration for better data performance.', 
-    price: '$1,500', 
-    url: 'https://book.stripe.com/28E5kDfgGflcd0abFRdEs05' 
+  {
+    service: 'Core Web Vitals & Speed Overhaul',
+    bullets: [
+      'Maximize LCP, INP, and CLS scores across mobile and desktop',
+      'Purge rendering bloat and defer non-critical scripts',
+      'Optimize script hydration for measurable performance gains',
+    ],
+    price: '$1,500',
+    url: 'https://book.stripe.com/28E5kDfgGflcd0abFRdEs05'
   },
-  { 
-    service: 'Landing Page Redesign & Engineering', 
-    blurb: 'We upgrade static websites into high-fidelity, responsive interfaces powered by fluid web animations and seamless full-stack API integrations. From visual polish to backend data flow, we build fast, interactive sites designed to engage users and convert visitors.', 
-    price: '$3,000', 
-    url: 'https://book.stripe.com/7sY9AT6Ka6OG9NYdNZdEs06' 
+  {
+    service: 'Landing Page Redesign & Engineering',
+    bullets: [
+      'Redesign static pages into high-fidelity responsive interfaces',
+      'Integrate full-stack APIs and backend data pipelines',
+      'Engineered to engage users and convert visitors',
+    ],
+    price: '$3,000',
+    url: 'https://book.stripe.com/7sY9AT6Ka6OG9NYdNZdEs06'
   },
-  { 
-    service: 'Technical GEO & AI Visibility Audit', 
-    blurb: 'Audit platform performance and inject optimized graph schema to ensure real-time AI engines like ChatGPT Search and Perplexity crawl, cite, and recommend your site.', 
-    price: '$2,500', 
-    url: 'https://book.stripe.com/eVq00j5G66OGaS2bFRdEs07' 
+  {
+    service: 'Technical GEO & AI Visibility Audit',
+    bullets: [
+      'Audit site structure for AI crawler compatibility',
+      'Inject optimized JSON-LD graph schema',
+      'Ensure ChatGPT Search and Perplexity cite your site',
+    ],
+    price: '$2,500',
+    url: 'https://book.stripe.com/eVq00j5G66OGaS2bFRdEs07'
   },
-  { 
-    service: 'Contact Form & Webhook Debugging', 
-    blurb: 'Debug client-side input validation, fix broken Webhook routing pipelines, and restore secure lead-capture form deliveries.', 
-    price: '$150', 
-    url: 'https://book.stripe.com/8x228r8Si0qi2lw8tFdEs08' 
+  {
+    service: 'Contact Form & Webhook Debugging',
+    bullets: [
+      'Debug client-side input validation and form logic',
+      'Fix broken Webhook routing pipelines',
+      'Restore secure lead-capture form deliveries',
+    ],
+    price: '$150',
+    url: 'https://book.stripe.com/8x228r8Si0qi2lw8tFdEs08'
   },
 ];
 
@@ -118,6 +146,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
       ref={sectionRef}
       id="services"
       aria-labelledby="micro-services-heading"
+      aria-describedby="micro-services-desc"
       className="relative z-0 py-24 md:py-36 overflow-hidden"
       style={{
         position: "relative",
@@ -161,15 +190,16 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             
             <h2
               id="micro-services-heading"
-              className="mb-6 text-7xl md:text-8xl lg:text-9xl xl:text-13xl text-slate-100 font-bold tracking-tight"
+              className="mb-2 text-7xl md:text-8xl lg:text-9xl xl:text-13xl text-slate-100 font-bold tracking-tight"
+              style={{ letterSpacing: '-0.08em' }}
             >
-              On-Demand <br />
+              On-Demand {' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-200 to-white">
                 Performance Tuning
               </span>
             </h2>
             
-            <p className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed">
+            <p id="micro-services-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed">
               High-impact performance upgrades and critical codebase patches—prioritized and shipped within a 24-72 hour window.
             </p>
           </div>
@@ -192,13 +222,18 @@ const PricingSection: React.FC<PricingSectionProps> = ({
                 }}
               >
                 <div>
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-slate-200 font-mono text-lg font-semibold tracking-wide leading-snug">{m.service}</h3>
-                    <span className="text-indigo-400 font-mono font-bold text-lg whitespace-nowrap bg-indigo-950/50 px-2 py-0.5 rounded border border-indigo-900/50">{m.price}</span>
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <h3 className="text-slate-200 font-mono text-base font-semibold tracking-wide leading-snug">{m.service}</h3>
+                    <span className="text-indigo-400 font-mono font-bold text-base whitespace-nowrap bg-indigo-950/50 px-2 py-0.5 rounded border border-indigo-900/50">{m.price}</span>
                   </div>
-                  {m.blurb ? (
-                    <p className="mt-3 text-md font-sans text-slate-400 leading-relaxed">{m.blurb}</p>
-                  ) : null}
+                  <ul className="space-y-1.5">
+                    {m.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-sm text-slate-300">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 
                 <div className="mt-6">
@@ -206,7 +241,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
                     href={m.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center rounded px-4 py-2.5 text-xs font-mono font-bold uppercase tracking-wider bg-indigo-600 hover:bg-indigo-500 text-white border border-indigo-500/50 transition-all duration-200"
+                    className="inline-flex w-full items-center justify-center rounded px-4 py-2.5 text-sm font-mono font-bold uppercase tracking-wider text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/20 hover:border-white/40 transition-all duration-200"
                   >
                     Buy Now
                   </a>
@@ -223,7 +258,8 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               transition: 'opacity 2s ease-in'
             }}
           >
-            Need an operational script not listed? <a href="#contact" className="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 font-bold transition-colors">Request a custom micro-service</a>.
+            Need an operational script not listed?{' '}
+            <a href="#contact" className="inline-flex items-center font-mono text-xs text-indigo-300 bg-indigo-400/30 hover:bg-indigo-300/30 border border-indigo-400/30 px-3 py-1.5 rounded-lg transition-colors duration-200">Request a custom micro-service</a>.
           </p>
         </div>
       </div>

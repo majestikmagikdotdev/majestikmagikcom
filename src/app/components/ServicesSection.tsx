@@ -5,7 +5,8 @@ import Image from 'next/image';
 interface Service {
   title: string;
   description: string;
-  icon: React.ReactElement; // Type for React elements like SVG icons
+  bullets: string[];
+  icon: React.ReactElement;
 }
 
 const techStackLogos = [
@@ -23,25 +24,51 @@ const techStackLogos = [
 
 const servicesData: Service[] = [
   {
-    title: "Future-Proof Your Business: AI Infrastructure Built for Unstoppable Growth & Profit",
-    description: "Stop letting outdated tech slow your growth. Our AI Growth Infrastructure Solutions aren't just about cutting-edge tools; they're about building the strategic backbone your business needs to dominate. This is about creating an intelligent, resilient, and scalable foundation that doesn't just support growth, but actively propels new revenue streams and gives you an undeniable competitive edge. Transform your potential into profit with AI-driven precision.",
+    title: "AI Infrastructure & Growth Systems",
+    description: "Build the intelligent backbone your business needs to scale.",
+    bullets: [
+      "Custom AI workflow integrations for operations and sales",
+      "Scalable, resilient infrastructure built on AWS and Cloudflare",
+      "Automated pipelines that reduce manual overhead",
+      "New revenue streams unlocked through AI-driven precision",
+    ],
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lazy-logo w-8 h-8 mb-4 text-purple-500">
         <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
       </svg>
     )
-  },  {
-    title: "Your Bespoke Digital Revenue Engine: Custom Websites Engineered for Growth", description: "Stop blending in. We don't just build websites; we engineer high-performance, custom digital assets from concept to launch. Leveraging cutting-edge design and AI-driven insights, your bespoke platform will be precisely tailored to capture high-quality leads, accelerate your sales pipeline, dominate your niche with a unique, and authoritative online presence. This is about turning your vision into a measurable competitive advantage and fueling your exponential business growth.",
+  },
+  {
+    title: "Custom Website Engineering",
+    description: "High-performance digital platforms built from concept to launch.",
+    bullets: [
+      "React and Next.js architecture optimized for speed and SEO",
+      "Tailored UI/UX designed to convert visitors into leads",
+      "Full-stack API integrations and backend data pipelines",
+      "Deployed to Vercel, Cloudflare, or AWS with CI/CD",
+    ],
     icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lazy-logo w-8 h-8 mb-4 text-green-500"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg>
   },
   {
-    title: " Dominate Google, Command Leads: AI-Powered SEO for Unstoppable Organic Growth",
-    description: "Stop being invisible to your best customers. Our strategic, AI-powered SEO isn't just about climbing rankings; it's about capturing market share and building a consistent pipeline of qualified leads. This is your unfair advantage to outrank competitors, reduce ad spend, and drive predictable, sustainable revenue growth directly from search engines.",
+    title: "Technical SEO & AI Visibility",
+    description: "Get found by search engines and cited by AI models.",
+    bullets: [
+      "Structured JSON-LD schema for Google and LLM crawlers",
+      "On-page optimization, Core Web Vitals, and site speed",
+      "GEO strategy to appear in ChatGPT Search and Perplexity",
+      "Analytics setup with GA4, Search Console, and dashboards",
+    ],
     icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lazy-logo w-8 h-8 mb-4 text-sky-400"><path strokeLinecap="round" strokeLinejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" /></svg>
   },
   {
-    title: "Maximize ROI, Multiply Customers: AI-Powered Digital Campaigns that Convert",
-    description: "Stop guessing and start dominating. Tired of marketing budgets that don't deliver? Our AI-powered Digital Marketing Campaigns aren't just about reaching audiences; they're about engineering a relentless flow of high-converting leads and accelerating your sales cycle. This is about turning every marketing dollar into a strategic investment that yields predictable customer acquisition and explosive revenue growth.",
+    title: "Digital Marketing & Paid Campaigns",
+    description: "Turn ad spend into predictable, measurable revenue.",
+    bullets: [
+      "Meta and Google campaign setup, targeting, and optimization",
+      "CRM integrations with HubSpot, Mailchimp, and Zapier",
+      "Conversion tracking, pixel setup, and funnel analytics",
+      "Monthly reporting with actionable performance insights",
+    ],
     icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lazy-logo w-8 h-8 mb-4 text-orange-400"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" /><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" /></svg>
   },
 ];
@@ -51,7 +78,7 @@ const ServicesSection: React.FC = () => {
     <section id="services" aria-labelledby="services-heading" className="py-16 md:py-24 border-t border-[#334155]" style={{ background: 'rgb(15, 23, 42)' }}>
       <div className="w-full px-6 mx-auto">
         <div className="mb-12 text-center mx-auto scroll-animate">
-          <h1 id="services-heading" className="mb-4 text-3xl text-slate-100 font-bold tracking-tight scroll-animate md:text-4xl">Unleash Your Digital Magik: Services Engineered for Growth</h1>
+          <h1 id="services-heading" className="mb-4 text-3xl text-slate-100 font-bold tracking-tight scroll-animate md:text-4xl" style={{ letterSpacing: '-0.09em' }}>Unleash Your Digital Magik: Services Engineered for Growth</h1>
           <p className="mx-auto text-slate-400 md:text-lg scroll-animate" style={{ transitionDelay: '0.3s' }}>
             We don&apos;t just build websites; we engineer <b>revenue-generating platforms</b>. Fusing artificial intelligence with strategic design, and relentless execution, our services are specifically designed to <b>capture more leads, accelerate sales, and establish your market dominance</b>. Experience the difference of a truly intelligent online presence that drives your bottom line.
           </p>
@@ -66,8 +93,16 @@ const ServicesSection: React.FC = () => {
               style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
             >
               {service.icon}
-              <h3 className="mb-2 text-xl font-semibold text-indigo-300">{service.title}</h3>
-              <p className="text-md text-slate-400">{service.description}</p>
+              <h3 className="mb-1 text-lg font-semibold text-slate-100 tracking-tight">{service.title}</h3>
+              <p className="text-sm text-slate-400 mb-4">{service.description}</p>
+              <ul className="space-y-2">
+                {service.bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-2 text-sm text-slate-300">
+                    <span className="mt-1 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

@@ -61,7 +61,7 @@ const TestimonialsSection = () => {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
             Customer Satisfaction
           </span>
-          <h2 className="mb-4 text-4xl md:text-5xl text-slate-100 font-bold tracking-tight scroll-animate">
+          <h2 className="mb-4 text-4xl md:text-5xl lg:text-7xl text-slate-100 font-bold tracking-tight scroll-animate" style={{ letterSpacing: '-0.08em' }}>
             What Clients{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-slate-300">
               Say

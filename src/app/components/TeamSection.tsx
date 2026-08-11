@@ -36,7 +36,8 @@ const TeamSection: React.FC = () => {
   return (
     <section 
       id="about" 
-      aria-labelledby="team-heading" 
+      aria-labelledby="team-heading"
+      aria-describedby="team-desc" 
       className="relative z-0 py-8 md:py-15 overflow-hidden"
       style={{
         background: "rgb(15, 23, 42)",        
@@ -59,12 +60,12 @@ const TeamSection: React.FC = () => {
             Human Architecture
           </span>
           
-          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-7xl md:text-8xl lg:text-9xl xl:text-13xl text-slate-100 font-bold tracking-tight scroll-animate">
+          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-7xl md:text-8xl lg:text-9xl xl:text-11xl text-slate-100 font-bold tracking-tight scroll-animate" style={{ letterSpacing: '-0.09em' }}>
             <Image
               src="https://www.svgrepo.com/show/500929/magic.svg"
-              className="lazy-logo w-8 h-8 mr-3 filter invert opacity-80"
-              width={32}
-              height={32}
+              className="lazy-logo w-12 h-12 mr-3 filter invert opacity-80"
+              width={48}
+              height={48}
               alt="Majestik Magik team icon"
               loading="lazy"
             />
@@ -74,7 +75,7 @@ const TeamSection: React.FC = () => {
             </span>
           </h2>
           
-          <p className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed scroll-animate" style={{ transitionDelay: '0.3s' }}>
+          <p id="team-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed scroll-animate" style={{ transitionDelay: '0.3s' }}>
             The creative mind and tech wizard turning your digital dreams into production-ready infrastructure.
           </p>
         </div>
@@ -125,8 +126,8 @@ const TeamSection: React.FC = () => {
               </div>
               <p className="flex-grow px-2 mb-6 text-md text-slate-400 leading-relaxed font-sans">
                 {member.bio}
-                <Link href={member.url} className="transition-colors duration-300 font-mono font-bold text-xs text-indigo-400 hover:text-indigo-300 ml-2 whitespace-nowrap">
-                  [Read Full Protocol]
+                <Link href={member.url} className="inline-flex items-center mt-2 font-mono text-xs text-indigo-300 bg-indigo-400/30 hover:bg-indigo-300/30 border border-indigo-400/30 px-3 py-1.5 rounded-lg transition-colors duration-200">
+                  Read Full Protocol
                 </Link>
               </p>
               <div className="flex mt-auto space-x-4 border-t border-slate-900/80 pt-4 w-full justify-center">

@@ -30,6 +30,7 @@ export default function MainLayout({
     { name: 'Services', url: '/#services' },
     { name: 'About', url: '/#about' },    
     { name: 'Testimonials', url: '/#testimonials' },
+    { name: 'FAQ', url: '/#faq' },
     { name: 'Contact', url: '/#contact' },
     { name: 'Portfolio', url: '/portfolio' },
     { name: 'Case Studies', url: '/case-studies' },
