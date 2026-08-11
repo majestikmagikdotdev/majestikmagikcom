@@ -107,7 +107,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
               fetchPriority="high"
               loading="eager"
               className="w-full h-auto transition-transform"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+              sizes="(max-width: 1024px) 960px, 1200px"
             />
           </div>
         </div>

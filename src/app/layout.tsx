@@ -61,16 +61,23 @@ export default function RootLayout({
       <Head>
         <link
           rel="preload"
-          href="/fonts/inter-v12-latin-regular.woff2" // Adjust path if needed
+          href="/fonts/inter-v12-latin-regular.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/img/screenshot_mm_ai.webp"
+          type="image/webp"
+          media="(min-width: 768px)"
         />
       </Head>
       <body className="bg-[#07080e] text-slate-200 overflow-x-hidden antialiased">
         <MainLayout>{children}</MainLayout>
 
-        {/* Global Trustpilot Widget - Desktop only, loaded after page is idle */}
+        {/* Global Trustpilot Widget - loaded after page is fully idle */}
         <Script
           strategy="lazyOnload"
           src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
