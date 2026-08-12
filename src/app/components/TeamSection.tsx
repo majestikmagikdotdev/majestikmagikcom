@@ -165,9 +165,9 @@ const TeamSection: React.FC = () => {
             <div className="flex flex-wrap gap-2">
               {[
                 'Next.js', 'React', 'TypeScript', 'Node.js', 'Python',
-                'Tailwind CSS', 'PostgreSQL', 'Supabase', 'AWS', 'Cloudflare',
-                'Stripe', 'GraphQL', 'Docker', 'GitHub Actions', 'Vercel',
-                'WordPress', 'Shopify', 'Gemini AI', 'OpenAI',
+                'Tailwind CSS', 'PostgreSQL', 'Supabase', 'AWS', 'Google Cloud', 'Cloudflare',
+                'Stripe Webhooks & API', 'GraphQL', 'Docker', 'GitHub Actions', 'Vercel',
+                'WordPress', 'Shopify', 'Gemini AI', 'ClaudeAI'
               ].map((tech) => (
                 <span
                   key={tech}
