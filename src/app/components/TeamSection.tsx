@@ -47,15 +47,8 @@ const TeamSection: React.FC = () => {
       id="about" 
       aria-labelledby="team-heading"
       aria-describedby="team-desc" 
-      className="relative z-0 py-8 md:py-15 overflow-hidden"
-      style={{
-        position: "relative",
-        padding: "120px 20px",
-        background: "rgb(15, 23, 42)",
-        display: "flex",
-        justifyContent: "center",
-        overflow: "hidden"
-      }}
+      className="relative z-0 py-16 md:py-28 overflow-hidden"
+      style={{ background: "rgb(15, 23, 42)" }}
     >      
 
       {/* High-end hardware processor micro-dot matrix pattern - Stacked safely on top (z-11) */}
@@ -67,14 +60,14 @@ const TeamSection: React.FC = () => {
         }}
       ></div>
 
-      <div className="w-full relative px-6 z-20">
+      <div className="w-full relative px-4 md:px-6 z-20">
         {/* Header Section */}
-        <div className="mb-16 text-center mx-auto">
+        <div className="mb-8 text-center mx-auto">
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
             Human Architecture
           </span>
           
-          <h2 id="team-heading" className="flex items-center justify-center mb-6 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.06em', ...fadeUp }}>
+          <h2 id="team-heading" className="flex flex-wrap items-center justify-center mb-6 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.04em', ...fadeUp }}>
             <Image
               src="https://www.svgrepo.com/show/500929/magic.svg"
               className="lazy-logo w-12 h-12 mr-3 filter invert opacity-80"
@@ -102,7 +95,7 @@ const TeamSection: React.FC = () => {
             { value: '24–72hr', label: 'Delivery Window', note: 'Project timeline may vary depending on scope' },
             { value: '100%', label: 'Client Satisfaction' },
           ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center justify-center p-6 rounded-lg bg-[#1e293b] border border-[#334155] text-center">
+            <div key={stat.label} className="flex flex-col items-center justify-center p-4 md:p-6 rounded-lg bg-[#1e293b] border border-[#334155] text-center">
               <span className="text-3xl font-bold text-indigo-300 font-mono">{stat.value}</span>
               <span className="mt-1 text-xs font-mono uppercase tracking-widest text-slate-400">{stat.label}</span>
               {'note' in stat && <span className="mt-2 text-[10px] font-sans text-slate-500 italic">{stat.note}</span>}
@@ -115,19 +108,19 @@ const TeamSection: React.FC = () => {
           {teamMembers.map((member, index) => (
             <div
               key={member.name}
-              className="flex flex-col items-center p-8 text-center rounded-lg bg-[#1e293b] border border-[#334155] shadow-[0_4px_24px_rgba(0,0,0,0.4)] team-card-hover-animate duration-200 hover:border-indigo-500/30 transition-all"
+              className="flex flex-col items-center p-5 md:p-8 text-center rounded-lg bg-[#1e293b] border border-[#334155] shadow-[0_4px_24px_rgba(0,0,0,0.4)] team-card-hover-animate duration-200 hover:border-indigo-500/30 transition-all"
               style={{ transitionDelay: `${0.2 + index * 0.15}s` }}
             >
-              <div className="relative mb-6 p-1 rounded-full bg-gradient-to-b from-indigo-500/30 to-transparent border border-slate-800 shadow-[0_0_30px_rgba(26,81,244,0.15)]">
+              <div className="relative mb-4 p-1 rounded-full bg-gradient-to-b from-indigo-500/30 to-transparent border border-slate-800 shadow-[0_0_30px_rgba(26,81,244,0.15)]">
                 <Image
                   src={member.imageUrl}
                   alt={`Portrait of ${member.name}`}
-                  className="object-cover w-32 h-32 rounded-full border-2 border-slate-950 md:w-40 md:h-40 grayscale hover:grayscale-0 transition-all duration-500"
+                  className="object-cover w-24 h-24 md:w-40 md:h-40 rounded-full border-2 border-slate-950 grayscale hover:grayscale-0 transition-all duration-500"
                   width={160}
                   height={160}
                   loading="lazy"
                   quality={75}
-                  sizes="(max-width: 767px) 128px, 160px"
+                  sizes="(max-width: 767px) 96px, 160px"
                 />
               </div>
               <h3 className="mb-1 text-3xl font-bold tracking-tight text-slate-100">{member.name}</h3>
@@ -163,7 +156,7 @@ const TeamSection: React.FC = () => {
           ))}
 
           {/* Tech Stack Card */}
-          <div className="flex flex-col p-8 rounded-lg bg-[#1e293b] border border-[#334155] hover:border-indigo-500/30 transition-all duration-200" style={{ ...fadeUp, transitionDelay: '0.5s' }}>
+          <div className="flex flex-col p-5 md:p-8 rounded-lg bg-[#1e293b] border border-[#334155] hover:border-indigo-500/30 transition-all duration-200" style={{ ...fadeUp, transitionDelay: '0.5s' }}>
             <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155] self-start">
               Tech Stack
             </span>

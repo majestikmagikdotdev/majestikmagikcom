@@ -9,7 +9,7 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = () => {
 
   return (
-    <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="relative z-0 pt-32 pb-24 md:pt-48 md:pb-36 overflow-hidden" style={{ background: 'rgb(15, 23, 42)' }}>
+    <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="relative z-0 pt-20 pb-12 md:pt-48 md:pb-36 overflow-hidden" style={{ background: 'rgb(15, 23, 42)' }}>
 
       {/* Ambient radial glow */}
       <div
@@ -29,7 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         }}
       />
 
-      <div className="w-full relative px-6 mx-auto z-20 text-center">
+      <div className="w-full relative px-4 md:px-6 mx-auto z-20 text-center">
 
         {/* Status Badge */}
         <div
@@ -62,7 +62,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         </p>
 
         {/* Dual CTA */}
-        <div className="mb-20 md:mb-28 flex flex-col sm:flex-row items-center justify-center gap-4"
+        <div className="mb-10 md:mb-28 flex flex-col sm:flex-row items-center justify-center gap-4"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards' }}
         >
           <a

@@ -82,7 +82,23 @@ const Header: React.FC<HeaderProps> = ({
     >
       <div className="w-full px-6 py-4 flex justify-between items-center">
         <button
-          onClick={() => document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => {
+            const el = document.getElementById('home');
+            if (el) {
+              const start = window.scrollY;
+              const end = el.getBoundingClientRect().top + start;
+              const duration = 1200;
+              let startTime: number | null = null;
+              const ease = (t: number) => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+              const step = (ts: number) => {
+                if (!startTime) startTime = ts;
+                const p = Math.min((ts - startTime) / duration, 1);
+                window.scrollTo(0, start + (end - start) * ease(p));
+                if (p < 1) requestAnimationFrame(step);
+              };
+              requestAnimationFrame(step);
+            }
+          }}
           className="flex items-center space-x-3 text-lg font-bold font-mono uppercase tracking-wider text-slate-100 cursor-pointer"
           aria-label="Majestik Magik Home"
           type="button"

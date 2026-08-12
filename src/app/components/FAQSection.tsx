@@ -49,11 +49,11 @@ const FAQSection: React.FC = () => {
       id="faq"
       aria-labelledby="faq-heading"
       aria-describedby="faq-desc"
-      className="relative z-0 py-24 border-t border-[#334155]"
+      className="relative z-0 py-12 border-t border-[#334155]"
       style={{ background: 'rgb(15, 23, 42)' }}
     >
-      <div className="w-full px-6">
-        <div className="mb-12 text-left">
+      <div className="w-full px-4 md:px-6">
+        <div className="mb-8 text-left">
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
             FAQ
           </span>

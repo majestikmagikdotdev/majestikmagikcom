@@ -147,14 +147,9 @@ const PricingSection: React.FC<PricingSectionProps> = ({
       id="services"
       aria-labelledby="micro-services-heading"
       aria-describedby="micro-services-desc"
-      className="relative z-0 py-24 md:py-36 overflow-hidden"
+      className="relative z-0 py-12 md:py-24 overflow-hidden"
       style={{
-        position: "relative",
-        padding: "120px 20px",
         background: "rgb(15, 23, 42)",
-        display: "flex",
-        justifyContent: "center",
-        overflow: "hidden"
       }}
     >
       
@@ -168,7 +163,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
         }}
       ></div>
 
-      <div className="w-full relative px-6 mx-auto z-20">
+      <div className="w-full relative px-4 md:px-6 mx-auto z-20">
         {/* Micro Services */}
         <div
           id="micro-services"
@@ -177,7 +172,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
         >
           {/* Header block with progressive fade-in */}
           <div 
-            className="text-center mx-auto mb-16"
+            className="text-center mx-auto mb-8 md:mb-16"
             style={{
               opacity: isIntersected ? 1 : 0,
               transform: isIntersected ? 'translateY(0)' : 'translateY(30px)',
@@ -209,7 +204,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             {microServices.map((m, idx) => (
               <div
                 key={m.service}
-                className="services-card-hover-animate flex flex-col justify-between rounded-lg bg-[#1e293b] border border-[#334155] p-6 shadow-[0_4px_24px_rgba(0,0,0,0.4)] hover:border-indigo-500/30 hover:shadow-[0_4px_32px_rgba(99,102,241,0.08)] transition duration-200"
+                className="services-card-hover-animate flex flex-col justify-between rounded-lg bg-[#1e293b] border border-[#334155] p-4 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.4)] hover:border-indigo-500/30 hover:shadow-[0_4px_32px_rgba(99,102,241,0.08)] transition duration-200"
                 style={{
                   opacity: isIntersected ? 1 : 0,
                   transform: isIntersected ? 'translateY(0)' : 'translateY(40px)',

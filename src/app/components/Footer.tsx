@@ -79,7 +79,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
         }}
       ></div>
 
-      <div className="w-full relative px-6 py-16 mx-auto z-20">
+      <div className="w-full relative px-4 md:px-6 py-10 md:py-16 mx-auto z-20">
 
         {/* Top Contact Bar styled like node routing configurations */}
         <div className={`mx-auto grid grid-cols-1 gap-8 mb-14 md:grid-cols-2 justify-items-stretch ${isAlwaysVisible ? 'is-visible' : ''}`}>
