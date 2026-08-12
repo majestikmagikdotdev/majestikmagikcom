@@ -58,7 +58,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <p id="home-desc" className="mx-auto mb-10 text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
         >
-          Web engineering and AI optimization for small-to-mid size businesses that need results fast.
+          High-performance web engineering and custom AI integrations built to drive revenue and scale SMBs fast.
         </p>
 
         {/* Dual CTA */}

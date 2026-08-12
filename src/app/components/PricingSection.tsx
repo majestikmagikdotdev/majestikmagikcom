@@ -195,7 +195,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             </h2>
             
             <p id="micro-services-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed">
-              High-impact performance upgrades and critical codebase patches—prioritized and shipped within a 24-72 hour window.
+              High-impact performance upgrades and critical codebase patches. Prioritized and shipped within 24 to 72 hours for most small-to-mid projects.
             </p>
           </div>
 
