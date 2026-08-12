@@ -70,7 +70,7 @@ const TestimonialsSection = () => {
         overflow: "hidden"
       }}
     >
-      <div className="w-full relative px-4 md:px-6 z-20">
+      <div className="w-full relative z-20">
         {/* Section Header */}
         <div className="mb-8 text-left">
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
