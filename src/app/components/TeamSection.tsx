@@ -42,17 +42,17 @@ const TeamSection: React.FC = () => {
   };
 
   return (
-    <section 
+    <section
       ref={ref}
-      id="about" 
+      id="about"
       aria-labelledby="team-heading"
-      aria-describedby="team-desc" 
+      aria-describedby="team-desc"
       className="relative z-0 py-16 md:py-28 overflow-hidden"
       style={{ background: "rgb(15, 23, 42)" }}
-    >      
+    >
 
       {/* High-end hardware processor micro-dot matrix pattern - Stacked safely on top (z-11) */}
-      <div 
+      <div
         className="absolute inset-0 z-11 pointer-events-none opacity-25"
         style={{
           backgroundImage: 'radial-gradient(rgba(241, 245, 249, 0.4) 1.2px, transparent 1.2px)',
@@ -66,7 +66,7 @@ const TeamSection: React.FC = () => {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
             Human Architecture
           </span>
-          
+
           <h2 id="team-heading" className="flex flex-wrap items-center justify-center mb-6 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.04em', ...fadeUp }}>
             <Image
               src="https://www.svgrepo.com/show/500929/magic.svg"
@@ -81,7 +81,7 @@ const TeamSection: React.FC = () => {
               Founder
             </span>
           </h2>
-          
+
           <p id="team-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed" style={{ ...fadeUp, transitionDelay: '0.2s' }}>
             The creative mind and tech wizard turning your digital dreams into production-ready infrastructure.
           </p>
