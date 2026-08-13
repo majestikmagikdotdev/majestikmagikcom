@@ -180,7 +180,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             }}
           >
             <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
-              Core Execution
+             Core Services
             </span>
             
             <h2
@@ -188,9 +188,9 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               className="mb-2 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight"
               style={{ letterSpacing: '-0.04em' }}
             >
-              On-Demand {' '}
+              Performance <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-200 to-white">
-                Performance Tuning
+                Tuning Services
               </span>
             </h2>
             
