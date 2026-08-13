@@ -164,10 +164,10 @@ const TeamSection: React.FC = () => {
             <p className="text-sm text-slate-400 font-sans mb-6">Languages, frameworks, and platforms used to ship production-grade systems.</p>
             <div className="flex flex-wrap gap-2">
               {[
-                'Next.js', 'React', 'TypeScript', 'Node.js', 'Python',
+                'Next.js', 'React', 'React 3D', 'Three.js', 'WebGL', 'TypeScript', 'Node.js', 'Python',
                 'Tailwind CSS', 'PostgreSQL', 'Supabase', 'AWS', 'Google Cloud', 'Cloudflare',
-                'Stripe Webhooks & API', 'GraphQL', 'Docker', 'GitHub Actions', 'Vercel',
-                'WordPress', 'Shopify', 'Gemini AI', 'ClaudeAI'
+                'Stripe Webhooks & API', 'GraphQL', 'Docker', 'Git', 'GitHub Actions', 'Vercel',
+                'WordPress', 'Shopify', 'Gemini AI', 'Claude AI'
               ].map((tech) => (
                 <span
                   key={tech}
