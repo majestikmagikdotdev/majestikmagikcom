@@ -16,7 +16,7 @@ export default function App() {
   return (
     <>
       <ScrollAnimator />
-      <main aria-label="Majestik Magik - Web Engineering & AI Optimization Services">
+      <main aria-label="Majestik Magik — Web Engineering & AI Optimization Services">
         <HeroSection />
         <AIContentLayer />
         {/* <CoreEngineSection /> */}

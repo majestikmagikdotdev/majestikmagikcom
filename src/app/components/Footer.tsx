@@ -125,7 +125,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
 
           <div className="flex flex-col items-start space-y-6">
             <div>
-              <h3 className="mb-3 text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">Ecosystem Protocols</h3>
+              <h3 className="mb-3 text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">Social Links</h3>
               <ul className="space-x-5 flex items-center text-lg text-slate-500">
                 <li><a href="https://www.facebook.com/majestikmagik/" target="_blank" rel="noopener noreferrer" aria-label="Visit Majestik Magik on Facebook" className="hover:text-indigo-400 transition-colors"><FacebookIcon /></a></li>
                 <li><a href="https://www.instagram.com/majestikmagik/" target="_blank" rel="noopener noreferrer" aria-label="Visit Majestik Magik on Instagram" className="hover:text-indigo-400 transition-colors"><InstagramIcon /></a></li>
@@ -135,7 +135,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
             </div>
 
             <div className="w-full border-t border-slate-900 pt-6">
-              <h3 className="mb-4 text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">Hardware & Platform Partners</h3>
+              <h3 className="mb-4 text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">Hardware & Platform Partners</h3>
               <ul className="flex flex-wrap items-center gap-10 opacity-40 hover:opacity-75 transition-opacity duration-300">
                 <li>
                   <Image

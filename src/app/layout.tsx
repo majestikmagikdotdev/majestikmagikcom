@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://majestikmagik.dev',
   },
-  title: 'Majestik Magik - Web Engineering & AI Optimization Services',
+  title: 'Majestik Magik — Web Engineering & AI Optimization Services',
   description:
     'High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.',
   authors: [{ name: 'Majestik Magik' }],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     apple: '/img/majestikmagik_logo_indigo-64x64.webp',
   },
   openGraph: {
-    title: 'Majestik Magik - Web Engineering & AI Optimization Services',
+    title: 'Majestik Magik — Web Engineering & AI Optimization Services',
     description:
       'High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.',
     url: 'https://majestikmagik.dev',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Majestik Magik - Web Engineering & AI Optimization Services',
+    title: 'Majestik Magik — Web Engineering & AI Optimization Services',
     description:
       'High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.',
     images: ['/img/screenshot_mm_main.webp'],
@@ -80,7 +80,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebPage",
               "@id": "https://majestikmagik.dev",
-              "name": "Majestik Magik - Web Engineering & AI Optimization Services",
+              "name": "Majestik Magik — Web Engineering & AI Optimization Services",
               "description": "High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.",
               "speakable": {
                 "@type": "SpeakableSpecification",
@@ -89,7 +89,7 @@ export default function RootLayout({
                   "#services-heading",
                   "#micro-services-heading",
                   "#team-heading",
-                  "[aria-label='Majestik Magik - Web Engineering & AI Optimization Services']"
+                  "[aria-label='Majestik Magik — Web Engineering & AI Optimization Services']"
                 ]
               },
               "mainEntity": {
