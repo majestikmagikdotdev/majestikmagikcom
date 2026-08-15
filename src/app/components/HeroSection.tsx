@@ -47,7 +47,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           className="mb-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-tight opacity-90"
           style={{ letterSpacing: '-0.04em', animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
         >
-          <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-400 to-white">
+          <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-indigo-200 to-white">
             Web Engineering & AI Optimization
           </span>
         </h1>
