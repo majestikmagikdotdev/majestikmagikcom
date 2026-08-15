@@ -104,6 +104,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
                 loop
                 muted
                 playsInline
+                preload="none"
                 poster="/img/screenshot_father_figure_nutrition.webp"
                 className="w-full h-full object-cover"
               >
@@ -137,7 +138,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
               GEO-Targeted AI Content Layer
             </span>
           </div>
-        </div>        
+        </div>
 
         <p className="sr-only">Majestik Magik provides on-demand web engineering and AI optimization services to boost performance and clarify messaging for businesses.</p>
       </div>
