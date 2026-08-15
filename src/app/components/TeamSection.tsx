@@ -4,6 +4,13 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { GithubIcon, LinkedInIcon } from './Icons';
+
+// Simple icon for federal credentials
+const ShieldCheckIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.01-.166 1.98-.465 2.912C20.243 16.14 18.82 17.61 17 18.75c-1.79.99-3.76 1.5-5 1.5s-3.21-.51-5-1.5c-1.82-1.14-3.243-2.61-4.535-4.088C3.166 13.98 3 13.01 3 12s.166-1.98.465-2.912C3.757 7.86 5.18 6.39 7 5.25c1.79-.99 3.76-1.5 5-1.5s3.21.51 5 1.5c1.82 1.14 3.243 2.61 4.535 4.088C20.834 10.02 21 10.99 21 12Z" />
+  </svg>
+);
 import { useIntersect } from '../hooks/useIntersect'; // Assuming GithubIcon is exported from Icons.tsx
 
 interface TeamMember {
@@ -176,6 +183,31 @@ const TeamSection: React.FC = () => {
                   {tech}
                 </span>
               ))}
+            </div>
+
+            {/* Federal Vendor Credentials */}
+            <div className="mt-6">
+              <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-4">Federal Vendor Credentials</p>
+              <div className="flex flex-col gap-3 items-start"> {/* Changed to flex-col and items-start for stacked, left-aligned cards */}
+                <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30 shadow-sm">
+                  <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                  <span className="text-xs font-mono text-indigo-300 tracking-wide">
+                    SAM.gov Registered Entity
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30 shadow-sm">
+                  <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                  <span className="text-xs font-mono text-indigo-300 tracking-wide">
+                    UEI: F1TGDDS92AK3
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30 shadow-sm">
+                  <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                  <span className="text-xs font-mono text-indigo-300 tracking-wide">
+                    CAGE Code: Pending Annual Update
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Partners */}
