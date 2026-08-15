@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { MagicWandIcon, LightbulbIcon, ZapIcon } from './Icons';
 import Image from 'next/image';
 import ScrollToServices from './ScrollToServices';
 
@@ -7,7 +10,6 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = () => {
-
   return (
     <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="relative z-0 pt-20 pb-12 md:pt-48 md:pb-36 overflow-hidden" style={{ background: 'rgb(15, 23, 42)' }}>
 
@@ -33,32 +35,29 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
         {/* Status Badge */}
         <div
-          className="mb-6 inline-flex items-center gap-2 rounded border border-white/10 bg-white/5 backdrop-blur-md px-4 py-1.5 text-xs font-mono font-semibold uppercase tracking-widest text-indigo-300"
+          className="mb-6 inline-flex items-center gap-2 rounded-lg border border-indigo-500/30 bg-indigo-950/20 border border-indigo-500/30 shadow-sm px-4 py-1.5 text-xs font-mono font-semibold uppercase tracking-widest text-indigo-300"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
         >
           <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-          WEB ENGINEERING & AI OPTIMIZATION PLATFORM
+          System Status: Online & Ready
         </div>
 
         {/* H1 */}
         <h1
           id="home-heading"
-          className="mb-6 text-[4.25rem] sm:text-[5rem] md:text-[6rem] lg:text-[9rem] text-white leading-[0.9] opacity-90"
+          className="mb-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-tight opacity-90"
           style={{ letterSpacing: '-0.04em', animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
         >
-          <span className="font-light text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-400 to-white">
-            Introducing <br/>
+          <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-400 to-white">
+            Web Engineering & AI Optimization
           </span>
-          <span className="font-black">Pivot Quest</span>
-
-          <span className="sr-only"> by Majestik Magik — Web Engineering & AI Optimization Services</span>
         </h1>
 
         {/* Subheadline */}
         <p id="home-desc" className="mx-auto mb-10 text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
         >
-          High-performance web engineering and custom AI integrations built to drive revenue and scale SMBs fast.
+          Boost Core Web Vitals to 90+ & Optimize Site Messaging in 72 Hours.
         </p>
 
         {/* Dual CTA */}
@@ -66,12 +65,12 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards' }}
         >
           <a
-            href="https://app.majestikmagik.dev/sign-up"
+            href="https://book.stripe.com/eVq00j5G66OGaS2bFRdEs07"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white hover:bg-slate-100 text-slate-900 font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.25)]"
           >
-            Get Started Free
+            Request an Engineering Audit
           </a>
           <ScrollToServices />
         </div>
@@ -84,55 +83,64 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           <div className="absolute -inset-2 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-2xl blur-2xl opacity-50 pointer-events-none z-0" />
 
           {/* Browser chrome frame */}
-          <div className="hidden md:block group relative z-10 border border-[#334155] rounded-xl overflow-hidden shadow-[0_0_60px_rgba(99,102,241,0.1)] bg-[#1e293b] transition-all duration-300 hover:border-indigo-500/30 hover:shadow-[0_0_80px_rgba(99,102,241,0.2)]">
+          <div className="group relative z-10 border border-[#334155] rounded-xl overflow-hidden shadow-[0_0_60px_rgba(99,102,241,0.1)] bg-[#1e293b] transition-all duration-300 hover:border-indigo-500/30 hover:shadow-[0_0_80px_rgba(99,102,241,0.2)]">
 
             {/* Browser top bar */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-[#0f172a] border-b border-[#334155]">
+            <div className="hidden md:flex items-center gap-2 px-4 py-3 bg-[#0f172a] border-b border-[#334155]">
               <span className="w-3 h-3 rounded-full bg-[#334155]" />
               <span className="w-3 h-3 rounded-full bg-[#334155]" />
               <span className="w-3 h-3 rounded-full bg-[#334155]" />
               <div className="ml-4 flex-1 bg-[#1e293b] rounded px-3 py-1 text-xs font-mono text-slate-500 text-left">
-                app.majestikmagik.dev
+                https://majestikmagikai.github.io/father-figure-nutrition/product/15-day-fresh-start-cleanse
               </div>
             </div>
 
             {/* Glass reflection */}
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-indigo-300/5 to-white/5 pointer-events-none z-30" />
 
-            <Image
-              src="/img/screenshot_mm_ai.webp"
-              alt="Pivot Quest Dashboard Screenshot"
-              width={1920}
-              height={1080}
-              priority
-              fetchPriority="high"
-              loading="eager"
-              className="w-full h-auto transition-transform"
-              sizes="(max-width: 1024px) 960px, 1200px"
-            />
+            {/* Static Image Preview */}
+            <div className="relative aspect-[16/9] bg-slate-950 overflow-hidden">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster="/img/screenshot_father_figure_nutrition.webp"
+                className="w-full h-full object-cover"
+              >
+                <source
+                  src="/videos/fatherfigurenutrition_project.webm"
+                  type="video/webm"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
 
         {/* Feature Chips */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-          {['Powered by Majestik Core', 'Sub-Second Latency', 'Contextual Intelligence'].map((chip) => (
-            <span
-              key={chip}
-              className="text-xs font-mono text-slate-400 bg-white/5 border border-white/10 px-3 py-1.5 rounded tracking-wide backdrop-blur-sm"
-            >
-              {chip}
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
+            <MagicWandIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+            <span className="text-xs font-mono text-indigo-300 tracking-wide">
+              Core Web Vitals Optimization
             </span>
-          ))}
-        </div>
+          </div>
+          <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
+            <ZapIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+            <span className="text-xs font-mono text-indigo-300 tracking-wide">
+              Sub-Second Latency
+            </span>
+          </div>
+          <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
+            <LightbulbIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+            <span className="text-xs font-mono text-indigo-300 tracking-wide">
+              GEO-Targeted AI Content Layer
+            </span>
+          </div>
+        </div>        
 
-        <p className="mt-4 text-sm text-slate-400 tracking-wide">
-          Built for founders, by a solo founder
-        </p>
-
-        <p className="sr-only">
-          Pivot Quest is a web engineering and AI optimization platform for businesses that need results fast.
-        </p>
-
+        <p className="sr-only">Majestik Magik provides on-demand web engineering and AI optimization services to boost performance and clarify messaging for businesses.</p>
       </div>
     </section>
   );

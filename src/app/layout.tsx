@@ -57,7 +57,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/img/screenshot_mm_ai.webp"
+          href="/videos/screenshot_father_figure_nutrition.webp"
           type="image/webp"
           media="(min-width: 768px)"
         />
