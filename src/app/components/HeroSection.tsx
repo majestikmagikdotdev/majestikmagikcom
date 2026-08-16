@@ -105,8 +105,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
                 loop
                 muted
                 playsInline
-                preload="none"
-                poster="/img/screenshot_father_figure_nutrition.webp"
+                preload="none"                
                 className="w-full h-full object-cover"
               >
                 <source

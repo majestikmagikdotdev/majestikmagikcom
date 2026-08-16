@@ -93,7 +93,7 @@ const TestimonialsSection = () => {
           {testimonials.map((t, index) => (
             <article
               key={`${t.name}-${index}`}
-              className="testimonials-card-hover-animate flex h-full flex-col rounded-lg bg-white p-4 md:p-6 border border-slate-300 hover:border-indigo-500 hover:shadow-[0_4px_32px_rgba(67,56,202,0.15)] hover:scale-[1.12] hover:-translate-y-1 transition-all duration-700"
+              className="testimonials-card-hover-animate flex h-full flex-col rounded-lg bg-white p-4 md:p-6 border border-slate-300 hover:border-indigo-500 hover:shadow-[0_4px_32px_rgba(67,56,202,0.15)] hover:scale-[1.05] hover:-translate-y-1 transition-all duration-700"
               style={{ ...fadeUp, transitionDelay: `${0.3 + index * 0.1}s` }}
             >
               <header className="flex items-center mb-4">
