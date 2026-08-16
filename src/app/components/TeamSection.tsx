@@ -71,7 +71,7 @@ const TeamSection: React.FC = () => {
         {/* Header Section */}
         <div className="mb-8 text-center mx-auto">
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
-            Human Architecture
+            People Behind Majestik Magik 
           </span>
 
           <h2 id="team-heading" className="flex flex-wrap items-center justify-center mb-6 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.04em', ...fadeUp }}>
@@ -140,10 +140,11 @@ const TeamSection: React.FC = () => {
               </div>
               <p className="flex-grow px-2 mb-6 text-md text-slate-400 leading-relaxed font-sans">
                 {member.bio}
-                <Link href={member.url} className="inline-flex items-center mt-2 font-mono text-xs text-indigo-300 bg-indigo-400/30 hover:bg-indigo-300/30 border border-indigo-400/30 px-3 py-1.5 rounded-lg transition-colors duration-200">
-                  Read Full Protocol
+                <Link href={member.url} className="inline-flex items-center mt-4 font-mono text-sm text-indigo-300 hover:text-indigo-100 transition-colors px-2 py-1.5 duration-500">
+                  Read More
                 </Link>
               </p>
+
               <div className="flex mt-auto space-x-4 border-t border-slate-900/80 pt-4 w-full justify-center">
                 {member.social.map((socialLink, i) => (
                   <a
@@ -167,13 +168,13 @@ const TeamSection: React.FC = () => {
             <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155] self-start">
               Tech Stack
             </span>
-            <h3 className="text-2xl font-bold text-slate-100 mb-2">Core Competencies</h3>
+            <h3 className="font-bold text-slate-100 mb-2">Core Competencies</h3>
             <p className="text-sm text-slate-400 font-sans mb-6">Languages, frameworks, and platforms used to ship production-grade systems.</p>
             <div className="flex flex-wrap gap-2">
               {[
                 'Next.js', 'React', 'React 3D', 'Three.js', 'WebGL', 'TypeScript', 'Node.js', 'Python',
                 'Tailwind CSS', 'PostgreSQL', 'Supabase', 'AWS', 'Google Cloud', 'Cloudflare',
-                'Stripe Webhooks & API', 'GraphQL', 'Docker', 'Git', 'GitHub Actions', 'Vercel',
+                'Stripe Webhooks', 'GraphQL', 'Docker', 'Git', 'GitHub Actions', 'Vercel',
                 'WordPress', 'Shopify', 'Gemini AI', 'Claude AI'
               ].map((tech) => (
                 <span
@@ -187,36 +188,26 @@ const TeamSection: React.FC = () => {
 
             {/* Federal Vendor Credentials */}
             <div className="mt-6">
-              <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-4">Federal Vendor Credentials</p>
+              <h3 className="font-bold text-slate-100 mb-2">Federal Vendor Credentials</h3>
               <div className="flex flex-col gap-3 items-start"> {/* Changed to flex-col and items-start for stacked, left-aligned cards */}
-                <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30 shadow-sm">
+                <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 shadow-sm duration-200 transition-colors">
                   <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
                   <span className="text-xs font-mono text-indigo-300 tracking-wide">
                     SAM.gov Registered Entity
                   </span>
                 </div>
-                <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30 shadow-sm">
+                <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 shadow-sm duration-200 transition-colors">
                   <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
                   <span className="text-xs font-mono text-indigo-300 tracking-wide">
                     UEI: F1TGDDS92AK3
                   </span>
                 </div>
-                <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30 shadow-sm">
+                <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 shadow-sm duration-200 transition-colors">
                   <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
                   <span className="text-xs font-mono text-indigo-300 tracking-wide">
                     CAGE Code: Pending Annual Update
                   </span>
                 </div>
-              </div>
-            </div>
-
-            {/* Partners */}
-            <div className="mt-auto pt-6 border-t border-slate-700/50">
-              <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-4">Partners & Programs</p>
-              <div className="flex flex-wrap items-center gap-6">
-                <Image src="/img/partners/aws-activate-logo_white.webp" alt="AWS Activate" width={100} height={36} className="opacity-60 hover:opacity-100 transition-opacity" />
-                <Image src="/img/partners/wpengine_member-badge.webp" alt="WP Engine Member" width={60} height={21} className="opacity-60 hover:opacity-100 transition-opacity" />
-                <Image src="/img/partners/gcp-logo.webp" alt="Google Cloud" width={100} height={36} className="opacity-60 hover:opacity-100 transition-opacity" />
               </div>
             </div>
           </div>
