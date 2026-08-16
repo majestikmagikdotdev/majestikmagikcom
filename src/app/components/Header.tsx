@@ -119,7 +119,7 @@ const Header: React.FC<HeaderProps> = ({
         {/* Desktop Navigation */}
         <nav
           ref={navRef}
-          className="hidden xl:flex items-center space-x-8 relative py-2"
+          className="hidden xl:flex items-center space-x-8 relative py-4"
         >
           {/* Animated Hover Line Tracker with dynamic stretching */}
           <div
@@ -186,7 +186,7 @@ const Header: React.FC<HeaderProps> = ({
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
         <div className="xl:hidden absolute top-full left-0 right-0 bg-[#0f172a] border-b border-[#1e2130] shadow-2xl z-40" id="mobile-menu">
-          <div className="px-4 pt-2 pb-6 space-y-2">
+          <div className="px-4 pt-4 pb-8 space-y-4">
             {navItems.map((item) => (
               item.external ? (
                 <a

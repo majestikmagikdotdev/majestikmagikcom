@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Chatbot from './Chatbot';
+import { ArrowUpIcon } from './Icons'; // Import the new icon
 
 interface ChatMessage {
   id: string;
@@ -21,12 +22,31 @@ export default function ChatbotController() {
   const [isChatLoading, setIsChatLoading] = useState(false);
   const [chatError, setChatError] = useState<string | null>(null);
   const [isAIInitialized, setIsAIInitialized] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false); // State for Back to Top button visibility
   const chatMessagesEndRef = useRef<HTMLDivElement | null>(null);
   const historyRef = useRef<VertexHistoryEntry[]>([]);
 
   useEffect(() => {
     chatMessagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chatMessages]);
+
+  // Effect for Back to Top button visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) { // Show button after scrolling 300px down
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleToggleChat = () => {
     const opening = !isChatOpen;
@@ -88,6 +108,20 @@ export default function ChatbotController() {
   };
 
   return (
+    <>
+      {/* Back to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-24 right-6 border-2 border-indigo-300/10 bg-indigo-400/10 hover:bg-indigo-500/30 text-indigo-400 p-4 rounded-full transform hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-[#07080e]
+          ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+        aria-label="Back to top"
+        type="button"
+      >
+        <ArrowUpIcon className="w-6 h-6" />
+      </button>
+
+      {/* Chatbot Component */}
+
     <Chatbot
       isChatOpen={isChatOpen}
       handleToggleChat={handleToggleChat}
@@ -100,5 +134,6 @@ export default function ChatbotController() {
       isAIInitialized={isAIInitialized}
       chatMessagesEndRef={chatMessagesEndRef as React.RefObject<HTMLDivElement>}
     />
+    </>
   );
 }

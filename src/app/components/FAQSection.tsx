@@ -79,7 +79,7 @@ const FAQSection: React.FC = () => {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between px-5 py-4 text-left text-slate-200 font-mono text-sm font-semibold tracking-wide hover:text-indigo-300 transition-colors duration-200"
+                className="w-full flex items-center cursor-pointer justify-between px-5 py-4 text-left text-slate-200 font-mono text-sm font-semibold tracking-wide hover:text-indigo-300 transition-colors duration-200"
                 aria-expanded={openIndex === i}
                 aria-controls={`faq-answer-${i}`}
               >

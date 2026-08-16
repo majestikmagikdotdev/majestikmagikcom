@@ -45,7 +45,7 @@ const TeamSection: React.FC = () => {
   const fadeUp = {
     opacity: intersected ? 1 : 0,
     transform: intersected ? 'translateY(0)' : 'translateY(30px)',
-    transition: 'opacity 2s ease-in, transform 2s cubic-bezier(0.16, 1, 0.3, 1)',
+    transition: 'opacity 2s ease-in, transform 1s cubic-bezier(0.16, 1, 0.3, 1)',
   };
 
   return (
