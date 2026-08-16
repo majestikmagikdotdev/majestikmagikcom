@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MagicWandIcon, LightbulbIcon, ZapIcon } from './Icons';
 import ScrollToServices from './ScrollToServices';
 
@@ -9,6 +9,33 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = () => {
+  const initialUrl = "https://majestikmagikai.github.io/father-figure-nutrition/";
+  const targetUrl = "https://majestikmagikai.github.io/father-figure-nutrition/product/15-day-fresh-start-cleanse";
+  const [displayedUrl, setDisplayedUrl] = useState(initialUrl);
+
+  useEffect(() => {
+    let changeToTargetTimer: NodeJS.Timeout;
+    let resetToInitialTimer: NodeJS.Timeout;
+
+    const startUrlCycle = () => {
+      setDisplayedUrl(initialUrl); // Ensure it starts with the initial URL
+
+      changeToTargetTimer = setTimeout(() => {
+        setDisplayedUrl(targetUrl);
+      }, 30000); // Change to target URL after 30 seconds
+
+      resetToInitialTimer = setTimeout(() => {
+        startUrlCycle(); // Reset to initial URL and restart the cycle after 55 seconds
+      }, 55000);
+    };
+
+    startUrlCycle(); // Start the first cycle
+
+    return () => { // Cleanup function to clear timers when component unmounts
+      clearTimeout(changeToTargetTimer); 
+      clearTimeout(resetToInitialTimer); 
+    }; 
+  }, []);
   return (
     <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="relative z-0 pt-20 pb-12 md:pt-48 md:pb-36 overflow-hidden" style={{ background: 'rgb(15, 23, 42)' }}>
 
@@ -91,7 +118,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
               <span className="w-3 h-3 rounded-full bg-[#334155]" />
               <span className="w-3 h-3 rounded-full bg-[#334155]" />
               <div className="ml-4 flex-1 bg-[#1e293b] rounded px-3 py-1 text-xs font-mono text-slate-500 text-left">
-                https://majestikmagikai.github.io/father-figure-nutrition/
+                {displayedUrl}
               </div>
             </div>
 
