@@ -91,7 +91,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
               <span className="w-3 h-3 rounded-full bg-[#334155]" />
               <span className="w-3 h-3 rounded-full bg-[#334155]" />
               <div className="ml-4 flex-1 bg-[#1e293b] rounded px-3 py-1 text-xs font-mono text-slate-500 text-left">
-                https://majestikmagikai.github.io/father-figure-nutrition/product/15-day-fresh-start-cleanse
+                https://majestikmagikai.github.io/father-figure-nutrition/
               </div>
             </div>
 
