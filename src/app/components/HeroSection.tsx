@@ -7,35 +7,7 @@ import ScrollToServices from './ScrollToServices';
 interface HeroSectionProps {
   onLearnMore?: () => void;
 }
-
 const HeroSection: React.FC<HeroSectionProps> = () => {
-  const initialUrl = "https://majestikmagikai.github.io/father-figure-nutrition/";
-  const targetUrl = "https://majestikmagikai.github.io/father-figure-nutrition/product/15-day-fresh-start-cleanse";
-  const [displayedUrl, setDisplayedUrl] = useState(initialUrl);
-
-  useEffect(() => {
-    let changeToTargetTimer: NodeJS.Timeout;
-    let resetToInitialTimer: NodeJS.Timeout;
-
-    const startUrlCycle = () => {
-      setDisplayedUrl(initialUrl); // Ensure it starts with the initial URL
-
-      changeToTargetTimer = setTimeout(() => {
-        setDisplayedUrl(targetUrl);
-      }, 30000); // Change to target URL after 30 seconds
-
-      resetToInitialTimer = setTimeout(() => {
-        startUrlCycle(); // Reset to initial URL and restart the cycle after 55 seconds
-      }, 55000);
-    };
-
-    startUrlCycle(); // Start the first cycle
-
-    return () => { // Cleanup function to clear timers when component unmounts
-      clearTimeout(changeToTargetTimer); 
-      clearTimeout(resetToInitialTimer); 
-    }; 
-  }, []);
   return (
     <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="relative z-0 pt-20 pb-12 md:pt-48 md:pb-36 overflow-hidden" style={{ background: 'rgb(15, 23, 42)' }}>
 
@@ -84,7 +56,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <p id="home-desc" className="mx-auto mb-10 text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
         >
-          Boost Core Web Vitals to 90+ & Optimize Site Messaging in 72 Hours.
+          Boost Core Web Vitals SEO score to 90%+ & Optimize Site Messaging in 72 Hours.
         </p>
 
         {/* Dual CTA */}
@@ -101,50 +73,6 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           </a>
           <ScrollToServices />
         </div>
-
-        {/* Dashboard Preview */}
-        <div className="w-full mx-auto relative z-10">
-
-          {/* Aurora glow behind mockup */}
-          <div className="absolute -inset-2 bg-gradient-to-r from-violet-600/20 via-indigo-500/20 to-purple-600/20 rounded-3xl blur-3xl opacity-75 animate-[pulse_6s_ease-in-out_infinite] pointer-events-none z-0" />
-          <div className="absolute -inset-2 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-2xl blur-2xl opacity-50 pointer-events-none z-0" />
-
-          {/* Browser chrome frame */}
-          <div className="group relative z-10 border border-[#334155] rounded-xl overflow-hidden shadow-[0_0_60px_rgba(99,102,241,0.1)] bg-[#1e293b] transition-all duration-300 hover:border-indigo-500/30 hover:shadow-[0_0_80px_rgba(99,102,241,0.2)]">
-
-            {/* Browser top bar */}
-            <div className="hidden md:flex items-center gap-2 px-4 py-3 bg-[#0f172a] border-b border-[#334155]">
-              <span className="w-3 h-3 rounded-full bg-[#334155]" />
-              <span className="w-3 h-3 rounded-full bg-[#334155]" />
-              <span className="w-3 h-3 rounded-full bg-[#334155]" />
-              <div className="ml-4 flex-1 bg-[#1e293b] rounded px-3 py-1 text-xs font-mono text-slate-500 text-left">
-                {displayedUrl}
-              </div>
-            </div>
-
-            {/* Glass reflection */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-indigo-300/5 to-white/5 pointer-events-none z-30" />
-
-            {/* Static Image Preview */}
-            <div className="relative aspect-[16/9] bg-slate-950 overflow-hidden">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="none"                
-                className="w-full h-full object-cover"
-              >
-                <source
-                  src="/videos/fatherfigurenutrition_project.webm"
-                  type="video/webm"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </div>
-
         {/* Feature Chips */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
