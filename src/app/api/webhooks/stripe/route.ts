@@ -43,6 +43,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
+  try {
   switch (event.type) {
     case 'payment_intent.succeeded':
     case 'checkout.session.completed':
@@ -148,4 +149,8 @@ export async function POST(req: NextRequest) {
   }
 
   return NextResponse.json({ received: true });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
 }
