@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { MagicWandIcon, LightbulbIcon, ZapIcon } from './Icons';
 import ScrollToServices from './ScrollToServices';
 
@@ -62,12 +63,12 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <div className="mb-10 md:mb-28 flex flex-col sm:flex-row items-center justify-center gap-4"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards' }}
         >
-          <a
+          <Link
             href="/#services-pricing"
             className="inline-block bg-white hover:bg-slate-100 text-slate-900 font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.25)]"
           >
             See What We Fix
-          </a>
+          </Link>
           <ScrollToServices />
         </div>
 
