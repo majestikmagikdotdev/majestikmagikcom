@@ -3,6 +3,7 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
@@ -188,7 +189,7 @@ function CheckoutForm({ price }: { serviceName: string; price: string }) {
       </button>
 
       <div className="flex items-center justify-center gap-3 pt-1">
-        <img src="/img/Stripe_Logo,_revised_2016.svg.png" alt="Powered by Stripe" className="h-5 opacity-80" />
+        <Image src="/img/Stripe_Logo,_revised_2016.svg.png" alt="Powered by Stripe" width={50} height={20} className="opacity-80" />
         <span className="text-slate-600">|</span>
         <span className="flex items-center gap-1 text-xs text-slate-500 font-mono">🔒 SSL encrypted</span>
       </div>

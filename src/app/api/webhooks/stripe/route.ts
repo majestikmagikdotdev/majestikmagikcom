@@ -36,11 +36,12 @@ export async function POST(req: NextRequest) {
       let sessionId: string;
 
       if (event.type === 'payment_intent.succeeded') {
-        const intent = event.data.object as Stripe.PaymentIntent;
-        const charge = intent.latest_charge
-          ? await stripe.charges.retrieve(intent.latest_charge as string)
-          : null;
-        customerEmail = intent.receipt_email ?? charge?.billing_details?.email;
+        const intentRaw = event.data.object as Stripe.PaymentIntent;
+        const intent = await stripe.paymentIntents.retrieve(intentRaw.id, {
+          expand: ['latest_charge'],
+        });
+        const charge = intent.latest_charge as Stripe.Charge | null;
+        customerEmail = charge?.billing_details?.email ?? null;
         customerName = charge?.billing_details?.name ? sanitize(charge.billing_details.name) : null;
         serviceName = sanitize(intent.metadata?.serviceName ?? 'Service');
         amountTotal = intent.amount_received ? intent.amount_received / 100 : null;
