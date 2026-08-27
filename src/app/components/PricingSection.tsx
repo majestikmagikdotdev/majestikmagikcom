@@ -201,7 +201,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
                 <div className="mt-6">
                   <button
                     onClick={() => handleCheckout(m)}
-                    className="inline-flex w-full items-center justify-center rounded px-4 py-2.5 text-sm font-mono font-bold uppercase tracking-wider text-indigo-700 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 hover:border-indigo-300 transition-all duration-200"
+                    className="inline-flex w-full items-center justify-center rounded px-4 py-2.5 text-sm font-mono font-bold uppercase tracking-wider text-indigo-700 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 hover:border-indigo-300 transition-all duration-200 cursor-pointer"
                   >
                     Buy Now
                   </button>
