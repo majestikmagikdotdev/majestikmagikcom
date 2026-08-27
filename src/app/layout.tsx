@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://majestikmagik.dev',
   },
-  title: 'Majestik Magik — Web Engineering & AI Optimization Services',
+  title: 'Majestik Magik — Web Engineering, AI Visibility & Digital Systems',
   description:
-    'High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.',
+    'We build platforms, fix broken systems, and get small to mid-size businesses found online — by search engines and AI alike. Web engineering, AI visibility, and digital systems shipped within 24–72 hours.',
   authors: [{ name: 'Majestik Magik' }],
   manifest: '/site.webmanifest',
   icons: {
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     apple: '/img/majestikmagik_logo_indigo-64x64.webp',
   },
   openGraph: {
-    title: 'Majestik Magik — Web Engineering & AI Optimization Services',
+    title: 'Majestik Magik — Web Engineering, AI Visibility & Digital Systems',
     description:
-      'High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.',
+      'We build platforms, fix broken systems, and get small to mid-size businesses found online — by search engines and AI alike. Shipped within 24–72 hours.',
     url: 'https://majestikmagik.dev',
     siteName: 'Majestik Magik',
     images: [
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Majestik Magik — Web Engineering & AI Optimization Services',
+    title: 'Majestik Magik — Web Engineering, AI Visibility & Digital Systems',
     description:
-      'High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.',
+      'We build platforms, fix broken systems, and get small to mid-size businesses found online — by search engines and AI alike. Shipped within 24–72 hours.',
     images: ['/img/screenshot_mm_main.webp'],
   },
 };
@@ -80,8 +80,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebPage",
               "@id": "https://majestikmagik.dev",
-              "name": "Majestik Magik — Web Engineering & AI Optimization Services",
-              "description": "High-impact web engineering, Core Web Vitals optimization, and AI visibility services for founders and businesses. Shipped within 24–72 hours.",
+              "name": "Majestik Magik — Web Engineering, AI Visibility & Digital Systems",
+              "description": "We build platforms, fix broken systems, and get small to mid-size businesses found online — by search engines and AI alike. Shipped within 24–72 hours.",
               "speakable": {
                 "@type": "SpeakableSpecification",
                 "cssSelector": [
@@ -89,7 +89,7 @@ export default function RootLayout({
                   "#services-heading",
                   "#micro-services-heading",
                   "#team-heading",
-                  "[aria-label='Majestik Magik — Web Engineering & AI Optimization Services']"
+                  "[aria-label='Majestik Magik — Web Engineering, AI Visibility & Digital Systems']"
                 ]
               },
               "mainEntity": {

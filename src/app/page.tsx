@@ -15,7 +15,7 @@ const ChatbotController = dynamic(() => import('./components/ChatbotController')
 export default function App() {
   return (
     <>
-      <main aria-label="Majestik Magik — Web Engineering & AI Optimization Services">
+      <main aria-label="Majestik Magik — Web Engineering, AI Visibility & Digital Systems">
         {/* 1. Hook — who we are and what we do */}
         <HeroSection />
         <AIContentLayer />

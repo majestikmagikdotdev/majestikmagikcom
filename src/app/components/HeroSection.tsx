@@ -33,11 +33,11 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
         {/* Status Badge */}
         <div
-          className="mb-6 inline-flex items-center gap-2 rounded-lg border border-indigo-500/30 bg-indigo-950/20 border border-indigo-500/30 shadow-sm px-4 py-1.5 text-xs font-mono font-semibold uppercase tracking-widest text-indigo-300"
+          className="mb-6 inline-flex items-center gap-2 rounded-lg border border-indigo-500/30 bg-indigo-950/20 shadow-sm px-4 py-1.5 text-xs font-mono font-semibold uppercase tracking-widest text-indigo-300"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
         >
           <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-          System Status: Online & Ready
+          Serving Small &amp; Mid-Size Businesses
         </div>
 
         {/* H1 */}
@@ -47,16 +47,15 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           style={{ letterSpacing: '-0.04em', animation: 'fadeUp 3s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
         >
           <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-50 via-indigo-500 to-white" style={{ letterSpacing: '-0.06em' }}>
-            Web Engineering <br /> & AI Optimization
-          </span> 
-         
+            Your Business,{' '}<br />Built to Compete
+          </span>
         </h1>
 
         {/* Subheadline */}
-        <p id="home-desc" className="mx-auto mb-10 text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
+        <p id="home-desc" className="mx-auto mb-10 max-w-2xl text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
         >
-          Boost Core Web Vitals SEO score to 90%+ & Optimize Site Messaging in 72 Hours.
+          We build platforms, fix broken systems, and get your business found — by search engines and AI alike. Shipped within 72 hours.
         </p>
 
         {/* Dual CTA */}
@@ -64,38 +63,31 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards' }}
         >
           <a
-            href="https://book.stripe.com/eVq00j5G66OGaS2bFRdEs07"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#services-pricing"
             className="inline-block bg-white hover:bg-slate-100 text-slate-900 font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.25)]"
           >
-            Request an Engineering Audit
+            See What We Fix
           </a>
           <ScrollToServices />
         </div>
-        {/* Feature Chips */}
+
+        {/* Trust Chips */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
-            <MagicWandIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="text-xs font-mono text-indigo-300 tracking-wide">
-              Core Web Vitals Optimization
-            </span>
+            <ZapIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+            <span className="text-xs font-mono text-indigo-300 tracking-wide">Delivered in 24–72 Hours</span>
           </div>
           <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
-            <ZapIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="text-xs font-mono text-indigo-300 tracking-wide">
-              Sub-Second Latency
-            </span>
+            <MagicWandIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+            <span className="text-xs font-mono text-indigo-300 tracking-wide">No Retainers. Pay Per Project.</span>
           </div>
           <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
             <LightbulbIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="text-xs font-mono text-indigo-300 tracking-wide">
-              GEO-Targeted AI Content Layer
-            </span>
+            <span className="text-xs font-mono text-indigo-300 tracking-wide">Visible to Google &amp; AI Search</span>
           </div>
         </div>
 
-        <p className="sr-only">Majestik Magik provides on-demand web engineering and AI optimization services to boost performance and clarify messaging for businesses.</p>
+        <p className="sr-only">Majestik Magik builds platforms and digital systems for small and mid-size businesses. Web engineering, AI visibility, and performance optimization shipped within 72 hours.</p>
       </div>
     </section>
   );
