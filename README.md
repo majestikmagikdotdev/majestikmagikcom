@@ -25,13 +25,13 @@ The application exposes an instantaneous, transactional API/Stripe checkout inte
 
 | Service Node | Engineering Scope | Base Entry |
 | :--- | :--- | :--- |
-| **AI Code Extraction & Frontend Quick-Fix** | Clean export of front-end assets & code off no-code platforms. Fix UI rendering, CSS breakages, broken links, and deploy static front-end to Vercel/Netlify/Supabase/Cloudflare with custom domain DNS setup. | `$200` |
-| **Shopify Email & Notification Engine** | Fix broken layout logic, patch dynamic variables, and optimize transaction notifications or marketing email templates. | `$600` |
-| **DNS, SPF, DKIM & Deliverability Setup** | Resolve MX, TXT, SPF, and DKIM configuration issues to eliminate email spam flagging and repair domain mapping failures. | `$250` |
-| **Core Web Vitals & Speed Overhaul** | Maximize Core Web Vitals (LCP, INP, CLS) and crush mobile latency by purging rendering bloat and optimizing script hydration for better data performance. | `$1,500` |
-| **Landing Page Redesign & Engineering** | Upgrade static websites into high-fidelity, responsive interfaces powered by fluid web animations and seamless full-stack API integrations to engage users and convert visitors. | `$3,000` |
-| **Technical GEO & AI Visibility Audit** | Audit platform performance and inject optimized graph schema to ensure real-time AI engines like ChatGPT Search and Perplexity crawl, cite, and recommend your site. | `$2,500` |
-| **Contact Form & Webhook Debugging** | Debug client-side input validation, fix broken Webhook routing pipelines, and restore secure lead-capture form deliveries. | `$150` |
+| **AI Code Extraction & Frontend Quick-Fix** | AI-assisted parsing and scraping of complex codebases into clean deployable assets. Fix UI rendering, CSS breakages, broken routing, and deploy with custom domain DNS setup. | `$1,850` |
+| **Shopify Email & Notification Engine** | Custom transactional Liquid template coding, automated flow logic, dynamic variable patching, and high-converting marketing email design. | `$1,250` |
+| **DNS, SPF, DKIM & Deliverability Setup** | Full domain reputation setup with DMARC alignment, spam flagging elimination, and inbox warm-up strategy. | `$600` |
+| **Core Web Vitals & Speed Overhaul** | Guaranteed 90+ Lighthouse/PageSpeed scores, server-side caching, image optimization pipeline, and script execution overhaul. | `$2,200` |
+| **Landing Page Redesign & Engineering** | Custom Next.js/Tailwind code with elite animations, sub-second load times, full-stack API integrations, and production deployment. | `$4,500` |
+| **Technical GEO & AI Visibility Audit** | Cutting-edge Generative Engine Optimization ensuring your brand ranks inside ChatGPT, Perplexity, and Claude answers. | `$3,500` |
+| **Contact Form & Webhook Debugging** | Enterprise-grade API, payload, and webhook error-handling audit with end-to-end verification and secure lead-capture restoration. | `$450` |
 ---
 
 ## 🧠 Semantic Engine Deployment (LLM Scraper Target)

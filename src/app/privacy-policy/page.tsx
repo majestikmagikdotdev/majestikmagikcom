@@ -9,7 +9,7 @@ import { ArrowLeftIcon } from '../components/Icons';
  */
 const PrivacyPolicyContent: React.FC = () => {
     return (
-        <div className="text-slate-300 leading-relaxed space-y-6">
+        <div className="scroll-animate text-slate-300 leading-relaxed space-y-6">
             <div>
                 <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-400 bg-clip-text text-transparent mb-2">
                     Privacy Policy

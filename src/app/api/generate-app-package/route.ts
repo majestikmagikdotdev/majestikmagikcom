@@ -14,6 +14,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const allowedDatabaseTypes = ['postgresql', 'mysql'];
+    if (!allowedDatabaseTypes.includes(databaseType)) {
+      return NextResponse.json(
+        { error: 'Invalid databaseType. Must be postgresql or mysql' },
+        { status: 400 }
+      );
+    }
+
     // Create ZIP file with project structure
     const zip = new JSZip();
     

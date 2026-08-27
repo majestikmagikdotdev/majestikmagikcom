@@ -11,7 +11,6 @@ const ShieldCheckIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.01-.166 1.98-.465 2.912C20.243 16.14 18.82 17.61 17 18.75c-1.79.99-3.76 1.5-5 1.5s-3.21-.51-5-1.5c-1.82-1.14-3.243-2.61-4.535-4.088C3.166 13.98 3 13.01 3 12s.166-1.98.465-2.912C3.757 7.86 5.18 6.39 7 5.25c1.79-.99 3.76-1.5 5-1.5s3.21.51 5 1.5c1.82 1.14 3.243 2.61 4.535 4.088C20.834 10.02 21 10.99 21 12Z" />
   </svg>
 );
-import { useIntersect } from '../hooks/useIntersect'; // Assuming GithubIcon is exported from Icons.tsx
 
 interface TeamMember {
   name: string;
@@ -41,20 +40,13 @@ const teamMembers: TeamMember[] = [
 ];
 
 const TeamSection: React.FC = () => {
-  const { ref, intersected } = useIntersect();
-  const fadeUp = {
-    opacity: intersected ? 1 : 0,
-    transform: intersected ? 'translateY(0)' : 'translateY(30px)',
-    transition: 'opacity 2s ease-in, transform 1s cubic-bezier(0.16, 1, 0.3, 1)',
-  };
 
   return (
     <section
-      ref={ref}
       id="about"
       aria-labelledby="team-heading"
       aria-describedby="team-desc"
-      className="relative z-0 py-16 md:py-28 overflow-hidden"
+      className="scroll-animate relative z-0 py-16 md:py-28"
       style={{ background: "rgb(15, 23, 42)" }}
     >
 
@@ -74,7 +66,7 @@ const TeamSection: React.FC = () => {
             People Behind Majestik Magik 
           </span>
 
-          <h2 id="team-heading" className="flex flex-wrap items-center justify-center mb-6 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.04em', ...fadeUp }}>
+          <h2 id="team-heading" className="flex flex-wrap items-center justify-center mb-6 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.04em' }}>
             <Image
               src="https://www.svgrepo.com/show/500929/magic.svg"
               className="lazy-logo w-12 h-12 mr-3 filter invert opacity-80"
@@ -89,13 +81,13 @@ const TeamSection: React.FC = () => {
             </span>
           </h2>
 
-          <p id="team-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed" style={{ ...fadeUp, transitionDelay: '0.2s' }}>
+          <p id="team-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed">
             The creative mind and tech wizard turning your digital dreams into production-ready infrastructure.
           </p>
         </div>
 
         {/* Stats Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" style={{ ...fadeUp, transitionDelay: '0.3s' }}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[
             { value: '10+', label: 'Years Experience' },
             { value: '50+', label: 'Projects Shipped' },
@@ -111,7 +103,7 @@ const TeamSection: React.FC = () => {
         </div>
 
         {/* Profile Card + Tech Stack */}
-        <div className="grid gap-6 md:grid-cols-2" style={{ ...fadeUp, transitionDelay: '0.4s' }}>
+        <div className="grid gap-6 md:grid-cols-2">
           {teamMembers.map((member, index) => (
             <div
               key={member.name}
@@ -164,7 +156,7 @@ const TeamSection: React.FC = () => {
           ))}
 
           {/* Tech Stack Card */}
-          <div className="flex flex-col p-5 md:p-8 rounded-lg bg-[#1e293b] border border-[#334155] hover:border-indigo-500/30 transition-all duration-200" style={{ ...fadeUp, transitionDelay: '0.5s' }}>
+          <div className="flex flex-col p-5 md:p-8 rounded-lg bg-[#1e293b] border border-[#334155] hover:border-indigo-500/30 transition-all duration-200">
             <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155] self-start">
               Tech Stack
             </span>

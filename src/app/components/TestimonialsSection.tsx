@@ -2,8 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { useIntersect } from '../hooks/useIntersect';
-
 type Testimonial = {
   name: string;
   image?: string;
@@ -26,12 +24,6 @@ const Star = ({ filled, className }: { filled: boolean; className?: string }) =>
 );
 
 const TestimonialsSection = () => {
-  const { ref, intersected } = useIntersect();
-  const fadeUp = {
-    opacity: intersected ? 1 : 0,
-    transform: intersected ? 'translateY(0)' : 'translateY(30px)',
-    transition: 'opacity 2s ease-in, transform 2s cubic-bezier(0.16, 1, 0.3, 1)',
-  };
   const testimonials: Testimonial[] = [
     {
       name: 'Noel Customs',
@@ -59,16 +51,14 @@ const TestimonialsSection = () => {
 
   return (
     <section
-      ref={ref}
       id="testimonials"
-      className="relative z-0 py-12 md:py-24 overflow-hidden border-t border-[#334155]"
+      className="scroll-animate relative z-0 py-12 md:py-24 border-t border-[#334155]"
       style={{
         position: 'relative',
         padding: '120px 20px',
-        background: 'rgb(248, 250, 252)', // Light background
+        background: 'rgb(248, 250, 252)',
         display: "flex",
         justifyContent: "center",
-        overflow: "hidden"
       }}
     >
       <div className="w-full relative z-20">
@@ -77,13 +67,13 @@ const TestimonialsSection = () => {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-white px-3 py-1 rounded border border-[#334155]">
             Customer Satisfaction 
           </span>
-          <h2 className="mb-4 text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl text-slate-900 font-bold tracking-tight" style={{ letterSpacing: '-0.06em', ...fadeUp }}>
+          <h2 className="mb-4 text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl text-slate-900 font-bold tracking-tight" style={{ letterSpacing: '-0.06em' }}>
             What Clients{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-indigo-500 to-slate-800">
               Say
             </span>
           </h2>
-          <p className="text-base text-slate-600 font-sans leading-relaxed" style={{ ...fadeUp, transitionDelay: '0.2s' }}>
+          <p className="text-base text-slate-600 font-sans leading-relaxed">
             Real feedback from founders, creators, and platform builders.
           </p>
         </div>
@@ -94,7 +84,7 @@ const TestimonialsSection = () => {
             <article
               key={`${t.name}-${index}`}
               className="testimonials-card-hover-animate flex h-full flex-col rounded-lg bg-white p-4 md:p-6 border border-slate-300 hover:border-indigo-500 hover:shadow-[0_4px_32px_rgba(67,56,202,0.15)] hover:scale-[1.05] hover:-translate-y-1 transition-all duration-700"
-              style={{ ...fadeUp, transitionDelay: `${0.3 + index * 0.1}s` }}
+              
             >
               <header className="flex items-center mb-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3 bg-slate-200 border border-slate-300 flex-shrink-0">

@@ -30,7 +30,7 @@ const YoutubeIcon = () => (
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen text-slate-100" style={{ background: 'rgb(15, 23, 42)' }}>
+    <div className="scroll-animate min-h-screen text-slate-100" style={{ background: 'rgb(15, 23, 42)' }}>
 
       {/* Dot matrix pattern */}
       <div

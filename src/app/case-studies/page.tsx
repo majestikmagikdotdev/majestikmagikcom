@@ -99,7 +99,7 @@ export default function CaseStudies() {
           {portfolioData.map((project, index) => (
             <article
               key={project.id}
-              className="grid gap-10 lg:grid-cols-2 lg:items-start border-t border-[#334155] pt-16"
+              className="scroll-animate grid gap-10 lg:grid-cols-2 lg:items-start border-t border-[#334155] pt-16"
             >
               {/* Screenshot */}
               <div className={index % 2 === 1 ? 'lg:order-2' : ''}>

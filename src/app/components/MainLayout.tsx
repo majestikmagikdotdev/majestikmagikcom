@@ -12,16 +12,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
-  // Non-blocking keyframes load — desktop only
-  useEffect(() => {
-    if (window.innerWidth < 768) return;
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '/animations.css';
-    document.head.appendChild(link);
-  }, []);
-
-  // On homepage mount, scroll to stored section target
+// On homepage mount, scroll to stored section target
   useEffect(() => {
     if (!isHomePage) return;
     const target = sessionStorage.getItem('scrollTo');

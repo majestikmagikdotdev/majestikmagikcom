@@ -9,7 +9,7 @@ interface HeroSectionProps {
 }
 const HeroSection: React.FC<HeroSectionProps> = () => {
   return (
-    <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="relative z-0 pt-20 pb-12 md:pt-48 md:pb-36 overflow-hidden" style={{ background: 'rgb(15, 23, 42)' }}>
+    <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="scroll-animate relative z-0 pt-20 pb-12 md:pt-48 md:pb-36" style={{ background: 'rgb(15, 23, 42)' }}>
 
       {/* Ambient radial glow */}
       <div
@@ -44,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <h1
           id="home-heading"
           className="mb-6 text-4xl sm:text-6xl md:text-7xl lg:text-9xl text-white leading-tight opacity-90"
-          style={{ letterSpacing: '-0.04em', animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
+          style={{ letterSpacing: '-0.04em', animation: 'fadeUp 3s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
         >
           <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-50 via-indigo-500 to-white" style={{ letterSpacing: '-0.06em' }}>
             Web Engineering <br /> & AI Optimization

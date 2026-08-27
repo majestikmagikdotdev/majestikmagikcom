@@ -38,7 +38,7 @@ export default function NewBiz() {
   const set = (k: string) => (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setF((s) => ({ ...s, [k]: e.target.value }));
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
+    <div className="scroll-animate max-w-2xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-4">Add Your Business</h1>
       <form onSubmit={submit} className="space-y-4">
         {[

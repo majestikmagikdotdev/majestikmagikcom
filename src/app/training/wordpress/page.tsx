@@ -68,7 +68,7 @@ const VideoTrainingContent: React.FC = () => {
     };
 
     return (
-        <div className="space-y-4">
+    <div className="scroll-animate space-y-4">
             <div>
                 <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-400 bg-clip-text text-transparent mb-4">
                     Training Modules

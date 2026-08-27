@@ -58,7 +58,7 @@ const businessData = [
 // This component renders the directory grid.
 const DirectoryContent: React.FC = () => {
     return (
-        <div className="text-slate-300 leading-relaxed space-y-4">
+        <div className="scroll-animate text-slate-300 leading-relaxed space-y-4">
             <h1 className="text-3xl md:text-4xl font-bold text-slate-100 mb-1">Community Directory</h1>
             <p className="text-sm text-slate-400 mb-8">A curated list of trusted businesses we&apos;re proud to support.</p>
             

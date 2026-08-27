@@ -4,6 +4,7 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import MainLayout from './components/MainLayout';
 import './globals.css';
+import '../../public/animations.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://majestikmagik.dev'),
@@ -62,10 +63,9 @@ export default function RootLayout({
           media="(min-width: 768px)"
         />
       </head>
-      <body className="bg-[#07080e] text-slate-200 overflow-x-hidden antialiased">
+      <body className="bg-[#07080e] text-slate-200 antialiased">
         <MainLayout>{children}</MainLayout>
-
-        {/* Global Trustpilot Widget - loaded after page is fully idle */}
+        {/*- loaded after page is fully idle */}
         <Script
           strategy="lazyOnload"
           src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
@@ -100,9 +100,9 @@ export default function RootLayout({
                   { "@type": "ListItem", "position": 2, "name": "Custom Website Engineering", "description": "React and Next.js architecture optimized for speed and SEO, tailored UI/UX, full-stack API integrations, deployed to Vercel, Cloudflare, or AWS." },
                   { "@type": "ListItem", "position": 3, "name": "Technical SEO & AI Visibility", "description": "Structured JSON-LD schema for Google and LLM crawlers, Core Web Vitals optimization, GEO strategy for ChatGPT Search and Perplexity." },
                   { "@type": "ListItem", "position": 4, "name": "Digital Marketing & Paid Campaigns", "description": "Meta and Google campaign setup, CRM integrations, conversion tracking, and monthly performance reporting." },
-                  { "@type": "ListItem", "position": 5, "name": "AI Code Extraction & Frontend Quick-Fix", "description": "Clean export of front-end assets off no-code platforms. Fix UI rendering, CSS breakages, and deploy to Vercel, Netlify, or Cloudflare. Starting at $200." },
-                  { "@type": "ListItem", "position": 6, "name": "Core Web Vitals & Speed Overhaul", "description": "Maximize LCP, INP, and CLS scores. Crush mobile latency by purging rendering bloat and optimizing script hydration. Starting at $1,500." },
-                  { "@type": "ListItem", "position": 7, "name": "Technical GEO & AI Visibility Audit", "description": "Audit platform performance and inject optimized graph schema so AI engines like ChatGPT Search and Perplexity crawl, cite, and recommend your site. Starting at $2,500." }
+                  { "@type": "ListItem", "position": 5, "name": "AI Code Extraction & Frontend Quick-Fix", "description": "AI-assisted parsing of complex codebases into clean deployable assets. Fix UI rendering, CSS breakages, broken routing, and deploy with custom DNS. Starting at $1,850." },
+                  { "@type": "ListItem", "position": 6, "name": "Core Web Vitals & Speed Overhaul", "description": "Guaranteed 90+ Lighthouse and PageSpeed scores, server-side caching, image optimization pipeline, and script execution overhaul. Starting at $2,200." },
+                  { "@type": "ListItem", "position": 7, "name": "Technical GEO & AI Visibility Audit", "description": "Cutting-edge Generative Engine Optimization ensuring your brand ranks inside ChatGPT, Perplexity, and Claude answers with full JSON-LD schema injection. Starting at $3,500." }
                 ]
               }
             })

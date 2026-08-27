@@ -186,7 +186,7 @@ const FAQPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#0f172a] text-slate-300 selection:bg-indigo-500/30 selection:text-white">
       <main className="flex-grow py-16 md:py-24">
-        <div className="container mx-auto px-6 max-w-4xl">
+        <div className="scroll-animate container mx-auto px-6 max-w-4xl">
           <Link
             href="/"
             className="mb-8 inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors group text-sm font-semibold tracking-wide uppercase"

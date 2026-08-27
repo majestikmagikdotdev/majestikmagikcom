@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
 interface PricingPlan {
   name: string;
@@ -48,71 +48,71 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
   {
     service: 'AI Code Extraction & Frontend Quick-Fix',
     bullets: [
-      'Export clean front-end code off Lovable, Bolt.new, or Webflow',
-      'Fix UI rendering issues, CSS breakages, and broken links',
-      'Deploy to Vercel, Netlify, or Cloudflare with custom DNS',
+      'AI-assisted parsing and scraping of complex codebases into clean, deployable front-end assets',
+      'Fix UI rendering failures, CSS breakages, broken routing, and hydration errors',
+      'Deploy to Vercel, Netlify, or Cloudflare with custom domain DNS and SSL configuration',
     ],
-    price: '$200',
+    price: '$1,850',
     url: 'https://book.stripe.com/bJe00jd8y0qi4tE11ddEs09'
   },
   {
     service: 'Shopify Email & Notification Engine',
     bullets: [
-      'Fix broken layout logic in transactional email templates',
-      'Patch dynamic variables and Liquid syntax errors',
-      'Optimize marketing email templates for deliverability',
+      'Custom transactional Liquid template coding for order, shipping, and account notifications',
+      'Automated flow logic, dynamic variable patching, and A/B-ready template architecture',
+      'High-converting marketing email design optimized for deliverability and open rates',
     ],
-    price: '$600',
+    price: '$1,250',
     url: 'https://book.stripe.com/bJefZh2tU7SK2lw6lxdEs03'
   },
   {
     service: 'DNS, SPF, DKIM & Deliverability Setup',
     bullets: [
-      'Resolve MX, TXT, SPF, and DKIM configuration failures',
-      'Eliminate email spam flagging and domain blacklisting',
-      'Repair domain mapping and email routing issues',
+      'Full domain reputation setup: MX, TXT, SPF, DKIM, and DMARC alignment',
+      'Eliminate spam flagging, domain blacklisting, and email routing failures',
+      'Inbox warm-up strategy and ongoing deliverability monitoring recommendations',
     ],
-    price: '$250',
+    price: '$600',
     url: 'https://book.stripe.com/14AaEX1pQeh82lw39ldEs04'
   },
   {
     service: 'Core Web Vitals & Speed Overhaul',
     bullets: [
-      'Maximize LCP, INP, and CLS scores across mobile and desktop',
-      'Purge rendering bloat and defer non-critical scripts',
-      'Optimize script hydration for measurable performance gains',
+      'Guaranteed 90+ Lighthouse and PageSpeed scores across mobile and desktop',
+      'Server-side caching, image optimization pipeline, and script execution overhaul',
+      'Eliminate render-blocking resources and implement lazy hydration strategies',
     ],
-    price: '$1,500',
+    price: '$2,200',
     url: 'https://book.stripe.com/28E5kDfgGflcd0abFRdEs05'
   },
   {
     service: 'Landing Page Redesign & Engineering',
     bullets: [
-      'Redesign static pages into high-fidelity responsive interfaces',
-      'Integrate full-stack APIs and backend data pipelines',
-      'Engineered to engage users and convert visitors',
+      'Custom Next.js and Tailwind code with elite animations and sub-second load times',
+      'High-converting layout architecture with full-stack API and backend integrations',
+      'Fully responsive, accessibility-compliant, and production-deployed',
     ],
-    price: '$3,000',
+    price: '$4,500',
     url: 'https://book.stripe.com/7sY9AT6Ka6OG9NYdNZdEs06'
   },
   {
     service: 'Technical GEO & AI Visibility Audit',
     bullets: [
-      'Audit site structure for AI crawler compatibility',
-      'Inject optimized JSON-LD graph schema',
-      'Ensure ChatGPT Search and Perplexity cite your site',
+      'Cutting-edge Generative Engine Optimization ensuring your brand ranks inside AI answers',
+      'Inject structured JSON-LD graph schema targeting ChatGPT, Perplexity, and Claude',
+      'Full site audit for AI crawler compatibility, entity coverage, and citation readiness',
     ],
-    price: '$2,500',
+    price: '$3,500',
     url: 'https://book.stripe.com/eVq00j5G66OGaS2bFRdEs07'
   },
   {
     service: 'Contact Form & Webhook Debugging',
     bullets: [
-      'Debug client-side input validation and form logic',
-      'Fix broken Webhook routing pipelines',
-      'Restore secure lead-capture form deliveries',
+      'Enterprise-grade API, payload, and webhook error-handling audit',
+      'Debug input validation logic, fix broken routing pipelines, and patch delivery failures',
+      'Restore secure lead-capture with end-to-end webhook verification and logging',
     ],
-    price: '$150',
+    price: '$450',
     url: 'https://book.stripe.com/8x228r8Si0qi2lw8tFdEs08'
   },
 ];
@@ -120,34 +120,13 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
 const PricingSection: React.FC<PricingSectionProps> = ({
   microServices = DEFAULT_MICRO_SERVICES,
 }) => {
-  const [isIntersected, setIsIntersected] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsIntersected(true);
-          observer.unobserve(entry.target); // Trigger reveal only once
-        }
-      },
-      { threshold: 0.1 } // Fires when 10% of the section is in view
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section
-      ref={sectionRef}
       id="services"
       aria-labelledby="micro-services-heading"
       aria-describedby="micro-services-desc"
-      className="relative z-0 py-12 md:py-24 overflow-hidden"
+      className="scroll-animate relative z-0 py-12 md:py-24"
       style={{
         background: "rgb(248, 250, 252)", // Light background
       }}
@@ -171,13 +150,8 @@ const PricingSection: React.FC<PricingSectionProps> = ({
           className="mt-auto md:mt-auto"
         >
           {/* Header block with progressive fade-in */}
-          <div 
+          <div
             className="text-center mx-auto mb-8 md:mb-16"
-            style={{
-              opacity: isIntersected ? 1 : 0,
-              transform: isIntersected ? 'translateY(0)' : 'translateY(30px)',
-              transition: 'opacity 2s ease-in, transform 2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)'
-            }}
           >
             <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-white px-3 py-1 rounded border border-[#334155]">
              Core Services {/* Keep text color, adjust background/border for contrast */}
@@ -201,20 +175,10 @@ const PricingSection: React.FC<PricingSectionProps> = ({
 
           {/* Core Hardware Cards Matrix with Staggered Transition */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {microServices.map((m, idx) => (
+            {microServices.map((m) => (
               <div
                 key={m.service}
-                className="services-card-hover-animate flex flex-col justify-between rounded-lg bg-white border border-slate-300 p-4 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.1)] hover:border-indigo-500 hover:shadow-[0_4px_32px_rgba(67,56,202,0.15)] transition duration-200" // Light card background, darker border/shadow
-                style={{
-                  opacity: isIntersected ? 1 : 0,
-                  transform: isIntersected ? 'translateY(0)' : 'translateY(40px)',
-                  transition: `
-                    opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 150}ms, 
-                    transform 2.2s cubic-bezier(0.16, 1, 0.3, 1) ${idx * 150}ms,
-                    border-color 0.3s ease,
-                    box-shadow 0.3s ease
-                  `
-                }}
+                className="services-card-hover-animate flex flex-col justify-between rounded-lg bg-white border border-slate-300 p-4 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.1)] hover:border-indigo-500 hover:shadow-[0_4px_32px_rgba(67,56,202,0.15)] transition duration-200"
               >
                 <div>
                   <div className="flex items-start justify-between gap-4 mb-3">
@@ -246,12 +210,8 @@ const PricingSection: React.FC<PricingSectionProps> = ({
           </div>
 
           {/* Custom Network Link */}
-          <p 
+          <p
             className="mt-12 text-center font-mono text-xs text-slate-500 tracking-wide"
-            style={{
-              opacity: isIntersected ? 1 : 0,
-              transition: 'opacity 2s ease-in'
-            }}
           >
             Need a service not listed?{' '} {/* Keep text color, adjust link for contrast */}
             <a href="#contact" className="inline-flex items-center font-mono text-xs text-indigo-600 bg-indigo-100/50 hover:bg-indigo-200/50 border border-indigo-200/50 px-3 py-1.5 rounded-lg transition-colors duration-200">Contact us</a>.

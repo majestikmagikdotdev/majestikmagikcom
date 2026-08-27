@@ -1,5 +1,41 @@
 /* Animation keyframes and classes, loaded asynchronously */
 
+@keyframes fadeInUp {
+  entry 0% {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(24px);
+  }
+  entry 30% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+  exit 70% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+  exit 100% {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(-24px);
+  }
+}
+
+.scroll-animate,
+main > section,
+main > article,
+main > div,
+main > main > section,
+main > main > article {
+  animation-name: fadeInUp;
+  animation-duration: auto;
+  animation-timeline: view();
+  animation-range: entry 0% exit 100%;
+  animation-fill-mode: both;
+}
+
 /* Link to animations that are defined below */
 .scrolling-logos-container {
     animation: marquee-scroll-left 30s linear infinite;
