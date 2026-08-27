@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Stripe from 'stripe';
+import type Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
 
@@ -24,7 +24,6 @@ async function verifyStripeSignature(body: string, sig: string, secret: string):
 }
 
 export async function POST(req: NextRequest) {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!
@@ -58,10 +57,12 @@ export async function POST(req: NextRequest) {
 
       if (event.type === 'payment_intent.succeeded') {
         const intentRaw = event.data.object as Stripe.PaymentIntent;
-        const intent = await stripe.paymentIntents.retrieve(intentRaw.id, {
-          expand: ['latest_charge'],
-        });
-        const charge = intent.latest_charge as Stripe.Charge | null;
+        const intentRes = await fetch(
+          `https://api.stripe.com/v1/payment_intents/${intentRaw.id}?expand[]=latest_charge`,
+          { headers: { Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}` } }
+        );
+        const intent = await intentRes.json() as Stripe.PaymentIntent & { latest_charge: Stripe.Charge | null };
+        const charge = intent.latest_charge;
         customerEmail = charge?.billing_details?.email ?? null;
         customerName = charge?.billing_details?.name ? sanitize(charge.billing_details.name) : null;
         serviceName = sanitize(intent.metadata?.serviceName ?? 'Service');
