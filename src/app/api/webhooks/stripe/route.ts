@@ -3,7 +3,25 @@ import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
 
-export const runtime = 'nodejs';
+export const runtime = 'edge';
+
+async function verifyStripeSignature(body: string, sig: string, secret: string): Promise<boolean> {
+  const parts = Object.fromEntries(sig.split(',').map(p => p.split('=')));
+  const timestamp = parts['t'];
+  const signature = parts['v1'];
+  if (!timestamp || !signature) return false;
+
+  const key = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+  const signed = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`${timestamp}.${body}`));
+  const expected = Array.from(new Uint8Array(signed)).map(b => b.toString(16).padStart(2, '0')).join('');
+  return expected === signature;
+}
 
 export async function POST(req: NextRequest) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
@@ -14,13 +32,16 @@ export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY!);
 
   const body = await req.text();
-  const sig = req.headers.get('stripe-signature')!;
+  const sig = req.headers.get('stripe-signature') ?? '';
+
+  const valid = await verifyStripeSignature(body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
+  if (!valid) return NextResponse.json({ error: 'Webhook signature verification failed' }, { status: 400 });
 
   let event: Stripe.Event;
   try {
-    event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
+    event = JSON.parse(body) as Stripe.Event;
   } catch {
-    return NextResponse.json({ error: 'Webhook signature verification failed' }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
   switch (event.type) {
