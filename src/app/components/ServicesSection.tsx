@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 // Define an interface for the service data
 interface Service {
@@ -8,19 +7,6 @@ interface Service {
   bullets: string[];
   icon: React.ReactElement;
 }
-
-const techStackLogos = [
-  { name: "React", imgSrc: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg", alt: "React Logo", className: "lazy-logo" },
-  { name: "Python", imgSrc: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg", alt: "Python Logo", className: "lazy-logo"   },
-  { name: "Node.js", imgSrc: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg", alt: "Node.js Logo", className: "lazy-logo"  },
-  { name: "GitHub Actions", imgSrc: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg", alt: "GitHub Logo (for Actions)", className: "lazy-logo"  },
-  { name: "AWS", imgSrc: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg", alt: "AWS Logo", className: "lazy-logo"  },
-  { name: "Gemini AI", imgSrc: "/img/gemini-brand.webp", alt: "Gemini AI Logo", className: "lazy-logo"  },
-  { name: "OpenAI", imgSrc: "/img/openai.svg", alt: "Open AI Logo", className: "lazy-logo"  },
-  { name: "Tailwind CSS", imgSrc: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg", alt: "Tailwind CSS Logo", className: "lazy-logo"  },
-  { name: "TypeScript", imgSrc: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/500px-Typescript_logo_2020.svg.png", alt: "TypeScript Logo", className: "lazy-logo"  },
-  { name: "PostgreSQL", imgSrc: "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg", alt: "PostgreSQL Logo", className: "lazy-logo"  },
-];
 
 const servicesData: Service[] = [
   {
@@ -75,22 +61,29 @@ const servicesData: Service[] = [
 
 const ServicesSection: React.FC = () => {
   return (
-    <section id="services" aria-labelledby="services-heading" className="py-16 md:py-24 border-t border-[#334155]" style={{ background: 'rgb(15, 23, 42)' }}>
-      <div className="w-full px-6 mx-auto">
-        <div className="mb-12 text-center mx-auto scroll-animate">
-          <h1 id="services-heading" className="mb-4 text-3xl text-slate-100 font-bold tracking-tight scroll-animate md:text-4xl" style={{ letterSpacing: '-0.09em' }}>Unleash Your Digital Magik: Services Engineered for Growth</h1>
-          <p className="mx-auto text-slate-400 md:text-lg scroll-animate" style={{ transitionDelay: '0.3s' }}>
-            We don&apos;t just build websites; we engineer <b>revenue-generating platforms</b>. Fusing artificial intelligence with strategic design, and relentless execution, our services are specifically designed to <b>capture more leads, accelerate sales, and establish your market dominance</b>. Experience the difference of a truly intelligent online presence that drives your bottom line.
+    <section id="services" aria-labelledby="services-heading" aria-describedby="services-desc" className="scroll-animate py-16 md:py-24 border-t border-[#334155]" style={{ background: 'rgb(15, 23, 42)' }}>
+      <div className="w-full px-4 md:px-6">
+        <div className="mb-8 text-left">
+          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
+            Built for Small &amp; Mid-Size Businesses
+          </span>
+          <h2 id="services-heading" className="mb-4 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.04em' }}>
+            Platforms That{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-200 to-white">
+              Work For You
+            </span>
+          </h2>
+          <p id="services-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed">
+            Small and mid-size businesses deserve enterprise-grade technology. We build the platforms, infrastructure, and digital systems that help you compete, grow, and get found — without the agency overhead.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2 scroll-animate">
-          {servicesData.map((service, index) => (
+        <div className="grid gap-4 md:grid-cols-2">
+          {servicesData.map((service) => (
             <div
               key={service.title}
-              className="p-6 transition-all duration-200 bg-[#1e293b] rounded-lg border border-[#334155] hover:border-indigo-500/30 hover:shadow-[0_4px_32px_rgba(99,102,241,0.08)] scroll-animate"
-              style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
+              className="p-6 transition-all duration-200 bg-[#1e293b] rounded-lg border border-[#334155] hover:border-indigo-500/30 hover:shadow-[0_4px_32px_rgba(99,102,241,0.08)]"
             >
               {service.icon}
               <h3 className="mb-1 text-lg font-semibold text-slate-100 tracking-tight">{service.title}</h3>
@@ -107,33 +100,6 @@ const ServicesSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Tech Stack Marquee */}
-        <div className="mt-20 text-center scroll-animate" style={{ transitionDelay: '0.4s' }}>
-          <h3 className="mb-10 text-md font-semibold text-slate-200 md:text-xl">
-            Tech Stack We Use
-          </h3>
-          <div className="scrolling-logos-wrapper">
-            <div className="scrolling-logos-container-services">
-              {[...techStackLogos, ...techStackLogos].map((tech, index) => ( // Duplicate for seamless scroll
-                <div
-                  key={`${tech.name}-${index}`}
-                  title={tech.name}
-                  className="flex items-center justify-center flex-shrink-0 mx-4 sm:mx-6 tooltip" // Added tooltip class if you want to add custom tooltips later
-                  data-tip={tech.name} // For potential CSS/JS tooltip libraries
-                >
-                  <Image
-                    src={tech.imgSrc}
-                    alt={tech.alt}
-                    className="lazy-logo h-10 sm:h-12 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-                    loading="lazy"
-                    width={48}
-                    height={48}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

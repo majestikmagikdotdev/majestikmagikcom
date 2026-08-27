@@ -123,7 +123,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
 
   return (
     <section
-      id="services"
+      id="services-pricing"
       aria-labelledby="micro-services-heading"
       aria-describedby="micro-services-desc"
       className="scroll-animate relative z-0 py-12 md:py-24"
@@ -154,24 +154,24 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             className="text-center mx-auto mb-8 md:mb-16"
           >
             <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-white px-3 py-1 rounded border border-[#334155]">
-             Core Services {/* Keep text color, adjust background/border for contrast */}
+              On-Demand Services
             </span>
-            
+
             <h2
               id="micro-services-heading"
-              className="mb-2 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-900 font-bold tracking-tight" // Darker text
+              className="mb-2 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-900 font-bold tracking-tight"
               style={{ letterSpacing: '-0.04em' }}
             >
-              Performance <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-indigo-500 to-slate-800"> {/* Darker gradient */}
-                Tuning Services
+              Ship It{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-indigo-500 to-slate-800">
+                Within 72hrs
               </span>
             </h2>
-            
+
             <p id="micro-services-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed">
-              High-impact performance upgrades and critical codebase patches. Prioritized and shipped within 24 to 72 hours for most small-to-mid size projects. Some projects may require a longer timeline depending on complexity and scope. All services are backed by our 100% satisfaction guarantee.
+              Pick your fix, pay once, and get it shipped. Every service is scoped, priced upfront, and delivered within 24–72 hours for most projects — no retainers, no surprises.
             </p>
-          </div> {/* End Header block */}
+          </div>
 
           {/* Core Hardware Cards Matrix with Staggered Transition */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

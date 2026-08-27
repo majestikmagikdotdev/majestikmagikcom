@@ -4,27 +4,30 @@ import React from "react";
 
 type Row = {
     label: string;
-    mm: boolean | string;     // true/false shows check/x; string renders custom text
+    mm: boolean | string;
     wix: boolean | string;
     ss: boolean | string;
-    note?: string;            // optional helper text
+    lovable: boolean | string;
+    note?: string;
 };
 
 const rows: Row[] = [
-    { label: "Managed Hosting", mm: true, wix: true, ss: true },
-    { label: "Mobile-Friendly Design (custom)", mm: "Custom + optimized", wix: "Template-based", ss: "Template-based" },
-    { label: "Updates Included", mm: "1–Unlimited (by plan)", wix: false, ss: false },
-    { label: "Security Monitoring & Core Updates", mm: true, wix: "Limited", ss: "Limited" },
-    { label: "Automated Monthly Backups", mm: true, wix: false, ss: false },
-    { label: "SEO Optimization", mm: "Basic → Advanced (by plan)", wix: "Basic tools", ss: "Basic tools" },
-    { label: "Analytics & Monthly Report", mm: "Standard/Premium", wix: "Limited", ss: "Limited" },
-    { label: "Priority Support (human, local, AI chatbot)", mm: true, wix: "Chat/Forum", ss: "Email" },
-    { label: "E-commerce Support", mm: "Premium", wix: "Add-on fees", ss: "Add-on fees" },
-    { label: "Quarterly Strategy Call", mm: "Premium", wix: false, ss: false },
-    { label: "Transparent Pricing", mm: "$25–$100/mo + $99 setup", wix: "Add-ons & upsells", ss: "Add-ons & upsells" },
+    { label: "Managed Hosting", mm: true, wix: true, ss: true, lovable: "Vercel/external" },
+    { label: "Custom Code Ownership", mm: true, wix: false, ss: false, lovable: "Partial (AI-gen)" },
+    { label: "Mobile-Friendly Design", mm: "Custom + optimized", wix: "Template-based", ss: "Template-based", lovable: "Template-based" },
+    { label: "Updates Included", mm: "1–Unlimited (by plan)", wix: false, ss: false, lovable: false },
+    { label: "Security Monitoring & Core Updates", mm: true, wix: "Limited", ss: "Limited", lovable: false },
+    { label: "Automated Monthly Backups", mm: true, wix: false, ss: false, lovable: false },
+    { label: "SEO Optimization", mm: "Basic → Advanced (by plan)", wix: "Basic tools", ss: "Basic tools", lovable: "Minimal" },
+    { label: "Analytics & Monthly Report", mm: "Standard/Premium", wix: "Limited", ss: "Limited", lovable: false },
+    { label: "Priority Support (human + AI)", mm: true, wix: "Chat/Forum", ss: "Email", lovable: "AI chat only" },
+    { label: "Production Bug Fixes", mm: true, wix: false, ss: false, lovable: "Prompt-based only" },
+    { label: "E-commerce Support", mm: "Premium", wix: "Add-on fees", ss: "Add-on fees", lovable: "Limited" },
+    { label: "Quarterly Strategy Call", mm: "Premium", wix: false, ss: false, lovable: false },
+    { label: "Transparent Pricing", mm: "$450–$4,500 per project", wix: "Add-ons & upsells", ss: "Add-ons & upsells", lovable: "Credits-based" },
 ];
 
-const providers = ["Majestik Magik", "Wix", "Squarespace"];
+const providers = ["Majestik Magik", "Wix", "Squarespace", "Lovable"];
 
 const Check = () => (
     <svg className="h-5 w-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
@@ -45,12 +48,12 @@ function Cell({ val }: { val: boolean | string }) {
 
 const ComparisonChart: React.FC = () => {
     return (
-        <section id="comparison-chart" className="bg-slate-900 py-16 md:py-24">
+        <section id="comparison-chart" className="scroll-animate bg-slate-900 py-16 md:py-24">
             <div className="container mx-auto px-6">
                 <div className="mx-auto mb-10 max-w-4xl text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-100 scroll-animate">Why Choose Majestik Magik</h2>
                     <p className="mt-3 text-slate-400 scroll-animate" style={{ transitionDelay: "0.2s" }}>
-                        Compare our managed, growth-focused care plans against DIY site builders.
+                        How we stack up against DIY builders and AI-generated site tools.
                     </p>
                 </div>
 
@@ -62,7 +65,7 @@ const ComparisonChart: React.FC = () => {
                                 <h3 className="text-slate-100 font-semibold">{r.label}</h3>
                             </div>
                             {r.note && <p className="text-xs text-slate-400 mb-2">{r.note}</p>}
-                            <div className="mt-3 grid grid-cols-3 gap-3 text-sm">
+                            <div className="mt-3 grid grid-cols-4 gap-3 text-sm">
                                 <div>
                                     <div className="text-indigo-300 font-medium mb-1">Majestik</div>
                                     <Cell val={r.mm} />
@@ -74,6 +77,10 @@ const ComparisonChart: React.FC = () => {
                                 <div>
                                     <div className="text-slate-400 mb-1">Squarespace</div>
                                     <Cell val={r.ss} />
+                                </div>
+                                <div>
+                                    <div className="text-slate-400 mb-1">Lovable</div>
+                                    <Cell val={r.lovable} />
                                 </div>
                             </div>
                         </div>
@@ -101,6 +108,7 @@ const ComparisonChart: React.FC = () => {
                                     <td className="px-6 py-4 text-center"><Cell val={r.mm} /></td>
                                     <td className="px-6 py-4 text-center"><Cell val={r.wix} /></td>
                                     <td className="px-6 py-4 text-center"><Cell val={r.ss} /></td>
+                                    <td className="px-6 py-4 text-center"><Cell val={r.lovable} /></td>
                                 </tr>
                             ))}
                         </tbody>

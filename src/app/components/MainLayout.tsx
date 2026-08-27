@@ -27,11 +27,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   const navItems = [
     { name: 'Home', url: '/#home' },
-    { name: 'Services', url: '/#services' },
-    { name: 'About', url: '/#about' },
     { name: 'Testimonials', url: '/#testimonials' },
+    { name: 'Services', url: '/#services' },
+    { name: 'Pricing', url: '/#services-pricing' },
+    { name: 'About', url: '/#about' },
     { name: 'FAQ', url: '/#faq' },
-    { name: 'Contact', url: '/#contact' },
     { name: 'Portfolio', url: '/portfolio' },
     { name: 'Case Studies', url: '/case-studies' },
     { name: 'Pivot Quest Login', url: 'https://app.majestikmagik.dev/', external: true },
