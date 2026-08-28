@@ -42,8 +42,8 @@ const Cross = () => (
 );
 
 function Cell({ val }: { val: boolean | string }) {
-    if (typeof val === "boolean") return <div className="flex items-center justify-center">{val ? <Check /> : <Cross />}</div>;
-    return <span className="text-slate-300">{val}</span>;
+    if (typeof val === "boolean") return <div className="flex items-center justify-start">{val ? <Check /> : <Cross />}</div>;
+    return <span className="text-slate-300 text-xs leading-snug break-words">{val}</span>;
 }
 
 const ComparisonChart: React.FC = () => {
@@ -65,21 +65,21 @@ const ComparisonChart: React.FC = () => {
                                 <h3 className="text-slate-100 font-semibold">{r.label}</h3>
                             </div>
                             {r.note && <p className="text-xs text-slate-400 mb-2">{r.note}</p>}
-                            <div className="mt-3 grid grid-cols-4 gap-3 text-sm">
-                                <div>
-                                    <div className="text-indigo-300 font-medium mb-1">Majestik</div>
+                            <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
+                                <div className="bg-slate-900/50 rounded-lg p-2">
+                                    <div className="text-indigo-300 font-medium mb-1 text-xs">Majestik Magik</div>
                                     <Cell val={r.mm} />
                                 </div>
-                                <div>
-                                    <div className="text-slate-400 mb-1">Wix</div>
+                                <div className="bg-slate-900/50 rounded-lg p-2">
+                                    <div className="text-slate-400 mb-1 text-xs">Wix</div>
                                     <Cell val={r.wix} />
                                 </div>
-                                <div>
-                                    <div className="text-slate-400 mb-1">Squarespace</div>
+                                <div className="bg-slate-900/50 rounded-lg p-2">
+                                    <div className="text-slate-400 mb-1 text-xs">Squarespace</div>
                                     <Cell val={r.ss} />
                                 </div>
-                                <div>
-                                    <div className="text-slate-400 mb-1">Lovable</div>
+                                <div className="bg-slate-900/50 rounded-lg p-2">
+                                    <div className="text-slate-400 mb-1 text-xs">Lovable</div>
                                     <Cell val={r.lovable} />
                                 </div>
                             </div>
