@@ -61,9 +61,9 @@ const Chatbot: React.FC<ChatbotProps> = ({
       </button>
 
       {/* Main Chat Assistant Dialog */}
+      {isChatOpen && (
       <div
-        className={`fixed bottom-24 right-6 w-[340px] max-w-[calc(100vw-3rem)] h-[70vh] max-h-[550px] flex flex-col z-50 overflow-hidden rounded-xl border border-[#334155] shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 ease-out transform origin-bottom-right
-        ${isChatOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-4 pointer-events-none'}`}
+        className="fixed bottom-24 right-6 w-[340px] max-w-[calc(100vw-3rem)] h-[70vh] max-h-[550px] flex flex-col z-50 overflow-hidden rounded-xl border border-[#334155] shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 ease-out transform origin-bottom-right scale-100 opacity-100 translate-y-0"
         style={{ background: 'rgb(15, 23, 42)' }}
         role="dialog"
         aria-modal="true"
@@ -170,6 +170,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
           </button>
         </form>
       </div>
+      )}
     </>
   );
 };
