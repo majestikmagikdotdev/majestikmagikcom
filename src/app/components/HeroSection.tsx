@@ -76,15 +76,15 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
             <ZapIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="text-xs font-mono text-indigo-300 tracking-wide">Delivered in 24–72 Hours</span>
+            <span className="text-xs font-mono text-indigo-300 tracking-wide">Fast Deliverables</span>
           </div>
           <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
             <MagicWandIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="text-xs font-mono text-indigo-300 tracking-wide">No Retainers. Pay Per Project.</span>
+            <span className="text-xs font-mono text-indigo-300 tracking-wide">Pay Per Project. Tech Support on Retainer.</span>
           </div>
           <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
             <LightbulbIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="text-xs font-mono text-indigo-300 tracking-wide">Visible to Google &amp; AI Search</span>
+            <span className="text-xs font-mono text-indigo-300 tracking-wide">Visible to Google AI, ChatGPT &amp; Search</span>
           </div>
         </div>
 
