@@ -23,7 +23,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           const blur = Math.min(window.scrollY / 80, 10);
           const opacity = Math.min(window.scrollY / 300, 0.45);
           overlay.style.backdropFilter = `blur(${blur}px)`;
-          overlay.style.WebkitBackdropFilter = `blur(${blur}px)`;
+          (overlay.style as unknown as Record<string, string>)['-webkit-backdrop-filter'] = `blur(${blur}px)`;
           overlay.style.opacity = String(opacity);
           ticking = false;
         });
