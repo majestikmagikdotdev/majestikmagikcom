@@ -10,7 +10,7 @@ interface HeroSectionProps {
 }
 const HeroSection: React.FC<HeroSectionProps> = () => {
   return (
-    <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="scroll-animate relative z-0 pt-20 pb-12 md:pt-48 md:pb-36" style={{ background: 'rgb(15, 23, 42)' }}>
+    <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="scroll-animate relative z-0 overflow-hidden pt-20 pb-12 md:pt-48 md:pb-36" style={{ background: 'rgb(15, 23, 42)' }}>
 
       {/* Noise overlay */}
       <div className="noise-overlay z-[9]" />

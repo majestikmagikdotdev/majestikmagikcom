@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 import Chatbot from './Chatbot';
 import { ArrowUpIcon } from './Icons'; // Import the new icon
 
@@ -22,6 +23,7 @@ export default function ChatbotController() {
   const [isChatLoading, setIsChatLoading] = useState(false);
   const [chatError, setChatError] = useState<string | null>(null);
   const [isAIInitialized, setIsAIInitialized] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false); // State for Back to Top button visibility
   const chatMessagesEndRef = useRef<HTMLDivElement | null>(null);
   const historyRef = useRef<VertexHistoryEntry[]>([]);
@@ -29,6 +31,10 @@ export default function ChatbotController() {
   useEffect(() => {
     chatMessagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chatMessages]);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Effect for Back to Top button visibility
   useEffect(() => {
@@ -107,7 +113,7 @@ export default function ChatbotController() {
     }
   };
 
-  return (
+  const chatUI = (
     <>
       {/* Back to Top Button */}
       <button
@@ -122,18 +128,23 @@ export default function ChatbotController() {
 
       {/* Chatbot Component */}
 
-    <Chatbot
-      isChatOpen={isChatOpen}
-      handleToggleChat={handleToggleChat}
-      chatMessages={chatMessages}
-      chatInput={chatInput}
-      handleChatInputChange={handleChatInputChange}
-      handleSendChatMessage={handleSendChatMessage}
-      isChatLoading={isChatLoading}
-      chatError={chatError}
-      isAIInitialized={isAIInitialized}
-      chatMessagesEndRef={chatMessagesEndRef as React.RefObject<HTMLDivElement>}
-    />
+      <Chatbot
+        isChatOpen={isChatOpen}
+        handleToggleChat={handleToggleChat}
+        chatMessages={chatMessages}
+        chatInput={chatInput}
+        handleChatInputChange={handleChatInputChange}
+        handleSendChatMessage={handleSendChatMessage}
+        isChatLoading={isChatLoading}
+        chatError={chatError}
+        isAIInitialized={isAIInitialized}
+        chatMessagesEndRef={chatMessagesEndRef as React.RefObject<HTMLDivElement>}
+      />
     </>
   );
+
+  if (!isMounted) {
+    return null;
+  }
+  return ReactDOM.createPortal(chatUI, document.body);
 }
