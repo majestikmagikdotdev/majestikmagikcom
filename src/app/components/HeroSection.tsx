@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { MagicWandIcon, LightbulbIcon, ZapIcon } from './Icons';
 import ScrollToServices from './ScrollToServices';
 
@@ -58,19 +57,34 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <p id="home-desc" className="mx-auto mb-10 max-w-2xl text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
         >
-          We build platforms, fix broken systems, and get your business found — by search engines and AI alike. Shipped within 72 hours.
+          We build platforms, fix broken systems, and get your business found — by search engines and AI alike. Ship deliverables fast.
         </p>
 
         {/* Dual CTA */}
         <div className="mb-10 md:mb-28 flex flex-col sm:flex-row items-center justify-center gap-4"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards' }}
         >
-          <Link
-            href="/#services-pricing"
-            className="inline-block bg-gradient-to-r from-indigo-500 via-white to-indigo-300 btn-gradient-pulse text-slate-900 font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-500 shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)]"
+          <button
+            onClick={() => {
+              const target = document.getElementById('services-pricing');
+              if (!target) return;
+              const start = window.scrollY;
+              const end = target.getBoundingClientRect().top + start;
+              const duration = 1200;
+              let startTime: number | null = null;
+              const ease = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+              const step = (ts: number) => {
+                if (!startTime) startTime = ts;
+                const progress = Math.min((ts - startTime) / duration, 1);
+                window.scrollTo(0, start + (end - start) * ease(progress));
+                if (progress < 1) requestAnimationFrame(step);
+              };
+              requestAnimationFrame(step);
+            }}
+            className="inline-block text-slate-200 cursor-pointer font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-200 border border-white/20 hover:border-white/40 hover:text-white bg-white/5 hover:bg-white/10"
           >
-            See What We Fix
-          </Link>
+            See What We Do →
+          </button>
           <ScrollToServices />
         </div>
 
