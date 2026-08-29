@@ -12,32 +12,20 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
-  // Scroll blur overlay
+  // Scroll-animate + per-section blur observer
   useEffect(() => {
-    const overlay = document.getElementById('scroll-blur-overlay');
-    if (!overlay) return;
-    let ticking = false;
-    const handleBlur = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const blur = Math.min(window.scrollY / 80, 10);
-          const opacity = Math.min(window.scrollY / 300, 0.45);
-          overlay.style.backdropFilter = `blur(${blur}px)`;
-          (overlay.style as unknown as Record<string, string>)['-webkit-backdrop-filter'] = `blur(${blur}px)`;
-          overlay.style.opacity = String(opacity);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener('scroll', handleBlur, { passive: true });
-    return () => window.removeEventListener('scroll', handleBlur);
-  }, []);
-  useEffect(() => {
-    const els = document.querySelectorAll('.scroll-animate, .stagger-children');
+    const els = document.querySelectorAll('.scroll-animate, .stagger-children, .scroll-blur');
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } }),
-      { threshold: 0.12 }
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          e.target.classList.remove('is-blurred');
+        } else {
+          e.target.classList.remove('is-visible');
+          e.target.classList.add('is-blurred');
+        }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
@@ -126,7 +114,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="flex flex-col min-h-screen w-full">
-      <div id="scroll-blur-overlay" className="scroll-blur-overlay" />
       <Header
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}

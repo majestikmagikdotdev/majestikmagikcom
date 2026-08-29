@@ -178,25 +178,33 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-animate {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: blur(8px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .scroll-animate.is-visible {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0px);
+}
+.scroll-animate.is-blurred {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(12px);
 }
 
 /* Staggered card children */
 .stagger-children > * {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: blur(6px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.stagger-children.is-visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
-.stagger-children.is-visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
-.stagger-children.is-visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
-.stagger-children.is-visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
-.stagger-children.is-visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.45s; }
-.stagger-children.is-visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
+.stagger-children.is-visible > *:nth-child(1) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.05s; }
+.stagger-children.is-visible > *:nth-child(2) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.15s; }
+.stagger-children.is-visible > *:nth-child(3) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.25s; }
+.stagger-children.is-visible > *:nth-child(4) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.35s; }
+.stagger-children.is-visible > *:nth-child(5) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.45s; }
+.stagger-children.is-visible > *:nth-child(6) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.55s; }
 
 /* Hero breathing glow */
 .hero-breathe {
@@ -237,16 +245,4 @@ h1, h2, h3, h4, h5, h6 {
 /* Page transition */
 .page-enter {
   animation: page-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-/* Scroll blur overlay */
-.scroll-blur-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 30;
-  pointer-events: none;
-  opacity: 0;
-  background: radial-gradient(ellipse at 50% 40%, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.6) 100%);
-  transition: opacity 0.1s linear, backdrop-filter 0.1s linear;
-  will-change: opacity, backdrop-filter;
 }
