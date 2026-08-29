@@ -179,7 +179,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   transform: translateY(24px);
   filter: blur(8px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .scroll-animate.is-visible {
   opacity: 1;
@@ -188,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .scroll-animate.is-blurred {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(34px);
   filter: blur(14px);
 }
 
@@ -197,7 +197,7 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   transform: translateY(28px);
   filter: blur(6px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .stagger-children.is-visible > *:nth-child(1) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.05s; }
 .stagger-children.is-visible > *:nth-child(2) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.15s; }
