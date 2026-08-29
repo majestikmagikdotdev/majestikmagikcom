@@ -12,7 +12,27 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
-  // Scroll-animate observer
+  // Scroll blur overlay
+  useEffect(() => {
+    const overlay = document.getElementById('scroll-blur-overlay');
+    if (!overlay) return;
+    let ticking = false;
+    const handleBlur = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const blur = Math.min(window.scrollY / 80, 10);
+          const opacity = Math.min(window.scrollY / 300, 0.45);
+          overlay.style.backdropFilter = `blur(${blur}px)`;
+          overlay.style.WebkitBackdropFilter = `blur(${blur}px)`;
+          overlay.style.opacity = String(opacity);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleBlur, { passive: true });
+    return () => window.removeEventListener('scroll', handleBlur);
+  }, []);
   useEffect(() => {
     const els = document.querySelectorAll('.scroll-animate, .stagger-children');
     const observer = new IntersectionObserver(
@@ -106,6 +126,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="flex flex-col min-h-screen w-full">
+      <div id="scroll-blur-overlay" className="scroll-blur-overlay" />
       <Header
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
