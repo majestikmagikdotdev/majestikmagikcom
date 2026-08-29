@@ -189,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-animate.is-blurred {
   opacity: 0;
   transform: translateY(24px);
-  filter: blur(12px);
+  filter: blur(14px);
 }
 
 /* Staggered card children */
