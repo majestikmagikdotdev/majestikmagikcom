@@ -12,12 +12,14 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
   return (
     <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="scroll-animate relative z-0 pt-20 pb-12 md:pt-48 md:pb-36" style={{ background: 'rgb(15, 23, 42)' }}>
 
+      {/* Noise overlay */}
+      <div className="noise-overlay z-[9]" />
+
       {/* Ambient radial glow */}
       <div
-        className="absolute inset-0 z-10 opacity-90 pointer-events-none"
+        className="absolute inset-0 z-10 pointer-events-none hero-breathe"
         style={{
-          background: 'radial-gradient(ellipse at 50% 30%, rgba(99, 102, 241, 0.5) 0%, rgba(99, 102, 241, 0.2) 30%, rgb(15, 23, 42) 65%)',
-          animation: 'pulse 4s ease-in-out infinite',
+          background: 'radial-gradient(ellipse at 50% 30%, rgba(99, 102, 241, 0.55) 0%, rgba(99, 102, 241, 0.2) 35%, rgb(15, 23, 42) 68%)',
         }}
       />
 
@@ -65,7 +67,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         >
           <Link
             href="/#services-pricing"
-            className="inline-block bg-white hover:bg-slate-100 text-slate-900 font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.25)]"
+            className="inline-block bg-gradient-to-r from-indigo-500 via-white to-indigo-300 btn-gradient-pulse text-slate-900 font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-500 shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)]"
           >
             See What We Fix
           </Link>
@@ -74,18 +76,20 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
         {/* Trust Chips */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
-            <ZapIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="text-xs font-mono text-indigo-300 tracking-wide">Fast Deliverables</span>
-          </div>
-          <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
-            <MagicWandIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="text-xs font-mono text-indigo-300 tracking-wide">Pay Per Project. Tech Support on Retainer.</span>
-          </div>
-          <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm">
-            <LightbulbIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-            <span className="text-xs font-mono text-indigo-300 tracking-wide">Visible to Google AI, ChatGPT &amp; Search</span>
-          </div>
+          {[
+            { icon: <ZapIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Fast Deliverables', delay: '0s' },
+            { icon: <MagicWandIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Pay Per Project. Tech Support on Retainer.', delay: '0.3s' },
+            { icon: <LightbulbIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Visible to Google AI, ChatGPT & Search', delay: '0.6s' },
+          ].map(({ icon, label, delay }) => (
+            <div
+              key={label}
+              className="chip-shimmer flex items-center gap-2 p-3 rounded-lg bg-indigo-950/20 border border-indigo-500/30 shadow-sm"
+              style={{ animationDelay: delay }}
+            >
+              {icon}
+              <span className="text-xs font-mono text-indigo-300 tracking-wide">{label}</span>
+            </div>
+          ))}
         </div>
 
         <p className="sr-only">Majestik Magik builds platforms and digital systems for small and mid-size businesses. Web engineering, AI visibility, and performance optimization shipped within 72 hours.</p>

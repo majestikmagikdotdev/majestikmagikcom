@@ -79,13 +79,15 @@ const ServicesSection: React.FC = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 stagger-children scroll-animate">
           {servicesData.map((service) => (
             <div
               key={service.title}
-              className="p-6 transition-all duration-200 bg-[#1e293b] rounded-lg border border-[#334155] hover:border-indigo-500/30 hover:shadow-[0_4px_32px_rgba(99,102,241,0.08)]"
+              className="group p-6 transition-all duration-300 bg-[#1e293b] rounded-lg border border-[#334155] hover:border-indigo-500/50 hover:shadow-[0_8px_40px_rgba(99,102,241,0.15)] hover:-translate-y-1"
             >
-              {service.icon}
+              <div className="transition-transform duration-300 group-hover:scale-110 group-hover:text-indigo-400 w-fit">
+                {service.icon}
+              </div>
               <h3 className="mb-1 text-lg font-semibold text-slate-100 tracking-tight">{service.title}</h3>
               <p className="text-sm text-slate-400 mb-4">{service.description}</p>
               <ul className="space-y-2">

@@ -12,6 +12,17 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
+  // Scroll-animate observer
+  useEffect(() => {
+    const els = document.querySelectorAll('.scroll-animate, .stagger-children');
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } }),
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [pathname]);
+
 // On homepage mount, scroll to stored section target
   useEffect(() => {
     if (!isHomePage) return;
@@ -101,7 +112,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         navItems={navItems}
         handleNavClick={handleNavClick}
       />
-      <main>{children}</main>
+      <main key={pathname} className="page-enter">{children}</main>
       <Footer isAlwaysVisible={isPolicyPage} />
       <CookieBanner />
     </div>

@@ -30,13 +30,13 @@ const rows: Row[] = [
 const providers = ["Majestik Magik", "Wix", "Squarespace", "Lovable"];
 
 const Check = () => (
-    <svg className="h-5 w-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+    <svg className="h-5 w-5 text-emerald-400 pop-in" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414l2.293 2.293 6.543-6.543a1 1 0 011.414 0z" clipRule="evenodd" />
     </svg>
 );
 
 const Cross = () => (
-    <svg className="h-5 w-5 text-rose-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+    <svg className="h-5 w-5 text-rose-400 pop-in" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
         <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
     </svg>
 );
@@ -58,7 +58,7 @@ const ComparisonChart: React.FC = () => {
                 </div>
 
                 {/* Mobile: stacked cards */}
-                <div className="grid gap-6 md:hidden scroll-animate" style={{ transitionDelay: "0.4s" }}>
+                <div className="grid gap-6 md:hidden stagger-children scroll-animate" style={{ transitionDelay: "0.4s" }}>
                     {rows.map((r) => (
                         <div key={r.label} className="rounded-2xl bg-slate-800/70 p-5 shadow-xl ring-1 ring-slate-700">
                             <div className="mb-2 flex items-start justify-between">
@@ -100,7 +100,11 @@ const ComparisonChart: React.FC = () => {
                         </thead>
                         <tbody className="divide-y divide-slate-700">
                             {rows.map((r, idx) => (
-                                <tr key={r.label} className={idx % 2 ? "bg-slate-800/40" : ""}>
+                                <tr
+                                  key={r.label}
+                                  className={`transition-all duration-300 hover:bg-indigo-950/20 ${idx % 2 ? 'bg-slate-800/40' : ''}`}
+                                  style={{ animation: `fadeUp 0.5s cubic-bezier(0.16,1,0.3,1) ${0.05 * idx + 0.5}s both` }}
+                                >
                                     <td className="whitespace-pre-wrap py-4 pl-6 pr-3 text-sm text-slate-100">
                                         <div className="font-medium">{r.label}</div>
                                         {r.note && <div className="mt-1 text-xs text-slate-400">{r.note}</div>}
