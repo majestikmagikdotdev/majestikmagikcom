@@ -38,6 +38,7 @@ type MicroService = {
   price: string;
   priceAmount: number;
   bullets: string[];
+  turnaround: string;
 };
 
 interface PricingSectionProps {
@@ -57,6 +58,7 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     ],
     price: '$1,850',
     priceAmount: 1850,
+    turnaround: '48–72 hrs',
   },
   {
     serviceId: 'shopify-email-engine',
@@ -68,6 +70,7 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     ],
     price: '$1,250',
     priceAmount: 1250,
+    turnaround: '24–48 hrs',
   },
   {
     serviceId: 'dns-deliverability',
@@ -79,6 +82,7 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     ],
     price: '$600',
     priceAmount: 600,
+    turnaround: '24 hrs',
   },
   {
     serviceId: 'core-web-vitals',
@@ -90,6 +94,7 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     ],
     price: '$2,200',
     priceAmount: 2200,
+    turnaround: '48–72 hrs',
   },
   {
     serviceId: 'landing-page-redesign',
@@ -101,6 +106,7 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     ],
     price: '$4,500',
     priceAmount: 4500,
+    turnaround: '5–7 days',
   },
   {
     serviceId: 'geo-ai-audit',
@@ -112,6 +118,7 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     ],
     price: '$3,500',
     priceAmount: 3500,
+    turnaround: '3–5 days',
   },
   {
     serviceId: 'webhook-debugging',
@@ -123,6 +130,7 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     ],
     price: '$450',
     priceAmount: 450,
+    turnaround: '24 hrs',
   },
 ];
 
@@ -188,6 +196,10 @@ const PricingSection: React.FC<PricingSectionProps> = ({
                     <h3 className="text-slate-700 font-mono text-base font-semibold tracking-wide leading-snug">{m.service}</h3>
                     <span className="text-indigo-700 font-mono font-bold text-base whitespace-nowrap bg-indigo-100/50 px-2 py-0.5 rounded border border-indigo-200/50">{m.price}</span>
                   </div>
+                  <div className="flex items-center gap-1.5 mb-3">
+                    <svg className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" /></svg>
+                    <span className="text-xs font-mono text-emerald-600 font-semibold">Delivered in {m.turnaround}</span>
+                  </div>
                   <ul className="space-y-1.5">
                     {m.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2 text-sm text-slate-700">
@@ -205,6 +217,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
                   >
                     Buy Now
                   </button>
+                  <p className="mt-2 text-center text-xs text-slate-400 font-mono">Scoped before you pay. No surprises.</p>
                 </div>
               </div>
             ))}

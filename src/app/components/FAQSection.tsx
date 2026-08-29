@@ -3,6 +3,10 @@
 import React, { useState } from 'react';
 const faqs = [
   {
+    q: 'What happens after I pay?',
+    a: 'Within 24 hours of payment you\'ll receive a confirmation email with next steps. We\'ll schedule a short scoping call to align on deliverables, timeline, and any access we need. You\'ll have a direct point of contact throughout — no ticket queues, no silence. Work begins immediately after scoping is confirmed.',
+  },
+  {
     q: 'What services does Majestik Magik offer?',
     a: 'We offer custom web engineering, AI infrastructure, technical SEO, GEO optimization, Core Web Vitals audits, and on-demand micro-services for founders and businesses.',
   },
