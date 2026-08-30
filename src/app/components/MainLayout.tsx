@@ -53,7 +53,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     { name: 'FAQ', url: '/#faq' },
     { name: 'Portfolio', url: '/portfolio' },
     { name: 'Case Studies', url: '/case-studies' },
-    { name: 'Pivot Quest Login', url: 'https://app.majestikmagik.dev/', external: true },
+    { name: 'Client Login', url: 'https://app.majestikmagik.dev/', external: true },
   ];
 
   const isPolicyPage = [
