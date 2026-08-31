@@ -25,7 +25,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           e.target.classList.add('is-blurred');
         }
       }),
-      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.1, rootMargin: `0px 0px ${window.innerWidth < 768 ? '0px' : '-60px'} 0px` }
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
