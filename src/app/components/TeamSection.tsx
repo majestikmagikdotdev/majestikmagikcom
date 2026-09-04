@@ -197,7 +197,7 @@ const TeamSection: React.FC = () => {
                 <div className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 shadow-sm duration-200 transition-colors">
                   <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
                   <span className="text-xs font-mono text-indigo-300 tracking-wide">
-                    CAGE Code: Pending Annual Update
+                    CAGE Code: 14BU8
                   </span>
                 </div>
               </div>
