@@ -183,7 +183,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               </span>
             </h2>
             <p id="micro-services-desc" className="mt-4 text-base md:text-lg text-slate-600 font-sans leading-relaxed">
-              These are services we specialize in. Most are delivered within 24–72 hours. Let's talk about what your business needs and we'll give you an accurate quote and timeline.
+              These are services we specialize in. Most are delivered within 24–72 hours. Let&apos;s talk about what your business needs and we&apos;ll give you an accurate quote and timeline.
             </p>
           </div>
 

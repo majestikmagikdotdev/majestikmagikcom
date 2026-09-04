@@ -48,7 +48,7 @@ export default function RequestQuoteModal({ isOpen, onClose }: RequestQuoteModal
       } else {
         setSubmitStatus('error');
       }
-    } catch (err) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -85,7 +85,7 @@ export default function RequestQuoteModal({ isOpen, onClose }: RequestQuoteModal
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           {submitStatus === 'success' && (
             <div className="p-3 bg-green-950/30 border border-green-500/30 rounded-lg text-green-300 text-sm">
-              ✓ Thanks! We'll reach out within 24 hours.
+              ✓ Thanks! We&apos;ll reach out within 24 hours.
             </div>
           )}
 

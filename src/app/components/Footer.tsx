@@ -109,7 +109,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
 
         {/* Call to Action Section */}
         <div className="mx-auto mb-14 text-center">
-          <p className="text-sm text-slate-300 mb-4 font-sans">Ready to get started? Let's talk about your project.</p>
+          <p className="text-sm text-slate-300 mb-4 font-sans">Ready to get started? Let&apos;s talk about your project.</p>
           <button
             onClick={() => setIsModalOpen(true)}
             className="inline-block px-8 py-3 bg-indigo-600 cursor-pointer hover:bg-indigo-500 text-white font-mono text-sm font-bold uppercase tracking-wide rounded transition-colors duration-200"
