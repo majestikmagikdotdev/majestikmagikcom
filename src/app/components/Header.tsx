@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Bars3Icon, XMarkIcon } from './Icons';
+import RequestQuoteModal from './RequestQuoteModal';
 
 export interface NavLinkItem {
   name: string; 
@@ -25,6 +26,7 @@ const Header: React.FC<HeaderProps> = ({
   handleNavClick,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // State to track active hovered top-level element bounds
   const [hoveredRect, setHoveredRect] = useState<{ left: number; width: number; opacity: number }>({
@@ -279,6 +281,14 @@ const Header: React.FC<HeaderProps> = ({
           })}
         </nav>
 
+        {/* Desktop CTA Button */}
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="hidden xl:inline-block px-6 py-2 bg-indigo-600 cursor-pointer hover:bg-indigo-500 text-white font-mono text-xs font-bold uppercase tracking-wide rounded transition-colors duration-200 ml-8"
+        >
+          Request a Quote
+        </button>
+
         {/* Mobile Hamburger Trigger */}
         <div className="xl:hidden flex items-center">
           <button
@@ -371,9 +381,21 @@ const Header: React.FC<HeaderProps> = ({
                 </div>
               );
             })}
+            
+            {/* Mobile CTA Button */}
+            <button
+              onClick={() => {
+                setIsModalOpen(true);
+                setIsMobileMenuOpen(false);
+              }}
+              className="w-full mt-4 px-4 py-2 bg-indigo-600 cursor-pointer hover:bg-indigo-500 text-white font-mono text-sm font-bold uppercase tracking-wide rounded transition-colors duration-200"
+            >
+              Request a Quote
+            </button>
           </div>
         </div>
       )}
+      <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </header>
   );
 };

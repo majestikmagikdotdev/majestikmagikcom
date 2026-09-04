@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import RequestQuoteModal from './RequestQuoteModal';
 
 const FacebookIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -53,6 +54,7 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
   const [isClient, setIsClient] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -87,7 +89,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
           <div className="flex items-start space-x-4 p-4 rounded-lg bg-[#1e293b] border border-[#334155]">
             <div className="mt-1"><PhoneIcon /></div>
             <div>
-              <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">Voice Telemetry</p>
+              <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">Phone</p>
               <p className="text-sm mt-1"><a href="tel:8043627561" className="text-slate-300 transition-colors hover:text-indigo-400 font-mono">(804) 362-7561</a></p>
             </div>
           </div>
@@ -95,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
           <div className="flex items-start space-x-4 p-4 rounded-lg bg-[#1e293b] border border-[#334155]">
             <div className="mt-1"><EmailIcon /></div>
             <div>
-              <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">Direct Signal Packet</p>
+              <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">Email</p>
               <p className="text-sm mt-1">
                 <a href="mailto:contact@majestikmagik.dev" className="hover:text-indigo-400 transition-colors py-1 block font-mono">
                   contact@majestikmagik.dev
@@ -105,12 +107,23 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
           </div>
         </div>
 
+        {/* Call to Action Section */}
+        <div className="mx-auto mb-14 text-center">
+          <p className="text-sm text-slate-300 mb-4 font-sans">Ready to get started? Let's talk about your project.</p>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="inline-block px-8 py-3 bg-indigo-600 cursor-pointer hover:bg-indigo-500 text-white font-mono text-sm font-bold uppercase tracking-wide rounded transition-colors duration-200"
+          >
+            Request a Quote
+          </button>
+        </div>
+
         <div className="border-t border-[#334155] mb-12"></div>
 
         {/* Links Grid */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 justify-items-stretch">
           <div className="flex flex-col items-start space-y-4">
-            <h3 className="text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">System Core Links</h3>
+            <h3 className="text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">Quick Links</h3>
             <ul className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm w-full">
               <li><a href="/privacy-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Privacy Policy</a></li>
               <li><a href="/terms-of-service" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Terms of Service</a></li>
@@ -177,7 +190,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
       <div className="relative border-t border-[#334155] py-6 z-20" style={{ background: 'rgb(15, 23, 42)' }}>
         <div className="w-full px-6 mx-auto flex flex-col items-center justify-between text-xs font-mono text-slate-400 md:flex-row">
           <p className="mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Majestik Magik, Inc. All nodes protected.
+            &copy; {new Date().getFullYear()} Majestik Magik, Inc. All rights reserved.
           </p>
 
           {isClient && isDesktop && (
@@ -193,6 +206,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
           )}
         </div>
       </div>
+      <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
   );
 };

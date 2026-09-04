@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import RequestQuoteModal from './RequestQuoteModal';
 
 interface PricingPlan {
   name: string;
@@ -138,6 +139,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
   microServices = DEFAULT_MICRO_SERVICES,
 }) => {
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function handleCheckout(m: MicroService) {
     const params = new URLSearchParams({
@@ -168,20 +170,20 @@ const PricingSection: React.FC<PricingSectionProps> = ({
         <div id="micro-services" aria-labelledby="micro-services-heading" className="mt-auto md:mt-auto">
           <div className="text-center mx-auto mb-8 md:mb-16">
             <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-white px-3 py-1 rounded border border-[#334155]">
-              On-Demand Services
+              Common Services
             </span>
             <h2
               id="micro-services-heading"
               className="mb-2 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-900 font-bold tracking-tight"
               style={{ letterSpacing: '-0.04em' }}
             >
-              Ship It{' '}
+              Services We{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-indigo-500 to-slate-800">
-                Within 72hrs
+                Deliver Fast
               </span>
             </h2>
-            <p id="micro-services-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed">
-              Pick your fix, pay once, and get it shipped. Every service is scoped, priced upfront, and delivered within 24–72 hours for most projects — no retainers, no surprises.
+            <p id="micro-services-desc" className="mt-4 text-base md:text-lg text-slate-600 font-sans leading-relaxed">
+              These are services we specialize in. Most are delivered within 24–72 hours. Let's talk about what your business needs and we'll give you an accurate quote and timeline.
             </p>
           </div>
 
@@ -210,14 +212,20 @@ const PricingSection: React.FC<PricingSectionProps> = ({
                   </ul>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-6 space-y-2">
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="inline-flex w-full items-center justify-center rounded px-4 py-2.5 text-sm font-mono font-bold uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 border border-indigo-600 hover:border-indigo-500 transition-all duration-200 cursor-pointer"
+                  >
+                    Request a Quote
+                  </button>
                   <button
                     onClick={() => handleCheckout(m)}
-                    className="inline-flex w-full items-center justify-center rounded px-4 py-2.5 text-sm font-mono font-bold uppercase tracking-wider text-indigo-700 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 hover:border-indigo-300 transition-all duration-200 cursor-pointer"
+                    className="inline-flex w-full items-center justify-center rounded px-4 py-2 text-xs font-mono font-semibold uppercase tracking-wider text-indigo-600 hover:text-indigo-700 bg-white hover:bg-indigo-50 border border-indigo-200 hover:border-indigo-300 transition-all duration-200 cursor-pointer"
                   >
                     Buy Now
                   </button>
-                  <p className="mt-2 text-center text-xs text-slate-400 font-mono">Scoped before you pay. No surprises.</p>
+                  <p className="pt-1 text-center text-xs text-slate-500 font-mono">Or <a href="tel:8043627561" className="text-indigo-600 hover:text-indigo-700 font-semibold">call (804) 362-7561</a></p>
                 </div>
               </div>
             ))}
@@ -225,10 +233,11 @@ const PricingSection: React.FC<PricingSectionProps> = ({
 
           <p className="mt-12 text-center font-mono text-xs text-slate-500 tracking-wide">
             Need a service not listed?{' '}
-            <a href="#contact" className="inline-flex items-center font-mono text-xs text-indigo-600 bg-indigo-100/50 hover:bg-indigo-200/50 border border-indigo-200/50 px-3 py-1.5 rounded-lg transition-colors duration-200">Contact us</a>.
+            <button onClick={() => setIsModalOpen(true)} className="inline-flex items-center font-mono text-xs text-indigo-600 bg-indigo-100/50 hover:bg-indigo-200/50 border border-indigo-200/50 px-3 py-1.5 rounded-lg transition-colors duration-200 cursor-pointer">Ask us</button>.
           </p>
         </div>
       </div>
+      <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };

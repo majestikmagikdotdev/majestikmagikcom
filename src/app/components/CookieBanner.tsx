@@ -30,7 +30,7 @@ export default function CookieBanner() {
     >
       <div className="w-full flex flex-col items-center justify-between md:flex-row">
         <p id="cookie-message" className="mb-3 text-xs font-mono tracking-tight text-slate-400 md:mb-0 md:mr-4 max-w-4xl">
-          [System Event Matrix]: We map data cookies to safely optimize user telemetry and analyze site pipeline routing. By committing &quot;Accept&quot;, you assign execution authorization. Details in our <Link href="/privacy-policy" className="text-indigo-400 hover:text-indigo-300 underline font-medium">Privacy Policy Documentation</Link>.
+          We use cookies to understand how you use our site and improve your experience. By clicking &quot;Accept&quot;, you agree to our use of cookies. See our <Link href="/privacy-policy" className="text-indigo-400 hover:text-indigo-300 underline font-medium">Privacy Policy</Link> for details.
         </p>
         <button
           onClick={handleAccept}

@@ -12,19 +12,11 @@ type Row = {
 };
 
 const rows: Row[] = [
-    { label: "Managed Hosting", mm: "Cloudflare/external", wix: true, ss: true, lovable: "Vercel/external" },
     { label: "Custom Code Ownership", mm: true, wix: false, ss: false, lovable: "Partial (AI-gen)" },
-    { label: "Mobile-Friendly Design", mm: "Custom + optimized", wix: "Template-based", ss: "Template-based", lovable: "Template-based" },
-    { label: "Updates Included", mm: "Retainer (per project)", wix: false, ss: false, lovable: false },
-    { label: "Security Monitoring & Core Updates", mm: true, wix: "Limited", ss: "Limited", lovable: false },
-    { label: "Automated Monthly Backups", mm: true, wix: false, ss: false, lovable: false },
-    { label: "SEO Optimization", mm: "Basic → Advanced (per project)", wix: "Basic tools", ss: "Basic tools", lovable: "Minimal" },
-    { label: "Analytics & Monthly Report", mm: "Standard/Premium", wix: "Limited", ss: "Limited", lovable: false },
-    { label: "Priority Support (human + AI)", mm: true, wix: "Chat/Forum", ss: "Email", lovable: "AI chat only" },
-    { label: "Production Bug Fixes", mm: true, wix: false, ss: false, lovable: "Prompt-based only" },
-    { label: "E-commerce Support", mm: "Premium", wix: "Add-on fees", ss: "Add-on fees", lovable: "Limited" },
-    { label: "Quarterly Strategy Call", mm: "Premium", wix: false, ss: false, lovable: false },
-    { label: "Transparent Pricing", mm: "Based on scope per project", wix: "Add-ons & upsells", ss: "Add-ons & upsells", lovable: "Credits-based" },
+    { label: "Fast Mobile & SEO Optimization", mm: "Custom + Advanced", wix: "Template-based", ss: "Template-based", lovable: "Minimal" },
+    { label: "Production Bug Fixes & Support", mm: true, wix: false, ss: false, lovable: "Prompt-based only" },
+    { label: "Priority Support", mm: "24/7 Human + AI", wix: "Chat/Forum", ss: "Email only", lovable: "AI chat only" },
+    { label: "Transparent Pricing (No Hidden Fees)", mm: true, wix: false, ss: false, lovable: false },
 ];
 
 const providers = ["Majestik Magik", "Wix", "Squarespace", "Lovable"];
