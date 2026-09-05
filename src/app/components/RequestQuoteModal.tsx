@@ -74,7 +74,7 @@ export default function RequestQuoteModal({ isOpen, onClose }: RequestQuoteModal
           </h2>
           <button
             onClick={onClose}
-            className="p-1 text-slate-400 hover:text-slate-200 transition-colors"
+            className="p-1 text-slate-400 hover:text-slate-200 transition-colors cursor-pointer"
             aria-label="Close modal"
             type="button"
           >
