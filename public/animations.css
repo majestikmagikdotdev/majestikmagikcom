@@ -26,7 +26,6 @@
 .scroll-animate,
 main > section,
 main > article,
-main > div,
 main > main > section,
 main > main > article {
   animation-name: fadeInUp;

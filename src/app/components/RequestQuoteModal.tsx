@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { XMarkIcon } from './Icons';
 
 interface RequestQuoteModalProps {
@@ -57,7 +58,7 @@ export default function RequestQuoteModal({ isOpen, onClose }: RequestQuoteModal
 
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
       onClick={(e) => {
@@ -172,6 +173,7 @@ export default function RequestQuoteModal({ isOpen, onClose }: RequestQuoteModal
           Or call <a href="tel:8043627561" className="text-indigo-400 hover:text-indigo-300">(804) 362-7561</a>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
