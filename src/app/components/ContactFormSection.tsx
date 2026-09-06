@@ -11,7 +11,7 @@ interface ContactFormSectionProps {
 
 export default function ContactFormSection({
   title = 'Ready to Get Started?',
-  subtitle = "Tell us about your project, and we&apos;ll get back to you within 24 hours with a quote and next steps.",
+  subtitle = "Tell us about your project, and we'll get back to you within 24 hours with a quote and next steps.",
   showBusiness = true,
 }: ContactFormSectionProps) {
   const [formData, setFormData] = useState({
