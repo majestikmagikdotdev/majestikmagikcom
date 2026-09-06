@@ -63,40 +63,32 @@ export default function ContactFormSection({
       id="contact"
       aria-labelledby="contact-heading"
       aria-describedby="contact-desc"
-      className="relative py-20 md:py-32 px-4 md:px-6 bg-gradient-to-b from-[#0f172a] via-[#1e293b] to-[#0f172a]"
+      className="scroll-animate relative z-0 py-12 md:py-24 border-t border-[#334155]"
+      style={{ background: 'rgb(15, 23, 42)' }}
     >
-      {/* Noise overlay */}
-      <div className="noise-overlay absolute inset-0 z-0 opacity-10" />
-
-      {/* Accent glow */}
-      <div
-        className="absolute -top-32 -right-32 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"
-        aria-hidden="true"
-      />
-
-      <div className="max-w-2xl mx-auto relative z-10">
+      <div className="w-full px-4 md:px-6 mx-auto">
         {/* Heading */}
         <div className="mb-12 text-center">
+          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
+            Ready to Start?
+          </span>
           <h2
             id="contact-heading"
-            className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight"
+            className="text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl font-bold text-slate-100 tracking-tight mb-4"
+            style={{ letterSpacing: '-0.06em' }}
           >
             {title}
           </h2>
           <p
             id="contact-desc"
-            className="text-lg text-slate-300 font-sans leading-relaxed"
+            className="text-slate-400 text-base"
           >
             {subtitle}
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="bg-slate-900/40 border border-slate-700/50 rounded-lg p-8 md:p-10 backdrop-blur-sm">
+        <div className="max-w-2xl mx-auto bg-[#1e293b] border border-[#334155] rounded-lg p-8 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Success Message */}
             {submitStatus === 'success' && (
@@ -141,7 +133,7 @@ export default function ContactFormSection({
                 onChange={handleChange}
                 required
                 disabled={isSubmitting}
-                className="w-full px-4 py-3 bg-slate-800/60 border border-slate-600/50 rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="John Smith"
               />
             </div>
@@ -159,7 +151,7 @@ export default function ContactFormSection({
                 onChange={handleChange}
                 required
                 disabled={isSubmitting}
-                className="w-full px-4 py-3 bg-slate-800/60 border border-slate-600/50 rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 placeholder="you@company.com"
               />
             </div>
@@ -178,7 +170,7 @@ export default function ContactFormSection({
                   onChange={handleChange}
                   required={showBusiness}
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 bg-slate-800/60 border border-slate-600/50 rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your Business Name"
                 />
               </div>
@@ -197,7 +189,7 @@ export default function ContactFormSection({
                 required
                 disabled={isSubmitting}
                 rows={4}
-                className="w-full px-4 py-3 bg-slate-800/60 border border-slate-600/50 rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed resize-none"
+                className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed resize-none"
                 placeholder="e.g., Build a new website, fix our site speed, improve Google visibility, increase leads..."
               />
             </div>
