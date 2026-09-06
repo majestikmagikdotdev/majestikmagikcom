@@ -139,7 +139,23 @@ const PricingSection: React.FC<PricingSectionProps> = ({
   microServices = DEFAULT_MICRO_SERVICES,
 }) => {
   const router = useRouter();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleScrollToContact = () => {
+    const target = document.getElementById('contact');
+    if (!target) return;
+    const start = window.scrollY;
+    const end = target.getBoundingClientRect().top + start;
+    const duration = 1200;
+    let startTime: number | null = null;
+    const ease = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const step = (ts: number) => {
+      if (!startTime) startTime = ts;
+      const progress = Math.min((ts - startTime) / duration, 1);
+      window.scrollTo(0, start + (end - start) * ease(progress));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
 
   function handleCheckout(m: MicroService) {
     const params = new URLSearchParams({
@@ -183,7 +199,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               </span>
             </h2>
             <p id="micro-services-desc" className="mt-4 text-base md:text-lg text-slate-600 font-sans leading-relaxed">
-              These are services we specialize in. Most are delivered within 24–72 hours. Let&apos;s talk about what your business needs and we&apos;ll give you an accurate quote and timeline.
+              The services below are fixed-price—pick one, pay, and we ship it within 24–72 hours. For larger projects or custom needs, request a quote and we'll scope it out together.
             </p>
           </div>
 
@@ -214,7 +230,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
 
                 <div className="mt-6 space-y-2">
                   <button
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={handleScrollToContact}
                     className="inline-flex w-full items-center justify-center rounded px-4 py-2.5 text-sm font-mono font-bold uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 border border-indigo-600 hover:border-indigo-500 transition-all duration-200 cursor-pointer"
                   >
                     Request a Quote
@@ -233,11 +249,10 @@ const PricingSection: React.FC<PricingSectionProps> = ({
 
           <p className="mt-12 text-center font-mono text-xs text-slate-500 tracking-wide">
             Need a service not listed?{' '}
-            <button onClick={() => setIsModalOpen(true)} className="inline-flex items-center font-mono text-xs text-indigo-600 bg-indigo-100/50 hover:bg-indigo-200/50 border border-indigo-200/50 px-3 py-1.5 rounded-lg transition-colors duration-200 cursor-pointer">Ask us</button>.
+            <button onClick={handleScrollToContact} className="inline-flex items-center font-mono text-xs text-indigo-600 bg-indigo-100/50 hover:bg-indigo-200/50 border border-indigo-200/50 px-3 py-1.5 rounded-lg transition-colors duration-200 cursor-pointer">Ask us</button>.
           </p>
         </div>
       </div>
-      <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };
