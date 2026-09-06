@@ -7,6 +7,7 @@ import {
   FAQSection,
   AIContentLayer,
   ServicesSection,
+  ContactFormSection,
 } from './components';
 import ComparisonChart from './components/ComparisonChart';
 
@@ -37,6 +38,12 @@ export default function App() {
 
         {/* 7. Handle objections — close */}
         <FAQSection />
+
+        {/* 8. Clear contact path — visible next step for ready buyers */}
+        <ContactFormSection
+          title="Let's Build Something Great Together"
+          subtitle="Have questions? Need a custom quote? Tell us about your project and we'll get back to you within 24 hours."
+        />
       </main>
       <ChatbotController />
     </>

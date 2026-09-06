@@ -6,6 +6,7 @@ export { default as CoreEngineSection } from './CoreEngineSection';
 export { default as TeamSection } from './TeamSection';
 export { default as Footer } from './Footer';
 export { default as Chatbot } from './Chatbot';
+export { default as ContactFormSection } from './ContactFormSection';
 export * from './Icons'; // Assuming Icons.tsx exports multiple named icons
 export { default as AIConceptTemplateSection } from './AIConceptTemplateSection';
 export { default as TestimonialsSection } from './TestimonialsSection';
