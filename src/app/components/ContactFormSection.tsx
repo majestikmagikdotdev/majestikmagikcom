@@ -99,7 +99,7 @@ export default function ContactFormSection({
                     Success! We received your request.
                   </p>
                   <p className="text-xs text-green-200">
-                    We'll review your project and get back to you within 24 hours.
+                    We&apos;ll review your project and get back to you within 24 hours.
                   </p>
                 </div>
               </div>

@@ -1,15 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { MagicWandIcon, LightbulbIcon, ZapIcon } from './Icons';
 import ScrollToServices from './ScrollToServices';
-import RequestQuoteModal from './RequestQuoteModal';
 
 interface HeroSectionProps {
   onLearnMore?: () => void;
 }
 const HeroSection: React.FC<HeroSectionProps> = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleScrollToContact = () => {
+    const target = document.getElementById('contact');
+    if (!target) return;
+    const start = window.scrollY;
+    const end = target.getBoundingClientRect().top + start;
+    const duration = 1200;
+    let startTime: number | null = null;
+    const ease = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const step = (ts: number) => {
+      if (!startTime) startTime = ts;
+      const progress = Math.min((ts - startTime) / duration, 1);
+      window.scrollTo(0, start + (end - start) * ease(progress));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
   return (
     <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="scroll-animate relative z-0 overflow-hidden pt-20 pb-12 md:pt-48 md:pb-36" style={{ background: 'rgb(15, 23, 42)' }}>
 
@@ -59,7 +73,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <p id="home-desc" className="mx-auto mb-10 max-w-2xl text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
         >
-          We build fast websites, fix broken sites, and make sure Google and AI can find you. So you attract more leads and grow your business.
+          Your website should work as hard as you do. We fix speed, visibility, and broken user experiences.
         </p>
 
         {/* Dual CTA */}
@@ -67,7 +81,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards' }}
         >
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={handleScrollToContact}
             className="inline-block text-white cursor-pointer font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-200 bg-indigo-600 hover:bg-indigo-500 font-bold"
           >
             Request a Quote →
@@ -80,7 +94,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           {[
             { icon: <ZapIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Built Fast', delay: '0s' },
             { icon: <MagicWandIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Fixed in 24–72 Hours', delay: '0.3s' },
-            { icon: <LightbulbIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Get More Leads', delay: '0.6s' },
+            { icon: <LightbulbIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Get More Visibility', delay: '0.6s' },
           ].map(({ icon, label, delay }) => (
             <div
               key={label}
@@ -95,7 +109,6 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
 
         <p className="sr-only">Majestik Magik builds platforms and digital systems for small and mid-size businesses. Web engineering, AI visibility, and performance optimization shipped within 72 hours.</p>
       </div>
-      <RequestQuoteModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };

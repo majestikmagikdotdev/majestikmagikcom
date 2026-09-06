@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
-import RequestQuoteModal from './RequestQuoteModal';
 
 interface PricingPlan {
   name: string;
@@ -199,7 +198,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               </span>
             </h2>
             <p id="micro-services-desc" className="mt-4 text-base md:text-lg text-slate-600 font-sans leading-relaxed">
-              The services below are fixed-price—pick one, pay, and we ship it within 24–72 hours. For larger projects or custom needs, request a quote and we'll scope it out together.
+              The services below are fixed-price—pick one, pay, and we ship it within 24–72 hours. For larger projects or custom needs, request a quote and we&apos;ll scope it out together.
             </p>
           </div>
 
