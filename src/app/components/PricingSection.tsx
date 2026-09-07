@@ -104,8 +104,8 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
       'High-converting layout architecture with full-stack API and backend integrations',
       'Fully responsive, accessibility-compliant, and production-deployed',
     ],
-    price: '$4,500',
-    priceAmount: 4500,
+    price: '$7,000',
+    priceAmount: 7000,
     turnaround: '5–7 days',
   },
   {
