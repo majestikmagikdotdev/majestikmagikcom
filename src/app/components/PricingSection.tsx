@@ -74,14 +74,15 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
   },
   {
     serviceId: 'dns-deliverability',
-    service: 'DNS, SPF, DKIM & Deliverability Setup',
+    service: 'Domain Protection & Email Deliverability Stabilization (SPF, DKIM, DMARC Audit)',
     bullets: [
-      'Full domain reputation setup: MX, TXT, SPF, DKIM, and DMARC alignment',
-      'Eliminate spam flagging, domain blacklisting, and email routing failures',
-      'Inbox warm-up strategy and ongoing deliverability monitoring recommendations',
+      '100% Authentication Alignment: Strict configuration of SPF, DKIM, and DMARC (p=quarantine or p=reject deployment)',
+      'Spam & Blacklist Remediation: Diagnostic scan across 50+ global blacklists with manual removal submission',
+      'Reputation Dashboarding: Setup of Google Postmaster Tools and MXToolbox monitoring to track spam rates and domain health',
+      '30-Day Guarantee: Direct monitoring for 30 days to ensure zero inbox deliverability degradation',
     ],
-    price: '$600',
-    priceAmount: 600,
+    price: '$1,450',
+    priceAmount: 1450,
     turnaround: '24 hrs',
   },
   {
@@ -122,15 +123,15 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
   },
   {
     serviceId: 'webhook-debugging',
-    service: 'Contact Form & Webhook Debugging',
+    service: 'Emergency Revenue & Lead-Pipeline Audit (API & Webhook Stabilization)',
     bullets: [
-      'Enterprise-grade API, payload, and webhook error-handling audit',
-      'Debug input validation logic, fix broken routing pipelines, and patch delivery failures',
-      'Restore secure lead-capture with end-to-end webhook verification and logging',
+      'Designed for businesses losing qualified leads, missing Stripe webhooks, or dropping form payloads due to broken API integrations, missing headers, or failed serverless functions.',
+      'We will audit your entire lead and revenue pipeline, identify the root cause of the failures, and implement a fix to ensure your business is capturing every qualified lead and revenue opportunity.',
+      'Includes 30 days of free support to ensure your systems are fully functional and stable.',
     ],
-    price: '$450',
-    priceAmount: 450,
-    turnaround: '24 hrs',
+    price: '$1,850',
+    priceAmount: 1850,
+    turnaround: '12-24 hrs',
   },
 ];
 
@@ -198,7 +199,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               </span>
             </h2>
             <p id="micro-services-desc" className="mt-4 text-base md:text-lg text-slate-600 font-sans leading-relaxed">
-              The services below are fixed-price—pick one, pay, and we ship it within 24–72 hours. For larger projects or custom needs, request a quote and we&apos;ll scope it out together.
+              The services below are fixed-price—pick one, pay, and we ship it usually within 24–72 hours. For larger projects or custom needs, request a quote and we&apos;ll scope it out together.
             </p>
           </div>
 

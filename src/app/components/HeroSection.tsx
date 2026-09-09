@@ -61,24 +61,24 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         {/* H1 */}
         <h1
           id="home-heading"
-          className="mb-6 text-4xl sm:text-6xl md:text-7xl lg:text-9xl text-white leading-tight opacity-90"
-          style={{ letterSpacing: '-0.04em', animation: 'fadeUp 3s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
+          className="mb-6 text-4xl sm:text-6xl md:text-7xl lg:text-[10rem] text-white leading-tight opacity-90"
+          style={{ letterSpacing: '-0.04em', animation: 'fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
         >
-          <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-50 via-indigo-500 to-white" style={{ letterSpacing: '-0.02em' }}>
-            Get Your Business{' '}<br />Found Online
+          <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-50 via-indigo-300 to-white" style={{ letterSpacing: '-0.02em' }}>
+            Get Your Business Found Online
           </span>
         </h1>
 
         {/* Subheadline */}
         <p id="home-desc" className="mx-auto mb-10 max-w-2xl text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
-          style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
+          style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
         >
           Your website should work as hard as you do. We fix speed, visibility, and broken user experiences.
         </p>
 
         {/* Dual CTA */}
         <div className="mb-10 md:mb-28 flex flex-col sm:flex-row items-center justify-center gap-4"
-          style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards' }}
+          style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards' }}
         >
           <button
             onClick={handleScrollToContact}
