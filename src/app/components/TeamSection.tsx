@@ -128,7 +128,7 @@ const TeamSection: React.FC = () => {
                 <a href={member.emailUrl}>{member.email}</a>
               </p>
               <div className="relative mb-6 opacity-80 filter brightness-115 contrast-125">
-                <Image src="/img/my_signature.webp" alt="Jamil Matheny Signature" width={160} height={106} className="h-16 invert w-auto object-contain" />
+                <Image src="/img/my_signature.webp" alt="Jamil Matheny Signature" width={260} height={206} className="h-40 invert w-auto object-contain" />
               </div>
               <p className="flex-grow px-2 mb-6 text-md text-slate-400 leading-relaxed font-sans">
                 {member.bio}
