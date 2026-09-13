@@ -61,6 +61,13 @@ const TestimonialsSection = () => {
         justifyContent: "center",
       }}
     >
+      <div
+        className="absolute inset-0 z-10 pointer-events-none opacity-20"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(100, 116, 139, 0.4) 1.2px, transparent 1.2px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
       <div className="w-full relative z-20">
         {/* Section Header */}
         <div className="mb-8 text-left">

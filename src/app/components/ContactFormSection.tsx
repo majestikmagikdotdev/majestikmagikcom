@@ -97,23 +97,13 @@ export default function ContactFormSection({
           {/* Ready-to-Build Policy Pre-Qualification Message */}
           <div className="mx-auto max-w-2xl mb-8 p-4 bg-amber-500/10 border border-amber-500/30 rounded-lg">
             <p className="text-sm text-amber-100/90">
-              <span className="font-semibold text-amber-300">Important Note Before Requesting:</span> We partner exclusively with founders and companies that are <span className="font-semibold">Ready-to-Build</span>. We design high-performance software to amplify established business operations. We do not act as business incubators or data-entry services. Please review our{' '}
-              <a href="/ready-to-build-policy" className="text-amber-300 hover:text-amber-200 underline font-semibold transition-colors">
-                Ready-to-Build Policy
-              </a>
-              {' '}before submitting a request.
-            </p>
-          </div>
-
-          {/* Pivot Quest Alternative */}
-          <div className="mx-auto max-w-2xl mb-8 p-4 bg-indigo-500/10 border border-indigo-500/30 rounded-lg">
-            <p className="text-sm text-indigo-100/90">
-              <span className="font-semibold text-indigo-300">Need self-service tools?</span> If you&apos;re looking for help managing your business operations with our self-service platform, check out{' '}
-              <a href="https://app.majestikmagik.dev" className="text-indigo-300 hover:text-indigo-200 underline font-semibold transition-colors" target="_blank" rel="noopener noreferrer">
+              <span className="font-semibold text-amber-300">About Our Process:</span> We build high-performance software for founders who&apos;ve already nailed down their business model, data, and budget. If you&apos;re still working through those pieces, the {' '}
+              <a href="https://app.majestikmagik.dev" className="text-amber-300 hover:text-amber-200 underline font-semibold transition-colors" target="_blank" rel="noopener noreferrer">
                 Pivot Quest
-              </a>.
+              </a>
+              {' '} chat can help you get there first; then come back when you&apos;re ready to build.
             </p>
-          </div>
+          </div>          
         </div>
 
         {/* Form Container */}
@@ -248,20 +238,7 @@ export default function ContactFormSection({
               className="w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-mono text-sm font-bold uppercase tracking-wide rounded-lg transition-all duration-200 cursor-pointer"
             >
               {isSubmitting ? 'Sending...' : submitStatus === 'success' ? '✓ Request Sent' : !acknowledgedPolicy ? 'Acknowledge Policy to Continue' : 'Send My Request'}
-            </button>
-
-            {/* Footer Text */}
-            <div className="text-xs text-slate-500 text-center pt-2">
-              <p>
-                Prefer to call?{' '}
-                <a
-                  href="tel:8043627561"
-                  className="text-indigo-400 hover:text-indigo-300 transition-colors font-semibold"
-                >
-                  (804) 362-7561
-                </a>
-              </p>
-            </div>
+            </button>            
           </form>
         </div>        
       </div>

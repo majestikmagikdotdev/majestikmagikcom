@@ -12,3 +12,4 @@ export { default as AIConceptTemplateSection } from './AIConceptTemplateSection'
 export { default as TestimonialsSection } from './TestimonialsSection';
 export { default as FAQSection } from './FAQSection';
 export { default as AIContentLayer } from './AIContentLayer';
+export { default as PivotQuestSection } from './PivotQuestSection';

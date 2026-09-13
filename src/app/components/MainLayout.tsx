@@ -31,6 +31,59 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     return () => observer.disconnect();
   }, [pathname]);
 
+  // Eased/delayed smooth scrolling for mouse wheel input (desktop only)
+  useEffect(() => {
+    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    if (isCoarsePointer) return;
+
+    let current = window.scrollY;
+    let target = window.scrollY;
+    let rafId: number | null = null;
+
+    const getMaxScroll = () =>
+      Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+    const animate = () => {
+      const diff = target - current;
+      if (Math.abs(diff) < 0.5) {
+        current = target;
+        window.scrollTo(0, current);
+        rafId = null;
+        return;
+      }
+      current += diff * 0.09;
+      window.scrollTo(0, current);
+      rafId = requestAnimationFrame(animate);
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      // Let native scrolling happen inside elements that manage their own overflow
+      const scrollableParent = (e.target as HTMLElement)?.closest?.(
+        '[data-native-scroll], .overflow-y-auto, .overflow-auto, textarea'
+      );
+      if (scrollableParent) return;
+
+      e.preventDefault();
+      target = Math.min(getMaxScroll(), Math.max(0, target + e.deltaY));
+      if (rafId === null) {
+        rafId = requestAnimationFrame(animate);
+      }
+    };
+
+    const onResize = () => {
+      target = Math.min(getMaxScroll(), target);
+    };
+
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('resize', onResize);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, [pathname]);
+
 // On homepage mount, scroll to stored section target
   useEffect(() => {
     if (!isHomePage) return;
@@ -46,14 +99,15 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   const navItems = [
     { name: 'Home', url: '/#home' },
-    { name: 'Testimonials', url: '/#testimonials' },
     { name: 'Services', url: '/#services' },
     { name: 'Pricing', url: '/#services-pricing' },
-    { name: 'About', url: '/#about' },
-    { name: 'FAQ', url: '/#faq' },
     { name: 'Portfolio', url: '/portfolio' },
     { name: 'Case Studies', url: '/case-studies' },
-    { name: 'Client Login', url: 'https://app.majestikmagik.dev/', external: true },
+    { name: 'Testimonials', url: '/#testimonials' },
+    { name: 'About', url: '/#about' },
+    { name: 'FAQ', url: '/#faq' },
+    { name: 'Contact', url: '/#contact' },
+    { name: 'Pivot Quest', url: 'https://app.majestikmagik.dev/', external: true },
   ];
 
   const isPolicyPage = [

@@ -94,25 +94,37 @@ const ReadyToBuildPolicyContent: React.FC = () => {
 
             {/* Gate 4 */}
             <div className="space-y-4 pt-4 border-l-4 border-indigo-500/50 pl-6 bg-indigo-500/5 p-4 rounded">
-                <h3 className="text-xl font-bold text-indigo-300 tracking-tight">4. Secured Budget & Liquidity</h3>
+                <h3 className="text-xl font-bold text-indigo-300 tracking-tight">4. Secured Budget & Payment Terms</h3>
                 
                 <div className="space-y-2">
                     <p className="text-sm font-semibold text-indigo-400 uppercase tracking-wider">Requirement:</p>
                     <p className="text-slate-200">
-                        Liquid capital for the upfront initiation deposit (e.g., 50%) is allocated and accessible for immediate disbursement upon contract execution.
+                        Budget for the initial engagement is confirmed and ready to be committed upon signing the contract.
                     </p>
                 </div>
 
                 <div className="space-y-2">
                     <p className="text-sm font-semibold text-indigo-400 uppercase tracking-wider">The Rule:</p>
                     <p className="text-slate-200">
-                        Legal and contract negotiations will not proceed until budget readiness is confirmed.
+                        Engineering timelines and contract terms are not held or reserved while a client secures funding.
                     </p>
                 </div>
             </div>
 
+            {/* Closing Section */}
+            <div className="space-y-4 pt-6 border-t border-indigo-500/10">
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">Not Ready Yet? That&apos;s Normal</h2>
+                <p className="text-[1.05rem] text-slate-200">
+                    Most founders aren&apos;t ready to build right out of the gate—and that&apos;s a normal part of building a business. If you&apos;re still working through data sourcing, operational planning, or business mechanics,{' '}
+                    <a href="https://app.majestikmagik.dev" className="text-indigo-300 hover:text-indigo-200 underline font-semibold transition-colors" target="_blank" rel="noopener noreferrer">
+                        Pivot Quest
+                    </a>
+                    {' '}is a self-service tool we built specifically to help you work through those pieces on your own timeline. Come back when you&apos;re ready to build.
+                </p>
+            </div>
+
             {/* Back to Home */}
-            <div className="pt-8 flex items-center space-x-2">
+            <div className="pt-6 flex items-center space-x-2">
                 <Link href="/" className="inline-flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 transition-colors group">
                     <ArrowLeftIcon className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                     <span>Back to Home</span>

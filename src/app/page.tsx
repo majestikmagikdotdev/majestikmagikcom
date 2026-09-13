@@ -8,6 +8,7 @@ import {
   AIContentLayer,
   ServicesSection,
   ContactFormSection,
+  PivotQuestSection,
 } from './components';
 import ComparisonChart from './components/ComparisonChart';
 
@@ -21,23 +22,26 @@ export default function App() {
         <HeroSection />
         <AIContentLayer />
 
-        {/* 2. Social proof — establish trust before the ask */}
-        <TestimonialsSection />
-
-        {/* 3. Problem/solution — build resonance and desire */}
+        {/* 2. Problem/solution — build resonance and desire */}
         <ServicesSection />
 
-        {/* 4. Why us — competitive differentiation */}
+        {/* 3. Why us — competitive differentiation */}
         <ComparisonChart />
 
-        {/* 5. The ask — now they're ready to buy */}
+        {/* 4. The ask — now they're ready to buy */}
         <PricingSection pricingPlans={[]} />
 
-        {/* 6. Who's behind it — reinforce credibility post-price */}
+        {/* 5. Social proof — establish trust post-price */}
+        <TestimonialsSection />
+
+        {/* 6. Who's behind it — reinforce credibility */}
         <TeamSection />
 
         {/* 7. Handle objections — close */}
         <FAQSection />
+
+        {/* 7.5. Not ready yet? Redirect to Pivot Quest instead of losing them */}
+        <PivotQuestSection />
 
         {/* 8. Clear contact path — visible next step for ready buyers */}
         <ContactFormSection

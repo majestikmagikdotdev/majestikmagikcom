@@ -55,17 +55,17 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           style={{ animation: 'fadeUp 2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
         >
           <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-          Serving Small &amp; Mid-Size Businesses
+          Serving Ready-to-Build Founders &amp; Companies
         </div>
 
         {/* H1 */}
         <h1
           id="home-heading"
-          className="mb-6 text-4xl sm:text-6xl md:text-7xl lg:text-[10rem] text-white leading-tight opacity-90"
+          className="mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-white leading-tight opacity-90"
           style={{ letterSpacing: '-0.04em', animation: 'fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
         >
           <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-50 via-indigo-300 to-white" style={{ letterSpacing: '-0.02em' }}>
-            Get Your Business Found Online
+            Ready to Build? So Are We.
           </span>
         </h1>
 
@@ -73,7 +73,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <p id="home-desc" className="mx-auto mb-10 max-w-2xl text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
           style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
         >
-          Your website should work as hard as you do. We fix speed, visibility, and broken user experiences.
+          We architect and ship production-grade platforms for businesses that already know their model, their data, and their next move. We're not here to build your business plan; we're here to build your platform.
         </p>
 
         {/* Dual CTA */}
@@ -92,9 +92,9 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         {/* Trust Chips */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           {[
-            { icon: <ZapIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Built Fast', delay: '0s' },
-            { icon: <MagicWandIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Fixed in 24–72 Hours', delay: '0.3s' },
-            { icon: <LightbulbIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Get More Visibility', delay: '0.6s' },
+            { icon: <ZapIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Client-Owned Infrastructure', delay: '0s' },
+            { icon: <MagicWandIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Milestone-Based Delivery', delay: '0.3s' },
+            { icon: <LightbulbIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />, label: 'Full IP Transfer on Completion', delay: '0.6s' },
           ].map(({ icon, label, delay }) => (
             <div
               key={label}
@@ -107,7 +107,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
           ))}
         </div>
 
-        <p className="sr-only">Majestik Magik builds platforms and digital systems for small and mid-size businesses. Web engineering, AI visibility, and performance optimization shipped within 72 hours.</p>
+        <p className="sr-only">Majestik Magik architects and builds custom software platforms for founders and companies with established business operations, data readiness, and defined budgets. Milestone-based engineering with full client ownership and IP transfer.</p>
       </div>
     </section>
   );
