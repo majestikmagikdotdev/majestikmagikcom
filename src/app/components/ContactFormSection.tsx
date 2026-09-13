@@ -22,6 +22,7 @@ export default function ContactFormSection({
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [acknowledgedPolicy, setAcknowledgedPolicy] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -77,14 +78,42 @@ export default function ContactFormSection({
             className="text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl font-bold text-slate-100 tracking-tight mb-4"
             style={{ letterSpacing: '-0.06em' }}
           >
-            {title}
+            {title.includes('Great Together') ? (
+              <>
+                {title.replace('Great Together', '')}
+                <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 bg-clip-text text-transparent">Great Together</span>
+              </>
+            ) : (
+              title
+            )}
           </h2>
           <p
             id="contact-desc"
-            className="text-slate-400 text-base"
+            className="text-slate-400 text-base mb-8"
           >
             {subtitle}
           </p>
+
+          {/* Ready-to-Build Policy Pre-Qualification Message */}
+          <div className="mx-auto max-w-2xl mb-8 p-4 bg-amber-500/10 border border-amber-500/30 rounded-lg">
+            <p className="text-sm text-amber-100/90">
+              <span className="font-semibold text-amber-300">Important Note Before Requesting:</span> We partner exclusively with founders and companies that are <span className="font-semibold">Ready-to-Build</span>. We design high-performance software to amplify established business operations. We do not act as business incubators or data-entry services. Please review our{' '}
+              <a href="/ready-to-build-policy" className="text-amber-300 hover:text-amber-200 underline font-semibold transition-colors">
+                Ready-to-Build Policy
+              </a>
+              {' '}before submitting a request.
+            </p>
+          </div>
+
+          {/* Pivot Quest Alternative */}
+          <div className="mx-auto max-w-2xl mb-8 p-4 bg-indigo-500/10 border border-indigo-500/30 rounded-lg">
+            <p className="text-sm text-indigo-100/90">
+              <span className="font-semibold text-indigo-300">Need self-service tools?</span> If you&apos;re looking for help managing your business operations with our self-service platform, check out{' '}
+              <a href="https://app.majestikmagik.dev" className="text-indigo-300 hover:text-indigo-200 underline font-semibold transition-colors" target="_blank" rel="noopener noreferrer">
+                Pivot Quest
+              </a>.
+            </p>
+          </div>
         </div>
 
         {/* Form Container */}
@@ -194,13 +223,31 @@ export default function ContactFormSection({
               />
             </div>
 
+            {/* Ready-to-Build Policy Acknowledgment Checkbox */}
+            <div className="flex items-start space-x-3 p-4 bg-indigo-500/5 border border-indigo-500/20 rounded-lg">
+              <input
+                id="policy-acknowledgment"
+                type="checkbox"
+                checked={acknowledgedPolicy}
+                onChange={(e) => setAcknowledgedPolicy(e.target.checked)}
+                disabled={isSubmitting}
+                className="mt-1 w-4 h-4 rounded border border-indigo-500 bg-slate-800 text-indigo-600 focus:ring-indigo-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              />
+              <label htmlFor="policy-acknowledgment" className="text-xs text-slate-300 leading-relaxed cursor-pointer">
+                <span className="font-semibold text-slate-200">I confirm that my business model, data sources, and budget are ready for engineering execution according to the</span>{' '}
+                <a href="/ready-to-build-policy" className="text-indigo-400 hover:text-indigo-300 underline font-semibold transition-colors">
+                  Ready-to-Build Policy
+                </a>.
+              </label>
+            </div>
+
             {/* Submit Button */}
             <button
               type="submit"
-              disabled={isSubmitting || submitStatus === 'success'}
-              className="w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-700 disabled:cursor-not-allowed text-white font-mono text-sm font-bold uppercase tracking-wide rounded-lg transition-all duration-200 cursor-pointer"
+              disabled={isSubmitting || submitStatus === 'success' || !acknowledgedPolicy}
+              className="w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-mono text-sm font-bold uppercase tracking-wide rounded-lg transition-all duration-200 cursor-pointer"
             >
-              {isSubmitting ? 'Sending...' : submitStatus === 'success' ? '✓ Request Sent' : 'Send My Request'}
+              {isSubmitting ? 'Sending...' : submitStatus === 'success' ? '✓ Request Sent' : !acknowledgedPolicy ? 'Acknowledge Policy to Continue' : 'Send My Request'}
             </button>
 
             {/* Footer Text */}
@@ -216,12 +263,7 @@ export default function ContactFormSection({
               </p>
             </div>
           </form>
-        </div>
-
-        {/* Trust Statement */}
-        <p className="text-center text-xs text-slate-500 mt-8">
-          We respect your privacy. No spam, just honest conversation about your business needs.
-        </p>
+        </div>        
       </div>
     </section>
   );

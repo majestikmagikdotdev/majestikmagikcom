@@ -10,7 +10,7 @@ import { ArrowLeftIcon } from '../components/Icons';
  */
 const CyberSecurityPolicyContent: React.FC = () => {
     return (
-        <div className="scroll-animate text-slate-300 leading-relaxed space-y-6">
+        <div className="scroll-animate text-slate-300 leading-relaxed m-6 space-y-6 pt-24 md:pt-32">
             <div>
                 <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-400 bg-clip-text text-transparent mb-2">
                     Cyber Security Policy
@@ -79,35 +79,16 @@ const CyberSecurityPolicyContent: React.FC = () => {
                     .
                 </p>
             </div>
+
+            {/* Back to Home */}
+            <div className="pt-8 flex items-center space-x-2">
+                <Link href="/" className="inline-flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 transition-colors group">
+                    <ArrowLeftIcon className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <span>Back to Home</span>
+                </Link>
+            </div>
         </div>
     );
 };
 
-/**
- * The main page component that wraps the content with a layout.
- * This is the component that Next.js will render for the page.
- */
-const CyberSecurityPolicyPage = () => {
-    return (
-        <div className="flex flex-col min-h-screen bg-[#0f172a] selection:bg-indigo-500/30 selection:text-white">
-            <main className="flex-grow py-16 md:py-24">
-                <div className="container mx-auto px-6 max-w-4xl">
-                    <Link
-                        href="/"
-                        className="mb-8 inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors group text-sm font-semibold tracking-wide uppercase"
-                        aria-label="Back to main site"
-                    >
-                        <ArrowLeftIcon className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" />
-                        Back to Home
-                    </Link>
-
-                    <article className="bg-[#0d0f1a] border border-indigo-500/15 p-8 md:p-12 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
-                        <CyberSecurityPolicyContent />
-                    </article>
-                </div>
-            </main>
-        </div>
-    );
-};
-
-export default CyberSecurityPolicyPage;
+export default CyberSecurityPolicyContent;

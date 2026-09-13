@@ -63,6 +63,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     '/cookie-policy',
     '/intellectual-property-policy',
     '/cyber-security-policy',
+    '/ready-to-build-policy',
   ].includes(pathname);
 
   const smoothScrollTo = (target: HTMLElement) => {

@@ -111,15 +111,15 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 justify-items-stretch">
           <div className="flex flex-col items-start space-y-4">
             <h3 className="text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">Quick Links</h3>
-            <ul className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm w-full">
+            <ul className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm w-full" suppressHydrationWarning>
               <li><a href="/privacy-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Privacy Policy</a></li>
               <li><a href="/terms-of-service" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Terms of Service</a></li>
               <li><a href="/cookie-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Cookie Policy</a></li>
               <li><a href="/refund-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Refund Policy</a></li>
               <li><a href="/intellectual-property" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Intellectual Property</a></li>
               <li><a href="/cyber-security-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Cyber Security</a></li>
-              <li><a href="/sitemap.xml" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm font-mono text-sm">Sitemap</a></li>
-              <li><a href="/faq" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">FAQ</a></li>
+              <li><a href="/ready-to-build-policy" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Ready-to-Build</a></li>
+              <li><a href="/sitemap.xml" className="hover:text-indigo-400 transition-colors py-1 block font-mono text-sm">Sitemap</a></li>
             </ul>
           </div>
 
