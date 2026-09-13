@@ -51,7 +51,9 @@ export default function ChatbotController() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Dispatch instead of calling window.scrollTo directly so this always
+    // wins over any lingering wheel-eased scroll animation in MainLayout.
+    window.dispatchEvent(new Event('app:scroll-to-top'));
   };
 
   const handleToggleChat = () => {

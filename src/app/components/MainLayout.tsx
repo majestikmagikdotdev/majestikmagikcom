@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Header from './Header';
 import Footer from './Footer';
@@ -8,6 +8,9 @@ import CookieBanner from './CookieBanner';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  // Shared cancellation token so only one scroll animation (nav-click or
+  // wheel-eased) ever drives window.scrollTo at a time.
+  const scrollAnimationIdRef = useRef(0);
   const router = useRouter();
   const pathname = usePathname();
   const isHomePage = pathname === '/';
@@ -36,24 +39,30 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
     if (isCoarsePointer) return;
 
-    let current = window.scrollY;
-    let target = window.scrollY;
     let rafId: number | null = null;
+    let isAnimating = false;
+    let target = window.scrollY;
 
     const getMaxScroll = () =>
       Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
 
-    const animate = () => {
-      const diff = target - current;
-      if (Math.abs(diff) < 0.5) {
-        current = target;
-        window.scrollTo(0, current);
+    const animate = (myId: number) => {
+      // Another animation (e.g. a nav-click smooth scroll) took over — stop.
+      if (scrollAnimationIdRef.current !== myId) {
+        isAnimating = false;
         rafId = null;
         return;
       }
-      current += diff * 0.09;
-      window.scrollTo(0, current);
-      rafId = requestAnimationFrame(animate);
+      const current = window.scrollY;
+      const diff = target - current;
+      if (Math.abs(diff) < 0.5) {
+        window.scrollTo(0, target);
+        isAnimating = false;
+        rafId = null;
+        return;
+      }
+      window.scrollTo(0, current + diff * 0.05);
+      rafId = requestAnimationFrame(() => animate(myId));
     };
 
     const onWheel = (e: WheelEvent) => {
@@ -64,9 +73,24 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       if (scrollableParent) return;
 
       e.preventDefault();
-      target = Math.min(getMaxScroll(), Math.max(0, target + e.deltaY));
-      if (rafId === null) {
-        rafId = requestAnimationFrame(animate);
+      // Always resync target from the live scroll position when not mid-animation
+      // so scrollbar drags or other scroll sources never get overwritten/fought.
+      const base = isAnimating ? target : window.scrollY;
+      target = Math.min(getMaxScroll(), Math.max(0, base + e.deltaY));
+      if (!isAnimating) {
+        isAnimating = true;
+        const myId = ++scrollAnimationIdRef.current;
+        rafId = requestAnimationFrame(() => animate(myId));
+      }
+    };
+
+    // If the user scrolls via the scrollbar (or any non-wheel input) while our
+    // eased animation isn't running, there's nothing to resync — native scroll
+    // just works. This listener exists only to cancel a stale wheel animation
+    // if some other input source moves the page unexpectedly.
+    const onScroll = () => {
+      if (!isAnimating) {
+        target = window.scrollY;
       }
     };
 
@@ -75,10 +99,12 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     };
 
     window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);
 
     return () => {
       window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
       if (rafId !== null) cancelAnimationFrame(rafId);
     };
@@ -120,29 +146,48 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     '/ready-to-build-policy',
   ].includes(pathname);
 
-  const smoothScrollTo = (target: HTMLElement) => {
+  // Shared scroll-to-Y animation. Any caller that goes through this (nav
+  // clicks, back-to-top button) claims the shared cancellation token, so it
+  // always wins over a stale/lingering wheel-eased animation.
+  const scrollToY = (end: number, resetHash = false) => {
     const start = window.scrollY;
-    const end = target.getBoundingClientRect().top + start;
     const duration = 1200;
     let startTime: number | null = null;
+    const myId = ++scrollAnimationIdRef.current;
 
     const easeInOutCubic = (t: number) =>
       t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
     const step = (timestamp: number) => {
+      // Another animation (e.g. the wheel scroll) took over — stop.
+      if (scrollAnimationIdRef.current !== myId) return;
+
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
       window.scrollTo(0, start + (end - start) * easeInOutCubic(progress));
       if (progress < 1) {
         requestAnimationFrame(step);
-      } else {
+      } else if (resetHash) {
         window.history.replaceState(null, '', '/');
       }
     };
 
     requestAnimationFrame(step);
   };
+
+  const smoothScrollTo = (target: HTMLElement) => {
+    const end = target.getBoundingClientRect().top + window.scrollY;
+    scrollToY(end, true);
+  };
+
+  // Let any component (e.g. the floating "Back to Top" button) request a
+  // cancellation-aware scroll without needing direct access to the shared ref.
+  useEffect(() => {
+    const onScrollToTop = () => scrollToY(0);
+    window.addEventListener('app:scroll-to-top', onScrollToTop);
+    return () => window.removeEventListener('app:scroll-to-top', onScrollToTop);
+  }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { name: string; url: string; external?: boolean }) => {
     if (item.external) {
