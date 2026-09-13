@@ -73,7 +73,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <p id="home-desc" className="mx-auto mb-10 max-w-2xl text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
           style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
         >
-          We architect and ship production-grade platforms for businesses that already know their model, their data, and their next move. We're not here to build your business plan; we're here to build your platform.
+          We architect and ship production-grade platforms for businesses that already know their model, their data, and their next move. We&apos;re not here to build your business plan; we&apos;re here to build your platform.
         </p>
 
         {/* Dual CTA */}

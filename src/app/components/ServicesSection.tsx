@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 // Define an interface for the service data
 interface Service {
@@ -145,9 +146,9 @@ const ServicesSection: React.FC = () => {
             <h3 className="text-sm font-mono font-bold tracking-widest text-indigo-400 uppercase">
               Quick Fixes
             </h3>
-            <a href="/#services-pricing" className="text-xs font-mono text-indigo-300 hover:text-indigo-200 underline underline-offset-4">
+            <Link href="/#services-pricing" className="text-xs font-mono text-indigo-300 hover:text-indigo-200 underline underline-offset-4">
               See fixed pricing &amp; turnaround times →
-            </a>
+            </Link>
           </div>
           <div className="grid gap-4 md:grid-cols-2 stagger-children scroll-animate">
             {quickFixServices.map((service) => (
