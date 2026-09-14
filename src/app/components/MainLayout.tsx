@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Header from './Header';
 import Footer from './Footer';
@@ -110,46 +110,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     };
   }, [pathname]);
 
-// On homepage mount, scroll to stored section target
-  useEffect(() => {
-    if (!isHomePage) return;
-    const target = sessionStorage.getItem('scrollTo');
-    if (!target) return;
-    sessionStorage.removeItem('scrollTo');
-    // Small delay to let the page render
-    setTimeout(() => {
-      const el = document.getElementById(target);
-      if (el) smoothScrollTo(el);
-    }, 100);
-  }, [isHomePage]);
-
-  const navItems = [
-    { name: 'Home', url: '/#home' },
-    { name: 'Services', url: '/#services' },
-    { name: 'Pricing', url: '/#services-pricing' },
-    { name: 'Portfolio', url: '/portfolio' },
-    { name: 'Case Studies', url: '/case-studies' },
-    { name: 'Testimonials', url: '/#testimonials' },
-    { name: 'About', url: '/#about' },
-    { name: 'FAQ', url: '/#faq' },
-    { name: 'Contact', url: '/#contact' },
-    { name: 'Pivot Quest', url: 'https://app.majestikmagik.dev/', external: true },
-  ];
-
-  const isPolicyPage = [
-    '/privacy-policy',
-    '/terms-of-service',
-    '/refund-policy',
-    '/cookie-policy',
-    '/intellectual-property-policy',
-    '/cyber-security-policy',
-    '/ready-to-build-policy',
-  ].includes(pathname);
-
   // Shared scroll-to-Y animation. Any caller that goes through this (nav
   // clicks, back-to-top button) claims the shared cancellation token, so it
   // always wins over a stale/lingering wheel-eased animation.
-  const scrollToY = (end: number, resetHash = false) => {
+  const scrollToY = useCallback((end: number, resetHash = false) => {
     const start = window.scrollY;
     const duration = 1200;
     let startTime: number | null = null;
@@ -174,12 +138,48 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     };
 
     requestAnimationFrame(step);
-  };
+  }, []);
 
-  const smoothScrollTo = (target: HTMLElement) => {
+  const smoothScrollTo = useCallback((target: HTMLElement) => {
     const end = target.getBoundingClientRect().top + window.scrollY;
     scrollToY(end, true);
-  };
+  }, [scrollToY]);
+
+// On homepage mount, scroll to stored section target
+  useEffect(() => {
+    if (!isHomePage) return;
+    const target = sessionStorage.getItem('scrollTo');
+    if (!target) return;
+    sessionStorage.removeItem('scrollTo');
+    // Small delay to let the page render
+    setTimeout(() => {
+      const el = document.getElementById(target);
+      if (el) smoothScrollTo(el);
+    }, 100);
+  }, [isHomePage, smoothScrollTo]);
+
+  const navItems = [
+    { name: 'Home', url: '/#home' },
+    { name: 'Services', url: '/#services' },
+    { name: 'Pricing', url: '/#services-pricing' },
+    { name: 'Portfolio', url: '/portfolio' },
+    { name: 'Case Studies', url: '/case-studies' },
+    { name: 'Testimonials', url: '/#testimonials' },
+    { name: 'About', url: '/#about' },
+    { name: 'FAQ', url: '/#faq' },
+    { name: 'Contact', url: '/#contact' },
+    { name: 'Pivot Quest', url: 'https://app.majestikmagik.dev/', external: true },
+  ];
+
+  const isPolicyPage = [
+    '/privacy-policy',
+    '/terms-of-service',
+    '/refund-policy',
+    '/cookie-policy',
+    '/intellectual-property-policy',
+    '/cyber-security-policy',
+    '/ready-to-build-policy',
+  ].includes(pathname);
 
   // Let any component (e.g. the floating "Back to Top" button) request a
   // cancellation-aware scroll without needing direct access to the shared ref.
