@@ -61,7 +61,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         {/* H1 */}
         <h1
           id="home-heading"
-          className="mb-4 text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-white leading-tight opacity-90"
+          className="mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-8xl text-white leading-tight opacity-90"
           style={{ letterSpacing: '-0.04em', animation: 'fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards' }}
         >
           <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-50 via-indigo-300 to-white" style={{ letterSpacing: '-0.02em' }}>
@@ -70,10 +70,10 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         </h1>
 
         {/* Subheadline */}
-        <p id="home-desc" className="mx-auto mb-8 max-w-2xl text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
+        <p id="home-desc" className="mx-auto mb-12 max-w-2xl text-lg md:text-xl text-slate-200 font-sans leading-relaxed"
           style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards' }}
         >
-          We architect and ship production-grade platforms for businesses that already know their model, their data, and their next move. We&apos;re not here to build your business plan; we&apos;re here to build your platform.
+          We architect and ship enterprise-grade platforms for businesses that already know their model, their data, and their next move. We&apos;re not here to build your business plan; we&apos;re here to build your platform.
         </p>
 
         {/* Dual CTA */}
