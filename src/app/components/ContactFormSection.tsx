@@ -20,6 +20,8 @@ export default function ContactFormSection({
     business: '',
     projectNeed: '',
   });
+  const [attachments, setAttachments] = useState<File[]>([]);
+  const [attachmentError, setAttachmentError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [acknowledgedPolicy, setAcknowledgedPolicy] = useState(false);
@@ -32,23 +34,39 @@ export default function ContactFormSection({
     }));
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAttachmentError('');
+    const incoming = Array.from(e.target.files ?? []);
+    const invalid = incoming.find((f) => f.type !== 'application/pdf');
+    if (invalid) { setAttachmentError('Only PDF files are accepted.'); e.target.value = ''; return; }
+    const oversized = incoming.find((f) => f.size > 5 * 1024 * 1024);
+    if (oversized) { setAttachmentError(`"${oversized.name}" exceeds the 5MB limit.`); e.target.value = ''; return; }
+    setAttachments((prev) => {
+      const existing = prev.map((f) => f.name);
+      return [...prev, ...incoming.filter((f) => !existing.includes(f.name))];
+    });
+    e.target.value = '';
+  };
+
+  const removeAttachment = (name: string) =>
+    setAttachments((prev) => prev.filter((f) => f.name !== name));
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+      const payload = new FormData();
+      Object.entries(formData).forEach(([k, v]) => payload.append(k, v));
+      attachments.forEach((f) => payload.append('attachments', f));
+
+      const response = await fetch('/api/contact', { method: 'POST', body: payload });
 
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', business: '', projectNeed: '' });
-        setTimeout(() => {
-          setSubmitStatus('idle');
-        }, 5000);
+        setAttachments([]);
+        setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
       }
@@ -211,6 +229,53 @@ export default function ContactFormSection({
                 className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed resize-none"
                 placeholder="e.g., Build a new website, fix our site speed, improve Google visibility, increase leads..."
               />
+            </div>
+
+            {/* Attachment Field */}
+            <div>
+              <label htmlFor="contact-attachment" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">
+                Attach Documents <span className="normal-case font-normal text-slate-500">(PDF only, max 5MB each — optional)</span>
+              </label>
+              <label
+                htmlFor="contact-attachment"
+                className="flex items-center gap-3 w-full px-4 py-3 bg-slate-800/60 border border-dashed border-[#334155] hover:border-indigo-500 rounded-lg cursor-pointer transition-colors group"
+              >
+                <svg className="w-5 h-5 text-slate-500 group-hover:text-indigo-400 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                </svg>
+                <span className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
+                  Click to upload PDFs
+                </span>
+              </label>
+              <input
+                id="contact-attachment"
+                type="file"
+                accept="application/pdf"
+                multiple
+                onChange={handleFileChange}
+                disabled={isSubmitting}
+                className="sr-only"
+              />
+              {attachments.length > 0 && (
+                <ul className="mt-2 space-y-1">
+                  {attachments.map((f) => (
+                    <li key={f.name} className="flex items-center justify-between px-3 py-1.5 bg-slate-800/60 border border-[#334155] rounded text-xs text-slate-300">
+                      <span className="truncate">📎 {f.name} <span className="text-slate-500">({(f.size / 1024).toFixed(0)} KB)</span></span>
+                      <button
+                        type="button"
+                        onClick={() => removeAttachment(f.name)}
+                        className="ml-3 text-slate-500 hover:text-red-400 transition-colors flex-shrink-0"
+                        aria-label={`Remove ${f.name}`}
+                      >
+                        ✕
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {attachmentError && (
+                <p className="mt-1.5 text-xs text-red-400">{attachmentError}</p>
+              )}
             </div>
 
             {/* Ready-to-Build Policy Acknowledgment Checkbox */}

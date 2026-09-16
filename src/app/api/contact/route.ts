@@ -1,26 +1,70 @@
 import { Resend } from 'resend';
 
-export const runtime = 'edge';
-
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+const FIELD_LIMITS: Record<string, number> = {
+  name: 100,
+  email: 254,
+  business: 150,
+  projectNeed: 2000,
+};
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const SAFE_FILENAME_RE = /[^a-zA-Z0-9._-]/g;
+
+function sanitize(value: unknown, maxLen: number): string {
+  if (typeof value !== 'string') return '';
+  return value
+    .replace(/[\r\n\t]/g, ' ')   // strip control chars (log injection)
+    .replace(/<[^>]*>/g, '')      // strip HTML tags (XSS)
+    .trim()
+    .slice(0, maxLen);
+}
+
+function sanitizeLog(value: string): string {
+  return value.replace(/[\r\n]/g, ' ').slice(0, 200);
+}
 
 export async function POST(request: Request) {
   try {
-    const { name, email, business, projectNeed } = await request.json();
+    const form = await request.formData();
 
-    // Validate required fields
+    const name        = sanitize(form.get('name'),        FIELD_LIMITS.name);
+    const email       = sanitize(form.get('email'),       FIELD_LIMITS.email);
+    const business    = sanitize(form.get('business'),    FIELD_LIMITS.business);
+    const projectNeed = sanitize(form.get('projectNeed'), FIELD_LIMITS.projectNeed);
     if (!name || !email || !business || !projectNeed) {
-      return Response.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      );
+      return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Send email via Resend
+    if (!EMAIL_RE.test(email)) {
+      return Response.json({ error: 'Invalid email address' }, { status: 400 });
+    }
+
+    const files = form.getAll('attachments') as File[];
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const attachments: any[] = [];
+    let safeFilename = '';
+    for (const file of files) {
+      if (!file || file.size === 0) continue;
+      if (file.type !== 'application/pdf') {
+        return Response.json({ error: `"${sanitize(file.name, 100)}" is not a PDF` }, { status: 400 });
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        return Response.json({ error: `"${sanitize(file.name, 100)}" exceeds the 5MB limit` }, { status: 400 });
+      }
+      safeFilename = file.name.replace(SAFE_FILENAME_RE, '_');
+      const buffer = await file.arrayBuffer();
+      attachments.push({ filename: safeFilename, content: Buffer.from(buffer).toString('base64') });
+    }
+
     const response = await resend.emails.send({
       from: 'noreply@majestikmagik.dev',
       to: 'contact@majestikmagik.dev',
       subject: `New Quote Request from ${name}`,
+      replyTo: email,
+      attachments,
       html: `
         <div style="font-family: sans-serif; color: #333; max-width: 600px;">
           <h2 style="color: #4f46e5;">New Quote Request</h2>
@@ -33,22 +77,18 @@ export async function POST(request: Request) {
             <p style="margin: 8px 0; font-weight: bold;">Project Need:</p>
             <p style="white-space: pre-wrap; color: #555;">${escapeHtml(projectNeed)}</p>
           </div>
+          ${attachments.length ? `<p style="color:#4f46e5; font-size:13px;">📎 Attachments: ${attachments.map((a) => escapeHtml(a.filename)).join(', ')}</p>` : ''}
           <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;" />
-          <p style="font-size: 12px; color: #999;">This email was sent from your Majestik Magik website contact form.</p>
+          <p style="font-size: 12px; color: #999;">Sent from the Majestik Magik website contact form.</p>
         </div>
       `,
-      replyTo: email,
     });
 
     if (response.error) {
-      console.error('Resend error:', response.error);
-      return Response.json(
-        { error: 'Failed to send email' },
-        { status: 500 }
-      );
+      console.error('Resend error:', sanitizeLog(JSON.stringify(response.error)));
+      return Response.json({ error: 'Failed to send email' }, { status: 500 });
     }
 
-    // Also optionally send a confirmation email to the user
     await resend.emails.send({
       from: 'noreply@majestikmagik.dev',
       to: email,
@@ -57,7 +97,7 @@ export async function POST(request: Request) {
         <div style="font-family: sans-serif; color: #333; max-width: 600px;">
           <h2 style="color: #4f46e5;">Thanks for reaching out!</h2>
           <p>Hi ${escapeHtml(name)},</p>
-          <p>We received your request and will get back to you within 24 hours at this email address or by phone.</p>
+          <p>We received your request and will get back to you within 24 hours.</p>
           <p>In the meantime, feel free to check out our <a href="https://majestikmagik.dev" style="color: #4f46e5;">latest work</a>.</p>
           <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;" />
           <p style="font-size: 12px; color: #999;">Majestik Magik • Web Engineering & Digital Growth</p>
@@ -67,22 +107,12 @@ export async function POST(request: Request) {
 
     return Response.json({ success: true });
   } catch (error) {
-    console.error('Contact form error:', error);
-    return Response.json(
-      { error: 'Server error' },
-      { status: 500 }
-    );
+    console.error('Contact form error:', sanitizeLog(String(error)));
+    return Response.json({ error: 'Server error' }, { status: 500 });
   }
 }
 
-// Simple HTML escape to prevent XSS
 function escapeHtml(text: string): string {
-  const map: { [key: string]: string } = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
-  };
+  const map: { [key: string]: string } = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
   return text.replace(/[&<>"']/g, (m) => map[m]);
 }
