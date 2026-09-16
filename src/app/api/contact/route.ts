@@ -1,5 +1,7 @@
 import { Resend } from 'resend';
 
+export const runtime = 'edge';
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const FIELD_LIMITS: Record<string, number> = {
@@ -56,7 +58,10 @@ export async function POST(request: Request) {
       }
       safeFilename = file.name.replace(SAFE_FILENAME_RE, '_');
       const buffer = await file.arrayBuffer();
-      attachments.push({ filename: safeFilename, content: Buffer.from(buffer).toString('base64') });
+      const bytes = new Uint8Array(buffer);
+      let binary = '';
+      for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+      attachments.push({ filename: safeFilename, content: btoa(binary) });
     }
 
     const response = await resend.emails.send({
