@@ -56,7 +56,8 @@ const TestimonialsSection = () => {
       style={{
         position: 'relative',
         padding: '120px 20px',
-        background: 'rgb(248, 250, 252)',
+        background: 'var(--bg-app)',
+        fontFamily: 'var(--font-sans)',
         display: "flex",
         justifyContent: "center",
       }}
@@ -71,16 +72,16 @@ const TestimonialsSection = () => {
       <div className="w-full relative z-20">
         {/* Section Header */}
         <div className="mb-8 text-left">
-          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-white px-3 py-1 rounded border border-[#334155]">
+          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[var(--bg-surface)] px-3 py-1 rounded border border-[var(--border-light)]">
             Customer Satisfaction 
           </span>
-          <h2 className="mb-4 text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl text-slate-900 font-bold tracking-tight" style={{ letterSpacing: '-0.06em' }}>
+          <h2 className="mb-4 text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl font-bold tracking-tight" style={{ letterSpacing: '-0.06em', color: 'var(--text-primary)' }}>
             What Clients{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-indigo-500 to-slate-800">
               Say
             </span>
           </h2>
-          <p className="text-base text-slate-600 font-sans leading-relaxed">
+          <p className="text-base font-sans leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             Real feedback from founders, creators, and platform builders.
           </p>
         </div>
@@ -90,11 +91,11 @@ const TestimonialsSection = () => {
           {testimonials.map((t, index) => (
             <article
               key={`${t.name}-${index}`}
-              className="testimonials-card-hover-animate flex h-full flex-col rounded-lg bg-white p-4 md:p-6 border border-slate-300 hover:border-indigo-500 hover:shadow-[0_4px_32px_rgba(67,56,202,0.15)] hover:scale-[1.05] hover:-translate-y-1 transition-all duration-700"
-              
+              className="testimonials-card-hover-animate flex h-full flex-col rounded-lg p-4 md:p-6 hover:shadow-[0_4px_32px_rgba(67,56,202,0.12)] hover:scale-[1.05] hover:-translate-y-1 transition-all duration-700"
+              style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-light)' }}
             >
               <header className="flex items-center mb-4">
-                <div className="w-10 h-10 rounded-full overflow-hidden mr-3 bg-slate-200 border border-slate-300 flex-shrink-0">
+                <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0" style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border-light)' }}>
                   {t.image ? (
                     <Image src={t.image} alt={t.name} width={40} height={40} className="w-full h-full object-cover rounded-full" />
                   ) : (
@@ -104,7 +105,7 @@ const TestimonialsSection = () => {
                   )}
                 </div>
                 <div>
-                  <h3 className="text-sm font-mono font-bold tracking-wide text-slate-700">{t.name}</h3>
+                  <h3 className="text-sm font-mono font-semibold tracking-wide" style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{t.name}</h3>
                   <div className="flex items-center gap-0.5 mt-1" role="img" aria-label={`${t.stars} out of 5 stars`}>
                     {[1, 2, 3, 4, 5].map((n) => (
                       <Star key={n} filled={n <= t.stars} className={n > t.stars ? 'text-slate-300' : ''} />
@@ -113,11 +114,11 @@ const TestimonialsSection = () => {
                 </div>
               </header>
 
-              <p className="text-slate-700 text-sm font-sans leading-relaxed mb-6 flex-grow">
+              <p className="text-sm font-sans leading-relaxed mb-6 flex-grow" style={{ color: 'var(--text-secondary)' }}>
                 &ldquo;{t.testimonial}&rdquo;
               </p>
 
-              <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono text-slate-500 border-t border-slate-200 pt-4">
+              <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono pt-4" style={{ color: 'var(--text-muted)', borderTop: '1px solid var(--border-subtle)' }}>
                 {t.source && (
                   <span className="inline-flex items-center gap-1.5 text-indigo-600 font-bold">
                     <svg className="w-3 h-3 text-indigo-400" viewBox="0 0 20 20" fill="currentColor">

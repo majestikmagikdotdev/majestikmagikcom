@@ -172,7 +172,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
       aria-labelledby="micro-services-heading"
       aria-describedby="micro-services-desc"
       className="scroll-animate relative z-0 py-12 md:py-24"
-      style={{ background: 'rgb(248, 250, 252)' }}
+      style={{ background: 'var(--bg-app)', fontFamily: 'var(--font-sans)' }}
     >
       <div
         className="absolute inset-0 z-11 pointer-events-none opacity-20"
@@ -185,20 +185,20 @@ const PricingSection: React.FC<PricingSectionProps> = ({
       <div className="w-full relative px-4 md:px-6 mx-auto z-20">
         <div id="micro-services" aria-labelledby="micro-services-heading" className="mt-auto md:mt-auto">
           <div className="text-center mx-auto mb-8 md:mb-16">
-            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-white px-3 py-1 rounded border border-[#334155]">
+            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[var(--bg-surface)] px-3 py-1 rounded border border-[var(--border-light)]">
               Common Services
             </span>
             <h2
               id="micro-services-heading"
-              className="mb-2 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-900 font-bold tracking-tight"
-              style={{ letterSpacing: '-0.04em' }}
+              className="mb-2 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight"
+              style={{ letterSpacing: '-0.04em', color: 'var(--text-primary)' }}
             >
               Services We{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-indigo-500 to-slate-800">
                 Deliver Fast
               </span>
             </h2>
-            <p id="micro-services-desc" className="mt-4 text-base md:text-lg text-slate-600 font-sans leading-relaxed">
+            <p id="micro-services-desc" className="mt-4 text-base md:text-lg font-sans leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               The services below are fixed-price—pick one, pay, and we ship it usually within 24–72 hours. For larger projects or custom needs, request a quote and we&apos;ll scope it out together.
             </p>
           </div>
@@ -207,11 +207,12 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             {microServices.map((m) => (
               <div
                 key={m.serviceId}
-                className="services-card-hover-animate flex flex-col justify-between rounded-lg bg-white border border-slate-300 p-4 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.1)] hover:border-indigo-500 hover:shadow-[0_4px_32px_rgba(67,56,202,0.15)] transition duration-200"
+                className="services-card-hover-animate flex flex-col justify-between rounded-lg p-4 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.07)] hover:shadow-[0_4px_32px_rgba(67,56,202,0.12)] transition duration-200"
+                style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-light)' }}
               >
                 <div>
                   <div className="flex items-start justify-between gap-4 mb-3">
-                    <h3 className="text-slate-700 font-mono text-base font-semibold tracking-wide leading-snug">{m.service}</h3>
+                    <h3 className="font-mono text-base font-semibold tracking-wide leading-snug" style={{ color: 'var(--text-primary)' }}>{m.service}</h3>
                     <span className="text-indigo-700 font-mono font-bold text-base whitespace-nowrap bg-indigo-100/50 px-2 py-0.5 rounded border border-indigo-200/50">{m.price}</span>
                   </div>
                   <div className="flex items-center gap-1.5 mb-3">
@@ -220,7 +221,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
                   </div>
                   <ul className="space-y-1.5">
                     {m.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-sm text-slate-700">
+                      <li key={b} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                         <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
                         {b}
                       </li>
@@ -237,17 +238,18 @@ const PricingSection: React.FC<PricingSectionProps> = ({
                   </button>
                   <button
                     onClick={() => handleCheckout(m)}
-                    className="inline-flex w-full items-center justify-center rounded px-4 py-2 text-xs font-mono font-semibold uppercase tracking-wider text-indigo-600 hover:text-indigo-700 bg-white hover:bg-indigo-50 border border-indigo-200 hover:border-indigo-300 transition-all duration-200 cursor-pointer"
+                    className="inline-flex w-full items-center justify-center rounded px-4 py-2 text-xs font-mono font-semibold uppercase tracking-wider text-indigo-600 hover:text-indigo-700 hover:bg-[var(--bg-subtle)] border transition-all duration-200 cursor-pointer"
+                    style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-light)' }}
                   >
                     Buy Now
                   </button>
-                  <p className="pt-1 text-center text-xs text-slate-500 font-mono">Or <a href="tel:8043627561" className="text-indigo-600 hover:text-indigo-700 font-semibold">call (804) 362-7561</a></p>
+                  <p className="pt-1 text-center text-xs font-mono" style={{ color: 'var(--text-muted)' }}>Or <a href="tel:8043627561" className="text-indigo-600 hover:text-indigo-700 font-semibold">call (804) 362-7561</a></p>
                 </div>
               </div>
             ))}
           </div>
 
-          <p className="mt-12 text-center font-mono text-xs text-slate-500 tracking-wide">
+          <p className="mt-12 text-center font-mono text-xs tracking-wide" style={{ color: 'var(--text-muted)' }}>
             Need a service not listed?{' '}
             <button onClick={handleScrollToContact} className="inline-flex items-center font-mono text-xs text-indigo-600 bg-indigo-100/50 hover:bg-indigo-200/50 border border-indigo-200/50 px-3 py-1.5 rounded-lg transition-colors duration-200 cursor-pointer">Ask us</button>.
           </p>
