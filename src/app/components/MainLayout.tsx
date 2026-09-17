@@ -187,7 +187,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     const onScrollToTop = () => scrollToY(0);
     window.addEventListener('app:scroll-to-top', onScrollToTop);
     return () => window.removeEventListener('app:scroll-to-top', onScrollToTop);
-  }, []);
+  }, [scrollToY]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { name: string; url: string; external?: boolean }) => {
     if (item.external) {
