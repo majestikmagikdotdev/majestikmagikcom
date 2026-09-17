@@ -189,6 +189,16 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     return () => window.removeEventListener('app:scroll-to-top', onScrollToTop);
   }, [scrollToY]);
 
+  useEffect(() => {
+    const onScrollToId = (e: Event) => {
+      const id = (e as CustomEvent<string>).detail;
+      const el = document.getElementById(id);
+      if (el) smoothScrollTo(el);
+    };
+    window.addEventListener('app:scroll-to', onScrollToId);
+    return () => window.removeEventListener('app:scroll-to', onScrollToId);
+  }, [smoothScrollTo]);
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: { name: string; url: string; external?: boolean }) => {
     if (item.external) {
       window.open(item.url, '_blank', 'noopener,noreferrer');

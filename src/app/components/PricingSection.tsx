@@ -141,20 +141,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
   const router = useRouter();
 
   const handleScrollToContact = () => {
-    const target = document.getElementById('contact');
-    if (!target) return;
-    const start = window.scrollY;
-    const end = target.getBoundingClientRect().top + start;
-    const duration = 1200;
-    let startTime: number | null = null;
-    const ease = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    const step = (ts: number) => {
-      if (!startTime) startTime = ts;
-      const progress = Math.min((ts - startTime) / duration, 1);
-      window.scrollTo(0, start + (end - start) * ease(progress));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+    window.dispatchEvent(new CustomEvent('app:scroll-to', { detail: 'contact' }));
   };
 
   function handleCheckout(m: MicroService) {

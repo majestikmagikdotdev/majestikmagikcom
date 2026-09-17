@@ -9,7 +9,22 @@ const FIELD_LIMITS: Record<string, number> = {
   email: 254,
   business: 150,
   projectNeed: 2000,
+  projectType: 100,
+  budget: 100,
+  timeline: 100,
+  businessStage: 100,
+  currentStack: 300,
+  hasDesigns: 50,
+  referral: 100,
 };
+
+const VALID_BUDGETS = new Set([
+  '$10,000 – $25,000',
+  '$25,000 – $50,000',
+  '$50,000 – $100,000',
+  '$100,000+',
+  'Not sure yet — need scoping',
+]);
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SAFE_FILENAME_RE = /[^a-zA-Z0-9._-]/g;
@@ -31,16 +46,36 @@ export async function POST(request: Request) {
   try {
     const form = await request.formData();
 
+    const formType    = sanitize(form.get('formType'),    20);
     const name        = sanitize(form.get('name'),        FIELD_LIMITS.name);
     const email       = sanitize(form.get('email'),       FIELD_LIMITS.email);
     const business    = sanitize(form.get('business'),    FIELD_LIMITS.business);
     const projectNeed = sanitize(form.get('projectNeed'), FIELD_LIMITS.projectNeed);
+
     if (!name || !email || !business || !projectNeed) {
       return Response.json({ error: 'Missing required fields' }, { status: 400 });
     }
-
     if (!EMAIL_RE.test(email)) {
       return Response.json({ error: 'Invalid email address' }, { status: 400 });
+    }
+
+    const isCustomBuild = formType === 'custom-build';
+
+    const projectType   = sanitize(form.get('projectType'),   FIELD_LIMITS.projectType);
+    const budget        = sanitize(form.get('budget'),        FIELD_LIMITS.budget);
+    const timeline      = sanitize(form.get('timeline'),      FIELD_LIMITS.timeline);
+    const businessStage = sanitize(form.get('businessStage'), FIELD_LIMITS.businessStage);
+    const currentStack  = sanitize(form.get('currentStack'),  FIELD_LIMITS.currentStack);
+    const hasDesigns    = sanitize(form.get('hasDesigns'),    FIELD_LIMITS.hasDesigns);
+    const referral      = sanitize(form.get('referral'),      FIELD_LIMITS.referral);
+
+    if (isCustomBuild) {
+      if (!projectType || !budget || !timeline || !businessStage) {
+        return Response.json({ error: 'Missing required project fields' }, { status: 400 });
+      }
+      if (!VALID_BUDGETS.has(budget)) {
+        return Response.json({ error: 'Invalid budget selection' }, { status: 400 });
+      }
     }
 
     const files = form.getAll('attachments') as File[];
@@ -67,24 +102,33 @@ export async function POST(request: Request) {
     const response = await resend.emails.send({
       from: 'noreply@majestikmagik.dev',
       to: 'contact@majestikmagik.dev',
-      subject: `New Quote Request from ${name}`,
+      subject: isCustomBuild ? `New Custom Build Brief from ${name}` : `New Quote Request from ${name}`,
       replyTo: email,
       attachments,
       html: `
         <div style="font-family: sans-serif; color: #333; max-width: 600px;">
-          <h2 style="color: #4f46e5;">New Quote Request</h2>
+          <h2 style="color: #4f46e5;">${isCustomBuild ? 'Custom Build Project Brief' : 'New Quote Request'}</h2>
           <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p style="margin: 8px 0;"><strong>Name:</strong> ${escapeHtml(name)}</p>
             <p style="margin: 8px 0;"><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
             <p style="margin: 8px 0;"><strong>Business:</strong> ${escapeHtml(business)}</p>
+            ${isCustomBuild ? `
+            <p style="margin: 8px 0;"><strong>Project Type:</strong> ${escapeHtml(projectType)}</p>
+            <p style="margin: 8px 0;"><strong>Budget:</strong> ${escapeHtml(budget)}</p>
+            <p style="margin: 8px 0;"><strong>Timeline:</strong> ${escapeHtml(timeline)}</p>
+            <p style="margin: 8px 0;"><strong>Business Stage:</strong> ${escapeHtml(businessStage)}</p>
+            ${currentStack ? `<p style="margin: 8px 0;"><strong>Current Stack:</strong> ${escapeHtml(currentStack)}</p>` : ''}
+            ${hasDesigns ? `<p style="margin: 8px 0;"><strong>Has Designs:</strong> ${escapeHtml(hasDesigns)}</p>` : ''}
+            ${referral ? `<p style="margin: 8px 0;"><strong>Referral Source:</strong> ${escapeHtml(referral)}</p>` : ''}
+            ` : ''}
           </div>
           <div style="margin: 20px 0;">
-            <p style="margin: 8px 0; font-weight: bold;">Project Need:</p>
+            <p style="margin: 8px 0; font-weight: bold;">Project Description:</p>
             <p style="white-space: pre-wrap; color: #555;">${escapeHtml(projectNeed)}</p>
           </div>
           ${attachments.length ? `<p style="color:#4f46e5; font-size:13px;">📎 Attachments: ${attachments.map((a) => escapeHtml(a.filename)).join(', ')}</p>` : ''}
           <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;" />
-          <p style="font-size: 12px; color: #999;">Sent from the Majestik Magik website contact form.</p>
+          <p style="font-size: 12px; color: #999;">Sent from the Majestik Magik website ${isCustomBuild ? 'custom build intake form' : 'contact form'}.</p>
         </div>
       `,
     });
