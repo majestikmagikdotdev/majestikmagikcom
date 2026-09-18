@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { MagicWandIcon, LightbulbIcon, ZapIcon } from './Icons';
 import ScrollToServices from './ScrollToServices';
 
@@ -8,9 +9,6 @@ interface HeroSectionProps {
   onLearnMore?: () => void;
 }
 const HeroSection: React.FC<HeroSectionProps> = () => {
-  const handleScrollToContact = () => {
-    window.dispatchEvent(new CustomEvent('app:scroll-to', { detail: 'contact' }));
-  };
   return (
     <section id="home" aria-labelledby="home-heading" aria-describedby="home-desc" className="scroll-animate relative z-0 overflow-hidden pt-42 pb-42 md:pt-52 md:pb-42" style={{ background: 'rgb(15, 23, 42)' }}>
 
@@ -67,12 +65,12 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <div className="mb-8 md:mb-14 flex flex-col sm:flex-row items-center justify-center gap-4"
           style={{ animation: 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards' }}
         >
-          <button
-            onClick={handleScrollToContact}
+          <Link
+            href="/start-a-project"
             className="inline-block text-white cursor-pointer font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-200 bg-indigo-600 hover:bg-indigo-500 font-bold"
           >
             Request a Quote →
-          </button>
+          </Link>
           <ScrollToServices />
         </div>
 

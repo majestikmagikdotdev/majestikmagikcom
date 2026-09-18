@@ -218,19 +218,12 @@ const PricingSection: React.FC<PricingSectionProps> = ({
 
                 <div className="mt-6 space-y-2">
                   <button
-                    onClick={handleScrollToContact}
-                    className="inline-flex w-full items-center justify-center rounded px-4 py-2.5 text-sm font-mono font-bold uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 border border-indigo-600 hover:border-indigo-500 transition-all duration-200 cursor-pointer"
-                  >
-                    Request a Quote
-                  </button>
-                  <button
                     onClick={() => handleCheckout(m)}
-                    className="inline-flex w-full items-center justify-center rounded px-4 py-2 text-xs font-mono font-semibold uppercase tracking-wider text-indigo-600 hover:text-indigo-700 hover:bg-[var(--bg-subtle)] border transition-all duration-200 cursor-pointer"
-                    style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-light)' }}
+                    className="inline-flex w-full items-center justify-center rounded px-4 py-2 text-xs font-mono font-semibold uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 border border-indigo-600 hover:border-indigo-500 transition-all duration-200 cursor-pointer"
                   >
                     Buy Now
                   </button>
-                  <p className="pt-1 text-center text-xs font-mono" style={{ color: 'var(--text-muted)' }}>Or <a href="tel:8043627561" className="text-indigo-600 hover:text-indigo-700 font-semibold">call (804) 362-7561</a></p>
+
                 </div>
               </div>
             ))}
