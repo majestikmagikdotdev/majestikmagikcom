@@ -67,7 +67,7 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         >
           <Link
             href="/start-a-project"
-            className="inline-block text-white cursor-pointer font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-200 bg-indigo-600 hover:bg-indigo-500 font-bold"
+            className="inline-block text-white cursor-pointer font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-200 bg-indigo-600 hover:bg-indigo-500 font-bold border border-indigo-400/30"
           >
             Request a Quote →
           </Link>

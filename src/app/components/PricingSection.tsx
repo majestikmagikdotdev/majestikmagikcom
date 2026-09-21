@@ -195,7 +195,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               <div
                 key={m.serviceId}
                 className="services-card-hover-animate flex flex-col justify-between rounded-lg p-4 md:p-6 shadow-[0_4px_24px_rgba(0,0,0,0.07)] hover:shadow-[0_4px_32px_rgba(67,56,202,0.12)] transition duration-200"
-                style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-light)' }}
+                style={{ background: 'var(--bg-surface)', border: '1px solid rgba(99,102,241,0.3)' }}
               >
                 <div>
                   <div className="flex items-start justify-between gap-4 mb-3">

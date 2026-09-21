@@ -92,7 +92,7 @@ const TestimonialsSection = () => {
             <article
               key={`${t.name}-${index}`}
               className="testimonials-card-hover-animate flex h-full flex-col rounded-lg p-4 md:p-6 hover:shadow-[0_4px_32px_rgba(67,56,202,0.12)] hover:scale-[1.05] hover:-translate-y-1 transition-all duration-700"
-              style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-light)' }}
+              style={{ background: 'var(--bg-surface)', border: '1px solid rgba(99,102,241,0.3)' }}
             >
               <header className="flex items-center mb-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0" style={{ background: 'var(--bg-subtle)', border: '1px solid var(--border-light)' }}>

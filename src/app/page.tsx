@@ -76,7 +76,7 @@ export default function App() {
             </p>
             <Link
               href="/start-a-project"
-              className="inline-flex items-center justify-center px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-sm font-bold uppercase tracking-wider rounded-lg transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-sm font-bold uppercase tracking-wider rounded-lg transition-all duration-200 border border-indigo-400/30"
             >
               Start a Project →
             </Link>

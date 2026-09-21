@@ -41,7 +41,7 @@ const PivotQuestSection: React.FC = () => {
 
         <div className="flex justify-center">
           <div className="flex flex-col items-center text-center max-w-md rounded-lg p-6 md:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.07)] hover:shadow-[0_4px_32px_rgba(67,56,202,0.12)] transition duration-200"
-            style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-light)' }}>
+            style={{ background: 'var(--bg-surface)', border: '1px solid rgba(99,102,241,0.3)' }}>
             <div className="flex items-center gap-1.5 mb-3">
               <svg className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" /></svg>
               <span className="text-xs font-mono text-emerald-600 font-semibold">Self-Service &amp; Available Now</span>
