@@ -132,7 +132,7 @@ export default function StartAProjectPage() {
   const labelClass = 'block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2';
 
   return (
-    <main className="min-h-screen py-16 md:py-24 px-4 md:px-6" style={{ background: 'rgb(15, 23, 42)' }}>
+    <main className="page-body-font min-h-screen py-16 md:py-24 px-4 md:px-6" style={{ background: 'rgb(15, 23, 42)' }}>
       <div className="max-w-4xl mx-auto">
 
         {/* Header */}

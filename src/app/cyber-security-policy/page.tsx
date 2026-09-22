@@ -10,7 +10,7 @@ import { ArrowLeftIcon } from '../components/Icons';
  */
 const CyberSecurityPolicyContent: React.FC = () => {
     return (
-        <div className="scroll-animate text-slate-300 leading-relaxed m-6 space-y-6 pt-24 md:pt-32">
+        <div className="page-body-font scroll-animate text-slate-300 leading-relaxed m-6 space-y-6 pt-24 md:pt-32">
             <div>
                 <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-400 bg-clip-text text-transparent mb-2">
                     Cyber Security Policy

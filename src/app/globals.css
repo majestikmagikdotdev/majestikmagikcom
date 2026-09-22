@@ -25,15 +25,36 @@
    Light Theme Design System Variables
    ========================================================================== */
 :root {
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --bg-app: #F0F1F3;
-  --bg-surface: #F7F8F9;
-  --bg-subtle: #F3F4F6;
-  --border-light: #E5E7EB;
-  --border-subtle: #F1F3F5;
-  --text-primary: #111827;
-  --text-secondary: #6B7280;
-  --text-muted: #9CA3AF;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Light theme */
+  --bg-app: #FBFBFB;
+  --bg-surface: #F4F4F5;
+  --bg-subtle: #F4F4F5;
+  --border-light: #E4E4E7;
+  --border-subtle: #E4E4E7;
+  --text-primary: #09090B;
+  --text-secondary: #71717A;
+  --text-muted: #71717A;
+
+  /* Brand */
+  --color-primary: #6366F1;
+  --color-primary-light: #818CF8;
+  --color-primary-dark: #4F46E5;
+  --color-accent: #0066FF;
+  --color-accent-light: #3385FF;
+  --color-accent-dark: #0052CC;
+
+  /* Dark theme */
+  --color-dark-background: #0F172A;
+  --color-dark-surface: #1E293B;
+  --color-dark-text: #F1F5F9;
+  --color-dark-muted: #94A3B8;
+  --color-dark-border: #334155;
+  --color-dark-surface-secondary: #334155;
+
+  /* Badges */
   --accent-yellow: #E2FF00;
   --accent-dark: #212529;
   --badge-warning-bg: #FCE8D5;
@@ -47,7 +68,7 @@ body {
   min-height: 100vh;
   background-color: #0f172a !important;
   color: #cbd5e1;
-  font-family: var(--font-geist-mono), monospace;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -284,6 +305,18 @@ html {
   clip-path: inset(0);
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-size: 200px 200px;
+}
+
+/* Page body font — Inter for all non-homepage pages, titles excluded */
+.page-body-font,
+.page-body-font p,
+.page-body-font li,
+.page-body-font span,
+.page-body-font a,
+.page-body-font label,
+.page-body-font td,
+.page-body-font th {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Page transition */
