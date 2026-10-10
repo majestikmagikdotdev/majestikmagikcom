@@ -387,13 +387,13 @@ const Header: React.FC<HeaderProps> = ({
 
         {/* Desktop CTA Button */}
         <div className="hidden xl:flex items-center">
-          <a
+          <Link
             href="/#contact"
             className="font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-full px-5 py-2 cursor-pointer font-bold border border-indigo-400/30"
             onClick={(e) => handleNavClick(e, { name: 'Contact', url: '/#contact' })}
           >
             Book A Call <span className="text-base">↗</span>
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Hamburger Trigger */}
@@ -432,13 +432,13 @@ const Header: React.FC<HeaderProps> = ({
                   {isDropdown ? (
                     <>
                       <div className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-mono uppercase tracking-wider text-slate-300">
-                        <a
+                        <Link
                           href={item.url}
                           className="hover:text-indigo-400 transition-colors"
                           onClick={(e) => handleNavClick(e, item)}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                         <button
                           className="p-1 hover:text-indigo-400 transition-colors cursor-pointer"
                           onClick={() => setOpenMobileDropdown(isMobileDropdownOpen ? null : item.name)}
@@ -552,13 +552,13 @@ const Header: React.FC<HeaderProps> = ({
             })}
 
             <div className="pt-4 border-t border-[#1e2130]">
-              <a
+              <Link
                 href="/#contact"
                 className="block w-full text-center font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-full px-5 py-3 cursor-pointer font-bold border border-indigo-400/30"
                 onClick={(e) => handleNavClick(e, { name: 'Contact', url: '/#contact' })}
               >
                 Book A Call <span className="text-base">↗</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
