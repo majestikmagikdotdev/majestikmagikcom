@@ -12,7 +12,7 @@ const PrivacyPolicyContent: React.FC = () => {
                     Privacy Policy
                 </h1>
                 <p className="text-xs md:text-sm font-semibold tracking-widest text-indigo-400 uppercase">
-                    Last Updated: October 7, 2026
+                    Last Updated: October 10, 2026
                 </p>
             </div>
 
@@ -115,16 +115,42 @@ const PrivacyPolicyContent: React.FC = () => {
             </div>
 
             {/* Section 7 */}
+            <div className="space-y-4 pt-6 border-t border-indigo-500/10">
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">7. Data Protection &amp; Security</h2>
+                <p>
+                    We prioritize the security of user data. Any sensitive user data, including Google OAuth tokens and calendar information retrieved via Google API Services, is stored using industry-standard security mechanisms, including local end-to-end encryption (SQLCipher AES-256) and secure HTTPS/TLS transport protocols. Data is never exposed or transmitted in unencrypted formats.
+                </p>
+            </div>
+
+            {/* Section 8 */}
+            <div className="space-y-4 pt-6 border-t border-indigo-500/10">
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">8. Google Data Retention &amp; Deletion</h2>
+                <p>
+                    We do not retain or store user Google data on remote servers. All OAuth tokens and synced calendar events reside locally on the user&apos;s client device. Users may delete or revoke access to their Google user data at any time by:
+                </p>
+                <ul className="list-disc list-inside space-y-3 pl-2">
+                    <li>
+                        <strong className="text-slate-200">Disconnecting within the App:</strong> Disconnecting your Google account within the application settings instantly purges all local cached tokens and calendar data from the device.
+                    </li>
+                    <li>
+                        <strong className="text-slate-200">Revoking via Google:</strong> Revoking application permissions directly through the{' '}
+                        <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 underline transition-colors">Google Security Settings</a>{' '}
+                        page. Upon revocation, all associated Google user data is immediately and permanently deleted from local app storage.
+                    </li>
+                </ul>
+            </div>
+
+            {/* Section 9 */}
             <div className="space-y-3 pt-6 border-t border-indigo-500/10">
-                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">7. Changes to This Privacy Policy</h2>
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">9. Changes to This Privacy Policy</h2>
                 <p>
                     We may update this Privacy Policy from time to time to reflect changes in our software or legal requirements. Updated versions will be posted on this page with an updated &quot;Last Updated&quot; date.
                 </p>
             </div>
 
-            {/* Section 8 */}
+            {/* Section 10 */}
             <div className="space-y-3 pt-6 border-t border-indigo-500/10">
-                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">8. Contact Us</h2>
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">10. Contact Us</h2>
                 <p>If you have questions about this Privacy Policy or our local-first software philosophy, please contact us:</p>
                 <div className="p-4 bg-indigo-500/5 border border-indigo-500/10 rounded-xl inline-block min-w-[200px]">
                     <p className="font-bold text-slate-100">Majestik Magik</p>

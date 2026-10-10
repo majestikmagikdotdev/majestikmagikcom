@@ -1,162 +1,347 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
-// Define an interface for the service data
-interface Service {
-  title: string;
-  description: string;
-  bullets: string[];
-  icon: React.ReactElement;
+// ── Mockup 01: Web Design wireframe ──────────────────────────────────────────
+function WebDesignMockup() {
+  return (
+    <div className="w-full h-44 bg-[#0a0c14] rounded-xl border border-white/10 p-4 flex flex-col gap-2 justify-center">
+      <div className="w-full h-3 bg-violet-600/30 rounded" />
+      <div className="flex gap-2 flex-1">
+        <div className="w-1/3 bg-violet-950/60 rounded border border-violet-500/20" />
+        <div className="flex-1 flex flex-col gap-1.5 justify-center">
+          <div className="h-2 w-full bg-slate-800 rounded" />
+          <div className="h-2 w-4/5 bg-slate-800 rounded" />
+          <div className="h-2 w-3/5 bg-slate-800 rounded" />
+          <div className="mt-1 h-5 w-24 bg-violet-600/50 rounded border border-violet-500/30" />
+        </div>
+      </div>
+    </div>
+  );
 }
 
-const customBuildServices: Service[] = [
-  {
-    title: "Custom Platform Architecture",
-    description: "Full-stack software built around how your business actually operates.",
-    bullets: [
-      "Custom database architecture designed for your data, not a template",
-      "Client-owned infrastructure from day one—no vendor lock-in",
-      "Milestone-based delivery with objective acceptance criteria",
-      "Full IP transfer and complete documentation on handoff",
-    ],
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lazy-logo w-8 h-8 mb-4 text-indigo-400"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg>
-    )
-  },
-  {
-    title: "Marketplace & Monetization Systems",
-    description: "Payment processing, subscriptions, and multi-sided platforms built to scale.",
-    bullets: [
-      "Stripe-integrated payment flows on your own merchant account",
-      "Subscription billing, webhooks, and transaction reconciliation",
-      "Multi-role systems for vendors, organizers, or marketplace participants",
-      "Built nationwide-ready from the first migration",
-    ],
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lazy-logo w-8 h-8 mb-4 text-emerald-400">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-      </svg>
-    )
-  },
-];
+// ── Mockup 02: Web Apps — animated counters ───────────────────────────────────
+function WebAppMockup() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [triggered, setTriggered] = useState(false);
+  const [users, setUsers] = useState(0);
 
-const quickFixServices: Service[] = [
-  {
-    title: "Fix Your Website & Improve Speed",
-    description: "Is your site broken or slow? We fix it and make it work better.",
-    bullets: [
-      "Fix broken links, design issues, and mobile problems",
-      "Speed up slow pages (90+ Lighthouse scores guaranteed)",
-      "Improve page load times to reduce bounce rates",
-      "Fix backend integrations and data pipelines",
-    ],
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lazy-logo w-8 h-8 mb-4 text-purple-500">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-      </svg>
-    )
-  },
-  {
-    title: "Get Found on Google & AI Search",
-    description: "Show up when customers search for your business on Google and AI.",
-    bullets: [
-      "Optimize for Google Search and local visibility",
-      "Get found on ChatGPT, Perplexity, and Google AI answers",
-      "Complete technical SEO audit and fixes",
-      "Set up analytics so you can track results",
-    ],
-    icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lazy-logo w-8 h-8 mb-4 text-sky-400"><path strokeLinecap="round" strokeLinejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" /></svg>
-  },
-  {
-    title: "Domain & Email Deliverability Fixes",
-    description: "Stop landing in spam. Get your emails authenticated and trusted.",
-    bullets: [
-      "SPF, DKIM, and DMARC configuration and audit",
-      "Blacklist remediation across 50+ global databases",
-      "Reputation monitoring setup and 30-day guarantee",
-      "Fast turnaround—most fixes delivered in 24 hours",
-    ],
-    icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lazy-logo w-8 h-8 mb-4 text-orange-400"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-  },
-  {
-    title: "Emergency Revenue & Pipeline Fixes",
-    description: "Losing leads or payments to broken integrations? We find it and fix it fast.",
-    bullets: [
-      "Audit Stripe webhooks, forms, and API integrations",
-      "Root-cause diagnosis for dropped leads or failed payments",
-      "Same-day to 24-hour turnaround for critical issues",
-      "30 days of free monitoring after the fix ships",
-    ],
-    icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="lazy-logo w-8 h-8 mb-4 text-rose-400"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>
-  },
-];
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setTriggered(true); }, { threshold: 0.4 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
-const ServiceCard: React.FC<{ service: Service }> = ({ service }) => (
-  <div className="group p-6 transition-all duration-300 bg-[#1e293b] rounded-lg border border-[#334155] hover:border-indigo-500/50 hover:shadow-[0_8px_40px_rgba(99,102,241,0.15)] hover:-translate-y-1">
-    <div className="transition-transform duration-300 group-hover:scale-110 group-hover:text-indigo-400 w-fit">
-      {service.icon}
+  useEffect(() => {
+    if (!triggered) return;
+    const target = 1284;
+    const step = 16;
+    const inc = Math.ceil(target / (1200 / step));
+    const id = setInterval(() => setUsers((n) => { const v = n + inc; if (v >= target) { clearInterval(id); return target; } return v; }), step);
+    return () => clearInterval(id);
+  }, [triggered]);
+
+  return (
+    <div ref={ref} className="w-full h-44 bg-[#0a0c14] rounded-xl border border-white/10 p-4 flex items-center justify-around font-mono text-xs text-slate-300">
+      <div className="bg-slate-900 p-3 rounded-lg border border-white/5 text-center">
+        <span className="block text-violet-400 font-bold text-sm">{users.toLocaleString()}</span>
+        <span className="text-[10px] text-slate-500">ACTIVE USERS</span>
+      </div>
+      <div className="bg-slate-900 p-3 rounded-lg border border-white/5 text-center">
+        <span className="block text-emerald-400 font-bold text-sm">99.98%</span>
+        <span className="text-[10px] text-slate-500">UPTIME</span>
+      </div>
+      <div className="bg-slate-900 p-3 rounded-lg border border-white/5 text-center">
+        <span className="block text-indigo-400 font-bold text-sm">12ms</span>
+        <span className="text-[10px] text-slate-500">LATENCY</span>
+      </div>
     </div>
-    <h3 className="mb-1 text-lg font-semibold text-slate-100 tracking-tight">{service.title}</h3>
-    <p className="text-sm text-slate-400 mb-4">{service.description}</p>
-    <ul className="space-y-2">
-      {service.bullets.map((b) => (
-        <li key={b} className="flex items-start gap-2 text-sm text-slate-300">
-          <span className="mt-1 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
-          {b}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+  );
+}
 
+// ── Mockup 03: Systems — animated bar fill ────────────────────────────────────
+function SystemsMockup() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [triggered, setTriggered] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setTriggered(true); }, { threshold: 0.4 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const bars = [
+    { label: 'Inventory Engine', pct: 92, color: 'bg-violet-500' },
+    { label: 'Fleet Tracker', pct: 78, color: 'bg-indigo-500' },
+    { label: 'Logistics API', pct: 85, color: 'bg-purple-500' },
+  ];
+
+  return (
+    <div ref={ref} className="w-full h-44 bg-[#0a0c14] rounded-xl border border-white/10 p-4 flex flex-col justify-center gap-3">
+      <div className="px-2 py-1 bg-violet-950/80 border border-violet-500/30 rounded text-[11px] font-mono text-violet-300 w-fit">
+        OWNED INFRASTRUCTURE
+      </div>
+      <div className="space-y-2">
+        {bars.map(({ label, pct, color }, i) => (
+          <div key={label}>
+            <div className="flex justify-between text-[10px] font-mono text-slate-500 mb-0.5">
+              <span>{label}</span><span className="text-slate-400">{pct}%</span>
+            </div>
+            <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+              <div
+                className={`h-full ${color} rounded-full transition-all ease-out`}
+                style={{ width: triggered ? `${pct}%` : '0%', transitionDuration: `${800 + i * 150}ms`, transitionDelay: triggered ? `${i * 80}ms` : '0ms' }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── Mockup 04: SEO — animated Lighthouse scores ───────────────────────────────
+const lighthouseMetrics = [
+  { label: 'Performance', target: 97, color: 'bg-emerald-500', textColor: 'text-emerald-400' },
+  { label: 'SEO', target: 100, color: 'bg-violet-500', textColor: 'text-violet-400' },
+  { label: 'Best Practices', target: 95, color: 'bg-indigo-500', textColor: 'text-indigo-400' },
+];
+
+function SEOMockup() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [triggered, setTriggered] = useState(false);
+  const [scores, setScores] = useState([0, 0, 0]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setTriggered(true); }, { threshold: 0.4 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!triggered) return;
+    lighthouseMetrics.forEach(({ target }, i) => {
+      const step = 16;
+      const inc = Math.ceil(target / ((900 + i * 150) / step));
+      const id = setInterval(() => {
+        setScores((prev) => {
+          const next = [...prev];
+          const v = next[i] + inc;
+          if (v >= target) { next[i] = target; clearInterval(id); } else next[i] = v;
+          return next;
+        });
+      }, step);
+    });
+  }, [triggered]);
+
+  return (
+    <div ref={ref} className="w-full h-44 bg-[#0a0c14] rounded-xl border border-white/10 p-4 flex flex-col justify-center gap-2.5">
+      <div className="flex items-center gap-2 text-[11px] font-mono text-emerald-400 mb-1">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+        Lighthouse audit complete
+      </div>
+      {lighthouseMetrics.map(({ label, target, color, textColor }, i) => (
+        <div key={label}>
+          <div className="flex justify-between text-[10px] font-mono text-slate-400 mb-0.5">
+            <span>{label}</span><span className={textColor}>{scores[i]}</span>
+          </div>
+          <div className="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+            <div
+              className={`h-full ${color} rounded-full transition-all ease-out`}
+              style={{ width: triggered ? `${target}%` : '0%', transitionDuration: `${900 + i * 150}ms` }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ── Mockup 05: Local-First — animated offline status ─────────────────────────
+function LocalFirstMockup() {
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setTick((t) => t + 1), 1800);
+    return () => clearInterval(id);
+  }, []);
+
+  const ops = ['READ  users       0ms', 'WRITE fleet_log   0ms', 'SYNC  deferred    0ms', 'QUERY inventory   0ms'];
+
+  return (
+    <div className="w-full h-44 bg-slate-900/60 rounded-xl border border-slate-600/20 p-4 flex flex-col justify-between font-mono">
+      <div className="flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-slate-400 animate-pulse" />
+        <span className="text-[11px] text-slate-300">OFFLINE MODE ACTIVE — SQLite Engine</span>
+      </div>
+      <div className="space-y-1">
+        {ops.map((op, i) => (
+          <div
+            key={op}
+            className="text-[10px] text-slate-400/70 transition-opacity duration-500"
+            style={{ opacity: tick % ops.length === i ? 1 : 0.35 }}
+          >
+            <span className="text-slate-300">›</span> {op}
+          </div>
+        ))}
+      </div>
+      <div className="flex gap-2">
+        <span className="px-2 py-0.5 bg-slate-600 text-white text-[10px] rounded-full">SQLCipher</span>
+        <span className="px-2 py-0.5 bg-slate-800/80 border border-slate-500/30 text-slate-300 text-[10px] rounded-full">0ms latency</span>
+        <span className="px-2 py-0.5 bg-slate-800/80 border border-slate-500/30 text-slate-300 text-[10px] rounded-full">100% offline</span>
+      </div>
+    </div>
+  );
+}
+
+// ── Services data ─────────────────────────────────────────────────────────────
+const services = [
+  {
+    id: '01',
+    category: 'INTERFACES THAT CONVERT',
+    title: 'Web Design',
+    description: 'Research-led UX and sharp visual design — landing pages, marketing sites, and product UI built to move visitors toward one clear action.',
+    bullets: ['Conversion-focused layout and copy hierarchy', 'Mobile-first, sub-second load times', 'Full production deployment with custom domain DNS'],
+    isHighlighted: false,
+    mockup: <WebDesignMockup />,
+  },
+  {
+    id: '02',
+    category: 'DASHBOARDS, PORTALS, TOOLS',
+    title: 'Web Applications',
+    description: 'Fast, reliable web apps with thoughtful UX — dashboards, portals, and internal tools your teams actually enjoy using. Built on Next.js and tuned for speed.',
+    bullets: ['Role-based access, auth, and permissions', 'Real-time data pipelines and webhook integrations', 'Stripe billing, subscriptions, and reconciliation'],
+    isHighlighted: false,
+    mockup: <WebAppMockup />,
+  },
+  {
+    id: '03',
+    category: 'CUSTOM OPERATIONAL ENGINES',
+    title: 'Systems-as-a-Service',
+    description: 'White-label inventory, fleet, logistics, and data engines. Replace expensive recurring SaaS tools with software infrastructure your company owns outright.',
+    bullets: ['Client-owned infrastructure — zero vendor lock-in', 'Managed Cloud or Local-First deployment options', 'Full IP transfer and complete handoff documentation'],
+    isHighlighted: false,
+    mockup: <SystemsMockup />,
+  },
+  {
+    id: '04',
+    category: 'FOUND FAST, LOADS FASTER',
+    title: 'SEO & Core Web Vitals',
+    description: 'Technical SEO, clean DOM structure, and performance tuning — fast-loading pages that rank high, pass Core Web Vitals, and convert organic traffic.',
+    bullets: ['90+ Lighthouse scores guaranteed', 'JSON-LD schema and GEO/AI visibility setup', 'Complete technical audit with fix delivery in days'],
+    isHighlighted: false,
+    mockup: <SEOMockup />,
+  },
+  {
+    id: '05',
+    category: 'BARE-METAL RELIABILITY & ZERO LATENCY',
+    title: 'Local-First & Mobile Apps',
+    description: 'Edge-native mobile & desktop applications built on local SQLite + SQLCipher engines. Zero internet dependency, instant sub-millisecond execution, and complete data privacy.',
+    bullets: ['Instant local response times (sub-millisecond)', 'SQLCipher encrypted offline storage', 'Deferred sync engine when connection restores'],
+    isHighlighted: true,
+    mockup: <LocalFirstMockup />,
+  },
+];
+
+// ── Section ───────────────────────────────────────────────────────────────────
 const ServicesSection: React.FC = () => {
   return (
-    <section id="services" aria-labelledby="services-heading" aria-describedby="services-desc" className="scroll-animate py-16 md:py-24 border-t border-[#334155]" style={{ background: 'rgb(15, 23, 42)' }}>
+    <section
+      id="services"
+      aria-labelledby="services-heading"
+      className="py-16 md:py-24 border-t border-[#334155]"
+      style={{ background: 'rgb(15, 23, 42)' }}
+    >
       <div className="w-full px-4 md:px-6">
-        <div className="mb-8 text-left">
+        {/* Header */}
+        <div className="mb-12 md:mb-16">
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
-            Two Ways We Can Work Together
+            • Services
           </span>
-          <h2 id="services-heading" className="mb-4 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight" style={{ letterSpacing: '-0.04em' }}>
-            Custom Builds{' '}
+          <h2
+            id="services-heading"
+            className="mb-4 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-slate-100 font-bold tracking-tight"
+            style={{ letterSpacing: '-0.04em' }}
+          >
+            Everything you need{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-200 to-white">
-              & Quick Fixes
+              to ship.
             </span>
           </h2>
-          <p id="services-desc" className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed max-w-3xl">
-            Ready to architect a full platform? That&apos;s our main focus. Need something smaller fixed fast—broken emails, slow pages, missing leads? We handle that too, at a fixed price.
+          <p className="mt-4 text-base md:text-lg text-slate-400 font-sans leading-relaxed max-w-3xl">
+            Full-stack platforms, quick fixes, and everything in between — shipped fast, owned by you.
           </p>
         </div>
 
-        {/* Custom Builds */}
-        <div className="mb-12">
-          <h3 className="mb-4 text-sm font-mono font-bold tracking-widest text-indigo-400 uppercase">
-            Custom Builds
-          </h3>
-          <div className="grid gap-4 md:grid-cols-2 stagger-children scroll-animate">
-            {customBuildServices.map((service) => (
-              <ServiceCard key={service.title} service={service} />
-            ))}
-          </div>
-        </div>
+        {/* Stacking Cards */}
+        <div className="flex flex-col">
+          {services.map((service, index) => (
+            <div
+              key={service.id}
+              className="sticky w-full rounded-3xl p-6 md:p-10"
+              style={{
+                top: `${72 + index * 20}px`,
+                marginBottom: '2rem',
+                ...(service.isHighlighted
+                  ? {
+                      background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
+                      border: '1px solid rgba(148,163,184,0.2)',
+                    }
+                  : {
+                      background: 'rgba(19, 21, 34, 0.97)',
+                      border: '1px solid rgba(255,255,255,0.06)',
+                      backdropFilter: 'blur(16px)',
+                    }),
+              }}
+            >
+              <div className="flex gap-6 items-center">
+                {/* Number — far left inside card */}
+                <span className={`hidden md:block text-2xl font-bold font-mono flex-shrink-0 ${service.isHighlighted ? 'text-slate-600' : 'text-slate-800'}`}>
+                  {service.id}
+                </span>
 
-        {/* Quick Fixes */}
-        <div>
-          <div className="mb-4 flex items-center justify-between flex-wrap gap-2">
-            <h3 className="text-sm font-mono font-bold tracking-widest text-indigo-400 uppercase">
-              Quick Fixes
-            </h3>
-            <Link href="/#services-pricing" className="text-xs font-mono text-indigo-300 hover:text-indigo-200 underline underline-offset-4">
-              See fixed pricing &amp; turnaround times →
-            </Link>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 stagger-children scroll-animate">
-            {quickFixServices.map((service) => (
-              <ServiceCard key={service.title} service={service} />
-            ))}
-          </div>
-        </div>
+                <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                {/* Mockup */}
+                <div className={`lg:col-span-3 p-4 rounded-xl border shadow-inner ${service.isHighlighted ? 'bg-slate-900/60 border-slate-600/20' : 'bg-[#0a0c14] border-white/5'}`}>
+                  {service.mockup}
+                </div>
 
+                {/* Content */}
+                <div className="lg:col-span-8 flex flex-col justify-between">
+                  <div>
+                    <div className="mb-2">
+                      <span className={`text-xs font-mono tracking-wider font-semibold ${service.isHighlighted ? 'text-slate-300' : 'text-indigo-400'}`}>
+                        {service.category}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight text-white">
+                      {service.title}
+                    </h3>
+                    <p className={`text-sm md:text-base leading-relaxed mb-6 ${service.isHighlighted ? 'text-slate-300' : 'text-slate-400'}`}>
+                      {service.description}
+                    </p>
+                  </div>
+                  <ul className="space-y-2">
+                    {service.bullets.map((bullet) => (
+                      <li key={bullet} className={`flex items-center text-xs md:text-sm ${service.isHighlighted ? 'text-slate-300' : 'text-slate-400'}`}>
+                        <span className={`mr-2 flex-shrink-0 ${service.isHighlighted ? 'text-slate-400' : 'text-indigo-400'}`}>✦</span>
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>        
       </div>
     </section>
   );
