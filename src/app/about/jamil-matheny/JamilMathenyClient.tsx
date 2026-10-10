@@ -10,7 +10,7 @@ const JamilMathenyContent: React.FC = () => {
         <div className="scroll-animate text-slate-300 leading-relaxed space-y-6">
             <div>
                 <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-400 bg-clip-text text-transparent mb-2">
-                    Jamil Matheny, Founder &amp; CEO
+                    Jamil Matheny
                 </h1>
                 <p className="text-xs md:text-sm font-semibold tracking-widest text-indigo-400 uppercase">
                     About the Founder
@@ -30,7 +30,7 @@ const JamilMathenyContent: React.FC = () => {
             </div>
 
             <p className="text-[1.05rem] text-slate-200 font-medium">
-                Jamil Matheny is the Founder &amp; CEO of Majestik Magik, Inc., a digital solutions agency born from a lifelong passion for technology and a deep-seated desire to help businesses achieve their goals. He leads the company with a core mission: to create effective, purpose-driven software solutions that solve real-world business challenges.
+                Jamil Matheny is the Founder of Majestik Magik, Inc., a digital solutions agency born from a lifelong passion for technology and a deep-seated desire to help businesses achieve their goals. He leads the company with a core mission: to create effective, purpose-driven software solutions that solve real-world business challenges.
             </p> 
             
             <p>

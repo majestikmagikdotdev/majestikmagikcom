@@ -5,9 +5,10 @@ import Image from 'next/image';
 import { Bars3Icon, XMarkIcon } from './Icons';
 
 export interface NavLinkItem {
-  name: string; 
+  name: string;
   url: string;
   external?: boolean;
+  description?: string;
   children?: NavLinkItem[];
 }
 
@@ -45,7 +46,6 @@ const Header: React.FC<HeaderProps> = ({
   }, []);
 
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const dropdownCloseTimer = useRef<NodeJS.Timeout | null>(null);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
 
   useEffect(() => {
@@ -70,21 +70,12 @@ const Header: React.FC<HeaderProps> = ({
   }, []);
 
   const handleDropdownMouseEnter = (itemName: string) => {
-    if (dropdownCloseTimer.current) {
-      clearTimeout(dropdownCloseTimer.current);
-      dropdownCloseTimer.current = null;
-    }
     setOpenDropdown(itemName);
   };
 
   const handleDropdownMouseLeave = () => {
-    if (dropdownCloseTimer.current) {
-      clearTimeout(dropdownCloseTimer.current);
-    }
-    dropdownCloseTimer.current = setTimeout(() => {
-      setOpenDropdown(null);
-      setHoveredRect((prev) => ({ ...prev, opacity: 0 }));
-    }, 150);
+    setOpenDropdown(null);
+    setHoveredRect((prev) => ({ ...prev, opacity: 0 }));
   };
 
   useEffect(() => {
@@ -189,6 +180,7 @@ const Header: React.FC<HeaderProps> = ({
                 className={`relative group ${isDropdown ? 'has-dropdown' : ''}`}
                 onMouseEnter={() => isDropdown && handleDropdownMouseEnter(item.name)}
                 onMouseLeave={() => isDropdown && handleDropdownMouseLeave()}
+                onMouseDown={(e) => e.stopPropagation()}
               >
                 {item.external ? (
                   <a
@@ -235,43 +227,154 @@ const Header: React.FC<HeaderProps> = ({
                   </a>
                 )}
 
-                {/* Dropdown Container */}
+                {/* Mega-Menu / Dropdown Container */}
                 {isDropdown && (
                   <div
-                    className={`absolute left-1/2 -translate-x-1/2 pt-2 transition-all duration-300 ease-out origin-top opacity-0 scale-95 pointer-events-none z-20 ${
-                      isActiveDropdown ? 'opacity-100 scale-100 pointer-events-auto' : ''
+                    className={`absolute z-20 transition-all duration-200 ease-out ${
+                      isActiveDropdown ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
                     }`}
-                    style={{ top: '100%' }}
-                    onMouseEnter={() => handleDropdownMouseEnter(item.name)}
-                    onMouseLeave={handleDropdownMouseLeave}
+                    style={{ top: 'calc(100% - 8px)', left: '50%', transform: 'translateX(-50%)', paddingTop: '20px' }}
+                    onMouseEnter={(e) => e.stopPropagation()}
+                    onMouseLeave={(e) => e.stopPropagation()}
                   >
-                    <div className="w-48 bg-[#0f172a] border border-[#334155] rounded-lg shadow-lg py-2">
-                      {item.children?.map((childItem) =>
-                        childItem.external ? (
+                    {item.name === 'Services' ? (
+                      // Services: two-column mega-menu with callout
+                      <div
+                        className="flex gap-0 rounded-xl shadow-2xl overflow-hidden"
+                        style={{
+                          background: 'rgba(15, 15, 25, 0.97)',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                          backdropFilter: 'blur(20px)',
+                          minWidth: '560px',
+                        }}
+                      >
+                        <div className="flex-1 p-5">
+                          <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3 px-2">Services</p>
+                          <div className="space-y-1">
+                            {item.children?.map((childItem) => (
+                              <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg">
+                                <span className="text-sm font-mono text-slate-200">{childItem.name}</span>
+                                {childItem.description && (
+                                  <span className="text-xs text-slate-500 mt-0.5">{childItem.description}</span>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <div
+                          className="w-52 p-5 flex flex-col justify-between"
+                          style={{
+                            background: 'linear-gradient(135deg, rgba(30,41,59,0.8) 0%, rgba(15,23,42,0.9) 100%)',
+                            borderLeft: '1px solid rgba(255,255,255,0.06)',
+                          }}
+                        >
+                          <div>
+                            <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2">Featured</p>
+                            <p className="text-sm font-semibold text-white leading-snug mb-2">From Concept to Edge-Native Launch</p>
+                            <p className="text-xs text-slate-400 leading-relaxed">Custom local-first infrastructure, zero latency, maximum privacy.</p>
+                          </div>
                           <a
-                            key={childItem.name}
-                            href={childItem.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block px-4 py-2 text-sm text-slate-300 hover:bg-indigo-500/10 hover:text-indigo-400 transition-colors font-mono uppercase tracking-wider cursor-pointer"
-                          >
-                            {childItem.name}
-                          </a>
-                        ) : (
-                          <a
-                            key={childItem.name}
-                            href={childItem.url}
-                            className="block px-4 py-2 text-sm text-slate-300 hover:bg-indigo-500/10 hover:text-indigo-400 transition-colors font-mono uppercase tracking-wider cursor-pointer"
+                            href="/start-a-project"
+                            className="mt-4 inline-flex items-center justify-center text-xs font-mono uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 transition-colors rounded-lg px-3 py-2"
                             onClick={(e) => {
-                              handleNavClick(e, childItem);
+                              handleNavClick(e, { name: 'Start a Project', url: '/start-a-project' });
                               setOpenDropdown(null);
                             }}
                           >
-                            {childItem.name}
+                            Start a Project →
                           </a>
-                        )
-                      )}
-                    </div>
+                        </div>
+                      </div>
+                    ) : item.name === 'Portfolio' ? (
+                      // Portfolio: project list (no links) on left, Case Studies callout on right
+                      <div
+                        className="flex gap-0 rounded-xl shadow-2xl overflow-hidden"
+                        style={{
+                          background: 'rgba(15, 15, 25, 0.97)',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                          backdropFilter: 'blur(20px)',
+                          minWidth: '560px',
+                        }}
+                      >
+                        <div className="flex-1 p-5">
+                          <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3 px-2">Recent Work</p>
+                          <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                            {item.children?.map((childItem) => (
+                              <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg">
+                                <span className="text-sm font-mono text-slate-200">{childItem.name}</span>
+                                {childItem.description && (
+                                  <span className="text-xs text-slate-500 mt-0.5">{childItem.description}</span>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                          <a
+                            href="/portfolio"
+                            className="mt-4 inline-flex items-center gap-1 text-xs font-mono text-indigo-400 hover:text-indigo-300 transition-colors px-3"
+                            onClick={(e) => {
+                              handleNavClick(e, { name: 'Portfolio', url: '/portfolio' });
+                              setOpenDropdown(null);
+                            }}
+                          >
+                            View all projects →
+                          </a>
+                        </div>
+                        <div
+                          className="w-48 p-5 flex flex-col justify-between"
+                          style={{
+                            background: 'linear-gradient(135deg, rgba(30,41,59,0.8) 0%, rgba(15,23,42,0.9) 100%)',
+                            borderLeft: '1px solid rgba(255,255,255,0.06)',
+                          }}
+                        >
+                          <div>
+                            <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2">Case Studies</p>
+                            <p className="text-sm font-semibold text-white leading-snug mb-2">Real Clients, Real Results</p>
+                            <p className="text-xs text-slate-400 leading-relaxed">Problems solved and measurable outcomes across every project.</p>
+                          </div>
+                          <a
+                            href="/case-studies"
+                            className="mt-4 inline-flex items-center justify-center text-xs font-mono uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 transition-colors rounded-lg px-3 py-2"
+                            onClick={(e) => {
+                              handleNavClick(e, { name: 'Case Studies', url: '/case-studies' });
+                              setOpenDropdown(null);
+                            }}
+                          >
+                            Read Case Studies →
+                          </a>
+                        </div>
+                      </div>
+                    ) : (
+                      // Generic single-column dropdown
+                      <div
+                        className="rounded-xl shadow-2xl overflow-hidden"
+                        style={{
+                          background: 'rgba(15, 15, 25, 0.97)',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                          backdropFilter: 'blur(20px)',
+                          minWidth: '260px',
+                        }}
+                      >
+                        <div className="p-3 space-y-1">
+                          <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-2 px-2">{item.name}</p>
+                          {item.children?.map((childItem) => (
+                            <a
+                              key={childItem.name}
+                              href={childItem.url}
+                              className="flex flex-col px-3 py-2.5 rounded-lg hover:bg-indigo-500/10 transition-colors group cursor-pointer"
+                              onClick={(e) => {
+                                handleNavClick(e, childItem);
+                                setOpenDropdown(null);
+                              }}
+                            >
+                              <span className="text-sm font-mono text-slate-200 group-hover:text-indigo-300 transition-colors">{childItem.name}</span>
+                              {childItem.description && (
+                                <span className="text-xs text-slate-500 mt-0.5">{childItem.description}</span>
+                              )}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -280,6 +383,17 @@ const Header: React.FC<HeaderProps> = ({
         </nav>
 
 
+
+        {/* Desktop CTA Button */}
+        <div className="hidden xl:flex items-center">
+          <a
+            href="/#contact"
+            className="font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-full px-5 py-2 cursor-pointer font-bold border border-indigo-400/30"
+            onClick={(e) => handleNavClick(e, { name: 'Contact', url: '/#contact' })}
+          >
+            Book A Call <span className="text-base">↗</span>
+          </a>
+        </div>
 
         {/* Mobile Hamburger Trigger */}
         <div className="xl:hidden flex items-center">
@@ -316,42 +430,104 @@ const Header: React.FC<HeaderProps> = ({
                 <div key={`mobile-${item.name}`}>
                   {isDropdown ? (
                     <>
-                      <button
-                        className="flex justify-between items-center w-full rounded-lg px-3 py-2 text-sm font-mono uppercase tracking-wider text-slate-300 hover:bg-indigo-500/5 hover:text-indigo-400 transition-colors"
-                        onClick={() => setOpenMobileDropdown(isMobileDropdownOpen ? null : item.name)}
-                        aria-expanded={isMobileDropdownOpen}
-                        aria-controls={`mobile-submenu-${item.name}`}
-                      >
-                        {item.name}
-                        <svg
-                          className={`ml-2 w-4 h-4 transform transition-transform duration-200 ${
-                            isMobileDropdownOpen ? 'rotate-180' : 'rotate-0'
-                          }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
+                      <div className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-mono uppercase tracking-wider text-slate-300">
+                        <a
+                          href={item.url}
+                          className="hover:text-indigo-400 transition-colors"
+                          onClick={(e) => handleNavClick(e, item)}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
+                          {item.name}
+                        </a>
+                        <button
+                          className="p-1 hover:text-indigo-400 transition-colors cursor-pointer"
+                          onClick={() => setOpenMobileDropdown(isMobileDropdownOpen ? null : item.name)}
+                          aria-expanded={isMobileDropdownOpen}
+                          aria-controls={`mobile-submenu-${item.name}`}
+                        >
+                          <svg
+                            className={`w-4 h-4 transform transition-transform duration-200 ${
+                              isMobileDropdownOpen ? 'rotate-180' : 'rotate-0'
+                            }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                      </div>
                       <div
                         id={`mobile-submenu-${item.name}`}
                         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                          isMobileDropdownOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                          isMobileDropdownOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
                         }`}
                       >
-                        <div className="pl-6 py-2 space-y-2">
-                          {item.children?.map((childItem) => (
-                            <a
-                              key={`mobile-child-${childItem.name}`}
-                              href={childItem.url}
-                              className="block rounded-lg px-3 py-2 text-sm font-mono uppercase tracking-wider text-slate-400 hover:bg-indigo-500/5 hover:text-indigo-400 transition-colors"
-                              onClick={(e) => handleNavClick(e, childItem)}
-                            >
-                              {childItem.name}
-                            </a>
-                          ))}
+                        <div
+                          className="mt-2 mx-1 rounded-xl overflow-hidden"
+                          style={{
+                            background: 'rgba(15, 15, 25, 0.97)',
+                            border: '1px solid rgba(255,255,255,0.08)',
+                          }}
+                        >
+                          {item.name === 'Services' && (
+                            <div className="p-4 space-y-1">
+                              <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3 px-2">Services</p>
+                              {item.children?.map((childItem) => (
+                                <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg">
+                                  <span className="text-sm font-mono text-slate-200">{childItem.name}</span>
+                                  {childItem.description && (
+                                    <span className="text-xs text-slate-500 mt-0.5">{childItem.description}</span>
+                                  )}
+                                </div>
+                              ))}
+                              <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                                <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2 px-2">Featured</p>
+                                <p className="text-sm font-semibold text-white leading-snug mb-1 px-2">From Concept to Edge-Native Launch</p>
+                                <p className="text-xs text-slate-400 leading-relaxed mb-3 px-2">Custom local-first infrastructure, zero latency, maximum privacy.</p>
+                                <a
+                                  href="/start-a-project"
+                                  className="mx-2 inline-flex items-center justify-center text-xs font-mono uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 transition-colors rounded-lg px-3 py-2"
+                                  onClick={(e) => { handleNavClick(e, { name: 'Start a Project', url: '/start-a-project' }); setIsMobileMenuOpen(false); }}
+                                >
+                                  Start a Project →
+                                </a>
+                              </div>
+                            </div>
+                          )}
+                          {item.name === 'Portfolio' && (
+                            <div className="p-4">
+                              <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3 px-2">Recent Work</p>
+                              <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+                                {item.children?.map((childItem) => (
+                                  <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg">
+                                    <span className="text-sm font-mono text-slate-200">{childItem.name}</span>
+                                    {childItem.description && (
+                                      <span className="text-xs text-slate-500 mt-0.5">{childItem.description}</span>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                              <a
+                                href="/portfolio"
+                                className="mt-3 inline-flex items-center gap-1 text-xs font-mono text-indigo-400 hover:text-indigo-300 transition-colors px-3"
+                                onClick={(e) => { handleNavClick(e, { name: 'Portfolio', url: '/portfolio' }); setIsMobileMenuOpen(false); }}
+                              >
+                                View all projects →
+                              </a>
+                              <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                                <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2 px-2">Case Studies</p>
+                                <p className="text-sm font-semibold text-white leading-snug mb-1 px-2">Real Clients, Real Results</p>
+                                <p className="text-xs text-slate-400 leading-relaxed mb-3 px-2">Problems solved and measurable outcomes across every project.</p>
+                                <a
+                                  href="/case-studies"
+                                  className="mx-2 inline-flex items-center justify-center text-xs font-mono uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 transition-colors rounded-lg px-3 py-2"
+                                  onClick={(e) => { handleNavClick(e, { name: 'Case Studies', url: '/case-studies' }); setIsMobileMenuOpen(false); }}
+                                >
+                                  Read Case Studies →
+                                </a>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </>
@@ -374,6 +550,15 @@ const Header: React.FC<HeaderProps> = ({
               );
             })}
 
+            <div className="pt-4 border-t border-[#1e2130]">
+              <a
+                href="/#contact"
+                className="block w-full text-center font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-full px-5 py-3 cursor-pointer font-bold border border-indigo-400/30"
+                onClick={(e) => handleNavClick(e, { name: 'Contact', url: '/#contact' })}
+              >
+                Book A Call <span className="text-base">↗</span>
+              </a>
+            </div>
           </div>
         </div>
       )}

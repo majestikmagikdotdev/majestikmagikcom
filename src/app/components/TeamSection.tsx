@@ -57,10 +57,10 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: "Jamil Matheny",
-    title: "Founder & CEO",
+    title: "Founder",
     email: "contact@majestikmagik.dev",
     emailUrl: "mailto:contact@majestikmagik.dev",
-    bio: "Jamil Matheny is the Founder & CEO of Majestik Magik, Inc., a digital solutions agency born from a lifelong passion for technology and a deep-seated desire to help businesses achieve their goals. He leads the company with a core mission: to create effective, purpose-driven software solutions that solve real-world business challenges.",
+    bio: "Jamil Matheny is the Founder of Majestik Magik, Inc., a digital solutions agency born from a lifelong passion for technology and a deep-seated desire to help businesses achieve their goals. He leads the company with a core mission: to create effective, purpose-driven software solutions that solve real-world business challenges.",
     imageUrl: "/img/0-jamil.jpg",
     url: "/about/jamil-matheny",
     social: [

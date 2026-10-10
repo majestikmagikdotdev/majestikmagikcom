@@ -160,13 +160,27 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   const navItems = [
     { name: 'Home', url: '/#home' },
-    { name: 'Services', url: '/#services' },
-    { name: 'Pricing', url: '/#services-pricing' },
-    { name: 'Portfolio', url: '/portfolio' },
-    { name: 'Case Studies', url: '/case-studies' },
-    { name: 'Testimonials', url: '/#testimonials' },
-    { name: 'About', url: '/#about' },
-    { name: 'FAQ', url: '/#faq' },
+    {
+      name: 'Services',
+      url: '/#services',
+      children: [
+        { name: 'Systems-as-a-Service', url: '/#services-systems', description: 'Dashboards, inventory, logistics & custom portals.' },
+        { name: 'Local-First & Edge Native Apps', url: '/#services-edge', description: 'Zero-latency offline engines, mobile-first SQLite.' },
+        { name: 'White-Label Enterprise Dashboards', url: '/#services-dashboards', description: 'Modular admin systems & custom workflows.' },
+      ],
+    },
+    {
+      name: 'Portfolio',
+      url: '/portfolio',
+      children: [
+        { name: 'Middleman Motors', url: '', description: 'Full-stack automotive inventory platform.' },
+        { name: 'Pivot Quest Analytics', url: '', description: 'Web performance & Core Web Vitals monitor.' },
+        { name: 'CEARCO Chemicals', url: '', description: 'Specialty chemical & e-commerce storefront.' },
+        { name: 'Noel Customs', url: '', description: 'Custom apparel Shopify storefront.' },
+        { name: 'Dr. Parris Gainer', url: '', description: 'Consulting & mental health advocacy portal.' },
+        { name: 'Jamil Cleaning Services', url: '', description: 'Commercial & residential booking platform.' },
+      ],
+    },
     { name: 'Contact', url: '/#contact' },
     { name: 'Pivot Quest', url: 'https://app.majestikmagik.dev/', external: true },
   ];
