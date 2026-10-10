@@ -15,7 +15,7 @@ const TermsOfServiceContent: React.FC = () => {
                     Terms of Service
                 </h1>
                 <p className="text-xs md:text-sm font-semibold tracking-widest text-indigo-400 uppercase">
-                    Last Updated: July 14, 2026
+                    Last Updated: October 10, 2026
                 </p>
             </div>
 
@@ -182,9 +182,43 @@ const TermsOfServiceContent: React.FC = () => {
                 </p>
             </div>
 
-            {/* Section 15 */}
+            {/* Section 16 */}
             <div className="space-y-4 pt-6 border-t border-indigo-500/10">
-                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">15. Contact Us</h2>
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">16. Google API Services &amp; OAuth Authorization</h2>
+                <p>
+                    Signal³ offers an optional Google Calendar integration powered by Google OAuth 2.0. By enabling this integration, you authorize Signal³ to interact with your Google Calendar on your behalf, solely to add, update, or read calendar events as directed by you within the application.
+                </p>
+                <ul className="list-disc list-inside space-y-2 pl-2">
+                    <li><strong className="text-slate-200">Your Responsibility:</strong> You are solely responsible for authorizing and maintaining Google account access. You agree to revoke OAuth permissions immediately if you no longer wish Signal³ to interact with your Google account.</li>
+                    <li><strong className="text-slate-200">Scope of Access:</strong> Signal³ requests only the minimum OAuth scopes necessary to provide calendar functionality. We do not access your Gmail, Google Drive, contacts, or any other Google services.</li>
+                    <li><strong className="text-slate-200">Google&apos;s Terms:</strong> Your use of Google services through this integration is also governed by{' '}
+                        <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 underline transition-colors">Google&apos;s Terms of Service</a>. We disclaim all responsibility for Google&apos;s own service availability, policy changes, or data handling practices.
+                    </li>
+                </ul>
+            </div>
+
+            {/* Section 17 */}
+            <div className="space-y-4 pt-6 border-t border-indigo-500/10">
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">17. Google Data — Limitation of Liability</h2>
+                <p>
+                    Because all Google OAuth tokens and synced calendar data are stored exclusively on your local device, Majestik Magik bears no liability for:
+                </p>
+                <ul className="list-disc list-inside space-y-2 pl-2">
+                    <li>Loss of Google data resulting from uninstalling the application, clearing app storage, or device failure.</li>
+                    <li>Loss of access resulting from you revoking OAuth permissions via Google Security Settings.</li>
+                    <li>Any interruption, modification, or discontinuation of Google&apos;s API services that affects calendar integration functionality.</li>
+                    <li>Unauthorized access to your Google account arising from actions outside of Signal³, including compromised Google credentials.</li>
+                </ul>
+                <p>
+                    We strongly recommend revoking Signal³&apos;s Google permissions via your{' '}
+                    <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 underline transition-colors">Google Account Security Settings</a>{' '}
+                    if you uninstall the application or no longer wish to use the integration.
+                </p>
+            </div>
+
+            {/* Section 18 */}
+            <div className="space-y-4 pt-6 border-t border-indigo-500/10">
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">18. Contact Us</h2>
                 <p>If you have any questions or concerns about these Terms of Service, please contact us at:</p>
                 <div className="p-4 bg-indigo-500/5 border border-indigo-500/10 rounded-xl inline-block">
                     <p className="font-bold text-slate-100">Majestik Magik</p>
