@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Bars3Icon, XMarkIcon } from './Icons';
 
 export interface NavLinkItem {
@@ -194,7 +195,7 @@ const Header: React.FC<HeaderProps> = ({
                     {item.name}
                   </a>
                 ) : (
-                  <a
+                  <Link
                     href={item.url || '#'}
                     className="text-slate-400 hover:text-indigo-400 transition-colors font-mono uppercase text-sm tracking-wider duration-200 py-1 flex items-center"
                     onClick={(e) => {
@@ -224,7 +225,7 @@ const Header: React.FC<HeaderProps> = ({
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                       </svg>
                     )}
-                  </a>
+                  </Link>
                 )}
 
                 {/* Mega-Menu / Dropdown Container */}
@@ -532,7 +533,7 @@ const Header: React.FC<HeaderProps> = ({
                       </div>
                     </>
                   ) : (
-                    <a
+                    <Link
                       href={item.url}
                       className={`block rounded-lg px-3 py-2 text-sm font-mono uppercase tracking-wider text-slate-300 hover:bg-indigo-500/5 hover:text-indigo-400 transition-colors ${
                         item.external
@@ -544,7 +545,7 @@ const Header: React.FC<HeaderProps> = ({
                       rel={item.external ? 'noopener noreferrer' : undefined}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   )}
                 </div>
               );
