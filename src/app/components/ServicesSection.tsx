@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 
 // ── Mockup 01: Web Design wireframe ──────────────────────────────────────────
 function WebDesignMockup() {
