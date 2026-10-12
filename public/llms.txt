@@ -1,20 +1,63 @@
 # Majestik Magik
 
-> Powering digital systems, web performance, and AI-driven infrastructure.
+> Local-First Enterprise Software Infrastructure & Native Systems — high-impact performance upgrades, low-level web engineering, and critical codebase patches shipped within a 24–72 hour window.
 
-Majestik Magik is a comprehensive platform for building high-performance digital systems, optimizing website speed, and leveraging AI-driven infrastructure. Our mission is to empower developers and businesses to build fast, scalable, and secure digital systems that deliver exceptional user experiences through innovation, collaboration, and excellence.
+Majestik Magik is a boutique software engineering operation run by Jamil Matheny, specializing in local-first architecture, edge-native deployments, AI-visible business infrastructure, and full-stack web systems. Services are delivered as fixed-price, on-demand engagements with no retainers and no bloat.
 
-## Core Services & Pages
-- [Services & Pricing](https://majestikmagik.dev/#services): Custom web development, Next.js architecture, and Core Web Vitals optimization.
-- [Pivot Quest Platform](https://app.majestikmagik.dev/): AI-powered business operating engine with multi-model AI capabilities.
-- [WordPress Training](https://majestikmagik.dev/training/wordpress): Live walkthroughs and video tutorials for managing digital assets.
+## What We Build
 
-## APIs & Documentation
-- [Majestik Magik Website](https://majestikmagik.dev): Primary landing page, performance diagnostics, and system overview.
-- [Platform Dashboard](https://app.majestikmagik.dev): App portal for real-time monitoring, analytics, and business execution.
-- [FAQ](https://majestikmagik.dev/faq): Common questions regarding web performance, setup, and AI infrastructure.
+- Local-first web applications with offline sync, IndexedDB pipelines, and AWS Vault integration
+- Edge-native Next.js deployments on Cloudflare Pages using V8 isolate scaling
+- Core Web Vitals overhauls targeting 90+ Lighthouse scores with guaranteed delivery
+- Shopify transactional email systems using custom Liquid templates and automated flow logic
+- DNS, SPF, DKIM, and DMARC deliverability infrastructure for inbox reputation
+- Technical GEO and AI visibility audits ensuring brand presence inside ChatGPT, Perplexity, and Claude
+- Landing page redesigns with sub-second load times, elite animations, and full-stack API integrations
+- Contact form, webhook, and API debugging with end-to-end verification
 
-## Documentation & Legal
-- [Privacy Policy](https://majestikmagik.dev/privacy): Data handling and privacy compliance.
-- [Terms of Service](https://majestikmagik.dev/terms): Operational terms and conditions.
-- [Sitemap](https://majestikmagik.dev/sitemap.xml): Complete index of public routes and pages.
+## Fixed-Price Services
+
+- AI Code Extraction & Frontend Quick-Fix — $1,850
+- Shopify Email & Notification Engine — $1,250
+- DNS, SPF, DKIM & Deliverability Setup — $600
+- Core Web Vitals & Speed Overhaul — $2,200
+- Landing Page Redesign & Engineering — $4,500
+- Technical GEO & AI Visibility Audit — $3,500
+- Contact Form & Webhook Debugging — $450
+
+## Key Pages
+
+- [Home](https://majestikmagik.dev): Services, pricing, interactive demos, and e-sign infrastructure showcase.
+- [Portfolio](https://majestikmagik.dev/portfolio): Production applications and deployed client work.
+- [Case Studies](https://majestikmagik.dev/case-studies): Real client problems solved with measurable outcomes.
+- [Start a Project](https://majestikmagik.dev/start-a-project): Intake form to begin an engagement.
+- [FAQ](https://majestikmagik.dev/faq): Common questions about services, timelines, and deliverables.
+- [Platform Dashboard](https://app.majestikmagik.dev): Pivot Quest — AI-powered business operating engine.
+- [WordPress Training](https://majestikmagik.dev/training/wordpress): Video tutorials for managing digital assets.
+
+## Portfolio Projects
+
+- [Middleman Motors](https://middlemanmotors.com): Full-stack automotive dealership platform — 99 Lighthouse desktop, 12ms edge TTFB, 0ms TBT.
+- [Pivot Quest Analytics](https://app.majestikmagik.dev/dashboard): Web performance and Core Web Vitals monitoring dashboard with LLM ingestion tracking.
+- [CEARCO Chemicals](https://cearcochemicals.com): High-speed React storefront for a specialty chemical and pressure washer distribution brand.
+- [Dr. Parris Gainer](https://parrisgainer.com): Custom WordPress deployment for mental health advocacy, author publishing, and community engagement.
+- [Noel Customs](https://noelcustoms.shop): Shopify e-commerce platform for custom apparel and embroidered goods.
+- [Jamil Cleaning Services](https://jamilcleaningapp.vercel.app): Booking and scheduling web app for commercial and residential cleaning services.
+
+## Technical Stack
+
+- Framework: Next.js 15 (App Router) + TypeScript + Tailwind CSS
+- Deployment: Cloudflare Pages via CNAME proxy, V8 isolate edge runtime
+- Email: Cloudflare Email Routing with zero-overhead inbound pipelines
+- SEO/GEO: Multi-layered JSON-LD @graph entity mesh with FAQPage, TechService, and Organization schema
+- AI Visibility: llms.txt compliant, speakable schema, structured data targeting LLM crawlers
+
+## Legal & Compliance
+
+- [Privacy Policy](https://majestikmagik.dev/privacy-policy)
+- [Terms of Service](https://majestikmagik.dev/terms-of-service)
+- [Refund Policy](https://majestikmagik.dev/refund-policy)
+- [Cookie Policy](https://majestikmagik.dev/cookie-policy)
+- [Cyber Security Policy](https://majestikmagik.dev/cyber-security-policy)
+- [Intellectual Property](https://majestikmagik.dev/intellectual-property)
+- [Sitemap](https://majestikmagik.dev/sitemap.xml)

@@ -57,7 +57,8 @@ function OrderSummary({ serviceId, serviceName, price }: { serviceId: string; se
     <div className="flex flex-col h-full">
       <Link
         href="/#services-pricing"
-        className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-slate-400 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-500 px-4 py-2 rounded transition-all duration-200 mb-10"
+        className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider hover:text-indigo-300 border px-4 py-2 rounded transition-all duration-200 mb-10"
+        style={{ color: '#a0a0b0', background: '#111120', borderColor: '#2a2a3a' }}
       >
         <span>←</span> Back to Services
       </Link>
@@ -68,7 +69,7 @@ function OrderSummary({ serviceId, serviceName, price }: { serviceId: string; se
         </span>
       </div>
 
-      <h1 className="text-3xl md:text-4xl font-black text-white mt-4 mb-2 leading-tight" style={{ letterSpacing: '-0.03em' }}>
+      <h1 className="text-3xl md:text-4xl font-black mt-4 mb-2 leading-tight" style={{ letterSpacing: '-0.03em', color: '#f0f0f0' }}>
         {serviceName}
       </h1>
 
@@ -77,7 +78,7 @@ function OrderSummary({ serviceId, serviceName, price }: { serviceId: string; se
       {bullets.length > 0 && (
         <ul className="space-y-4 mb-10">
           {bullets.map((b) => (
-            <li key={b} className="flex items-start gap-3 text-sm text-slate-300 leading-relaxed">
+            <li key={b} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: '#a0a0b0' }}>
               <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
               {b}
             </li>
@@ -85,16 +86,16 @@ function OrderSummary({ serviceId, serviceName, price }: { serviceId: string; se
         </ul>
       )}
 
-      <div className="mt-auto pt-8 border-t border-slate-800">
-        <div className="flex items-center justify-between text-sm font-mono text-slate-400 mb-1">
+      <div className="mt-auto pt-8 border-t border-[#2a2a3a]">
+        <div className="flex items-center justify-between text-sm font-mono mb-1" style={{ color: '#a0a0b0' }}>
           <span>Subtotal</span>
           <span>{price}</span>
         </div>
-        <div className="flex items-center justify-between text-base font-mono font-bold text-white mt-3">
+        <div className="flex items-center justify-between text-base font-mono font-bold mt-3" style={{ color: '#f0f0f0' }}>
           <span>Total due today</span>
           <span className="text-indigo-400">{price}</span>
         </div>
-        <p className="mt-6 text-xs text-slate-500 font-mono leading-relaxed">
+        <p className="mt-6 text-xs font-mono leading-relaxed" style={{ color: '#606070' }}>
           Timeline confirmed after project scoping. Please contact us at <a href="mailto:contact@majestikmagik.dev" className="text-indigo-400 hover:underline">contact@majestikmagik.dev</a> to discuss your project first. We&apos;ll reach out within 24 hours of payment to align on scope and schedule.
         </p>
       </div>
@@ -141,7 +142,7 @@ function CheckoutForm({ price }: { serviceName: string; price: string }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label className="block text-xs font-mono text-slate-400 uppercase tracking-widest mb-2">
+        <label className="block text-xs font-mono uppercase tracking-widest mb-2" style={{ color: '#a0a0b0' }}>
           Full Name
         </label>
         <input
@@ -150,12 +151,13 @@ function CheckoutForm({ price }: { serviceName: string; price: string }) {
           onChange={(e) => setFullName(e.target.value)}
           placeholder="Jane Smith"
           required
-          className="w-full bg-slate-800 border border-slate-600 focus:border-indigo-500 focus:outline-none rounded px-4 py-3 text-white font-mono text-sm placeholder-slate-500 transition-colors"
+          className="w-full border focus:border-indigo-500 focus:outline-none rounded px-4 py-3 font-mono text-sm transition-colors"
+          style={{ background: '#111120', borderColor: '#2a2a3a', color: '#f0f0f0' }}
         />
       </div>
 
       <div>
-        <label className="block text-xs font-mono text-slate-400 uppercase tracking-widest mb-2">
+        <label className="block text-xs font-mono uppercase tracking-widest mb-2" style={{ color: '#a0a0b0' }}>
           Email Address
         </label>
         <input
@@ -164,13 +166,14 @@ function CheckoutForm({ price }: { serviceName: string; price: string }) {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="jane@example.com"
           required
-          className="w-full bg-slate-800 border border-slate-600 focus:border-indigo-500 focus:outline-none rounded px-4 py-3 text-white font-mono text-sm placeholder-slate-500 transition-colors"
+          className="w-full border focus:border-indigo-500 focus:outline-none rounded px-4 py-3 font-mono text-sm transition-colors"
+          style={{ background: '#111120', borderColor: '#2a2a3a', color: '#f0f0f0' }}
         />
       </div>
 
 
       <div>
-        <label className="block text-xs font-mono text-slate-400 uppercase tracking-widest mb-2">
+        <label className="block text-xs font-mono uppercase tracking-widest mb-2" style={{ color: '#a0a0b0' }}>
           Payment Details
         </label>
         <PaymentElement />
@@ -189,9 +192,9 @@ function CheckoutForm({ price }: { serviceName: string; price: string }) {
       </button>
 
       <div className="flex items-center justify-center gap-3 pt-1">
-        <Image src="/img/Stripe_Logo,_revised_2016.svg.png" alt="Powered by Stripe" width={50} height={20} className="opacity-80" />
-        <span className="text-slate-600">|</span>
-        <span className="flex items-center gap-1 text-xs text-slate-500 font-mono">🔒 SSL encrypted</span>
+        <Image src="/img/Stripe_Logo,_revised_2016.svg.png" alt="Powered by Stripe" width={50} height={20} className="opacity-60" />
+        <span style={{ color: '#2a2a3a' }}>|</span>
+        <span className="flex items-center gap-1 text-xs font-mono" style={{ color: '#606070' }}>🔒 SSL encrypted</span>
       </div>
     </form>
   );
@@ -219,27 +222,37 @@ function CheckoutInner() {
   }, [serviceId, serviceName, priceAmount]);
 
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col md:flex-row">
+    <div className="min-h-screen flex flex-col md:flex-row" style={{ background: '#181818' }}>
+      {/* Indigo grid */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
+      />
+      {/* Ambient glows */}
+      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.13) 0%, transparent 55%)' }} />
+      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(52,211,153,0.07) 0%, transparent 50%)' }} />
+      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(167,139,250,0.07) 0%, transparent 50%)' }} />
+
       {/* Left — Order Summary */}
-      <div className="relative w-full md:w-1/2 bg-slate-900 border-b md:border-b-0 md:border-r border-slate-800 px-8 py-12 md:px-16 md:py-20">
-        <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'radial-gradient(rgba(99, 102, 241, 0.4) 1.2px, transparent 1.2px)', backgroundSize: '24px 24px' }} />
-        <div className="relative z-10">
+      <div className="relative z-10 w-full md:w-1/2 border-b md:border-b-0 md:border-r px-8 py-12 md:px-16 md:py-20" style={{ background: 'rgba(17,17,32,0.7)', borderColor: '#2a2a3a' }}>
         <OrderSummary serviceId={serviceId} serviceName={serviceName} price={formattedPrice} />
-        </div>
       </div>
 
       {/* Right — Payment Form */}
-      <div className="w-full md:w-1/2 px-8 py-12 md:px-16 md:py-20 flex flex-col justify-center">
+      <div className="relative z-10 w-full md:w-1/2 px-8 py-12 md:px-16 md:py-20 flex flex-col justify-center">
         <div className="mb-8">
-          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase bg-indigo-950/40 px-3 py-1 rounded border border-indigo-500/30">
+          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
             Secure Checkout
           </span>
-          <h2 className="text-xl font-bold text-white font-mono mt-4">Payment Information</h2>
+          <h2 className="text-xl font-bold font-mono mt-4" style={{ color: '#f0f0f0' }}>Payment Information</h2>
         </div>
 
         {!clientSecret ? (
           <div className="flex items-center justify-center min-h-[300px]">
-            <span className="text-slate-400 font-mono text-sm animate-pulse">Initializing checkout…</span>
+            <span className="font-mono text-sm animate-pulse" style={{ color: '#a0a0b0' }}>Initializing checkout…</span>
           </div>
         ) : (
           <Elements
@@ -250,8 +263,8 @@ function CheckoutInner() {
                 theme: 'night',
                 variables: {
                   colorPrimary: '#6366f1',
-                  colorBackground: '#0f172a',
-                  colorText: '#f1f5f9',
+                  colorBackground: '#111120',
+                  colorText: '#f0f0f0',
                   fontFamily: 'monospace',
                   borderRadius: '6px',
                 },
@@ -269,8 +282,8 @@ function CheckoutInner() {
 export default function CheckoutPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-        <span className="text-slate-400 font-mono text-sm animate-pulse">Loading…</span>
+      <div className="min-h-screen flex items-center justify-center" style={{ background: '#181818' }}>
+        <span className="font-mono text-sm animate-pulse" style={{ color: '#a0a0b0' }}>Loading…</span>
       </div>
     }>
       <CheckoutInner />

@@ -30,24 +30,20 @@ const YoutubeIcon = () => (
 
 export default function Portfolio() {
   return (
-    <div className="scroll-animate min-h-screen text-slate-100" style={{ background: 'rgb(15, 23, 42)' }}>
+    <div className="scroll-animate min-h-screen" style={{ background: '#181818', color: '#f0f0f0' }}>
 
-      {/* Dot matrix pattern */}
-      <div
-        className="fixed inset-0 pointer-events-none opacity-[0.07] z-0"
-        style={{
-          backgroundImage: 'radial-gradient(rgba(247, 248, 248, 0.4) 1.2px, transparent 1.2px)',
-          backgroundSize: '24px 24px',
-        }}
-      />
-
-      {/* Ambient glow */}
+      {/* Indigo grid */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 60%)',
+          backgroundImage: 'linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
         }}
       />
+      {/* Ambient glows */}
+      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.13) 0%, transparent 55%)' }} />
+      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(52,211,153,0.07) 0%, transparent 50%)' }} />
+      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(167,139,250,0.07) 0%, transparent 50%)' }} />
 
       <div className="relative z-10 w-full px-6 py-40">
 
@@ -61,14 +57,14 @@ export default function Portfolio() {
           </Link>
 
           <div className="mb-4">
-            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
+            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
               Portfolio
             </span>
           </div>
 
           <h1
-            className="text-5xl md:text-7xl font-bold text-white mb-4"
-            style={{ letterSpacing: '-0.09em' }}
+            className="text-5xl md:text-7xl font-bold mb-4"
+            style={{ letterSpacing: '-0.09em', color: '#f0f0f0' }}
           >
             Engineered Systems &{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-white">
@@ -76,7 +72,7 @@ export default function Portfolio() {
             </span>
           </h1>
 
-          <p className="text-lg text-slate-300 max-w-3xl leading-relaxed">
+          <p className="text-lg max-w-3xl leading-relaxed" style={{ color: '#a0a0b0' }}>
             Production applications built with speed, precision, and measurable performance. Real clients, real results.
           </p>
         </div>
@@ -86,11 +82,11 @@ export default function Portfolio() {
           {portfolioData.map((project) => (
             <div
               key={project.id}
-              className="flex flex-col rounded-lg bg-[#1e293b] border border-[#334155] hover:border-indigo-500/40 hover:shadow-[0_4px_32px_rgba(99,102,241,0.08)] transition-all duration-200"
+              className="flex flex-col rounded-lg border hover:border-indigo-500/40 hover:shadow-[0_4px_32px_rgba(99,102,241,0.10)] transition-all duration-200" style={{ background: '#111120', borderColor: '#2a2a3a' }}
             >
               {/* Screenshot */}
               {project.image && (
-                <div className="overflow-hidden rounded-t-lg border-b border-[#334155]">
+                <div className="overflow-hidden rounded-t-lg border-b border-[#2a2a3a]">
                   <Image
                     src={project.image}
                     alt={`${project.title} screenshot`}
@@ -104,7 +100,7 @@ export default function Portfolio() {
               <div className="flex flex-col flex-grow p-6">
                 {/* Category & Featured */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 bg-[#0f172a] px-3 py-1 rounded border border-[#334155]">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 bg-[#0e0e1a] px-3 py-1 rounded border border-[#2a2a3a]">
                     {project.category}
                   </span>
                   {project.featured && (
@@ -116,21 +112,21 @@ export default function Portfolio() {
 
                 {/* Title & Subtitle */}
                 <h2
-                  className="text-xl font-bold text-white mb-1"
-                  style={{ letterSpacing: '-0.03em' }}
+                  className="text-xl font-bold mb-1"
+                  style={{ letterSpacing: '-0.03em', color: '#f0f0f0' }}
                 >
                   {project.title}
                 </h2>
                 <p className="text-xs font-mono text-indigo-400 mb-3">{project.subtitle}</p>
-                <p className="text-sm text-slate-300 leading-relaxed mb-5">{project.description}</p>
+                <p className="text-sm leading-relaxed mb-5" style={{ color: '#a0a0b0' }}>{project.description}</p>
 
                 {/* Metrics */}
                 {project.metrics && project.metrics.length > 0 && (
                   <div className="grid grid-cols-2 gap-2 mb-5">
                     {project.metrics.map((metric, i) => (
-                      <div key={i} className="bg-[#0f172a] border border-[#334155] p-3 rounded text-center">
+                      <div key={i} className="p-3 rounded text-center border" style={{ background: '#0e0e1a', borderColor: '#2a2a3a' }}>
                         <div className="text-xs font-bold font-mono text-indigo-300">{metric.value}</div>
-                        <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mt-0.5">{metric.label}</div>
+                        <div className="text-[10px] font-mono uppercase tracking-wider mt-0.5" style={{ color: '#606070' }}>{metric.label}</div>
                       </div>
                     ))}
                   </div>
@@ -139,14 +135,14 @@ export default function Portfolio() {
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-1.5 mb-6">
                   {project.techStack.map((tech, i) => (
-                    <span key={i} className="text-xs font-mono text-slate-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded">
+                    <span key={i} className="text-xs font-mono bg-white/5 border border-white/10 px-2.5 py-1 rounded" style={{ color: '#a0a0b0' }}>
                       {tech}
                     </span>
                   ))}
                 </div>
 
                 {/* Action Links */}
-                <div className="mt-auto flex items-center gap-2 pt-4 border-t border-[#334155]">
+                <div className="mt-auto flex items-center gap-2 pt-4 border-t border-[#2a2a3a]">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
@@ -186,8 +182,8 @@ export default function Portfolio() {
         </div>
 
         {/* Social Footer */}
-        <div className="border-t border-[#334155] pt-12 text-center">
-          <p className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-6">Find me on</p>
+        <div className="border-t border-[#2a2a3a] pt-12 text-center">
+          <p className="text-xs font-mono uppercase tracking-widest mb-6" style={{ color: '#606070' }}>Find me on</p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {[
               { label: 'jmathtech', url: 'https://github.com/jmathtech', icon: <GithubIcon /> },

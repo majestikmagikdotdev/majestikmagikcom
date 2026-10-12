@@ -1,49 +1,84 @@
+'use client';
+
 import dynamic from 'next/dynamic';
-import {
-  HeroSection,
-  PricingSection,
-  TeamSection,
-  TestimonialsSection,
-  FAQSection,
-  AIContentLayer,
-  ServicesSection,
-  PivotQuestSection,
-} from './components';
-import ComparisonChart from './components/ComparisonChart';
+import HomeHero from './components/HomeHero';
+import HomeServices from './components/HomeServices';
+import HomePricing from './components/HomePricing';
+import OfflineDemoSection from './components/OfflineDemoSection';
+import NodePipelineSection from './components/NodePipelineSection';
+import ESignCanvas from './components/ESignCanvas';
 
 const ChatbotController = dynamic(() => import('./components/ChatbotController'));
 
-export default function App() {
+/* ─── Grid SVG background ─────────────────────────────────────────────────── */
+function GridCanvas() {
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none fixed inset-0 z-0"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px)
+        `,
+        backgroundSize: '48px 48px',
+      }}
+    />
+  );
+}
+
+/* ─── Ambient corner glows ────────────────────────────────────────────────── */
+function AmbientGlows() {
   return (
     <>
-      <main aria-label="Majestik Magik — Web Engineering, AI Visibility & Digital Systems">
-        {/* 1. Hook — who we are and what we do */}
-        <HeroSection />
-        <AIContentLayer />
+      {/* Top-center indigo hero glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 z-0 w-[900px] h-[500px]"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.18) 0%, transparent 70%)',
+        }}
+      />
+      {/* Bottom-left emerald glow — "Local Active" */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed bottom-0 left-0 z-0 w-[500px] h-[400px]"
+        style={{
+          background: 'radial-gradient(ellipse at 0% 100%, rgba(52,211,153,0.10) 0%, transparent 65%)',
+        }}
+      />
+      {/* Bottom-right electric purple glow — "Encrypted Sync" */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed bottom-0 right-0 z-0 w-[500px] h-[400px]"
+        style={{
+          background: 'radial-gradient(ellipse at 100% 100%, rgba(167,139,250,0.10) 0%, transparent 65%)',
+        }}
+      />
+    </>
+  );
+}
 
-        {/* 2. Problem/solution — build resonance and desire */}
-        <ServicesSection />
+export default function App() {
+  return (
+    <div className="relative min-h-screen" style={{ background: '#181818' }}>
+      <GridCanvas />
+      <AmbientGlows />
 
-        {/* 3. Why us — competitive differentiation */}
-        <ComparisonChart />
-
-        {/* 4. The ask — now they're ready to buy */}
-        <PricingSection pricingPlans={[]} />
-
-        {/* 5. Social proof — establish trust post-price */}
-        <TestimonialsSection />
-
-        {/* 6. Who's behind it — reinforce credibility */}
-        <TeamSection />
-
-        {/* 7. Handle objections — close */}
-        <FAQSection />
-
-        {/* 7.5. Not ready yet? Redirect to Pivot Quest instead of losing them */}
-        <PivotQuestSection />
+      <main
+        aria-label="Majestik Magik — Local-First Enterprise Software Infrastructure & Native Systems"
+        className="relative z-10"
+      >
+        <HomeHero />
+        <OfflineDemoSection />
+        <NodePipelineSection />
+        <ESignCanvas />
+        <HomeServices />
+        <HomePricing />
 
       </main>
+
       <ChatbotController />
-    </>
+    </div>
   );
 }

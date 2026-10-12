@@ -110,9 +110,10 @@ const Header: React.FC<HeaderProps> = ({
       ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         isScrolled || isMobileMenuOpen
-          ? 'bg-[#0f172a] backdrop-blur-lg border-b border-[#1e2130] shadow-xl'
+          ? 'backdrop-blur-xl border-b border-[#2a2a3a] shadow-2xl'
           : 'bg-transparent border-b border-transparent shadow-none'
       }`}
+      style={isScrolled || isMobileMenuOpen ? { background: 'rgba(24,24,24,0.92)' } : undefined}
     >
       <div className="w-full px-6 py-4 flex justify-between items-center">
         <button
@@ -165,9 +166,10 @@ const Header: React.FC<HeaderProps> = ({
             }}
           >
             <div
-              className={`h-full bg-indigo-500 rounded-full transition-all duration-300 ease-out origin-center ${
+              className={`h-full rounded-full transition-all duration-300 ease-out origin-center ${
                 hoveredRect.opacity > 0 ? 'w-full scale-x-100' : 'w-1/3 scale-x-50'
               }`}
+            style={{ background: 'linear-gradient(90deg, #6366f1, #a78bfa)', boxShadow: '0 0 8px rgba(99,102,241,0.7)' }}
             />
           </div>
 
@@ -188,7 +190,7 @@ const Header: React.FC<HeaderProps> = ({
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-indigo-400/30 hover:bg-indigo-300/30 text-indigo-300 border border-indigo-400/30 font-mono uppercase tracking-wider text-sm py-2 px-4 rounded-lg transition-all duration-200"
+                    className="bg-indigo-950/40 hover:bg-indigo-900/50 text-indigo-300 border border-indigo-500/30 font-mono uppercase tracking-wider text-sm py-2 px-4 rounded-lg transition-all duration-200"
                     onMouseEnter={handleTopLevelMouseEnter}
                     onMouseLeave={handleTopLevelMouseLeave}
                   >
@@ -197,7 +199,7 @@ const Header: React.FC<HeaderProps> = ({
                 ) : (
                   <Link
                     href={item.url || '#'}
-                    className="text-slate-400 hover:text-indigo-400 transition-colors font-mono uppercase text-sm tracking-wider duration-200 py-1 flex items-center"
+                    className="text-[#a0a0b0] hover:text-indigo-300 transition-colors font-mono uppercase text-sm tracking-wider duration-200 py-1 flex items-center"
                     onClick={(e) => {
                       if (isDropdown && !item.url) {
                         e.preventDefault();
@@ -232,31 +234,34 @@ const Header: React.FC<HeaderProps> = ({
                 {isDropdown && (
                   <div
                     className={`absolute z-20 transition-all duration-200 ease-out ${
-                      isActiveDropdown ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+                      isActiveDropdown ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                     }`}
-                    style={{ top: 'calc(100% - 8px)', left: '50%', transform: 'translateX(-50%)', paddingTop: '20px' }}
-                    onMouseEnter={(e) => e.stopPropagation()}
-                    onMouseLeave={(e) => e.stopPropagation()}
+                    style={{
+                      top: 'calc(100% - 8px)',
+                      left: '50%',
+                      transform: isActiveDropdown ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(-8px)',
+                      paddingTop: '20px',
+                    }}
                   >
                     {item.name === 'Services' ? (
                       // Services: two-column mega-menu with callout
                       <div
                         className="flex gap-0 rounded-xl shadow-2xl overflow-hidden"
                         style={{
-                          background: 'rgba(15, 15, 25, 0.97)',
-                          border: '1px solid rgba(255,255,255,0.08)',
-                          backdropFilter: 'blur(20px)',
+                          background: 'rgba(14,14,20,0.97)',
+                          border: '1px solid rgba(99,102,241,0.12)',
+                          backdropFilter: 'blur(24px)',
                           minWidth: '560px',
                         }}
                       >
                         <div className="flex-1 p-5">
-                          <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3 px-2">Services</p>
+                          <p className="text-xs font-mono uppercase tracking-widest text-[#404050] mb-3 px-2">Services</p>
                           <div className="space-y-1">
                             {item.children?.map((childItem) => (
-                              <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg">
-                                <span className="text-sm font-mono text-slate-200">{childItem.name}</span>
+                              <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg hover:bg-indigo-500/5 transition-colors">
+                                <span className="text-sm font-mono text-[#f0f0f0]">{childItem.name}</span>
                                 {childItem.description && (
-                                  <span className="text-xs text-slate-500 mt-0.5">{childItem.description}</span>
+                                  <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
                                 )}
                               </div>
                             ))}
@@ -265,14 +270,14 @@ const Header: React.FC<HeaderProps> = ({
                         <div
                           className="w-52 p-5 flex flex-col justify-between"
                           style={{
-                            background: 'linear-gradient(135deg, rgba(30,41,59,0.8) 0%, rgba(15,23,42,0.9) 100%)',
-                            borderLeft: '1px solid rgba(255,255,255,0.06)',
+                            background: 'linear-gradient(135deg, rgba(20,20,35,0.9) 0%, rgba(14,14,20,0.95) 100%)',
+                            borderLeft: '1px solid rgba(99,102,241,0.1)',
                           }}
                         >
                           <div>
                             <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2">Featured</p>
-                            <p className="text-sm font-semibold text-white leading-snug mb-2">From Concept to Edge-Native Launch</p>
-                            <p className="text-xs text-slate-400 leading-relaxed">Custom local-first infrastructure, zero latency, maximum privacy.</p>
+                            <p className="text-sm font-semibold text-[#f0f0f0] leading-snug mb-2">From Concept to Edge-Native Launch</p>
+                            <p className="text-xs text-[#606070] leading-relaxed">Custom local-first infrastructure, zero latency, maximum privacy.</p>
                           </div>
                           <a
                             href="/start-a-project"
@@ -291,20 +296,20 @@ const Header: React.FC<HeaderProps> = ({
                       <div
                         className="flex gap-0 rounded-xl shadow-2xl overflow-hidden"
                         style={{
-                          background: 'rgba(15, 15, 25, 0.97)',
-                          border: '1px solid rgba(255,255,255,0.08)',
-                          backdropFilter: 'blur(20px)',
+                          background: 'rgba(14,14,20,0.97)',
+                          border: '1px solid rgba(99,102,241,0.12)',
+                          backdropFilter: 'blur(24px)',
                           minWidth: '560px',
                         }}
                       >
                         <div className="flex-1 p-5">
-                          <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3 px-2">Recent Work</p>
+                          <p className="text-xs font-mono uppercase tracking-widest text-[#404050] mb-3 px-2">Recent Work</p>
                           <div className="grid grid-cols-2 gap-x-4 gap-y-1">
                             {item.children?.map((childItem) => (
-                              <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg">
-                                <span className="text-sm font-mono text-slate-200">{childItem.name}</span>
+                              <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg hover:bg-indigo-500/5 transition-colors">
+                                <span className="text-sm font-mono text-[#f0f0f0]">{childItem.name}</span>
                                 {childItem.description && (
-                                  <span className="text-xs text-slate-500 mt-0.5">{childItem.description}</span>
+                                  <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
                                 )}
                               </div>
                             ))}
@@ -323,14 +328,14 @@ const Header: React.FC<HeaderProps> = ({
                         <div
                           className="w-48 p-5 flex flex-col justify-between"
                           style={{
-                            background: 'linear-gradient(135deg, rgba(30,41,59,0.8) 0%, rgba(15,23,42,0.9) 100%)',
-                            borderLeft: '1px solid rgba(255,255,255,0.06)',
+                            background: 'linear-gradient(135deg, rgba(20,20,35,0.9) 0%, rgba(14,14,20,0.95) 100%)',
+                            borderLeft: '1px solid rgba(99,102,241,0.1)',
                           }}
                         >
                           <div>
                             <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2">Case Studies</p>
-                            <p className="text-sm font-semibold text-white leading-snug mb-2">Real Clients, Real Results</p>
-                            <p className="text-xs text-slate-400 leading-relaxed">Problems solved and measurable outcomes across every project.</p>
+                            <p className="text-sm font-semibold text-[#f0f0f0] leading-snug mb-2">Real Clients, Real Results</p>
+                            <p className="text-xs text-[#606070] leading-relaxed">Problems solved and measurable outcomes across every project.</p>
                           </div>
                           <a
                             href="/case-studies"
@@ -349,27 +354,27 @@ const Header: React.FC<HeaderProps> = ({
                       <div
                         className="rounded-xl shadow-2xl overflow-hidden"
                         style={{
-                          background: 'rgba(15, 15, 25, 0.97)',
-                          border: '1px solid rgba(255,255,255,0.08)',
-                          backdropFilter: 'blur(20px)',
+                          background: 'rgba(14,14,20,0.97)',
+                          border: '1px solid rgba(99,102,241,0.12)',
+                          backdropFilter: 'blur(24px)',
                           minWidth: '260px',
                         }}
                       >
                         <div className="p-3 space-y-1">
-                          <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-2 px-2">{item.name}</p>
+                          <p className="text-xs font-mono uppercase tracking-widest text-[#404050] mb-2 px-2">{item.name}</p>
                           {item.children?.map((childItem) => (
                             <a
                               key={childItem.name}
                               href={childItem.url}
-                              className="flex flex-col px-3 py-2.5 rounded-lg hover:bg-indigo-500/10 transition-colors group cursor-pointer"
+                              className="flex flex-col px-3 py-2.5 rounded-lg hover:bg-indigo-500/8 transition-colors group cursor-pointer"
                               onClick={(e) => {
                                 handleNavClick(e, childItem);
                                 setOpenDropdown(null);
                               }}
                             >
-                              <span className="text-sm font-mono text-slate-200 group-hover:text-indigo-300 transition-colors">{childItem.name}</span>
+                              <span className="text-sm font-mono text-[#f0f0f0] group-hover:text-indigo-300 transition-colors">{childItem.name}</span>
                               {childItem.description && (
-                                <span className="text-xs text-slate-500 mt-0.5">{childItem.description}</span>
+                                <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
                               )}
                             </a>
                           ))}
@@ -401,7 +406,7 @@ const Header: React.FC<HeaderProps> = ({
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-controls="mobile-menu"
-            className="text-slate-400 hover:text-indigo-400 focus:outline-none p-1 rounded-md cursor-pointer"
+            className="text-[#a0a0b0] hover:text-indigo-300 focus:outline-none p-1 rounded-md cursor-pointer"
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             type="button"
@@ -419,7 +424,8 @@ const Header: React.FC<HeaderProps> = ({
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
         <div
-          className="xl:hidden absolute top-full left-0 right-0 bg-[#0f172a] border-b border-[#1e2130] shadow-2xl z-40"
+          className="xl:hidden absolute top-full left-0 right-0 border-b border-[#2a2a3a] shadow-2xl z-40"
+          style={{ background: 'rgba(24,24,24,0.97)', backdropFilter: 'blur(24px)' }}
           id="mobile-menu"
         >
           <div className="px-4 pt-4 pb-8 space-y-4">
@@ -431,7 +437,7 @@ const Header: React.FC<HeaderProps> = ({
                 <div key={`mobile-${item.name}`}>
                   {isDropdown ? (
                     <>
-                      <div className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-mono uppercase tracking-wider text-slate-300">
+                      <div className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#a0a0b0]">
                         <Link
                           href={item.url}
                           className="hover:text-indigo-400 transition-colors"
@@ -466,25 +472,25 @@ const Header: React.FC<HeaderProps> = ({
                         <div
                           className="mt-2 mx-1 rounded-xl overflow-hidden"
                           style={{
-                            background: 'rgba(15, 15, 25, 0.97)',
-                            border: '1px solid rgba(255,255,255,0.08)',
+                            background: 'rgba(14,14,20,0.97)',
+                            border: '1px solid rgba(99,102,241,0.12)',
                           }}
                         >
                           {item.name === 'Services' && (
                             <div className="p-4 space-y-1">
-                              <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3 px-2">Services</p>
+                              <p className="text-xs font-mono uppercase tracking-widest text-[#404050] mb-3 px-2">Services</p>
                               {item.children?.map((childItem) => (
                                 <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg">
-                                  <span className="text-sm font-mono text-slate-200">{childItem.name}</span>
+                                  <span className="text-sm font-mono text-[#f0f0f0]">{childItem.name}</span>
                                   {childItem.description && (
-                                    <span className="text-xs text-slate-500 mt-0.5">{childItem.description}</span>
+                                    <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
                                   )}
                                 </div>
                               ))}
-                              <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                              <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(99,102,241,0.1)' }}>
                                 <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2 px-2">Featured</p>
-                                <p className="text-sm font-semibold text-white leading-snug mb-1 px-2">From Concept to Edge-Native Launch</p>
-                                <p className="text-xs text-slate-400 leading-relaxed mb-3 px-2">Custom local-first infrastructure, zero latency, maximum privacy.</p>
+                                <p className="text-sm font-semibold text-[#f0f0f0] leading-snug mb-1 px-2">From Concept to Edge-Native Launch</p>
+                                <p className="text-xs text-[#606070] leading-relaxed mb-3 px-2">Custom local-first infrastructure, zero latency, maximum privacy.</p>
                                 <a
                                   href="/start-a-project"
                                   className="mx-2 inline-flex items-center justify-center text-xs font-mono uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 transition-colors rounded-lg px-3 py-2"
@@ -497,13 +503,13 @@ const Header: React.FC<HeaderProps> = ({
                           )}
                           {item.name === 'Portfolio' && (
                             <div className="p-4">
-                              <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3 px-2">Recent Work</p>
+                              <p className="text-xs font-mono uppercase tracking-widest text-[#404050] mb-3 px-2">Recent Work</p>
                               <div className="grid grid-cols-2 gap-x-2 gap-y-1">
                                 {item.children?.map((childItem) => (
                                   <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg">
-                                    <span className="text-sm font-mono text-slate-200">{childItem.name}</span>
+                                    <span className="text-sm font-mono text-[#f0f0f0]">{childItem.name}</span>
                                     {childItem.description && (
-                                      <span className="text-xs text-slate-500 mt-0.5">{childItem.description}</span>
+                                      <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
                                     )}
                                   </div>
                                 ))}
@@ -515,10 +521,10 @@ const Header: React.FC<HeaderProps> = ({
                               >
                                 View all projects →
                               </a>
-                              <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+                              <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(99,102,241,0.1)' }}>
                                 <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2 px-2">Case Studies</p>
-                                <p className="text-sm font-semibold text-white leading-snug mb-1 px-2">Real Clients, Real Results</p>
-                                <p className="text-xs text-slate-400 leading-relaxed mb-3 px-2">Problems solved and measurable outcomes across every project.</p>
+                                <p className="text-sm font-semibold text-[#f0f0f0] leading-snug mb-1 px-2">Real Clients, Real Results</p>
+                                <p className="text-xs text-[#606070] leading-relaxed mb-3 px-2">Problems solved and measurable outcomes across every project.</p>
                                 <a
                                   href="/case-studies"
                                   className="mx-2 inline-flex items-center justify-center text-xs font-mono uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 transition-colors rounded-lg px-3 py-2"
@@ -535,7 +541,7 @@ const Header: React.FC<HeaderProps> = ({
                   ) : (
                     <Link
                       href={item.url}
-                      className={`block rounded-lg px-3 py-2 text-sm font-mono uppercase tracking-wider text-slate-300 hover:bg-indigo-500/5 hover:text-indigo-400 transition-colors ${
+                      className={`block rounded-lg px-3 py-2 text-sm font-mono uppercase tracking-wider text-[#a0a0b0] hover:bg-indigo-500/5 hover:text-indigo-300 transition-colors ${
                         item.external
                           ? 'border border-indigo-400/30 bg-indigo-300/10 text-indigo-300 text-center py-2.5'
                           : ''
@@ -551,7 +557,7 @@ const Header: React.FC<HeaderProps> = ({
               );
             })}
 
-            <div className="pt-4 border-t border-[#1e2130]">
+            <div className="pt-4 border-t border-[#2a2a3a]">
               <Link
                 href="/#contact"
                 className="block w-full text-center font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-full px-5 py-3 cursor-pointer font-bold border border-indigo-400/30"

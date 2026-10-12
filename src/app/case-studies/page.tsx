@@ -45,22 +45,20 @@ const testimonials: Record<string, { quote: string; author: string; role?: strin
 
 export default function CaseStudies() {
   return (
-    <div className="min-h-screen text-slate-100" style={{ background: 'rgb(15, 23, 42)' }}>
+    <div className="min-h-screen" style={{ background: '#181818', color: '#f0f0f0' }}>
 
-      {/* Dot matrix */}
-      <div
-        className="fixed inset-0 pointer-events-none opacity-[0.07] z-0"
-        style={{
-          backgroundImage: 'radial-gradient(rgba(247, 248, 248, 0.4) 1.2px, transparent 1.2px)',
-          backgroundSize: '24px 24px',
-        }}
-      />
-
-      {/* Ambient glow */}
+      {/* Indigo grid */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
-        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 60%)' }}
+        style={{
+          backgroundImage: 'linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
       />
+      {/* Ambient glows */}
+      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.13) 0%, transparent 55%)' }} />
+      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(52,211,153,0.07) 0%, transparent 50%)' }} />
+      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(167,139,250,0.07) 0%, transparent 50%)' }} />
 
       <div className="relative z-10 w-full px-6 py-40">
 
@@ -74,14 +72,14 @@ export default function CaseStudies() {
           </Link>
 
           <div className="mb-4">
-            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
+            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
               Case Studies
             </span>
           </div>
 
           <h1
-            className="text-5xl md:text-7xl font-bold text-white mb-4"
-            style={{ letterSpacing: '-0.09em' }}
+            className="text-5xl md:text-7xl font-bold mb-4"
+            style={{ letterSpacing: '-0.09em', color: '#f0f0f0' }}
           >
             Real Client Work,{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-white">
@@ -89,7 +87,7 @@ export default function CaseStudies() {
             </span>
           </h1>
 
-          <p className="text-lg text-slate-300 max-w-3xl leading-relaxed">
+          <p className="text-lg max-w-3xl leading-relaxed" style={{ color: '#a0a0b0' }}>
             Problems solved, systems delivered, and measurable outcomes across automotive, e-commerce, SaaS, and service industries.
           </p>
         </div>
@@ -99,18 +97,18 @@ export default function CaseStudies() {
           {portfolioData.map((project, index) => (
             <article
               key={project.id}
-              className="scroll-animate grid gap-10 lg:grid-cols-2 lg:items-start border-t border-[#334155] pt-16"
+              className="scroll-animate grid gap-10 lg:grid-cols-2 lg:items-start border-t border-[#2a2a3a] pt-16"
             >
               {/* Screenshot */}
               <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                <div className="rounded-lg overflow-hidden border border-[#334155] bg-[#1e293b]">
+                <div className="rounded-lg overflow-hidden border border-[#2a2a3a]" style={{ background: '#111120' }}>
 
                   {/* Browser chrome */}
-                  <div className="flex items-center gap-2 px-4 py-3 bg-[#0f172a] border-b border-[#334155]">
-                    <span className="w-3 h-3 rounded-full bg-[#334155]" />
-                    <span className="w-3 h-3 rounded-full bg-[#334155]" />
-                    <span className="w-3 h-3 rounded-full bg-[#334155]" />
-                    <div className="ml-3 flex-1 bg-[#1e293b] rounded px-3 py-1 text-xs font-mono text-slate-500 text-left truncate">
+                  <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2a2a3a]" style={{ background: '#0e0e1a' }}>
+                    <span className="w-3 h-3 rounded-full bg-[#2a2a3a]" />
+                    <span className="w-3 h-3 rounded-full bg-[#2a2a3a]" />
+                    <span className="w-3 h-3 rounded-full bg-[#2a2a3a]" />
+                    <div className="ml-3 flex-1 rounded px-3 py-1 text-xs font-mono text-left truncate" style={{ background: '#111120', color: '#606070' }}>
                       {project.liveUrl || 'majestikmagik.dev'}
                     </div>
                   </div>
@@ -136,7 +134,7 @@ export default function CaseStudies() {
 
                 {/* Badges */}
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
                     {project.category}
                   </span>
                   {project.featured && (
@@ -149,32 +147,32 @@ export default function CaseStudies() {
                 {/* Title */}
                 <div>
                   <h2
-                    className="text-3xl md:text-4xl font-bold text-white mb-2"
-                    style={{ letterSpacing: '-0.05em' }}
+                    className="text-3xl md:text-4xl font-bold mb-2"
+                    style={{ letterSpacing: '-0.05em', color: '#f0f0f0' }}
                   >
                     {project.title}
                   </h2>
                   <p className="text-xs font-mono text-indigo-400">{project.subtitle}</p>
                 </div>
 
-                <p className="text-slate-300 leading-relaxed">{project.description}</p>
+                <p className="leading-relaxed" style={{ color: '#a0a0b0' }}>{project.description}</p>
 
                 {/* Story */}
                 {storyHighlights[project.id] && (
-                  <div className="rounded-lg border border-[#334155] bg-[#1e293b] p-5">
+                  <div className="rounded-lg border border-[#2a2a3a] p-5" style={{ background: '#111120' }}>
                     <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 mb-3">Project Story</h3>
-                    <p className="text-sm text-slate-300 leading-relaxed">{storyHighlights[project.id]}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: '#a0a0b0' }}>{storyHighlights[project.id]}</p>
                   </div>
                 )}
 
                 {/* Testimonial */}
                 {testimonials[project.id] && (
-                  <div className="rounded-lg border border-[#334155] bg-[#1e293b] p-5">
+                  <div className="rounded-lg border border-[#2a2a3a] p-5" style={{ background: '#111120' }}>
                     <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 mb-3">Client Testimonial</h3>
-                    <blockquote className="text-sm text-slate-300 italic leading-relaxed">
+                    <blockquote className="text-sm italic leading-relaxed" style={{ color: '#a0a0b0' }}>
                       &ldquo;{testimonials[project.id].quote}&rdquo;
                     </blockquote>
-                    <p className="text-xs font-mono text-slate-500 mt-3">
+                    <p className="text-xs font-mono mt-3" style={{ color: '#606070' }}>
                       — {testimonials[project.id].author}{testimonials[project.id].role ? `, ${testimonials[project.id].role}` : ''}
                     </p>
                   </div>
@@ -183,7 +181,7 @@ export default function CaseStudies() {
                 {/* Metrics + Tech Stack */}
                 <div className="grid grid-cols-2 gap-4">
                   {project.metrics && project.metrics.length > 0 && (
-                    <div className="rounded-lg border border-[#334155] bg-[#1e293b] p-5">
+                    <div className="rounded-lg border border-[#2a2a3a] p-5" style={{ background: '#111120' }}>
                       <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 mb-3">Key Outcomes</h3>
                       <div className="space-y-3">
                         {project.metrics.map((metric, i) => (
@@ -191,7 +189,7 @@ export default function CaseStudies() {
                             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
                             <div>
                               <p className="text-xs font-mono font-bold text-white">{metric.value}</p>
-                              <p className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">{metric.label}</p>
+                              <p className="text-[10px] font-mono uppercase tracking-wider" style={{ color: '#606070' }}>{metric.label}</p>
                             </div>
                           </div>
                         ))}
@@ -199,11 +197,11 @@ export default function CaseStudies() {
                     </div>
                   )}
 
-                  <div className="rounded-lg border border-[#334155] bg-[#1e293b] p-5">
+                  <div className="rounded-lg border border-[#2a2a3a] p-5" style={{ background: '#111120' }}>
                     <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 mb-3">Tech Stack</h3>
                     <div className="flex flex-wrap gap-1.5">
                       {project.techStack.map((tech, i) => (
-                        <span key={i} className="text-xs font-mono text-slate-400 bg-white/5 border border-white/10 px-2 py-0.5 rounded">
+                        <span key={i} className="text-xs font-mono bg-white/5 border border-white/10 px-2 py-0.5 rounded" style={{ color: '#a0a0b0' }}>
                           {tech}
                         </span>
                       ))}
@@ -250,11 +248,12 @@ export default function CaseStudies() {
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-24 border-t border-[#334155] pt-12 text-center">
-          <p className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">Ready to build something?</p>
+        <div className="mt-24 border-t border-[#2a2a3a] pt-12 text-center">
+          <p className="text-xs font-mono uppercase tracking-widest mb-4" style={{ color: '#606070' }}>Ready to build something?</p>
           <Link
             href="/#contact"
-            className="inline-block bg-white hover:bg-slate-100 text-slate-900 font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-200 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_50px_rgba(255,255,255,0.2)]"
+            className="inline-block font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-200"
+            style={{ background: 'linear-gradient(135deg, #6366f1, #a78bfa)', color: '#f0f0f0', boxShadow: '0 0 30px rgba(99,102,241,0.25)' }}
           >
             Get In Touch
           </Link>
