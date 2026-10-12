@@ -181,12 +181,12 @@ export default function HomeServices() {
             return (
               <div
                 key={s.id}
-                className={`md:sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8`}
-                style={{ top: `${72 + i * 18}px` }}
+                className={`sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8`}
+                style={{ top: `${80 + i * 20}px`, zIndex: 10 + i }}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div className="lg:col-span-2">{s.mockup}</div>
-                  <div className="lg:col-span-10">
+                  <div className="lg:col-span-4">{s.mockup}</div>
+                  <div className="lg:col-span-8">
                     <span className={`text-xs font-mono font-semibold tracking-wider ${a.tag}`}>{s.tag}</span>
                     <h3 className="mt-1 mb-3 text-xl md:text-2xl font-bold text-[#f0f0f0] tracking-tight">{s.title}</h3>
                     <p className="text-sm text-[#a0a0b0] leading-relaxed mb-4">{s.desc}</p>
