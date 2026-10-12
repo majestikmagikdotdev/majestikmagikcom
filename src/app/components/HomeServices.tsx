@@ -161,6 +161,25 @@ const accentMap: Record<string, { tag: string; bullet: string; border: string }>
 };
 
 export default function HomeServices() {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [scales, setScales] = useState(SERVICES.map(() => 1));
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScales(SERVICES.map((_, i) => {
+        const el = cardRefs.current[i];
+        if (!el) return 1;
+        const { top, height } = el.getBoundingClientRect();
+        const stickyTop = 80 + i * 20;
+        const overlap = stickyTop - top;
+        if (overlap <= 0) return 1;
+        return Math.max(0.92, 1 - (overlap / height) * 0.08);
+      }));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div id="services" className="w-full px-4 md:px-6 py-20 md:py-28">
       <div className="max-w-5xl mx-auto">
@@ -181,8 +200,9 @@ export default function HomeServices() {
             return (
               <div
                 key={s.id}
+                ref={el => { cardRefs.current[i] = el; }}
                 className={`sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8`}
-                style={{ top: `${80 + i * 20}px`, zIndex: 10 + i }}
+                style={{ top: `${80 + i * 20}px`, zIndex: 10 + i, transform: `scale(${scales[i]})`, transformOrigin: 'top center', transition: 'transform 0.1s linear' }}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   <div className="lg:col-span-4">{s.mockup}</div>
