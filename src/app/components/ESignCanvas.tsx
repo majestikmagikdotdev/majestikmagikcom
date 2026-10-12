@@ -201,7 +201,7 @@ export default function ESignCanvas() {
                 { key: 'storage', val: 'IndexedDB → AWS Vault', color: 'text-indigo-400' },
               ].map(({ key, val, color }) => (
                 <div key={key} className="flex gap-3">
-                  <span className="text-[#404050] w-28 flex-shrink-0">{key}:</span>
+                  <span className="text-[#404050] w-24 flex-shrink-0">{key}:</span>
                   <span className={`${color} break-all`}>{val}</span>
                 </div>
               ))}

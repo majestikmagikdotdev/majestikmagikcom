@@ -133,7 +133,7 @@ export default function NodePipelineSection() {
                 </div>
 
                 {i < NODES.length - 1 && (
-                  <div className="flex-1 flex items-center px-2 md:px-4">
+                  <div className="hidden md:flex flex-1 items-center px-2 md:px-4">
                     <div className="w-full h-px relative overflow-hidden">
                       <div className="absolute inset-0" style={{ background: '#2a2a3a' }} />
                       <div

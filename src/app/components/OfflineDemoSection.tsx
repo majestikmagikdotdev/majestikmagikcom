@@ -113,17 +113,17 @@ export default function OfflineDemoSection() {
           )}
 
           {/* Status bar */}
-          <div className={`flex items-center justify-between px-5 py-3 border-b transition-colors duration-300 ${
+          <div className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 px-5 py-3 border-b transition-colors duration-300 ${
             offline ? 'border-red-500/20 bg-red-950/10' : 'border-[#2a2a3a] bg-[#111120]'
           }`}>
             <div className="flex items-center gap-2">
-              <span className={`w-1.5 h-1.5 rounded-full ${offline ? 'bg-red-400' : 'bg-emerald-400 animate-pulse'}`}
+              <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${offline ? 'bg-red-400' : 'bg-emerald-400 animate-pulse'}`}
                 style={{ boxShadow: offline ? '0 0 6px #f87171' : '0 0 6px #34d399' }} />
               <span className="text-xs font-mono text-[#606070]">
                 {offline ? 'NETWORK: DISCONNECTED — LOCAL ENGINE ACTIVE' : 'NETWORK: CONNECTED — LIVE SYNC ENABLED'}
               </span>
             </div>
-            <div className="flex items-center gap-3 text-[10px] font-mono text-[#404050]">
+            <div className="hidden sm:flex items-center gap-3 text-[10px] font-mono text-[#404050]">
               <span className={offline ? 'text-red-400/60' : 'text-emerald-400/60'}>SQLite</span>
               <span>·</span>
               <span className={offline ? 'text-red-400/60' : 'text-indigo-400/60'}>IndexedDB</span>
@@ -181,7 +181,7 @@ export default function OfflineDemoSection() {
                   { key: 'timestamp', val: mounted ? timestamp : '—', color: 'text-[#606070]' },
                 ].map(({ key, val, color }) => (
                   <div key={key} className="flex gap-2">
-                    <span className="text-[#404050] w-28 flex-shrink-0">{key}:</span>
+                    <span className="text-[#404050] w-24 sm:w-28 flex-shrink-0 truncate">{key}:</span>
                     <span className={color}>{val}</span>
                   </div>
                 ))}

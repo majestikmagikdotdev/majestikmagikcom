@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function HomeHero() {
   return (
-    <div id="home" className="relative flex flex-col items-center justify-center text-center px-4 pt-48 pb-32">
+    <div id="home" className="relative flex flex-col items-center justify-center text-center px-4 pt-28 sm:pt-40 md:pt-48 pb-20 md:pb-32">
       {/* Status badge */}
       <div className="mb-6 inline-flex items-center gap-2 rounded-md border border-indigo-500/30 bg-indigo-950/20 px-4 py-1.5 text-xs font-mono font-semibold uppercase tracking-widest text-indigo-300">
         <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" style={{ boxShadow: '0 0 8px #34d399' }} />

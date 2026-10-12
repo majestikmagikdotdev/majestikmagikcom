@@ -180,7 +180,7 @@ export default function HomeServices() {
           return (
             <div
               key={s.id}
-              className={`sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8`}
+              className={`md:sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8`}
               style={{ top: `${72 + i * 18}px` }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
