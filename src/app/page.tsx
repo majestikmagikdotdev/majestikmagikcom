@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import HomeHero from './components/HomeHero';
 import HomeServices from './components/HomeServices';
+import ProcessSection from './components/ProcessSection';
 import HomePricing from './components/HomePricing';
 import TestimonialsSection from './components/TestimonialsSection';
 import OfflineDemoSection from './components/OfflineDemoSection';
@@ -135,6 +136,7 @@ export default function App() {
         <NodePipelineSection />
         <ESignCanvas />
         <HomeServices />
+        <ProcessSection />
         <HomePricing />
         <TestimonialsSection />
 

@@ -78,7 +78,7 @@ export default function HomeHero() {
 
       {/* Sub */}
       <p className="relative z-10 mb-10 max-w-2xl text-base md:text-lg text-[#a0a0b0] font-sans leading-relaxed">
-        Enterprise-grade platforms, edge-native apps, and critical performance fixes — shipped within 24–72 hours. Client-owned. Zero vendor lock-in.
+        Enterprise-grade platforms, edge-native apps, and critical performance fixes — client-owned with zero vendor lock-in.
       </p>
 
       {/* CTAs */}
@@ -87,14 +87,14 @@ export default function HomeHero() {
           href="/start-a-project"
           className="inline-block font-mono uppercase tracking-wider text-sm py-3.5 px-7 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold border border-indigo-400/30 transition-all duration-200"
         >
-          Request a Quote →
+          Start a Project →
         </Link>
-        <button
-          onClick={() => window.dispatchEvent(new CustomEvent('app:scroll-to', { detail: 'services' }))}
-          className="inline-block font-mono uppercase tracking-wider text-sm py-3.5 px-7 rounded-full border border-[#2a2a3a] text-[#a0a0b0] hover:border-indigo-500/50 hover:text-indigo-300 transition-all duration-200 cursor-pointer"
+        <Link
+          href="/portfolio"
+          className="inline-block font-mono uppercase tracking-wider text-sm py-3.5 px-7 rounded-full border border-[#2a2a3a] text-[#a0a0b0] hover:border-indigo-500/50 hover:text-indigo-300 transition-all duration-200"
         >
-          View Services ↓
-        </button>
+          View Case Studies ↓
+        </Link>
       </div>
 
       {/* Trust chips */}

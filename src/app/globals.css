@@ -326,6 +326,12 @@ html {
   animation: page-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Pipeline flow animation */
+@keyframes pipeline-flow {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -132; }
+}
+
 /* Grid beam travel animations */
 @keyframes beam-v {
   from { stroke-dashoffset:  1236; }
