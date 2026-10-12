@@ -165,10 +165,18 @@ const CARD_TOP_STEP = 24;
 
 export default function HomeServices() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const overlayRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    let raf: number;
+    const isDesktop = () => window.innerWidth >= 768;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const update = () => {
+      if (!isDesktop()) {
+        overlayRefs.current.forEach(o => { if (o) o.style.opacity = '0'; });
+        cardRefs.current.forEach(el => { if (el) el.style.transform = ''; });
+        return;
+      }
       cardRefs.current.forEach((el, i) => {
         if (!el || i === SERVICES.length - 1) return;
         const next = cardRefs.current[i + 1];
@@ -177,13 +185,19 @@ export default function HomeServices() {
         const nextTop = next.getBoundingClientRect().top;
         const cardH = el.offsetHeight;
         const progress = Math.max(0, Math.min(1, (stickyTop + cardH - nextTop) / cardH));
-        el.style.transform = `scale(${1 - progress * 0.05})`;
-        el.style.filter = `brightness(${1 - progress * 0.3})`;
+        if (!reducedMotion) el.style.transform = `scale(${1 - progress * 0.05})`;
+        const overlay = overlayRefs.current[i];
+        if (overlay) overlay.style.opacity = String(progress * 0.45);
       });
-      raf = requestAnimationFrame(update);
     };
-    raf = requestAnimationFrame(update);
-    return () => cancelAnimationFrame(raf);
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
   }, []);
 
   return (
@@ -207,15 +221,20 @@ export default function HomeServices() {
               <div
                 key={s.id}
                 ref={el => { cardRefs.current[i] = el; }}
-                className={`sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8 mb-6`}
+                className={`relative md:sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8 mb-6 md:mb-[10vh]`}
                 style={{
                   top: `${CARD_TOP_BASE + i * CARD_TOP_STEP}px`,
                   zIndex: 10 + i,
                   transformOrigin: 'top center',
-                  willChange: 'transform, filter',
+                  willChange: 'transform',
                 }}
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div
+                  ref={el => { overlayRefs.current[i] = el; }}
+                  className="pointer-events-none absolute inset-0 rounded-2xl bg-[#0e0e1a]"
+                  style={{ opacity: 0 }}
+                />
+                <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                   <div className="lg:col-span-4">{s.mockup}</div>
                   <div className="lg:col-span-8">
                     <span className={`text-xs font-mono font-semibold tracking-wider ${a.tag}`}>{s.tag}</span>

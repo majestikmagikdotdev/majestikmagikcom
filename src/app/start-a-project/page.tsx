@@ -128,20 +128,34 @@ export default function StartAProjectPage() {
     }
   };
 
-  const inputClass = 'w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed';
-  const labelClass = 'block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2';
+  const inputClass = 'w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#f0f0f0] text-sm placeholder-[#404050] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed';
+  const labelClass = 'block text-xs font-mono font-bold uppercase tracking-wide text-[#a0a0b0] mb-2';
 
   return (
-    <main className="page-body-font min-h-screen py-16 md:py-24 px-4 md:px-6" style={{ background: 'rgb(15, 23, 42)' }}>
+    <div className="relative min-h-screen" style={{ background: '#181818' }}>
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          backgroundImage: `linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px)`,
+          backgroundSize: '48px 48px',
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none fixed top-0 left-1/2 -translate-x-1/2 z-0 w-[900px] h-[500px]"
+        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.18) 0%, transparent 70%)' }}
+      />
+      <main className="page-body-font relative z-10 py-16 md:py-24 px-4 md:px-6">
       <div className="max-w-4xl mx-auto">
 
         {/* Header */}
         <div className="mb-12 text-center">
-          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
+          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1a1a2a] px-3 py-1 rounded border border-[#2a2a3a]">
             Custom Build Intake
           </span>
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-100 tracking-tight mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#f0f0f0] tracking-tight mb-4"
             style={{ letterSpacing: '-0.04em' }}
           >
             Start a{' '}
@@ -149,15 +163,15 @@ export default function StartAProjectPage() {
               Project
             </span>
           </h1>
-          <p className="text-slate-400 text-base">
+          <p className="text-[#a0a0b0] text-base">
             This form is for large custom builds with a minimum budget of $10,000. Fill out as much as you can — the more detail you provide, the faster we can scope and respond.
           </p>
 
           {/* Pre-qual notice */}
-          <div className="mt-6 p-4 bg-amber-500/10 border border-amber-500/30 rounded-lg text-left">
-            <p className="text-sm text-amber-100/90">
-              <span className="font-semibold text-amber-300">Before you submit:</span> We build for founders who have already nailed down their business model, data, and budget. If you&apos;re still working through those pieces,{' '}
-              <a href="https://app.majestikmagik.dev" className="text-amber-300 hover:text-amber-200 underline font-semibold transition-colors" target="_blank" rel="noopener noreferrer">
+          <div className="mt-6 p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-lg text-left">
+            <p className="text-sm text-[#a0a0b0]">
+              <span className="font-semibold text-[#f0f0f0]">Before you submit:</span> We build for founders who have already nailed down their business model, data, and budget. If you&apos;re still working through those pieces,{' '}
+              <a href="https://app.majestikmagik.dev" className="text-indigo-400 hover:text-indigo-300 underline font-semibold transition-colors" target="_blank" rel="noopener noreferrer">
                 Pivot Quest
               </a>{' '}
               can help you get there first.
@@ -166,21 +180,21 @@ export default function StartAProjectPage() {
         </div>
 
         {/* Form */}
-        <div className="bg-[#1e293b] border border-[#334155] rounded-lg p-8 md:p-10">
+        <div className="bg-[#111120] border border-[#2a2a3a] rounded-2xl p-8 md:p-10">
           {submitStatus === 'success' ? (
             <div className="py-12 flex flex-col items-center text-center gap-4">
               <CheckCircleIcon className="w-12 h-12 text-green-400" />
-              <h2 className="text-xl font-bold text-slate-100">We received your project brief.</h2>
-              <p className="text-slate-400 text-sm max-w-sm">
+              <h2 className="text-xl font-bold text-[#f0f0f0]">We received your project brief.</h2>
+              <p className="text-[#a0a0b0] text-sm max-w-sm">
                 We&apos;ll review the details and follow up within 24 hours to schedule a discovery call.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               {submitStatus === 'error' && (
-                <div className="p-4 bg-red-950/40 border border-red-500/50 rounded-lg">
-                  <p className="text-sm text-red-300 font-semibold mb-1">Something went wrong.</p>
-                  <p className="text-xs text-red-200">{errorMessage || 'Please try again or email us at contact@majestikmagik.dev'}</p>
+                <div className="p-4 bg-red-950/40 border border-red-500/30 rounded-lg">
+                  <p className="text-sm text-red-400 font-semibold mb-1">Something went wrong.</p>
+                  <p className="text-xs text-[#a0a0b0]">{errorMessage || 'Please try again or email us at contact@majestikmagik.dev'}</p>
                 </div>
               )}
 
@@ -215,7 +229,7 @@ export default function StartAProjectPage() {
               <div>
                 <label htmlFor="sap-budget" className={labelClass}>
                   Budget Range *{' '}
-                  <span className="normal-case font-normal text-slate-500">(minimum $10,000)</span>
+                  <span className="normal-case font-normal text-[#606070]">(minimum $10,000)</span>
                 </label>
                 <select id="sap-budget" name="budget" value={formData.budget} onChange={handleChange} required disabled={isSubmitting} className={inputClass}>
                   <option value="">Select a budget range...</option>
@@ -245,7 +259,7 @@ export default function StartAProjectPage() {
               <div>
                 <label htmlFor="sap-currentStack" className={labelClass}>
                   Current Tech Stack{' '}
-                  <span className="normal-case font-normal text-slate-500">(optional)</span>
+                  <span className="normal-case font-normal text-[#606070]">(optional)</span>
                 </label>
                 <input id="sap-currentStack" type="text" name="currentStack" value={formData.currentStack} onChange={handleChange} disabled={isSubmitting} className={inputClass} placeholder="e.g., WordPress, React, Shopify, Supabase..." />
               </div>
@@ -281,7 +295,7 @@ export default function StartAProjectPage() {
               <div>
                 <label htmlFor="sap-referral" className={labelClass}>
                   How did you hear about us?{' '}
-                  <span className="normal-case font-normal text-slate-500">(optional)</span>
+                  <span className="normal-case font-normal text-[#606070]">(optional)</span>
                 </label>
                 <select id="sap-referral" name="referral" value={formData.referral} onChange={handleChange} disabled={isSubmitting} className={inputClass}>
                   <option value="">Select...</option>
@@ -293,21 +307,21 @@ export default function StartAProjectPage() {
               <div>
                 <label htmlFor="sap-attachment" className={labelClass}>
                   Attach Documents{' '}
-                  <span className="normal-case font-normal text-slate-500">(PDF only, max 5MB each — optional)</span>
+                  <span className="normal-case font-normal text-[#606070]">(PDF only, max 5MB each — optional)</span>
                 </label>
-                <label htmlFor="sap-attachment" className="flex items-center gap-3 w-full px-4 py-3 bg-slate-800/60 border border-dashed border-[#334155] hover:border-indigo-500 rounded-lg cursor-pointer transition-colors group">
-                  <svg className="w-5 h-5 text-slate-500 group-hover:text-indigo-400 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <label htmlFor="sap-attachment" className="flex items-center gap-3 w-full px-4 py-3 bg-[#0e0e1a] border border-dashed border-[#2a2a3a] hover:border-indigo-500 rounded-lg cursor-pointer transition-colors group">
+                  <svg className="w-5 h-5 text-[#606070] group-hover:text-indigo-400 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
                   </svg>
-                  <span className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">Click to upload PDFs</span>
+                  <span className="text-sm text-[#a0a0b0] group-hover:text-[#f0f0f0] transition-colors">Click to upload PDFs</span>
                 </label>
                 <input id="sap-attachment" type="file" accept="application/pdf" multiple onChange={handleFileChange} disabled={isSubmitting} className="sr-only" />
                 {attachments.length > 0 && (
                   <ul className="mt-2 space-y-1">
                     {attachments.map((f) => (
-                      <li key={f.name} className="flex items-center justify-between px-3 py-1.5 bg-slate-800/60 border border-[#334155] rounded text-xs text-slate-300">
-                        <span className="truncate">📎 {f.name} <span className="text-slate-500">({(f.size / 1024).toFixed(0)} KB)</span></span>
-                        <button type="button" onClick={() => removeAttachment(f.name)} className="ml-3 text-slate-500 hover:text-red-400 transition-colors flex-shrink-0" aria-label={`Remove ${f.name}`}>✕</button>
+                      <li key={f.name} className="flex items-center justify-between px-3 py-1.5 bg-[#0e0e1a] border border-[#2a2a3a] rounded text-xs text-[#a0a0b0]">
+                        <span className="truncate">📎 {f.name} <span className="text-[#606070]">({(f.size / 1024).toFixed(0)} KB)</span></span>
+                        <button type="button" onClick={() => removeAttachment(f.name)} className="ml-3 text-[#606070] hover:text-red-400 transition-colors flex-shrink-0" aria-label={`Remove ${f.name}`}>✕</button>
                       </li>
                     ))}
                   </ul>
@@ -316,17 +330,17 @@ export default function StartAProjectPage() {
               </div>
 
               {/* Policy Acknowledgment */}
-              <div className="flex items-start space-x-3 p-4 bg-indigo-500/5 border border-indigo-500/20 rounded-lg">
+              <div className="flex items-start space-x-3 p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-lg">
                 <input
                   id="sap-policy"
                   type="checkbox"
                   checked={acknowledgedPolicy}
                   onChange={(e) => setAcknowledgedPolicy(e.target.checked)}
                   disabled={isSubmitting}
-                  className="mt-1 w-4 h-4 rounded border border-indigo-500 bg-slate-800 text-indigo-600 focus:ring-indigo-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="mt-1 w-4 h-4 rounded border border-indigo-500 bg-[#0e0e1a] text-indigo-600 focus:ring-indigo-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 />
-                <label htmlFor="sap-policy" className="text-xs text-slate-300 leading-relaxed cursor-pointer">
-                  <span className="font-semibold text-slate-200">I confirm that my business model, data sources, and budget are ready for engineering execution according to the</span>{' '}
+                <label htmlFor="sap-policy" className="text-xs text-[#a0a0b0] leading-relaxed cursor-pointer">
+                  <span className="font-semibold text-[#f0f0f0]">I confirm that my business model, data sources, and budget are ready for engineering execution according to the</span>{' '}
                   <a href="/ready-to-build-policy" className="text-indigo-400 hover:text-indigo-300 underline font-semibold transition-colors">
                     Ready-to-Build Policy
                   </a>.
@@ -337,7 +351,7 @@ export default function StartAProjectPage() {
               <button
                 type="submit"
                 disabled={isSubmitting || !acknowledgedPolicy}
-                className="w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-mono text-sm font-bold uppercase tracking-wide rounded-lg transition-all duration-200 cursor-pointer"
+                className="w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-500 disabled:bg-[#1a1a2a] disabled:text-[#606070] disabled:cursor-not-allowed text-white font-mono text-sm font-bold uppercase tracking-wide rounded-lg transition-all duration-200 cursor-pointer"
               >
                 {isSubmitting ? 'Sending...' : !acknowledgedPolicy ? 'Acknowledge Policy to Continue' : 'Submit Project Brief'}
               </button>
@@ -345,6 +359,7 @@ export default function StartAProjectPage() {
           )}
         </div>
       </div>
-    </main>
+      </main>
+    </div>
   );
 }

@@ -162,7 +162,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         navItems={navItems}
         handleNavClick={handleNavClick}
       />
-      <main key={pathname}><div className="page-enter">{children}</div></main>
+      <main key={pathname} className="page-enter">{children}</main>
       <Footer isAlwaysVisible={isPolicyPage} />
       <CookieBanner />
     </div>
