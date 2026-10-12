@@ -33,8 +33,8 @@ function PerfMockup() {
     { label: 'Best Practices', pct: 95, color: 'bg-violet-500' },
   ];
   return (
-    <div ref={ref} className="w-full h-36 bg-[#0e0e1a] rounded-xl border border-[#2a2a3a] p-4 flex flex-col justify-center gap-2.5">
-      <div className="flex items-center gap-2 text-[11px] font-mono text-emerald-400 mb-1">
+    <div ref={ref} className="w-full bg-[#0e0e1a] rounded-xl border border-[#2a2a3a] p-4 flex flex-col gap-2.5">
+      <div className="flex items-center gap-2 text-[11px] font-mono text-emerald-400">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" style={{ boxShadow: '0 0 6px #34d399' }} />
         Lighthouse audit complete
       </div>
@@ -46,6 +46,11 @@ function PerfMockup() {
           <AnimatedBar pct={pct} color={color} triggered={triggered} delay={i * 120} />
         </div>
       ))}
+      <p className="text-[10px] font-mono text-[#606070] leading-relaxed pt-1 border-t border-[#2a2a3a]">
+        We run a custom Lighthouse audit on your site and use the results to generate accurate{' '}
+        <span className="text-indigo-400">llms.txt</span> and{' '}
+        <span className="text-indigo-400">robots.txt</span> files — improving AI visibility, crawlability, and conversion.
+      </p>
     </div>
   );
 }
