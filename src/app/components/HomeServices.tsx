@@ -33,8 +33,8 @@ function PerfMockup() {
     { label: 'Best Practices', pct: 95, color: 'bg-violet-500' },
   ];
   return (
-    <div ref={ref} className="w-full bg-[#0e0e1a] rounded-xl border border-[#2a2a3a] p-4 flex flex-col gap-2.5">
-      <div className="flex items-center gap-2 text-[11px] font-mono text-emerald-400">
+    <div ref={ref} className="w-full h-36 bg-[#0e0e1a] rounded-xl border border-[#2a2a3a] p-4 flex flex-col justify-center gap-2.5">
+      <div className="flex items-center gap-2 text-[11px] font-mono text-emerald-400 mb-1">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" style={{ boxShadow: '0 0 6px #34d399' }} />
         Lighthouse audit complete
       </div>
@@ -46,11 +46,6 @@ function PerfMockup() {
           <AnimatedBar pct={pct} color={color} triggered={triggered} delay={i * 120} />
         </div>
       ))}
-      <p className="text-[10px] font-mono text-[#606070] leading-relaxed pt-1 border-t border-[#2a2a3a]">
-        We run a custom Lighthouse audit on your site and use the results to generate accurate{' '}
-        <span className="text-indigo-400">llms.txt</span> and{' '}
-        <span className="text-indigo-400">robots.txt</span> files — improving AI visibility, crawlability, and conversion.
-      </p>
     </div>
   );
 }
@@ -135,7 +130,7 @@ const SERVICES = [
   {
     id: '01', tag: 'INTERFACES THAT CONVERT', title: 'Web Design & Landing Pages',
     desc: 'Sharp, fast, and built to drive action — not just look good. Every layout decision is made with your visitor\'s next move in mind.',
-    bullets: ['Copy hierarchy and layout engineered for conversion', 'Mobile-first with sub-second load times', 'Deployed to production with custom domain and SSL'],
+    bullets: ['Copy hierarchy and layout engineered for conversion', 'Mobile-first with sub-second load times', 'Custom Lighthouse audit — generates accurate llms.txt and robots.txt to improve AI visibility and conversion'],
     mockup: <PerfMockup />, accent: 'indigo',
   },
   {
