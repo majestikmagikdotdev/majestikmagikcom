@@ -28,6 +28,65 @@ function GridCanvas() {
   );
 }
 
+/* ─── Grid beam overlay ───────────────────────────────────────────────────── */
+function GridBeams() {
+  // viewBox matches 40×22 cells at 48px = 1920×1056
+  // Beams snap to grid lines. Each beam: a path + linearGradient.
+  // Animation is pure CSS keyframes on stroke-dashoffset.
+  return (
+    <svg
+      aria-hidden
+      className="pointer-events-none fixed inset-0 z-0 w-full h-full"
+      viewBox="0 0 1920 1056"
+      preserveAspectRatio="xMidYMid slice"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        {/* Vertical beam — indigo, col 14 (x=672) */}
+        <linearGradient id="vb1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stopColor="#6366f1" stopOpacity="0" />
+          <stop offset="50%"  stopColor="#a5b4fc" stopOpacity="1" />
+          <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+        </linearGradient>
+        {/* Vertical beam — teal, col 28 (x=1344) */}
+        <linearGradient id="vb2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stopColor="#0d9488" stopOpacity="0" />
+          <stop offset="50%"  stopColor="#5eead4" stopOpacity="1" />
+          <stop offset="100%" stopColor="#0d9488" stopOpacity="0" />
+        </linearGradient>
+        {/* Horizontal beam — violet, row 10 (y=480) */}
+        <linearGradient id="hb1" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stopColor="#7c3aed" stopOpacity="0" />
+          <stop offset="50%"  stopColor="#c4b5fd" stopOpacity="1" />
+          <stop offset="100%" stopColor="#7c3aed" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+
+      {/* Vertical beam 1 — indigo, travels full height, 4s loop */}
+      <line
+        x1="672" y1="0" x2="672" y2="1056"
+        stroke="url(#vb1)" strokeWidth="1.5"
+        strokeDasharray="180 1056"
+        style={{ animation: 'beam-v 4s linear infinite' }}
+      />
+      {/* Vertical beam 2 — teal, offset start by 1.8s */}
+      <line
+        x1="1344" y1="0" x2="1344" y2="1056"
+        stroke="url(#vb2)" strokeWidth="1.5"
+        strokeDasharray="180 1056"
+        style={{ animation: 'beam-v 5s linear 1.8s infinite' }}
+      />
+      {/* Horizontal beam — violet, travels full width, 6s loop */}
+      <line
+        x1="0" y1="480" x2="1920" y2="480"
+        stroke="url(#hb1)" strokeWidth="1.5"
+        strokeDasharray="240 1920"
+        style={{ animation: 'beam-h 6s linear 0.6s infinite' }}
+      />
+    </svg>
+  );
+}
+
 /* ─── Ambient corner glows ────────────────────────────────────────────────── */
 function AmbientGlows() {
   return (
@@ -64,6 +123,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen" style={{ background: '#181818' }}>
       <GridCanvas />
+      <GridBeams />
       <AmbientGlows />
 
       <main

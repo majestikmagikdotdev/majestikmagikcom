@@ -153,12 +153,18 @@ const SERVICES = [
   },
 ];
 
-const accentMap: Record<string, { tag: string; bullet: string; border: string }> = {
-  indigo: { tag: 'text-indigo-400', bullet: 'text-indigo-400', border: 'border-indigo-500/20' },
-  violet: { tag: 'text-violet-400', bullet: 'text-violet-400', border: 'border-violet-500/20' },
-  purple: { tag: 'text-purple-400', bullet: 'text-purple-400', border: 'border-purple-500/20' },
-  emerald: { tag: 'text-emerald-400', bullet: 'text-emerald-400', border: 'border-emerald-500/20' },
+const accentMap: Record<string, { tag: string; bullet: string; border: string; spotlight: string }> = {
+  indigo:  { tag: 'text-indigo-400',  bullet: 'text-indigo-400',  border: 'border-indigo-500/20',  spotlight: '99,102,241' },
+  violet:  { tag: 'text-violet-400',  bullet: 'text-violet-400',  border: 'border-violet-500/20',  spotlight: '167,139,250' },
+  purple:  { tag: 'text-purple-400',  bullet: 'text-purple-400',  border: 'border-purple-500/20',  spotlight: '192,132,252' },
+  emerald: { tag: 'text-emerald-400', bullet: 'text-emerald-400', border: 'border-emerald-500/20', spotlight: '52,211,153' },
 };
+
+function handleSpotlight(e: React.MouseEvent<HTMLDivElement>) {
+  const rect = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+  e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+}
 
 const CARD_TOP_BASE = 88;
 const CARD_TOP_STEP = 24;
@@ -221,12 +227,14 @@ export default function HomeServices() {
               <div
                 key={s.id}
                 ref={el => { cardRefs.current[i] = el; }}
-                className={`relative md:sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8 mb-6 md:mb-[10vh]`}
+                onMouseMove={handleSpotlight}
+                className={`spotlight relative md:sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8 mb-6 md:mb-[10vh]`}
                 style={{
                   top: `${CARD_TOP_BASE + i * CARD_TOP_STEP}px`,
                   zIndex: 10 + i,
                   transformOrigin: 'top center',
                   willChange: 'transform',
+                  ['--spotlight-color' as string]: a.spotlight,
                 }}
               >
                 <div
