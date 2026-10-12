@@ -163,44 +163,46 @@ const accentMap: Record<string, { tag: string; bullet: string; border: string }>
 export default function HomeServices() {
   return (
     <div id="services" className="w-full px-4 md:px-6 py-20 md:py-28">
-      <div className="mb-14">
-        <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1a1a2a] px-3 py-1 rounded border border-[#2a2a3a]">
-          • Services
-        </span>
-        <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-[#f0f0f0] tracking-tight" style={{ letterSpacing: '-0.04em' }}>
-          Built for the work{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-300 to-[#f0f0f0]">that actually matters.</span>
-        </h2>
-        <p className="mt-4 text-base text-[#a0a0b0] max-w-2xl">Full-stack platforms, quick fixes, and everything in between — shipped fast, owned by you.</p>
-      </div>
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-14">
+          <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1a1a2a] px-3 py-1 rounded border border-[#2a2a3a]">
+            • Services
+          </span>
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-[#f0f0f0] tracking-tight" style={{ letterSpacing: '-0.04em' }}>
+            Built for the work{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-300 to-[#f0f0f0]">that actually matters.</span>
+          </h2>
+          <p className="mt-4 text-base text-[#a0a0b0] max-w-2xl">Full-stack platforms, quick fixes, and everything in between — shipped fast, owned by you.</p>
+        </div>
 
-      <div className="flex flex-col gap-4">
-        {SERVICES.map((s, i) => {
-          const a = accentMap[s.accent];
-          return (
-            <div
-              key={s.id}
-              className={`md:sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8`}
-              style={{ top: `${72 + i * 18}px` }}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                <div className="lg:col-span-2">{s.mockup}</div>
-                <div className="lg:col-span-10">
-                  <span className={`text-xs font-mono font-semibold tracking-wider ${a.tag}`}>{s.tag}</span>
-                  <h3 className="mt-1 mb-3 text-xl md:text-2xl font-bold text-[#f0f0f0] tracking-tight">{s.title}</h3>
-                  <p className="text-sm text-[#a0a0b0] leading-relaxed mb-4">{s.desc}</p>
-                  <ul className="space-y-1.5">
-                    {s.bullets.map(b => (
-                      <li key={b} className="flex items-center gap-2 text-sm text-[#a0a0b0]">
-                        <span className={`flex-shrink-0 ${a.bullet}`}>✦</span>{b}
-                      </li>
-                    ))}
-                  </ul>
+        <div className="flex flex-col gap-4">
+          {SERVICES.map((s, i) => {
+            const a = accentMap[s.accent];
+            return (
+              <div
+                key={s.id}
+                className={`md:sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8`}
+                style={{ top: `${72 + i * 18}px` }}
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                  <div className="lg:col-span-2">{s.mockup}</div>
+                  <div className="lg:col-span-10">
+                    <span className={`text-xs font-mono font-semibold tracking-wider ${a.tag}`}>{s.tag}</span>
+                    <h3 className="mt-1 mb-3 text-xl md:text-2xl font-bold text-[#f0f0f0] tracking-tight">{s.title}</h3>
+                    <p className="text-sm text-[#a0a0b0] leading-relaxed mb-4">{s.desc}</p>
+                    <ul className="space-y-1.5">
+                      {s.bullets.map(b => (
+                        <li key={b} className="flex items-center gap-2 text-sm text-[#a0a0b0]">
+                          <span className={`flex-shrink-0 ${a.bullet}`}>✦</span>{b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
