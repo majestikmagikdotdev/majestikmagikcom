@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 
 const NODES = [
   { id: 'device', label: 'Local Device', sub: 'SQLite + SQLCipher', color: '#34d399', glow: 'rgba(52,211,153,0.4)' },
