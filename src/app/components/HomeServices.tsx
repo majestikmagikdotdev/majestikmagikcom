@@ -163,17 +163,20 @@ const accentMap: Record<string, { tag: string; bullet: string; border: string }>
 export default function HomeServices() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [scales, setScales] = useState(SERVICES.map(() => 1));
+  const CARD_TOP = 88; // header height offset
 
   useEffect(() => {
     const onScroll = () => {
       setScales(SERVICES.map((_, i) => {
-        const el = cardRefs.current[i];
-        if (!el) return 1;
-        const { top, height } = el.getBoundingClientRect();
-        const stickyTop = 80 + i * 20;
-        const overlap = stickyTop - top;
-        if (overlap <= 0) return 1;
-        return Math.max(0.92, 1 - (overlap / height) * 0.08);
+        // Only scale down if there's a next card
+        if (i === SERVICES.length - 1) return 1;
+        const next = cardRefs.current[i + 1];
+        if (!next) return 1;
+        const nextTop = next.getBoundingClientRect().top;
+        const cardTop = CARD_TOP + i * 0;
+        // How far the next card has scrolled over this one
+        const progress = Math.max(0, Math.min(1, (cardTop + 300 - nextTop) / 300));
+        return 1 - progress * 0.06;
       }));
     };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -194,19 +197,26 @@ export default function HomeServices() {
           <p className="mt-4 text-base text-[#a0a0b0] max-w-2xl">Full-stack platforms, quick fixes, and everything in between — shipped fast, owned by you.</p>
         </div>
 
-        <div className="flex flex-col gap-4">
+        {/* No gap — cards must be flush for sticky stacking to work */}
+        <div className="flex flex-col">
           {SERVICES.map((s, i) => {
             const a = accentMap[s.accent];
             return (
               <div
                 key={s.id}
                 ref={el => { cardRefs.current[i] = el; }}
-                className={`sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8`}
-                style={{ top: `${80 + i * 20}px`, zIndex: 10 + i, transform: `scale(${scales[i]})`, transformOrigin: 'top center', transition: 'transform 0.1s linear' }}
+                className={`sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8 mb-4`}
+                style={{
+                  top: `${CARD_TOP + i * 12}px`,
+                  zIndex: 10 + i,
+                  transform: `scale(${scales[i]})`,
+                  transformOrigin: 'top center',
+                  willChange: 'transform',
+                }}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div className="lg:col-span-4">{s.mockup}</div>
-                  <div className="lg:col-span-8">
+                  <div className="lg:col-span-2">{s.mockup}</div>
+                  <div className="lg:col-span-10">
                     <span className={`text-xs font-mono font-semibold tracking-wider ${a.tag}`}>{s.tag}</span>
                     <h3 className="mt-1 mb-3 text-xl md:text-2xl font-bold text-[#f0f0f0] tracking-tight">{s.title}</h3>
                     <p className="text-sm text-[#a0a0b0] leading-relaxed mb-4">{s.desc}</p>
