@@ -160,27 +160,30 @@ const accentMap: Record<string, { tag: string; bullet: string; border: string }>
   emerald: { tag: 'text-emerald-400', bullet: 'text-emerald-400', border: 'border-emerald-500/20' },
 };
 
+const CARD_TOP_BASE = 88;
+const CARD_TOP_STEP = 24;
+
 export default function HomeServices() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [scales, setScales] = useState(SERVICES.map(() => 1));
-  const CARD_TOP = 88; // header height offset
 
   useEffect(() => {
-    const onScroll = () => {
-      setScales(SERVICES.map((_, i) => {
-        // Only scale down if there's a next card
-        if (i === SERVICES.length - 1) return 1;
+    let raf: number;
+    const update = () => {
+      cardRefs.current.forEach((el, i) => {
+        if (!el || i === SERVICES.length - 1) return;
         const next = cardRefs.current[i + 1];
-        if (!next) return 1;
+        if (!next) return;
+        const stickyTop = CARD_TOP_BASE + i * CARD_TOP_STEP;
         const nextTop = next.getBoundingClientRect().top;
-        const cardTop = CARD_TOP + i * 0;
-        // How far the next card has scrolled over this one
-        const progress = Math.max(0, Math.min(1, (cardTop + 300 - nextTop) / 300));
-        return 1 - progress * 0.06;
-      }));
+        const cardH = el.offsetHeight;
+        const progress = Math.max(0, Math.min(1, (stickyTop + cardH - nextTop) / cardH));
+        el.style.transform = `scale(${1 - progress * 0.05})`;
+        el.style.filter = `brightness(${1 - progress * 0.3})`;
+      });
+      raf = requestAnimationFrame(update);
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    raf = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   return (
@@ -188,7 +191,7 @@ export default function HomeServices() {
       <div className="max-w-5xl mx-auto">
         <div className="mb-14">
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1a1a2a] px-3 py-1 rounded border border-[#2a2a3a]">
-            • Services
+            Services
           </span>
           <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-[#f0f0f0] tracking-tight" style={{ letterSpacing: '-0.04em' }}>
             Built for the work{' '}
@@ -197,7 +200,6 @@ export default function HomeServices() {
           <p className="mt-4 text-base text-[#a0a0b0] max-w-2xl">Full-stack platforms, quick fixes, and everything in between — shipped fast, owned by you.</p>
         </div>
 
-        {/* No gap — cards must be flush for sticky stacking to work */}
         <div className="flex flex-col">
           {SERVICES.map((s, i) => {
             const a = accentMap[s.accent];
@@ -205,18 +207,17 @@ export default function HomeServices() {
               <div
                 key={s.id}
                 ref={el => { cardRefs.current[i] = el; }}
-                className={`sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8 mb-4`}
+                className={`sticky rounded-2xl border ${a.border} bg-[#111120] p-6 md:p-8 mb-6`}
                 style={{
-                  top: `${CARD_TOP + i * 12}px`,
+                  top: `${CARD_TOP_BASE + i * CARD_TOP_STEP}px`,
                   zIndex: 10 + i,
-                  transform: `scale(${scales[i]})`,
                   transformOrigin: 'top center',
-                  willChange: 'transform',
+                  willChange: 'transform, filter',
                 }}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                  <div className="lg:col-span-2">{s.mockup}</div>
-                  <div className="lg:col-span-10">
+                  <div className="lg:col-span-4">{s.mockup}</div>
+                  <div className="lg:col-span-8">
                     <span className={`text-xs font-mono font-semibold tracking-wider ${a.tag}`}>{s.tag}</span>
                     <h3 className="mt-1 mb-3 text-xl md:text-2xl font-bold text-[#f0f0f0] tracking-tight">{s.title}</h3>
                     <p className="text-sm text-[#a0a0b0] leading-relaxed mb-4">{s.desc}</p>
