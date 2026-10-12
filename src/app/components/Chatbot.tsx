@@ -40,7 +40,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
       {/* Floating Chat Trigger with Pulsing Aurora Ring */}
       <button
         onClick={handleToggleChat}
-        className="fixed bottom-6 right-6 border-2 border-indigo-300/10 bg-indigo-400/10 hover:bg-indigo-500/30 text-indigo-400 p-3 rounded-full transform hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-[#07080e]"
+        className="fixed bottom-6 right-6 border-2 border-indigo-300/10 bg-indigo-400/10 hover:bg-indigo-500/30 text-indigo-400 p-3 rounded-full transform hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-[#181818]"
         aria-label={isChatOpen ? "Close chat" : "Open chat assistant"}
         type="button"
       >
@@ -63,21 +63,21 @@ const Chatbot: React.FC<ChatbotProps> = ({
       {/* Main Chat Assistant Dialog */}
       {isChatOpen && (
       <div
-        className="fixed bottom-24 right-6 w-[340px] max-w-[calc(100vw-3rem)] h-[70vh] max-h-[550px] flex flex-col z-50 overflow-hidden rounded-xl border border-[#334155] shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 ease-out transform origin-bottom-right scale-100 opacity-100 translate-y-0"
-        style={{ background: 'rgb(15, 23, 42)' }}
+        className="fixed bottom-24 right-6 w-[340px] max-w-[calc(100vw-3rem)] h-[70vh] max-h-[550px] flex flex-col z-50 overflow-hidden rounded-xl border border-[#2a2a3a] shadow-[0_20px_60px_rgba(0,0,0,0.7)] transition-all duration-300 ease-out transform origin-bottom-right scale-100 opacity-100 translate-y-0"
+        style={{ background: '#181818' }}
         role="dialog"
         aria-modal="true"
         aria-labelledby="chat-assistant-heading"
       >
         {/* Chat Header */}
-        <div className="flex items-center justify-between p-4 border-b border-[#334155] bg-[#1e293b]">
-          <h3 id="chat-assistant-heading" className="flex items-center text-sm font-bold tracking-wide text-slate-100 uppercase font-mono">
+        <div className="flex items-center justify-between p-4 border-b border-[#2a2a3a] bg-[#111120]">
+          <h3 id="chat-assistant-heading" className="flex items-center text-sm font-bold tracking-wide text-[#f0f0f0] uppercase font-mono">
             <MagicWandIcon className="w-5 h-5 mr-2 text-indigo-400 animate-pulse" />
             Majestik Magik AI Assistant
           </h3>
           <button
             onClick={handleToggleChat}
-            className="transition-colors text-slate-400 hover:text-slate-100 p-1 rounded-lg hover:bg-white/5"
+            className="transition-colors text-[#a0a0b0] hover:text-[#f0f0f0] p-1 rounded-lg hover:bg-white/5"
             aria-label="Close chat window"
             type="button"
           >
@@ -86,7 +86,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
         </div>
 
         {/* Chat Feed */}
-        <div className="flex-grow p-4 overflow-y-auto space-y-4 scrollbar-thin scrollbar-thumb-[#334155]" id="chat-messages-container" aria-live="polite" style={{ background: 'rgb(15, 23, 42)' }}>
+        <div className="flex-grow p-4 overflow-y-auto space-y-4 scrollbar-thin scrollbar-thumb-[#2a2a3a]" id="chat-messages-container" aria-live="polite" style={{ background: '#181818' }}>
           {chatMessages.map((msg) => (
             <div
               key={msg.id}
@@ -96,7 +96,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
                 className={`max-w-[85%] p-3 rounded-2xl text-xs md:text-sm leading-relaxed tracking-wide shadow-sm
                     ${msg.sender === 'user'
                     ? 'bg-indigo-600 text-white rounded-br-none border border-indigo-500/30 font-mono'
-                    : 'bg-[#1e293b] text-slate-300 rounded-bl-none border border-[#334155] font-mono'
+                    : 'bg-[#111120] text-[#a0a0b0] rounded-bl-none border border-[#2a2a3a] font-mono'
                   }`}
               >
                 {msg.text}
@@ -107,7 +107,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
           {/* Typings / Thinking Indicator */}
           {isChatLoading && (
             <div className="flex justify-start">
-              <div className="max-w-[80%] px-4 py-3 rounded-lg bg-[#1e293b] border border-[#334155] rounded-bl-none flex items-center space-x-1" aria-label="AI is typing">
+              <div className="max-w-[80%] px-4 py-3 rounded-lg bg-[#111120] border border-[#2a2a3a] rounded-bl-none flex items-center space-x-1" aria-label="AI is typing">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-400 animate-bounce [animation-delay:-0.3s]"></span>
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-400 animate-bounce [animation-delay:-0.15s]"></span>
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-400 animate-bounce"></span>
@@ -130,7 +130,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
         )}
 
         {/* Privacy Notice */}
-        <div className="px-4 py-2 text-[10px] text-center text-slate-500 bg-[#1e293b] border-t border-[#334155] font-mono">
+        <div className="px-4 py-2 text-[10px] text-center text-[#606070] bg-[#111120] border-t border-[#2a2a3a] font-mono">
           By utilizing chat, you consent to our{' '}
           <button
             onClick={() => window.open('/privacy-policy', '_blank')}
@@ -144,20 +144,20 @@ const Chatbot: React.FC<ChatbotProps> = ({
         </div>
 
         {/* Input Form */}
-        <form onSubmit={handleSendChatMessage} className="flex items-center p-3 space-x-2 border-t border-[#334155] bg-[#1e293b]">
+        <form onSubmit={handleSendChatMessage} className="flex items-center p-3 space-x-2 border-t border-[#2a2a3a] bg-[#111120]">
           <input
             type="text"
             value={chatInput}
             onChange={handleChatInputChange}
             placeholder={isAIInitialized ? "Ask about Majestik Magik..." : "Chat unavailable..."}
-            className="flex-grow px-3.5 py-2.5 text-xs font-mono transition-all duration-200 border rounded bg-[#0f172a] text-slate-200 border-[#334155] focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30 placeholder-slate-600 outline-none"
+            className="flex-grow px-3.5 py-2.5 text-xs font-mono transition-all duration-200 border rounded bg-[#0e0e1a] text-[#f0f0f0] border-[#2a2a3a] focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30 placeholder-[#404050] outline-none"
             aria-label="Chat message input"
             disabled={isChatLoading || !isAIInitialized}
           />
           <button
             type="submit"
             disabled={isChatLoading || !chatInput.trim() || !isAIInitialized}
-            className="cursor-pointer p-2.5 text-white transition-all duration-300 rounded-xl shadow-md bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-800/80 disabled:text-slate-600 disabled:cursor-not-allowed flex items-center justify-center border border-indigo-500/10"
+            className="cursor-pointer p-2.5 text-white transition-all duration-300 rounded-xl shadow-md bg-indigo-600 hover:bg-indigo-500 disabled:bg-[#1a1a2a] disabled:text-[#404050] disabled:cursor-not-allowed flex items-center justify-center border border-indigo-500/10"
             aria-label="Send chat message"
           >
             <Image 
