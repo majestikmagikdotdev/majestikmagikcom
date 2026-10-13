@@ -2,6 +2,26 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
+// Rate limiting: max 20 requests per IP per 60 seconds
+const rateLimitMap = new Map<string, { count: number; reset: number }>();
+const RATE_LIMIT = 20;
+const RATE_WINDOW_MS = 60_000;
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.reset) {
+    rateLimitMap.set(ip, { count: 1, reset: now + RATE_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= RATE_LIMIT) return false;
+  entry.count++;
+  return true;
+}
+
+const MAX_HISTORY_ENTRIES = 10;
+const MAX_MESSAGE_LENGTH = 500;
+
 const SYSTEM_INSTRUCTION = `
 You are the official AI representative for Majestik Magik, an agency specializing in Web Engineering, Core Web Vitals Optimization, and AI Solutions (including Pivot Quest).
 
@@ -91,12 +111,19 @@ async function getAccessToken(): Promise<string> {
 }
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get('cf-connecting-ip') ?? req.headers.get('x-forwarded-for') ?? 'unknown';
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+  }
+
   try {
     const { message, history } = await req.json();
 
-    if (!message) {
+    if (!message || typeof message !== 'string') {
       return NextResponse.json({ error: 'Missing message' }, { status: 400 });
     }
+
+    const safeMessage = message.slice(0, MAX_MESSAGE_LENGTH);
 
     const project = process.env.VERTEX_PROJECT_ID!;
     const location = process.env.VERTEX_LOCATION!;
@@ -105,16 +132,18 @@ export async function POST(req: NextRequest) {
 
     const accessToken = await getAccessToken();
 
-    const vertexHistory = (history ?? []).map((entry: { role: string; parts: { text: string }[] }) => ({
-      role: entry.role,
-      parts: entry.parts,
-    }));
+    const safeHistory = (Array.isArray(history) ? history : [])
+      .slice(-MAX_HISTORY_ENTRIES)
+      .map((entry: { role: string; parts: { text: string }[] }) => ({
+        role: entry.role === 'model' ? 'model' : 'user',
+        parts: [{ text: String(entry.parts?.[0]?.text ?? '').slice(0, MAX_MESSAGE_LENGTH) }],
+      }));
 
     const body = {
       systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
       contents: [
-        ...vertexHistory,
-        { role: 'user', parts: [{ text: message }] },
+        ...safeHistory,
+        { role: 'user', parts: [{ text: safeMessage }] },
       ],
       generationConfig: { maxOutputTokens: 1024, temperature: 0.7 },
     };

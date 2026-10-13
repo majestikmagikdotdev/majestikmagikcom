@@ -99,7 +99,7 @@ export default function ESignCanvas() {
 
   return (
     <div className="w-full px-4 md:px-6 py-20">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="mb-10">
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-3 bg-indigo-950/20 px-3 py-1 rounded border border-indigo-500/20">
             • E-Sign Engine

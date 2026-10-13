@@ -4,6 +4,23 @@ export const runtime = 'edge';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Rate limiting: max 5 submissions per IP per 60 seconds
+const rateLimitMap = new Map<string, { count: number; reset: number }>();
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 60_000;
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.reset) {
+    rateLimitMap.set(ip, { count: 1, reset: now + RATE_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= RATE_LIMIT) return false;
+  entry.count++;
+  return true;
+}
+
 const FIELD_LIMITS: Record<string, number> = {
   name: 100,
   email: 254,
@@ -43,6 +60,11 @@ function sanitizeLog(value: string): string {
 }
 
 export async function POST(request: Request) {
+  const ip = request.headers.get('cf-connecting-ip') ?? request.headers.get('x-forwarded-for') ?? 'unknown';
+  if (!checkRateLimit(ip)) {
+    return Response.json({ error: 'Too many requests' }, { status: 429 });
+  }
+
   try {
     const form = await request.formData();
 

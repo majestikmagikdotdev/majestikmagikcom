@@ -20,8 +20,8 @@ function GridCanvas() {
       className="pointer-events-none fixed inset-0 z-0"
       style={{
         backgroundImage: `
-          linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px)
+          linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px)
         `,
         backgroundSize: '48px 48px',
       }}

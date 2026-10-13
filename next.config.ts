@@ -40,6 +40,10 @@ const securityHeaders = [
     key: 'X-Content-Type-Options',
     value: 'nosniff'
   },
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=(), payment=(self "https://js.stripe.com")'
+  },
 ];
 
 const nextConfig: NextConfig = {

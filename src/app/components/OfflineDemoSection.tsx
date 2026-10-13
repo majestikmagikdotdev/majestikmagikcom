@@ -62,7 +62,7 @@ export default function OfflineDemoSection() {
 
   return (
     <div className="w-full px-4 md:px-6 py-20">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
