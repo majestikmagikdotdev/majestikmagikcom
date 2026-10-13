@@ -43,7 +43,7 @@ export default function HomeHero() {
   useMouseGlow(glowRef);
 
   return (
-    <div id="home" className="relative flex flex-col items-center justify-center text-center px-4 pt-32 sm:pt-44 md:pt-52 pb-24 md:pb-36">
+    <div id="home" className="relative flex flex-col items-center justify-center text-center px-4 pt-26 sm:pt-30 md:pt-34 pb-24 md:pb-26">
 
       {/* Mouse-tracked glow */}
       <div ref={glowRef} aria-hidden className="pointer-events-none fixed inset-0 z-0 w-full h-full" />
