@@ -12,7 +12,7 @@ const PrivacyPolicyContent: React.FC = () => {
                     Privacy Policy
                 </h1>
                 <p className="text-xs md:text-sm font-semibold tracking-widest text-indigo-400 uppercase">
-                    Last Updated: October 10, 2026
+                    Last Updated: October 14, 2026
                 </p>
             </div>
 
@@ -140,17 +140,31 @@ const PrivacyPolicyContent: React.FC = () => {
                 </ul>
             </div>
 
-            {/* Section 9 */}
+            {/* Section 9 — Google Limited Use */}
+            <div className="space-y-4 pt-6 border-t border-indigo-500/10">
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">9. Google Workspace Data Policy &amp; Limited Use Statement</h2>
+                <div className="p-5 bg-indigo-500/5 border border-indigo-500/15 rounded-xl">
+                    <p className="text-slate-200 leading-relaxed">
+                        The use of raw or derived user data received from Google Workspace APIs (including Google Calendar) will adhere to the{' '}
+                        <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 underline transition-colors">
+                            Google API Services User Data Policy
+                        </a>
+                        , including the Limited Use requirements. Workspace user data is never transferred, sold, or utilized to train, improve, or generalize foundational machine learning or artificial intelligence models.
+                    </p>
+                </div>
+            </div>
+
+            {/* Section 10 */}
             <div className="space-y-3 pt-6 border-t border-indigo-500/10">
-                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">9. Changes to This Privacy Policy</h2>
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">10. Changes to This Privacy Policy</h2>
                 <p>
                     We may update this Privacy Policy from time to time to reflect changes in our software or legal requirements. Updated versions will be posted on this page with an updated &quot;Last Updated&quot; date.
                 </p>
             </div>
 
-            {/* Section 10 */}
+            {/* Section 11 */}
             <div className="space-y-3 pt-6 border-t border-indigo-500/10">
-                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">10. Contact Us</h2>
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">11. Contact Us</h2>
                 <p>If you have questions about this Privacy Policy or our local-first software philosophy, please contact us:</p>
                 <div className="p-4 bg-indigo-500/5 border border-indigo-500/10 rounded-xl inline-block min-w-[200px]">
                     <p className="font-bold text-slate-100">Majestik Magik</p>
