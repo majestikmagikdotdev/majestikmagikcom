@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 const TRUST_CHIPS = [
@@ -9,8 +9,6 @@ const TRUST_CHIPS = [
 ];
 
 export default function HomeHero() {
-  const glowRef = useRef<HTMLDivElement>(null);
-
   return (
     <div id="home" className="relative flex flex-col items-center justify-center text-center px-4 pt-26 sm:pt-30 md:pt-34 pb-24 md:pb-26">
 

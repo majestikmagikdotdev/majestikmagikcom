@@ -156,7 +156,7 @@ const Header: React.FC<HeaderProps> = ({
     >
       <div className="w-full px-6 py-4 flex justify-between items-center">
         <button
-          onClick={(e) => {
+          onClick={() => {
             handleLogoClick();
             const el = document.getElementById('home');
             if (el) {
@@ -643,7 +643,7 @@ const Header: React.FC<HeaderProps> = ({
             filter: 'drop-shadow(0 0 12px rgba(249,115,22,0.7))',
           }}
         >
-          <img src="/img/witch-broom.svg" alt="witch on broom" style={{ width: "120px", height: "auto" }} />
+          <Image src="/img/witch-broom.svg" alt="witch on broom" width={120} height={120} style={{ height: 'auto' }} unoptimized />
         </div>
       )}
 
