@@ -148,6 +148,21 @@ export default function App() {
         <WhyUsStatement />
         <HomeServices />
         <TestimonialsSection />
+        {/* Demo block intro */}
+        <div className="reveal w-full px-4 md:px-6 pt-20 md:pt-28 pb-2 max-w-7xl mx-auto">
+          <h2
+            className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
+            style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
+          >
+            See it working.
+            <br />
+            <span className="text-[#404050]">Not a mockup. Not a screenshot.</span>
+          </h2>
+          <p className="mt-5 text-sm text-[#a0a0b0] max-w-lg leading-relaxed">
+            Every demo below is live code. Offline sync, encrypted pipelines, e-sign capture. This is what we actually ship.
+          </p>
+        </div>
+
         <OfflineDemoSection />
         <NodePipelineSection />
         <ESignCanvas />
