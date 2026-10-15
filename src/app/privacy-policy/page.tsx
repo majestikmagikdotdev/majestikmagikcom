@@ -12,7 +12,7 @@ const PrivacyPolicyContent: React.FC = () => {
                     Privacy Policy
                 </h1>
                 <p className="text-xs md:text-sm font-semibold tracking-widest text-indigo-400 uppercase">
-                    Last Updated: October 14, 2026
+                    Last Updated: October 15, 2026
                 </p>
             </div>
 
@@ -154,9 +154,25 @@ const PrivacyPolicyContent: React.FC = () => {
                 </div>
             </div>
 
-            {/* Section 10 */}
+            {/* Section 10 — AI Integration & Limited Use Compliance */}
+            <div className="space-y-4 pt-6 border-t border-indigo-500/10">
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">10. AI Integration &amp; Limited Use Compliance</h2>
+                <ul className="list-disc list-inside space-y-4 pl-2">
+                    <li>
+                        <strong className="text-slate-200">Third-Party AI Providers:</strong> Our application utilizes the OpenAI API on paid developer tiers to power AI-assisted features.
+                    </li>
+                    <li>
+                        <strong className="text-slate-200">Model Training Restrictions:</strong> All API requests sent to our AI providers operate under business and API terms where customer data is not used, retained, or transferred to train or improve foundational or generalized machine learning models.
+                    </li>
+                    <li>
+                        <strong className="text-slate-200">Limited Use Disclosure:</strong> The use of raw or derived user data received from Google Workspace APIs (including Google Calendar) adheres to the Google User Data Policy, including the Limited Use requirements.
+                    </li>
+                </ul>
+            </div>
+
+            {/* Section 11 */}
             <div className="space-y-3 pt-6 border-t border-indigo-500/10">
-                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">10. Changes to This Privacy Policy</h2>
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">11. Changes to This Privacy Policy</h2>
                 <p>
                     We may update this Privacy Policy from time to time to reflect changes in our software or legal requirements. Updated versions will be posted on this page with an updated &quot;Last Updated&quot; date.
                 </p>
@@ -164,7 +180,7 @@ const PrivacyPolicyContent: React.FC = () => {
 
             {/* Section 11 */}
             <div className="space-y-3 pt-6 border-t border-indigo-500/10">
-                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">11. Contact Us</h2>
+                <h2 className="text-2xl font-bold text-slate-100 tracking-tight">12. Contact Us</h2>
                 <p>If you have questions about this Privacy Policy or our local-first software philosophy, please contact us:</p>
                 <div className="p-4 bg-indigo-500/5 border border-indigo-500/10 rounded-xl inline-block min-w-[200px]">
                     <p className="font-bold text-slate-100">Majestik Magik</p>
