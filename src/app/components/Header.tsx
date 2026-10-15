@@ -156,7 +156,8 @@ const Header: React.FC<HeaderProps> = ({
     >
       <div className="w-full px-6 py-4 flex justify-between items-center">
         <button
-          onClick={() => {
+          onClick={(e) => {
+            handleLogoClick();
             const el = document.getElementById('home');
             if (el) {
               const start = window.scrollY;
@@ -176,7 +177,6 @@ const Header: React.FC<HeaderProps> = ({
           className="flex items-center space-x-3 text-lg font-bold font-mono uppercase tracking-wider text-slate-100 cursor-pointer"
           aria-label="Majestik Magik Home"
           type="button"
-          onClick={handleLogoClick}
         >
           <span className="relative flex-shrink-0">
             {/* glow bloom — sits behind the image */}
