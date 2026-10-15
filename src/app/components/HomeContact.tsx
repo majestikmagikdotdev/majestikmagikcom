@@ -50,8 +50,7 @@ export default function HomeContact() {
   return (
     <div id="contact" className="w-full px-4 md:px-6 py-20 md:py-28 border-t border-[#2a2a3a]">
 
-      <div className="max-w-2xl mx-auto mb-10 text-center">
-        <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#404050] mb-5">Work with us</p>
+      <div className="max-w-2xl mx-auto mb-10">
         <h2
           className="text-4xl sm:text-5xl font-black text-[#f0f0f0] mb-4"
           style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
@@ -60,7 +59,7 @@ export default function HomeContact() {
           <br />
           <span className="text-[#404050]">Tell us about it.</span>
         </h2>
-        <p className="text-sm text-[#a0a0b0] leading-relaxed"> If it&apos;s a good fit, we&apos;ll get back to you within 24 hours.
+        <p className="text-sm text-[#a0a0b0] leading-relaxed">If it&apos;s a good fit, we&apos;ll get back to you within 24 hours.
         </p>
       </div>
 
@@ -69,7 +68,7 @@ export default function HomeContact() {
         <form onSubmit={handleSubmit} className="space-y-5">
           {submitStatus === 'success' && (
             <div className="p-4 bg-emerald-950/40 border border-emerald-500/40 rounded-lg">
-              <p className="text-sm font-semibold text-emerald-300">✓ Request received — we&apos;ll be in touch within 24 hours.</p>
+              <p className="text-sm font-semibold text-emerald-300">✓ Request received. We&apos;ll be in touch within 24 hours.</p>
             </div>
           )}
           {submitStatus === 'error' && (
@@ -97,7 +96,7 @@ export default function HomeContact() {
 
           <div>
             <label className="block text-xs font-mono font-bold uppercase tracking-wide text-[#606070] mb-2">
-              Attach Documents <span className="normal-case font-normal text-[#404050]">(PDF only, max 5MB — optional)</span>
+              Attach Documents <span className="normal-case font-normal text-[#404050]">(PDF only, max 5MB, optional)</span>
             </label>
             <label htmlFor="home-attachment" className="flex items-center gap-3 w-full px-4 py-3 bg-[#0e0e1a] border border-dashed border-[#2a2a3a] hover:border-indigo-500/50 rounded-lg cursor-pointer transition-colors">
               <svg className="w-4 h-4 text-[#404050]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -137,7 +136,7 @@ export default function HomeContact() {
           <button
             type="submit"
             disabled={isSubmitting || submitStatus === 'success' || !acknowledgedPolicy}
-            className="w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-500 disabled:bg-[#2a2a3a] disabled:cursor-not-allowed text-white font-mono text-sm font-bold uppercase tracking-wide rounded-lg transition-all duration-200 cursor-pointer"
+            className="btn-premium w-full py-3 px-6 text-white font-mono text-sm font-bold uppercase tracking-wide rounded-lg cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none disabled:bg-[#2a2a3a]"
           >
             {isSubmitting ? 'Sending...' : submitStatus === 'success' ? '✓ Request Sent' : !acknowledgedPolicy ? 'Acknowledge Policy to Continue' : 'Send My Request'}
           </button>

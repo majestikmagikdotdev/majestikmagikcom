@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
-import { XMarkIcon, MagicWandIcon } from './Icons'; // Assuming Icons.tsx exists and exports these
+import { XMarkIcon } from './Icons';
 
 interface ChatMessage {
   id: string;
@@ -37,27 +36,20 @@ const Chatbot: React.FC<ChatbotProps> = ({
 }) => {
   return (
     <>
-      {/* Floating Chat Trigger with Pulsing Aurora Ring */}
+      {/* Floating Chat Trigger */}
       <button
         onClick={handleToggleChat}
-        className="fixed bottom-6 right-6 border-2 border-indigo-300/10 bg-indigo-400/10 hover:bg-indigo-500/30 text-indigo-400 p-3 rounded-full transform hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-[#181818]"
-        aria-label={isChatOpen ? "Close chat" : "Open chat assistant"}
+        className="fixed bottom-6 right-6 bg-[#111120] border border-[#2a2a3a] hover:border-indigo-500/40 text-indigo-400 hover:text-indigo-300 p-3 rounded-full active:scale-95 transition-all duration-200 cursor-pointer z-50 focus:outline-none focus:ring-1 focus:ring-indigo-500/50"
+        aria-label={isChatOpen ? "Close chat" : "Open chat"}
         type="button"
       >
-        <div className="relative w-8 h-8 flex items-center justify-center">
-          {isChatOpen ? (
-            <XMarkIcon className="w-7 h-7 transform rotate-0 hover:rotate-90 transition-transform duration-300" />
-          ) : (
-            <Image 
-              src="/img/headphones-with-microphone.svg" 
-              alt="Support icon" 
-              className="w-7 h-7" style={{ filter: 'invert(58%) sepia(60%) saturate(500%) hue-rotate(200deg) brightness(100%)' }} 
-              loading="lazy"
-              width={28}
-              height={28} 
-            />
-          )}
-        </div>
+        {isChatOpen ? (
+          <XMarkIcon className="w-5 h-5" />
+        ) : (
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+          </svg>
+        )}
       </button>
 
       {/* Main Chat Assistant Dialog */}
@@ -70,18 +62,18 @@ const Chatbot: React.FC<ChatbotProps> = ({
         aria-labelledby="chat-assistant-heading"
       >
         {/* Chat Header */}
-        <div className="flex items-center justify-between p-4 border-b border-[#2a2a3a] bg-[#111120]">
-          <h3 id="chat-assistant-heading" className="flex items-center text-sm font-bold tracking-wide text-[#f0f0f0] uppercase font-mono">
-            <MagicWandIcon className="w-5 h-5 mr-2 text-indigo-400 animate-pulse" />
-            Majestik Magik AI Assistant
-          </h3>
+        <div className="flex items-center justify-between px-4 py-3 border-b border-[#1e1e2e]">
+          <div>
+            <p id="chat-assistant-heading" className="text-sm font-semibold text-[#f0f0f0]">Got a question?</p>
+            <p className="text-[11px] text-[#404050] mt-0.5">Usually replies in a few seconds.</p>
+          </div>
           <button
             onClick={handleToggleChat}
-            className="transition-colors text-[#a0a0b0] hover:text-[#f0f0f0] p-1 rounded-lg hover:bg-white/5"
-            aria-label="Close chat window"
+            className="transition-colors text-[#404050] hover:text-[#a0a0b0] p-1 rounded-lg hover:bg-white/5"
+            aria-label="Close chat"
             type="button"
           >
-            <XMarkIcon className="cursor-pointer w-5 h-5" />
+            <XMarkIcon className="cursor-pointer w-4 h-4" />
           </button>
         </div>
 
@@ -93,10 +85,10 @@ const Chatbot: React.FC<ChatbotProps> = ({
               className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div
-                className={`max-w-[85%] p-3 rounded-2xl text-xs md:text-sm leading-relaxed tracking-wide shadow-sm
+                className={`max-w-[85%] p-3 rounded-2xl text-xs md:text-sm leading-relaxed shadow-sm
                     ${msg.sender === 'user'
-                    ? 'bg-indigo-600 text-white rounded-br-none border border-indigo-500/30 font-mono'
-                    : 'bg-[#111120] text-[#a0a0b0] rounded-bl-none border border-[#2a2a3a] font-mono'
+                    ? 'bg-indigo-600 text-white rounded-br-none border border-indigo-500/30 font-mono tracking-wide'
+                    : 'bg-[#111120] text-[#a0a0b0] rounded-bl-none border border-[#1e1e2e]'
                   }`}
               >
                 {msg.text}
@@ -130,7 +122,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
         )}
 
         {/* Privacy Notice */}
-        <div className="px-4 py-2 text-[10px] text-center text-[#606070] bg-[#111120] border-t border-[#2a2a3a] font-mono">
+        <div className="px-4 py-2 text-[10px] text-center text-[#404050] border-t border-[#1e1e2e]">
           By utilizing chat, you consent to our{' '}
           <button
             onClick={() => window.open('/privacy-policy', '_blank')}
@@ -160,13 +152,9 @@ const Chatbot: React.FC<ChatbotProps> = ({
             className="cursor-pointer p-2.5 text-white transition-all duration-300 rounded-xl shadow-md bg-indigo-600 hover:bg-indigo-500 disabled:bg-[#1a1a2a] disabled:text-[#404050] disabled:cursor-not-allowed flex items-center justify-center border border-indigo-500/10"
             aria-label="Send chat message"
           >
-            <Image 
-              src="/img/paperplane.svg" 
-              className="w-4 h-4 filter brightness-0 invert" 
-              alt="Send message" 
-              width={16} 
-              height={16} 
-            />
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+            </svg>
           </button>
         </form>
       </div>

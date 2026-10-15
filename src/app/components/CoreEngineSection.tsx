@@ -199,7 +199,7 @@ export const CoreEngineSection = () => {
           </p>
 
           <p style={{ color: "#64748b", fontSize: "14px", lineHeight: "1.6", marginBottom: "28px" }}>
-            While the full Majestik Core AI engine framework is being built, our specialized microservices are rolling out today—starting with specialized SEO & Performance audit endpoints on RapidAPI.
+            While the full Majestik Core AI engine framework is being built, our specialized microservices are rolling out today. Starting with specialized SEO & Performance audit endpoints on RapidAPI.
           </p>
 
           {/* Live Feature API Card */}

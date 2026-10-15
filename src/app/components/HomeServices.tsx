@@ -84,7 +84,7 @@ function OfflineMockup() {
     <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono">
       <div className="flex items-center gap-1.5">
         <span className="w-1 h-1 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 5px #34d399' }} />
-        <span className="text-[10px] text-[#404050]">OFFLINE — SQLite Engine</span>
+        <span className="text-[10px] text-[#404050]">OFFLINE. SQLite Engine.</span>
       </div>
       <div className="space-y-1">
         {ops.map((op, i) => (
@@ -103,26 +103,32 @@ function OfflineMockup() {
 
 function AppMockup() {
   const { ref, triggered } = useInView();
-  const [users, setUsers] = useState(0);
-  useEffect(() => {
-    if (!triggered) return;
-    const target = 1284;
-    const inc = Math.ceil(target / 75);
-    const id = setInterval(() => setUsers(n => { const v = n + inc; if (v >= target) { clearInterval(id); return target; } return v; }), 16);
-    return () => clearInterval(id);
-  }, [triggered]);
+  const events = [
+    { time: '09:14', msg: 'Stripe webhook received', status: 'ok' },
+    { time: '09:14', msg: 'Subscription activated', status: 'ok' },
+    { time: '09:15', msg: 'Welcome email queued', status: 'ok' },
+    { time: '09:15', msg: 'Slack notification sent', status: 'ok' },
+  ];
   return (
-    <div ref={ref} className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex items-center justify-around font-mono">
-      {[
-        { val: users.toLocaleString(), label: 'ACTIVE USERS', color: 'text-violet-400' },
-        { val: '99.98%', label: 'UPTIME', color: 'text-emerald-400' },
-        { val: '12ms', label: 'LATENCY', color: 'text-indigo-400' },
-      ].map(({ val, label, color }) => (
-        <div key={label} className="flex flex-col items-center gap-1">
-          <span className={`${color} font-bold text-sm font-mono`}>{val}</span>
-          <span className="text-[9px] text-[#404050] tracking-widest">{label}</span>
-        </div>
-      ))}
+    <div ref={ref} className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono overflow-hidden">
+      <div className="flex items-center gap-1.5 mb-1">
+        <span className="w-1 h-1 rounded-full bg-violet-400" style={{ boxShadow: '0 0 4px #a78bfa' }} />
+        <span className="text-[10px] text-[#404050]">event log</span>
+      </div>
+      <div className="space-y-1">
+        {events.map((e, i) => (
+          <div
+            key={e.msg}
+            className="flex items-center gap-2 text-[10px] transition-opacity duration-700"
+            style={{ opacity: triggered ? 1 : 0, transitionDelay: `${i * 150}ms` }}
+          >
+            <span className="text-[#404050] flex-shrink-0">{e.time}</span>
+            <span className="text-violet-400/60">›</span>
+            <span className="text-[#606070] truncate">{e.msg}</span>
+            <span className="ml-auto text-emerald-400 flex-shrink-0">✓</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -213,7 +219,6 @@ export default function HomeServices() {
 
         {/* Header */}
         <div className="mb-16">
-          <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#404050] mb-5">Services</p>
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}

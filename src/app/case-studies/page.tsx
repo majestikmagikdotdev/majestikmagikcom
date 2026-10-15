@@ -36,11 +36,11 @@ const storyHighlights: Record<string, string> = {
 };
 
 const testimonials: Record<string, { quote: string; author: string; role?: string }> = {
-  'middleman-motors': { quote: 'Majestik Magik took our stalled site and made it launch-ready — reliable, fast, and polished for our customers.', author: 'Owner, Middleman Motors' },
+  'middleman-motors': { quote: 'Majestik Magik took our stalled site and made it launch-ready. Reliable, fast, and polished for our customers.', author: 'Owner, Middleman Motors' },
   'cearco-chemicals': { quote: 'They rebuilt our site with commerce in mind and gave us a foundation to sell products online when we were ready.', author: 'CEO, CEARCO Chemicals' },
-  'noel-customs': { quote: 'Fixed our Shopify emails and invoices so customers always receive clear receipts — a huge reduction in support requests.', author: 'Noel, Noel Customs' },
-  'parris-gainer': { quote: 'The custom WordPress theme made managing my book content simple — now I have a central hub to share my message.', author: 'Parris Gainer', role: 'Author & Advocate' },
-  'jamil-cleaning-app': { quote: 'Built this booking app as a side project and used it to run my own cleaning business — practical and dependable.', author: 'Jamil' },
+  'noel-customs': { quote: 'Fixed our Shopify emails and invoices so customers always receive clear receipts. A huge reduction in support requests.', author: 'Noel, Noel Customs' },
+  'parris-gainer': { quote: 'The custom WordPress theme made managing my book content simple. Now I have a central hub to share my message.', author: 'Parris Gainer', role: 'Author & Advocate' },
+  'jamil-cleaning-app': { quote: 'Built this booking app as a side project and used it to run my own cleaning business. Practical and dependable.', author: 'Jamil' },
 };
 
 export default function CaseStudies() {
@@ -176,7 +176,7 @@ export default function CaseStudies() {
                       &ldquo;{testimonials[project.id].quote}&rdquo;
                     </blockquote>
                     <p className="text-xs font-mono mt-3" style={{ color: '#606070' }}>
-                      — {testimonials[project.id].author}{testimonials[project.id].role ? `, ${testimonials[project.id].role}` : ''}
+                      {testimonials[project.id].author}{testimonials[project.id].role ? `, ${testimonials[project.id].role}` : ''}
                     </p>
                   </div>
                 )}

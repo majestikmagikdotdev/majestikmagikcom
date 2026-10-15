@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import MagikLogo from './MagikLogo';
 import Link from 'next/link';
 import { Bars3Icon, XMarkIcon } from './Icons';
 
@@ -184,25 +185,20 @@ const Header: React.FC<HeaderProps> = ({
               aria-hidden
               className="absolute inset-0 rounded-full"
               style={{
-                background: 'radial-gradient(circle, rgba(99,102,241,0.9) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(99,102,241,1) 0%, rgba(139,92,246,0.4) 50%, transparent 75%)',
                 animation: logoGlowBreath
                   ? 'logo-glow-breathe 3s ease-in-out infinite'
                   : logoReady ? 'logo-glow-bloom 700ms ease-out forwards' : 'none',
               }}
             />
-            <Image
-              src="/img/majestikmagik_logo_indigo-64x64.webp"
-              alt="Majestik Magik Logo"
-              width={32}
-              height={32}
-              sizes="32px"
-              className="relative w-8 h-8 opacity-90 rounded-md"
+            <MagikLogo
+              className="relative w-8 h-8"
               style={{
                 animation: logoSpin
                   ? 'logo-spin 700ms cubic-bezier(0.34,1.56,0.64,1) forwards'
                   : logoReady ? 'logo-stamp 600ms cubic-bezier(0.34,1.56,0.64,1) forwards' : 'none',
                 opacity: logoSpin ? 1 : 0,
-                filter: halloween ? 'hue-rotate(200deg) saturate(2)' : 'none',
+                color: halloween ? '#22c55e' : '#6366f1',
               }}
             />
           </span>
@@ -454,7 +450,7 @@ const Header: React.FC<HeaderProps> = ({
         <div className="hidden xl:flex items-center">
           <Link
             href="/#contact"
-            className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 hover:px-7 transition-all duration-200 rounded-full px-5 py-2 cursor-pointer font-bold border border-indigo-400/30"
+            className="btn-premium inline-flex items-center gap-2 font-mono uppercase tracking-wider text-sm text-white rounded-full px-5 py-2 cursor-pointer font-bold"
             onClick={(e) => handleNavClick(e, { name: 'Contact', url: '/#contact' })}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
@@ -621,7 +617,7 @@ const Header: React.FC<HeaderProps> = ({
             <div className="pt-4 border-t border-[#2a2a3a]">
               <Link
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-2 w-full font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-full px-5 py-3 cursor-pointer font-bold border border-indigo-400/30"
+                className="btn-premium inline-flex items-center justify-center gap-2 w-full font-mono uppercase tracking-wider text-sm text-white rounded-full px-5 py-3 cursor-pointer font-bold"
                 onClick={(e) => handleNavClick(e, { name: 'Contact', url: '/#contact' })}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>

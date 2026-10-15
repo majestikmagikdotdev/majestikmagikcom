@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: 'What platforms and frameworks do you work with?',
-    a: 'Next.js, React, TypeScript, WordPress, Shopify, Supabase, PostgreSQL, AWS, Cloudflare, and Stripe — among others.',
+    a: 'Next.js, React, TypeScript, WordPress, Shopify, Supabase, PostgreSQL, AWS, Cloudflare, and Stripe, among others.',
   },
   {
     q: 'How do I get started?',

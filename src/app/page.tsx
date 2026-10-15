@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import HomeHero from './components/HomeHero';
+import ClientMarquee from './components/ClientMarquee';
 import HomeServices from './components/HomeServices';
 import WhyUsStatement from './components/WhyUsStatement';
 import ProcessSection from './components/ProcessSection';
@@ -142,6 +143,7 @@ export default function App() {
         className="relative z-10"
       >
         <HomeHero />
+        <ClientMarquee />
         <OfflineDemoSection />
         <NodePipelineSection />
         <ESignCanvas />

@@ -89,7 +89,6 @@ export default function HomePricing() {
 
         {/* Header */}
         <div className="mb-14">
-          <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#404050] mb-5">Fixed-Price Services</p>
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
@@ -150,7 +149,7 @@ export default function HomePricing() {
           ))}
         </div>
 
-        <p className="mt-6 text-[11px] font-mono text-[#303040] text-center">
+        <p className="mt-6 text-[11px] font-mono text-[#303040]">
           Need something not listed?{' '}
           <button
             onClick={() => window.dispatchEvent(new CustomEvent('app:scroll-to', { detail: 'contact' }))}

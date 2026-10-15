@@ -82,7 +82,7 @@ const JamilMathenyPage = () => {
             </div>
 
             <p>
-              He grew up in Virginia, got his first taste of hardware from a neighbor who worked in IT, and taught himself to code through Myspace and Yahoo Geocities. That&apos;s not a joke — that&apos;s actually how a lot of good developers got started.
+              He grew up in Virginia, got his first taste of hardware from a neighbor who worked in IT, and taught himself to code through Myspace and Yahoo Geocities. That&apos;s not a joke. That&apos;s actually how a lot of good developers got started.
             </p>
 
             <div className="flex flex-col md:flex-row-reverse gap-8 items-start">

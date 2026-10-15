@@ -22,7 +22,7 @@ const testimonials: Testimonial[] = [
   },
   {
     name: 'Dr. Parris Gainer',
-    testimonial: 'Majestik Magik didn\u2019t just build a website \u2014 they built a platform that empowers my voice and mission.',
+    testimonial: 'Majestik Magik didn\u2019t just build a website. They built a platform that empowers my voice and mission.',
     stars: 5,
     source: 'Verified Client',
     location: 'Richmond, VA',
@@ -43,14 +43,13 @@ export default function TestimonialsSection() {
 
         {/* Header */}
         <div className="mb-14">
-          <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#404050] mb-5">Don&apos;t take our word for it</p>
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
           >
-            Real clients.
+            What clients
             <br />
-            <span className="text-[#404050]">Real results.</span>
+            <span className="text-[#404050]">actually said.</span>
           </h2>
         </div>
 

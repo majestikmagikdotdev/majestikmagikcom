@@ -114,7 +114,7 @@ export default function ESignCanvas() {
             </span>
           </h2>
           <p className="mt-3 text-sm text-[#a0a0b0] max-w-lg">
-            Draw your signature below with your mouse or finger. Watch the live metadata render in real time — coordinates, timestamp, device hash, audit status.
+            Draw your signature below with your mouse or finger. Watch the live metadata render in real time: coordinates, timestamp, device hash, audit status.
           </p>
         </div>
 
@@ -218,7 +218,7 @@ export default function ESignCanvas() {
               <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${locked ? 'bg-emerald-400' : 'bg-[#404050]'}`}
                 style={locked ? { boxShadow: '0 0 6px #34d399' } : {}} />
               {locked
-                ? 'Cryptographic proof generated — legally binding e-signature'
+                ? 'Cryptographic proof generated. Legally binding e-signature.'
                 : 'Sign and lock to generate cryptographic proof of execution'}
             </div>
           </div>

@@ -13,7 +13,7 @@ const STEPS = [
     number: '02',
     phase: 'Weeks 1–2',
     title: 'We build it',
-    desc: 'Full-stack architecture, database design, API integrations, core features. You see progress as it happens — not just at the end.',
+    desc: 'Full-stack architecture, database design, API integrations, core features. You see progress as it happens. Not just at the end.',
     color: 'violet',
   },
   {
@@ -27,7 +27,7 @@ const STEPS = [
     number: '04',
     phase: 'Launch & Beyond',
     title: 'It goes live. You own it.',
-    desc: 'Production deployment, custom domain setup, full codebase handoff. It\'s yours — docs, IP, everything. We stick around if you need us.',
+    desc: 'Production deployment, custom domain setup, full codebase handoff. It\'s yours. Docs, IP, everything. We stick around if you need us.',
     color: 'emerald',
   },
 ];
@@ -67,7 +67,6 @@ export default function ProcessSection() {
 
         {/* Header */}
         <div className="mb-16">
-          <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#404050] mb-5">How it works</p>
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}

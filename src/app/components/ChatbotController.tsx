@@ -64,7 +64,7 @@ export default function ChatbotController() {
       if (chatMessages.length === 0) {
         setChatMessages([{
           id: Date.now().toString(),
-          text: "Hello! I'm Majestik Magik's AI Assistant. How can I help you today?",
+          text: "Hey, what can I help you with?",
           sender: 'ai',
         }]);
       }
@@ -120,12 +120,12 @@ export default function ChatbotController() {
       {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-24 right-6 border-2 border-indigo-300/10 bg-indigo-400/10 hover:bg-indigo-500/30 text-indigo-400 p-4 rounded-full transform hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-[#07080e]
+        className={`fixed bottom-6 left-6 bg-[#111120] border border-[#2a2a3a] hover:border-indigo-500/40 text-[#606070] hover:text-indigo-300 p-3 rounded-full active:scale-95 transition-all duration-200 cursor-pointer z-50 focus:outline-none focus:ring-1 focus:ring-indigo-500/50
           ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
         aria-label="Back to top"
         type="button"
       >
-        <ArrowUpIcon className="w-6 h-6" />
+        <ArrowUpIcon className="w-5 h-5" />
       </button>
 
       {/* Chatbot Component */}

@@ -110,7 +110,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
         {/* Links Grid */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 justify-items-stretch">
           <div className="flex flex-col items-start space-y-4">
-            <h3 className="text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">Quick Links</h3>
+            <h3 className="text-xs font-mono text-[#404050] mb-1">Pages</h3>
             <ul className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm w-full" suppressHydrationWarning>
               <li><a href="/privacy-policy" className="text-[#a0a0b0] hover:text-indigo-300 transition-colors py-1 block font-mono text-sm">Privacy Policy</a></li>
               <li><a href="/terms-of-service" className="text-[#a0a0b0] hover:text-indigo-300 transition-colors py-1 block font-mono text-sm">Terms of Service</a></li>
@@ -125,7 +125,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
 
           <div className="flex flex-col items-start space-y-6">
             <div>
-              <h3 className="mb-3 text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">Social Links</h3>
+              <h3 className="mb-3 text-xs font-mono text-[#404050]">Find us</h3>
               <ul className="space-x-5 flex items-center text-lg text-[#606070]">
                 <li><a href="https://www.facebook.com/majestikmagik/" target="_blank" rel="noopener noreferrer" aria-label="Visit Majestik Magik on Facebook" className="hover:text-indigo-400 transition-colors"><FacebookIcon /></a></li>
                 <li><a href="https://www.instagram.com/majestikmagik/" target="_blank" rel="noopener noreferrer" aria-label="Visit Majestik Magik on Instagram" className="hover:text-indigo-400 transition-colors"><InstagramIcon /></a></li>
@@ -135,7 +135,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
             </div>
 
             <div className="w-full border-t border-[#2a2a3a] pt-6">
-              <h3 className="mb-4 text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase">Hardware & Platform Partners</h3>
+              <h3 className="mb-4 text-xs font-mono text-[#404050]">Partners</h3>
               <ul className="flex flex-wrap items-center gap-10 opacity-40 hover:opacity-75 transition-opacity duration-300">
                 <li>
                   <Image
@@ -187,7 +187,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
               </div>
 
               <div className="mt-2 text-[11px] leading-relaxed text-[#606070] italic">
-                “Majestik Magik didn’t just build a website - they built a platform that empowers my voice and mission.” <span className="text-[#606070] not-italic font-sans block mt-0.5">– Dr. Parris Gainer</span>
+                &ldquo;Majestik Magik didn&apos;t just build a website. They built a platform that empowers my voice and mission.&rdquo; <span className="text-[#606070] not-italic font-sans block mt-0.5">&ndash; Dr. Parris Gainer</span>
               </div>
             </div>
           )}

@@ -8,7 +8,7 @@ const BUDGET_OPTIONS = [
   '$25,000 – $50,000',
   '$50,000 – $100,000',
   '$100,000+',
-  'Not sure yet — need scoping',
+  'Not sure yet, need scoping',
 ];
 
 const PROJECT_TYPES = [
@@ -164,7 +164,7 @@ export default function StartAProjectPage() {
             </span>
           </h1>
           <p className="text-[#a0a0b0] text-base">
-            This form is for large custom builds with a minimum budget of $10,000. Fill out as much as you can — the more detail you provide, the faster we can scope and respond.
+            This form is for large custom builds with a minimum budget of $10,000. Fill out as much as you can. The more detail you provide, the faster we can scope and respond.
           </p>
 
           {/* Pre-qual notice */}
@@ -307,7 +307,7 @@ export default function StartAProjectPage() {
               <div>
                 <label htmlFor="sap-attachment" className={labelClass}>
                   Attach Documents{' '}
-                  <span className="normal-case font-normal text-[#606070]">(PDF only, max 5MB each — optional)</span>
+                  <span className="normal-case font-normal text-[#606070]">(PDF only, max 5MB each, optional)</span>
                 </label>
                 <label htmlFor="sap-attachment" className="flex items-center gap-3 w-full px-4 py-3 bg-[#0e0e1a] border border-dashed border-[#2a2a3a] hover:border-indigo-500 rounded-lg cursor-pointer transition-colors group">
                   <svg className="w-5 h-5 text-[#606070] group-hover:text-indigo-400 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

@@ -9,7 +9,7 @@ function SyncAnimation() {
       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping flex-shrink-0" style={{ boxShadow: '0 0 8px #34d399' }} />
       <div className="flex-1">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-xs font-mono text-emerald-400">AWS Encrypted Vault — Syncing</span>
+          <span className="text-xs font-mono text-emerald-400">AWS Encrypted Vault. Syncing.</span>
           <span className="text-xs font-mono text-emerald-300">TLS 1.3</span>
         </div>
         <div className="h-1 w-full bg-[#1a1a2a] rounded-full overflow-hidden">
@@ -95,7 +95,7 @@ export default function OfflineDemoSection() {
             >
               <span className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${offline ? 'bg-red-400' : 'bg-emerald-400 animate-pulse'}`}
                 style={{ boxShadow: offline ? '0 0 8px #f87171' : '0 0 8px #34d399' }} />
-              {offline ? 'Cell Tower Outage — Offline' : 'Simulate Offline Mode'}
+              {offline ? 'Cell Tower Outage. Offline.' : 'Simulate Offline Mode'}
               <span className="text-[10px] font-normal normal-case tracking-normal opacity-60">
                 {offline ? '↑ click to restore' : '↓ click to kill signal'}
               </span>
@@ -123,7 +123,7 @@ export default function OfflineDemoSection() {
               <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${offline ? 'bg-red-400' : 'bg-emerald-400 animate-pulse'}`}
                 style={{ boxShadow: offline ? '0 0 6px #f87171' : '0 0 6px #34d399' }} />
               <span className="text-xs font-mono text-[#606070]">
-                {offline ? 'NETWORK: DISCONNECTED — LOCAL ENGINE ACTIVE' : 'NETWORK: CONNECTED — LIVE SYNC ENABLED'}
+                {offline ? 'NETWORK: DISCONNECTED. LOCAL ENGINE ACTIVE' : 'NETWORK: CONNECTED. LIVE SYNC ENABLED'}
               </span>
             </div>
             <div className="hidden sm:flex items-center gap-3 text-[10px] font-mono text-[#404050]">
@@ -139,7 +139,7 @@ export default function OfflineDemoSection() {
             {/* Form */}
             <div>
               <p className="text-xs font-mono text-[#606070] uppercase tracking-widest mb-4">
-                {offline ? '⚡ Local Draft — Stored in IndexedDB' : 'Project Intake Form'}
+                {offline ? '⚡ Local Draft. Stored in IndexedDB.' : 'Project Intake Form'}
               </p>
               <div className="space-y-3">
                 <input className={inputCls} placeholder="Full Name *" value={form.name}
@@ -179,7 +179,7 @@ export default function OfflineDemoSection() {
                   { key: 'company', val: form.company || '—', color: 'text-[#f0f0f0]' },
                   { key: 'scope', val: form.scope || '—', color: 'text-[#f0f0f0]' },
                   { key: 'storage', val: offline ? 'IndexedDB (local)' : 'AWS Encrypted Vault', color: offline ? 'text-emerald-400' : 'text-violet-400' },
-                  { key: 'sync_status', val: synced ? 'SYNCED ✓' : offline ? 'PENDING — queued' : 'LIVE', color: synced ? 'text-emerald-400' : offline ? 'text-amber-400' : 'text-emerald-400' },
+                  { key: 'sync_status', val: synced ? 'SYNCED ✓' : offline ? 'PENDING. Queued.' : 'LIVE', color: synced ? 'text-emerald-400' : offline ? 'text-amber-400' : 'text-emerald-400' },
                   { key: 'encryption', val: 'AES-256-GCM', color: 'text-violet-400' },
                   { key: 'timestamp', val: mounted ? timestamp : '—', color: 'text-[#606070]' },
                 ].map(({ key, val, color }) => (
@@ -196,8 +196,8 @@ export default function OfflineDemoSection() {
               }`}>
                 <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${offline ? 'bg-emerald-400' : 'bg-violet-400 animate-pulse'}`} />
                 {offline
-                  ? 'Local-first engine active — zero data loss guaranteed'
-                  : 'End-to-end encrypted — TLS 1.3 + AES-256-GCM at rest'}
+                  ? 'Local-first engine active. Zero data loss guaranteed.'
+                  : 'End-to-end encrypted. TLS 1.3 + AES-256-GCM at rest.'}
               </div>
             </div>
           </div>

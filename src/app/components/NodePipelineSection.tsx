@@ -10,7 +10,7 @@ const NODES = [
 const FORM_STAGES = [
   {
     label: 'Raw Paper Form',
-    desc: 'Handwritten DMAS intake — unstructured, unsearchable, no audit trail.',
+    desc: 'Handwritten DMAS intake. Unstructured, unsearchable, no audit trail.',
     fields: [
       { k: 'Client Name', v: 'John Smith', style: 'font-["Caveat",cursive] text-[#a0a0b0] italic' },
       { k: 'Date', v: '7 / 14 / 25', style: 'font-["Caveat",cursive] text-[#a0a0b0] italic' },
@@ -21,7 +21,7 @@ const FORM_STAGES = [
   },
   {
     label: 'Digitized Record',
-    desc: 'Structured fields, validated inputs, timestamped entry — ready for processing.',
+    desc: 'Structured fields, validated inputs, timestamped entry. Ready for processing.',
     fields: [
       { k: 'client_name', v: 'John Smith', style: 'font-mono text-[#f0f0f0]' },
       { k: 'created_at', v: '2025-07-14T09:32:11Z', style: 'font-mono text-indigo-300' },
@@ -163,9 +163,9 @@ export default function NodePipelineSection() {
           {activeNode !== null && (
             <div className="relative z-10 mt-6 px-4 py-3 rounded-lg border text-xs font-mono transition-all duration-200"
               style={{ borderColor: NODES[activeNode].color + '40', background: NODES[activeNode].glow + '20', color: NODES[activeNode].color }}>
-              {activeNode === 0 && '⚡ SQLite + SQLCipher — instant local reads/writes, zero network dependency, sub-millisecond latency'}
-              {activeNode === 1 && '📦 IndexedDB offline queue — captures all mutations while disconnected, deduplicates on reconnect'}
-              {activeNode === 2 && '🔐 AWS Encrypted Vault — AES-256-GCM at rest, TLS 1.3 in transit, immutable audit log per record'}
+              {activeNode === 0 && '⚡ SQLite + SQLCipher: instant local reads/writes, zero network dependency, sub-millisecond latency'}
+              {activeNode === 1 && '📦 IndexedDB offline queue: captures all mutations while disconnected, deduplicates on reconnect'}
+              {activeNode === 2 && '🔐 AWS Encrypted Vault: AES-256-GCM at rest, TLS 1.3 in transit, immutable audit log per record'}
             </div>
           )}
         </div>
@@ -173,7 +173,7 @@ export default function NodePipelineSection() {
         {/* Form Morphing Slider */}
         <div className="rounded-2xl border border-[#2a2a3a] bg-[#0e0e1a] p-6 md:p-8">
           <div className="flex items-center justify-between mb-6">
-            <p className="text-xs font-mono text-[#606070] uppercase tracking-widest">Form Architecture — Scrub to Transform</p>
+            <p className="text-xs font-mono text-[#606070] uppercase tracking-widest">Form Architecture. Scrub to Transform.</p>
             <span className={`text-xs font-mono px-2 py-0.5 rounded border ${s.badge.color}`}>{s.badge.text}</span>
           </div>
 

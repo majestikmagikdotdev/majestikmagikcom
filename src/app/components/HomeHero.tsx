@@ -10,19 +10,15 @@ const TRUST_CHIPS = [
 
 export default function HomeHero() {
   return (
-    <div id="home" className="relative flex flex-col items-center justify-center text-center px-4 pt-26 sm:pt-30 md:pt-34 pb-24 md:pb-26">
+    <div id="home" className="relative flex flex-col items-start px-4 md:px-6 pt-26 sm:pt-30 md:pt-34 pb-24 md:pb-26 max-w-7xl mx-auto w-full">
 
-      {/* Mouse-tracked glow handled globally in page.tsx */}
-
-      {/* Status badge */}
-      <div className="relative z-10 mb-8 inline-flex items-center gap-2.5 rounded-full border border-[#2a2a3a] bg-[#111120]/80 px-4 py-1.5 backdrop-blur-sm">
+      {/* Availability indicator */}
+      <div className="relative z-10 mb-8 inline-flex items-center gap-2.5">
         <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
           <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 6px #34d399' }} />
         </span>
-        <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#606070]">
-          Taking new projects
-        </span>
+        <span className="text-xs text-[#606070]">Taking new projects</span>
       </div>
 
       {/* H1 */}
@@ -51,10 +47,10 @@ export default function HomeHero() {
       </p>
 
       {/* CTAs */}
-      <div className="relative z-10 flex flex-col sm:flex-row items-center gap-3 mb-16">
+      <div className="relative z-10 flex flex-col sm:flex-row items-start gap-3 mb-16">
         <Link
           href="/start-a-project"
-          className="group inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all duration-200 border border-indigo-500/50"
+          className="btn-premium group inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full text-white font-bold"
         >
           Let&apos;s build something
           <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
@@ -68,7 +64,7 @@ export default function HomeHero() {
       </div>
 
       {/* Trust chips */}
-      <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2">
+      <div className="relative z-10 flex flex-col sm:flex-row items-start gap-2">
         {TRUST_CHIPS.map(({ color, label }) => (
           <div
             key={label}
