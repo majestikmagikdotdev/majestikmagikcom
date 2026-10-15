@@ -26,6 +26,17 @@
     transform: none;
     transition: none;
   }
+  .spin-ring,
+  .scrolling-logos-container,
+  .scrolling-logos-container-services,
+  .team-card-hover-animate,
+  .services-card-hover-animate,
+  .animate-gradient-x,
+  .animate-flash,
+  .terminal-cursor-blink {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* ─── Spinning gradient border ─────────────────────────────────────────────── */

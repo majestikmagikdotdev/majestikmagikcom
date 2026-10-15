@@ -213,7 +213,37 @@ const TRACK = [...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS];
 
 ---
 
-## 8. Scroll-Driven Reveal Animations
+## 8. Accessibility: `prefers-reduced-motion`
+
+Some people turn off animations in their OS settings because motion genuinely triggers nausea or vestibular disorders. Most sites ignore that setting entirely. Don't.
+
+Wrap every animation class in a `prefers-reduced-motion: reduce` media query and switch them off. Five seconds of work.
+
+### The rule
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  .your-animated-class {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+```
+
+### What to cover
+
+- All CSS animation classes: marquee, spin-ring, flash, blink, gradient-x, hover effects.
+- Scroll-reveal classes: `.reveal`, `.reveal-fade` — set `opacity: 1`, `transform: none`, `transition: none`.
+- Any JS-driven transforms (e.g. sticky card scale in `HomeServices`) — guard with `window.matchMedia('(prefers-reduced-motion: reduce)').matches` before applying `el.style.transform`.
+
+### What not to do
+
+- Don't just slow the animation down. Stop it entirely.
+- Don't forget JS-driven motion. CSS media queries don't cover `el.style.transform` set in a scroll handler.
+
+---
+
+## 9. Scroll-Driven Reveal Animations
 
 Driven by a single global IntersectionObserver in `MainLayout.tsx`. Firefox and Safari don't support `animation-timeline: view()`, so IO is used for universal compatibility.
 
@@ -262,7 +292,7 @@ Add `reveal` to any element that should fade+slide in on scroll. Add `reveal-fad
 
 ---
 
-## 9. Spinning Gradient Border
+## 10. Spinning Gradient Border
 
 You can't animate a gradient directly. The trick is `@property` — register a custom `--angle` property with a typed syntax so the browser treats it as an animatable number, then feed it into a `conic-gradient`.
 
