@@ -107,7 +107,10 @@ const TeamSection: React.FC = () => {
               loading="lazy"
             />
             Meet the{' '}
-            <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-200 to-white">
+            <span
+              className="ml-2 text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #c7d2fe, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+            >
               Founder
             </span>
           </h2>

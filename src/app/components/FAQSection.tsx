@@ -54,7 +54,10 @@ const FAQSection: React.FC = () => {
           </span>
           <h2 id="faq-heading" className="text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl font-bold text-slate-100 tracking-tight mb-3" style={{ letterSpacing: '-0.06em' }}>
             Frequently Asked{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-slate-300">
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #cbd5e1, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+            >
               Questions
             </span>
           </h2>

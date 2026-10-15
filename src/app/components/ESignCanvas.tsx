@@ -106,7 +106,10 @@ export default function ESignCanvas() {
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-[#f0f0f0] tracking-tight" style={{ letterSpacing: '-0.03em' }}>
             Sign It.{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-teal-400 to-emerald-400">
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #2dd4bf, #34d399, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+            >
               Lock It. Prove It.
             </span>
           </h2>

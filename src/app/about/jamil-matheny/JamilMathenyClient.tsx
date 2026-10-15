@@ -43,7 +43,10 @@ const JamilMathenyPage = () => {
             style={{ letterSpacing: '-0.09em', color: '#f0f0f0' }}
           >
             Jamil{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-white">
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #a78bfa, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+            >
               Matheny
             </span>
           </h1>

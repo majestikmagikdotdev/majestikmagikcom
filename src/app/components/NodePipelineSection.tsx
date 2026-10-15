@@ -68,7 +68,10 @@ export default function NodePipelineSection() {
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-[#f0f0f0] tracking-tight" style={{ letterSpacing: '-0.03em' }}>
             From Paper to{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-400">
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(90deg, #a78bfa, #818cf8, #a78bfa)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+            >
               Encrypted Record.
             </span>
           </h2>

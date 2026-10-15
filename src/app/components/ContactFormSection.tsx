@@ -99,7 +99,10 @@ export default function ContactFormSection({
             {title.includes('Great Together') ? (
               <>
                 {title.replace('Great Together', '')}
-                <span className="bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 bg-clip-text text-transparent">Great Together</span>
+                <span
+                  className="bg-clip-text text-transparent"
+                  style={{ backgroundImage: 'linear-gradient(90deg, #a5b4fc, #818cf8, #6366f1, #a5b4fc)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+                >Great Together</span>
               </>
             ) : (
               title

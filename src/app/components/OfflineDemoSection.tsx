@@ -71,7 +71,10 @@ export default function OfflineDemoSection() {
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-[#f0f0f0] tracking-tight" style={{ letterSpacing: '-0.03em' }}>
               Still works when{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-indigo-400">
+              <span
+                className="text-transparent bg-clip-text"
+                style={{ backgroundImage: 'linear-gradient(90deg, #34d399, #818cf8, #34d399)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+              >
                 the WiFi goes out.
               </span>
             </h2>

@@ -270,7 +270,10 @@ const ServicesSection: React.FC = () => {
             style={{ letterSpacing: '-0.04em' }}
           >
             Everything you need{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-indigo-200 to-white">
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #c7d2fe, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+            >
               to ship.
             </span>
           </h2>
