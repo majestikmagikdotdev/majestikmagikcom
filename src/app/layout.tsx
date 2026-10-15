@@ -434,7 +434,7 @@ export default function RootLayout({
                       "name": "What are your support hours?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Standard support is Monday–Friday, 9am–5pm ET. We offer premium/after-hours support plans for teams that need extended coverage."
+                        "text": "24/7. If something breaks, reach out."
                       }
                     },
                     {

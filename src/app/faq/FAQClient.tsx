@@ -102,7 +102,7 @@ const faqs = [
   },
   {
     question: 'What are your support hours?',
-    answer: 'Monday through Friday, 9am to 5pm ET. Premium after-hours plans available for teams that need extended coverage.',
+    answer: '24/7. If something breaks, reach out.',
   },
   {
     question: 'Can you help with branding?',
