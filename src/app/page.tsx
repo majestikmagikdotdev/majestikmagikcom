@@ -149,7 +149,7 @@ export default function App() {
         <HomeServices />
         <TestimonialsSection />
         {/* Demo block intro */}
-        <div className="reveal w-full px-4 md:px-6 pt-20 md:pt-28 pb-2 max-w-7xl mx-auto">
+        <div className="reveal w-full pb-2 max-w-7xl mx-auto">
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}

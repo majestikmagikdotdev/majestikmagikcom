@@ -51,7 +51,7 @@ export default function HomeHero() {
           href="/start-a-project"
           className="btn-premium group inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full text-white font-bold"
         >
-          Let&apos;s build something
+          Fix my site
           <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
         </Link>
         <Link

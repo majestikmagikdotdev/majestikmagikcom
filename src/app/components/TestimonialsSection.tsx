@@ -38,7 +38,7 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="w-full px-4 md:px-6 py-20 md:py-32">
+    <section id="testimonials" className="w-full px-4 md:px-6 py-20 md:pt-32 md:pb-16">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
