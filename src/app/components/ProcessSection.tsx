@@ -64,7 +64,7 @@ export default function ProcessSection() {
           <div className="absolute left-[19px] top-6 bottom-6 w-px bg-[#1e1e2e] hidden md:block" />
 
           <div className="flex flex-col gap-0">
-            {STEPS.map((s, i) => {
+            {STEPS.map((s, _i) => {
               const c = colorMap[s.color];
               return (
                 <div

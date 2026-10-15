@@ -98,7 +98,7 @@ function AppMockup() {
         <span className="text-[10px] text-[#404050]">event log</span>
       </div>
       <div className="space-y-1">
-        {events.map((e, i) => (
+        {events.map((e, _i) => (
           <div
             key={e.msg}
             className="flex items-center gap-2 text-[10px]"
