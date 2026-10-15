@@ -88,7 +88,7 @@ export default function HomePricing() {
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="mb-14">
+        <div className="reveal mb-14">
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
@@ -102,11 +102,11 @@ export default function HomePricing() {
         </div>
 
         {/* Service rows */}
-        <div className="border border-[#1e1e2e] rounded-2xl overflow-hidden">
+        <div className="reveal border border-[#1e1e2e] rounded-2xl overflow-hidden">
           {SERVICES.map((s, i) => (
             <div
               key={s.serviceId}
-              className={`group flex flex-col md:flex-row md:items-center gap-4 px-6 py-5 hover:bg-[#0e0e1a] transition-colors duration-150 cursor-pointer ${
+              className={`reveal group flex flex-col md:flex-row md:items-center gap-4 px-6 py-5 hover:bg-[#0e0e1a] transition-colors duration-150 cursor-pointer ${
                 i < SERVICES.length - 1 ? 'border-b border-[#1e1e2e]' : ''
               }`}
               onClick={() => handleCheckout(s)}

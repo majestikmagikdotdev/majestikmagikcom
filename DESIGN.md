@@ -210,3 +210,121 @@ const TRACK = [...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS];
 ## 7. Copy Rules
 
 - **No em dashes.** Ever. They are the single most reliable signal that copy was written by AI. Use a period or semicolon instead. The sentence will be stronger for it.
+
+---
+
+## 8. Scroll-Driven Reveal Animations
+
+Driven by a single global IntersectionObserver in `MainLayout.tsx`. Firefox and Safari don't support `animation-timeline: view()`, so IO is used for universal compatibility.
+
+### How it works
+
+Elements start hidden via CSS. The IO in `MainLayout` watches all `.reveal` and `.reveal-fade` elements. When one enters the viewport, `.is-visible` is added and the element is unobserved (fire-once).
+
+### The rules
+
+```css
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.55s ease-out;
+}
+
+.reveal.is-visible,
+.reveal-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-fade { opacity: 1; transform: none; transition: none; }
+}
+```
+
+### Usage
+
+Add `reveal` to any element that should fade+slide in on scroll. Add `reveal-fade` for fade-only.
+
+```tsx
+<div className="reveal">...</div>
+```
+
+### Rules
+
+- Never set inline `opacity: 0` or `transform` as initial scroll-reveal state. Let the CSS class handle it.
+- The IO is registered in `MainLayout` on `pathname` change — no per-component setup needed.
+- Fire-once: once `.is-visible` is added, the element is unobserved. It does not reverse on scroll-up.
+
+---
+
+## 9. Spinning Gradient Border
+
+You can't animate a gradient directly. The trick is `@property` — register a custom `--angle` property with a typed syntax so the browser treats it as an animatable number, then feed it into a `conic-gradient`.
+
+### Why it works
+
+Without `@property`, `--angle` is just a string. The browser can't interpolate between two strings. With `@property { syntax: '<angle>' }`, it becomes a real typed value the browser can tween. Spin it from `0deg` to `360deg` and the conic gradient rotates with it.
+
+### The CSS
+
+```css
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-angle {
+  to { --angle: 360deg; }
+}
+
+.spin-ring {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0%,
+    transparent 40%,
+    rgba(99, 102, 241, 0.9) 50%,
+    rgba(167, 139, 250, 0.7) 55%,
+    transparent 65%,
+    transparent 100%
+  );
+  animation: spin-angle 4s linear infinite;
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+```
+
+### The mask trick
+
+The `.spin-ring` div fills the entire card area with the spinning gradient. The mask punches a hole through the center (`content-box`), leaving only the `1.5px` padding edge visible. The card's own background shows through the hole. No `z-index` needed, no stacking context interference.
+
+### Usage
+
+Add a `<div className="spin-ring" />` as the first child inside any `relative` card.
+
+```tsx
+<div className="relative rounded-2xl bg-[#0e0e1a] ...">
+  <div className="spin-ring" />
+  {/* card content */}
+</div>
+```
+
+### Rules
+
+- The parent card must have `position: relative` and `border-radius` set — the ring inherits both.
+- Do not use `overflow: hidden` on the parent. It breaks sticky stacking and spotlight effects.
+- Do not put `.spin-ring` on the card element itself via pseudo-elements if the card uses `transform`, `willChange`, or `position: sticky` — pseudo-elements share the stacking context and will conflict. Use a real child div instead.
+- The gradient arc is intentionally narrow (40%–65%) so it reads as a single glowing sweep, not a full rainbow ring. Keep it that way.

@@ -1,50 +1,34 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 
-function AnimatedBar({ pct, color, triggered, delay }: { pct: number; color: string; triggered: boolean; delay: number }) {
+function AnimatedBar({ pct, color }: { pct: number; color: string }) {
   return (
     <div className="h-px w-full bg-[#1e1e2e] rounded-full overflow-hidden">
-      <div
-        className={`h-full ${color} rounded-full transition-all ease-out`}
-        style={{ width: triggered ? `${pct}%` : '0%', transitionDuration: '900ms', transitionDelay: `${delay}ms` }}
-      />
+      <div className={`h-full ${color} rounded-full`} style={{ width: `${pct}%` }} />
     </div>
   );
 }
 
-function useInView(threshold = 0.3) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [triggered, setTriggered] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setTriggered(true); }, { threshold });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [threshold]);
-  return { ref, triggered };
-}
 
 function PerfMockup() {
-  const { ref, triggered } = useInView();
   const bars = [
     { label: 'Performance', pct: 97, color: 'bg-emerald-500' },
     { label: 'SEO', pct: 100, color: 'bg-indigo-500' },
     { label: 'Best Practices', pct: 95, color: 'bg-violet-500' },
   ];
   return (
-    <div ref={ref} className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-center gap-3">
+    <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-center gap-3">
       <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 mb-0.5">
         <span className="w-1 h-1 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 4px #34d399' }} />
         Lighthouse audit complete
       </div>
-      {bars.map(({ label, pct, color }, i) => (
+      {bars.map(({ label, pct, color }) => (
         <div key={label}>
           <div className="flex justify-between text-[10px] font-mono text-[#404050] mb-1">
             <span>{label}</span>
-            <span className="text-[#606070]">{triggered ? pct : 0}</span>
+            <span className="text-[#606070]">{pct}</span>
           </div>
-          <AnimatedBar pct={pct} color={color} triggered={triggered} delay={i * 120} />
+          <AnimatedBar pct={pct} color={color} />
         </div>
       ))}
     </div>
@@ -52,21 +36,20 @@ function PerfMockup() {
 }
 
 function SystemsMockup() {
-  const { ref, triggered } = useInView();
   const bars = [
     { label: 'Inventory Engine', pct: 92, color: 'bg-violet-500' },
     { label: 'Fleet Tracker', pct: 78, color: 'bg-indigo-500' },
     { label: 'Logistics API', pct: 85, color: 'bg-purple-500' },
   ];
   return (
-    <div ref={ref} className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-center gap-3">
+    <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-center gap-3">
       <div className="px-1.5 py-0.5 bg-violet-950/40 border border-violet-500/20 rounded text-[10px] font-mono text-violet-400 w-fit mb-0.5">OWNED INFRA</div>
-      {bars.map(({ label, pct, color }, i) => (
+      {bars.map(({ label, pct, color }) => (
         <div key={label}>
           <div className="flex justify-between text-[10px] font-mono text-[#404050] mb-1">
             <span>{label}</span><span className="text-[#606070]">{pct}%</span>
           </div>
-          <AnimatedBar pct={pct} color={color} triggered={triggered} delay={i * 100} />
+          <AnimatedBar pct={pct} color={color} />
         </div>
       ))}
     </div>
@@ -79,7 +62,7 @@ function OfflineMockup() {
     const id = setInterval(() => setTick(t => t + 1), 1800);
     return () => clearInterval(id);
   }, []);
-  const ops = ['READ  users       0ms', 'WRITE fleet_log   0ms', 'SYNC  deferred    0ms', 'QUERY inventory   0ms'];
+  const ops: string[] = ['READ  users       0ms', 'WRITE fleet_log   0ms', 'SYNC  deferred    0ms', 'QUERY inventory   0ms'];
   return (
     <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono">
       <div className="flex items-center gap-1.5">
@@ -102,7 +85,6 @@ function OfflineMockup() {
 }
 
 function AppMockup() {
-  const { ref, triggered } = useInView();
   const events = [
     { time: '09:14', msg: 'Stripe webhook received', status: 'ok' },
     { time: '09:14', msg: 'Subscription activated', status: 'ok' },
@@ -110,7 +92,7 @@ function AppMockup() {
     { time: '09:15', msg: 'Slack notification sent', status: 'ok' },
   ];
   return (
-    <div ref={ref} className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono overflow-hidden">
+    <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono overflow-hidden">
       <div className="flex items-center gap-1.5 mb-1">
         <span className="w-1 h-1 rounded-full bg-violet-400" style={{ boxShadow: '0 0 4px #a78bfa' }} />
         <span className="text-[10px] text-[#404050]">event log</span>
@@ -119,8 +101,7 @@ function AppMockup() {
         {events.map((e, i) => (
           <div
             key={e.msg}
-            className="flex items-center gap-2 text-[10px] transition-opacity duration-700"
-            style={{ opacity: triggered ? 1 : 0, transitionDelay: `${i * 150}ms` }}
+            className="flex items-center gap-2 text-[10px]"
           >
             <span className="text-[#404050] flex-shrink-0">{e.time}</span>
             <span className="text-violet-400/60">›</span>
@@ -218,7 +199,7 @@ export default function HomeServices() {
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="mb-16">
+        <div className="reveal mb-16">
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
@@ -239,7 +220,7 @@ export default function HomeServices() {
                 key={s.id}
                 ref={el => { cardRefs.current[i] = el; }}
                 onMouseMove={handleSpotlight}
-                className="spotlight relative md:sticky rounded-2xl bg-[#0e0e1a] border border-[#1e1e2e] hover:border-[#2a2a3a] p-6 md:p-8 mb-5 md:mb-[10vh] transition-colors duration-300"
+                className="reveal spotlight relative md:sticky rounded-2xl bg-[#0e0e1a] border border-[#1e1e2e] p-6 md:p-8 mb-5 md:mb-[10vh] transition-colors duration-300"
                 style={{
                   top: `${CARD_TOP_BASE + i * CARD_TOP_STEP}px`,
                   zIndex: 10 + i,
@@ -248,6 +229,8 @@ export default function HomeServices() {
                   ['--spotlight-color' as string]: a.spotlight,
                 }}
               >
+                {/* Spinning gradient border */}
+                <div className="spin-ring" />
                 {/* Darken overlay on stack */}
                 <div
                   ref={el => { overlayRefs.current[i] = el; }}

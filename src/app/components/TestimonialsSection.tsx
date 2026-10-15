@@ -42,7 +42,7 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="mb-14">
+        <div className="reveal mb-14">
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
@@ -57,7 +57,7 @@ export default function TestimonialsSection() {
           {testimonials.map((t, index) => (
             <article
               key={`${t.name}-${index}`}
-              className="flex flex-col rounded-xl bg-[#0e0e1a] border border-[#1e1e2e] hover:border-[#2a2a3a] p-6 transition-colors duration-200"
+              className="reveal flex flex-col rounded-xl bg-[#0e0e1a] border border-[#1e1e2e] hover:border-[#2a2a3a] p-6 transition-colors duration-200"
             >
               {/* Stars */}
               <div className="flex gap-0.5 mb-4" role="img" aria-label={`${t.stars} out of 5 stars`}>

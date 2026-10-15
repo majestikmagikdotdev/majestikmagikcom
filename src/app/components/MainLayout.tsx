@@ -28,7 +28,20 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       { threshold: 0.1, rootMargin: `0px 0px ${window.innerWidth < 768 ? '0px' : '-60px'} 0px` }
     );
     els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+
+    const revealEls = document.querySelectorAll('.reveal, .reveal-fade');
+    const revealObserver = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          revealObserver.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.1 }
+    );
+    revealEls.forEach((el) => revealObserver.observe(el));
+
+    return () => { observer.disconnect(); revealObserver.disconnect(); };
   }, [pathname]);
 
   // Shared scroll-to-Y animation. Any caller that goes through this (nav

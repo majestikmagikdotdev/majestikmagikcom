@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 const STEPS = [
   {
@@ -40,27 +40,6 @@ const colorMap: Record<string, { num: string; phase: string; bar: string }> = {
 };
 
 export default function ProcessSection() {
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [visible, setVisible] = useState<boolean[]>(STEPS.map(() => false));
-
-  useEffect(() => {
-    const observers = cardRefs.current.map((el, i) => {
-      if (!el) return null;
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setVisible(v => { const n = [...v]; n[i] = true; return n; });
-            obs.disconnect();
-          }
-        },
-        { threshold: 0.15 }
-      );
-      obs.observe(el);
-      return obs;
-    });
-    return () => observers.forEach(o => o?.disconnect());
-  }, []);
-
   return (
     <section className="w-full px-4 md:px-6 py-20 md:py-32">
       <div className="max-w-7xl mx-auto">
@@ -90,16 +69,7 @@ export default function ProcessSection() {
               return (
                 <div
                   key={s.number}
-                  ref={el => { cardRefs.current[i] = el; }}
-                  className="relative flex gap-6 md:gap-8 pb-10 last:pb-0"
-                  style={{
-                    transitionProperty: 'opacity, transform',
-                    transitionDuration: '500ms',
-                    transitionDelay: `${i * 80}ms`,
-                    transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                    opacity: visible[i] ? 1 : 0,
-                    transform: visible[i] ? 'translateY(0)' : 'translateY(20px)',
-                  }}
+                  className="reveal relative flex gap-6 md:gap-8 pb-10 last:pb-0"
                 >
                   {/* Step number node */}
                   <div className="relative flex-shrink-0 flex flex-col items-center">

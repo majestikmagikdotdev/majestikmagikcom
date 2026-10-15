@@ -50,7 +50,7 @@ export default function HomeContact() {
   return (
     <div id="contact" className="w-full px-4 md:px-6 py-20 md:py-28 border-t border-[#2a2a3a]">
 
-      <div className="max-w-2xl mx-auto mb-10">
+      <div className="reveal max-w-2xl mx-auto mb-10">
         <h2
           className="text-4xl sm:text-5xl font-black text-[#f0f0f0] mb-4"
           style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
@@ -64,7 +64,7 @@ export default function HomeContact() {
       </div>
 
 
-      <div className="max-w-2xl mx-auto bg-[#111120] border border-[#2a2a3a] rounded-xl p-8 md:p-10">
+      <div className="reveal max-w-2xl mx-auto bg-[#111120] border border-[#2a2a3a] rounded-xl p-8 md:p-10">
         <form onSubmit={handleSubmit} className="space-y-5">
           {submitStatus === 'success' && (
             <div className="p-4 bg-emerald-950/40 border border-emerald-500/40 rounded-lg">
