@@ -158,6 +158,10 @@ export default function HomePricing() {
             Ask us
           </button>
         </p>
+
+        <p className="mt-4 text-[11px] font-mono text-[#303040]">
+          If we miss a milestone, you don&apos;t pay for it. Simple as that.
+        </p>
       </div>
     </div>
   );

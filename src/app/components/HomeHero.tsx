@@ -42,8 +42,7 @@ export default function HomeHero() {
 
       {/* Subheading */}
       <p className="relative z-10 mb-10 max-w-xl text-base md:text-lg text-[#a0a0b0] leading-relaxed" style={{ letterSpacing: '-0.01em' }}>
-        We build the platforms, apps, and infrastructure your business actually runs on.
-        When we&apos;re done, it&apos;s yours. No subscriptions. No lock-in. No nonsense.
+        More leads, faster load times, and a site that actually closes. When we&apos;re done, you own everything. No subscriptions. No lock-in. No nonsense.
       </p>
 
       {/* CTAs */}
