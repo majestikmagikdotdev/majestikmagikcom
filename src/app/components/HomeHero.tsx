@@ -42,7 +42,7 @@ export default function HomeHero() {
 
       {/* Subheading */}
       <p className="relative z-10 mb-10 max-w-xl text-base md:text-lg text-[#a0a0b0] leading-relaxed" style={{ letterSpacing: '-0.01em' }}>
-        More leads, faster load times, and a site that actually closes. When we&apos;re done, you own everything. No subscriptions. No lock-in. No nonsense.
+        Faster load times, cleaner code, and a site built to convert. When we&apos;re done, you own everything. No subscriptions. No lock-in. No nonsense.
       </p>
 
       {/* CTAs */}
