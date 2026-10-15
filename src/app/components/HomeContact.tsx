@@ -48,7 +48,7 @@ export default function HomeContact() {
   const inputCls = "w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#f0f0f0] text-sm placeholder-[#404050] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50";
 
   return (
-    <div id="contact" className="w-full px-4 md:px-6 py-20 md:py-28 border-t border-[#2a2a3a]">
+    <div id="contact" className="w-full px-4 md:px-6 py-20 md:py-28">
 
       <div className="reveal max-w-2xl mx-auto mb-10">
         <h2
