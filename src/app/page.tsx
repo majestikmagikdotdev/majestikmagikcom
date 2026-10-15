@@ -8,6 +8,7 @@ import HomeServices from './components/HomeServices';
 import WhyUsStatement from './components/WhyUsStatement';
 import ProcessSection from './components/ProcessSection';
 import HomePricing from './components/HomePricing';
+import HomeContact from './components/HomeContact';
 import TestimonialsSection from './components/TestimonialsSection';
 import OfflineDemoSection from './components/OfflineDemoSection';
 import NodePipelineSection from './components/NodePipelineSection';
@@ -144,14 +145,15 @@ export default function App() {
       >
         <HomeHero />
         <ClientMarquee />
+        <WhyUsStatement />
+        <HomeServices />
+        <TestimonialsSection />
         <OfflineDemoSection />
         <NodePipelineSection />
         <ESignCanvas />
-        <WhyUsStatement />
-        <HomeServices />
         <ProcessSection />
         <HomePricing />
-        <TestimonialsSection />
+        <HomeContact />
 
       </main>
 
