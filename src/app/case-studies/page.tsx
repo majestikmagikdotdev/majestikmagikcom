@@ -6,7 +6,7 @@ import portfolioData from '@/data/portfolio-links.json';
 
 export const metadata: Metadata = {
   title: 'Case Studies – Majestik Magik',
-  description: 'Real client work organized as strategic case studies. Problems solved, systems delivered, and measurable outcomes across automotive, e-commerce, SaaS, and service industries.',
+  description: 'The problems, the builds, the results. Real client work across automotive, e-commerce, SaaS, and service businesses.',
   alternates: { canonical: 'https://majestikmagik.dev/case-studies' },
 };
 

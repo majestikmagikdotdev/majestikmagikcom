@@ -73,7 +73,7 @@ export default function NodePipelineSection() {
             </span>
           </h2>
           <p className="mt-3 text-sm text-[#a0a0b0] max-w-lg">
-            Hover the pipeline nodes to trace the data flow. Scrub the slider to watch a raw form transform into a cryptographically signed digital record.
+            Hover the nodes to see how data moves. Drag the slider to watch a form turn into a signed, verified record.
           </p>
         </div>
 

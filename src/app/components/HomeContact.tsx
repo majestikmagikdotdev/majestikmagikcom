@@ -50,6 +50,20 @@ export default function HomeContact() {
   return (
     <div id="contact" className="w-full px-4 md:px-6 py-20 md:py-28 border-t border-[#2a2a3a]">
 
+      <div className="max-w-2xl mx-auto mb-10 text-center">
+        <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#404050] mb-5">Work with us</p>
+        <h2
+          className="text-4xl sm:text-5xl font-black text-[#f0f0f0] mb-4"
+          style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
+        >
+          Got a project?
+          <br />
+          <span className="text-[#404050]">Tell us about it.</span>
+        </h2>
+        <p className="text-sm text-[#a0a0b0] leading-relaxed"> If it&apos;s a good fit, we&apos;ll get back to you within 24 hours.
+        </p>
+      </div>
+
 
       <div className="max-w-2xl mx-auto bg-[#111120] border border-[#2a2a3a] rounded-xl p-8 md:p-10">
         <form onSubmit={handleSubmit} className="space-y-5">

@@ -1,8 +1,10 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import HomeHero from './components/HomeHero';
 import HomeServices from './components/HomeServices';
+import WhyUsStatement from './components/WhyUsStatement';
 import ProcessSection from './components/ProcessSection';
 import HomePricing from './components/HomePricing';
 import TestimonialsSection from './components/TestimonialsSection';
@@ -121,8 +123,16 @@ function AmbientGlows() {
 }
 
 export default function App() {
+  const [halloween, setHalloween] = useState(false);
+
+  useEffect(() => {
+    const onToggle = () => setHalloween(document.body.classList.contains('halloween'));
+    window.addEventListener('app:halloween', onToggle);
+    return () => window.removeEventListener('app:halloween', onToggle);
+  }, []);
+
   return (
-    <div className="relative min-h-screen" style={{ background: '#181818' }}>
+    <div className="relative min-h-screen" style={{ background: halloween ? '#141414' : '#181818' }}>
       <GridCanvas />
       <GridBeams />
       <AmbientGlows />
@@ -135,6 +145,7 @@ export default function App() {
         <OfflineDemoSection />
         <NodePipelineSection />
         <ESignCanvas />
+        <WhyUsStatement />
         <HomeServices />
         <ProcessSection />
         <HomePricing />

@@ -98,7 +98,14 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         { name: 'Jamil Cleaning Services', url: '', description: 'Commercial & residential booking platform.' },
       ],
     },
-    { name: 'About', url: '/about/jamil-matheny' },
+    {
+      name: 'About',
+      url: '/about/jamil-matheny',
+      children: [
+        { name: 'Jamil Matheny', url: '/about/jamil-matheny', description: 'Founder of Majestik Magik.' },
+        { name: 'FAQ', url: '/faq', description: 'Pricing, process, and everything in between.' },
+      ],
+    },
     { name: 'Contact', url: '/#contact' },
     { name: 'Pivot Quest', url: 'https://app.majestikmagik.dev/', external: true },
   ];

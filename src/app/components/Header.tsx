@@ -27,6 +27,45 @@ const Header: React.FC<HeaderProps> = ({
   handleNavClick,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [logoReady, setLogoReady] = useState(false);
+  const [logoGlowBreath, setLogoGlowBreath] = useState(false);
+  const [logoSpin, setLogoSpin] = useState(false);
+  const [halloween, setHalloween] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [toastOut, setToastOut] = useState(false);
+  const [showWitch, setShowWitch] = useState(false);
+  const clickCount = useRef(0);
+  const clickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setLogoReady(true);
+      setTimeout(() => setLogoGlowBreath(true), 750);
+    }, 80);
+    return () => clearTimeout(t);
+  }, []);
+
+  function handleLogoClick() {
+    clickCount.current += 1;
+    if (clickTimer.current) clearTimeout(clickTimer.current);
+    clickTimer.current = setTimeout(() => { clickCount.current = 0; }, 500);
+    if (clickCount.current >= 3) {
+      clickCount.current = 0;
+      setLogoSpin(true);
+      setTimeout(() => setLogoSpin(false), 700);
+      const next = !halloween;
+      setHalloween(next);
+      document.body.classList.toggle('halloween', next);
+      window.dispatchEvent(new CustomEvent('app:halloween'));
+      if (next) {
+        setShowWitch(true);
+        setTimeout(() => setShowWitch(false), 4000);
+      }
+      setShowToast(true);
+      setTimeout(() => setToastOut(true), 3800);
+      setTimeout(() => setShowToast(false), 4300);
+    }
+  }
 
   // State to track active hovered top-level element bounds
   const [hoveredRect, setHoveredRect] = useState<{ left: number; width: number; opacity: number }>({
@@ -137,18 +176,39 @@ const Header: React.FC<HeaderProps> = ({
           className="flex items-center space-x-3 text-lg font-bold font-mono uppercase tracking-wider text-slate-100 cursor-pointer"
           aria-label="Majestik Magik Home"
           type="button"
+          onClick={handleLogoClick}
         >
-          <Image
-            src="/img/majestikmagik_logo_indigo-64x64.webp"
-            alt="Majestik Magik Logo"
-            width={32}
-            height={32}
-            sizes="32px"
-            className="w-8 h-8 opacity-90 rounded-md"
-          />
+          <span className="relative flex-shrink-0">
+            {/* glow bloom — sits behind the image */}
+            <span
+              aria-hidden
+              className="absolute inset-0 rounded-full"
+              style={{
+                background: 'radial-gradient(circle, rgba(99,102,241,0.9) 0%, transparent 70%)',
+                animation: logoGlowBreath
+                  ? 'logo-glow-breathe 3s ease-in-out infinite'
+                  : logoReady ? 'logo-glow-bloom 700ms ease-out forwards' : 'none',
+              }}
+            />
+            <Image
+              src="/img/majestikmagik_logo_indigo-64x64.webp"
+              alt="Majestik Magik Logo"
+              width={32}
+              height={32}
+              sizes="32px"
+              className="relative w-8 h-8 opacity-90 rounded-md"
+              style={{
+                animation: logoSpin
+                  ? 'logo-spin 700ms cubic-bezier(0.34,1.56,0.64,1) forwards'
+                  : logoReady ? 'logo-stamp 600ms cubic-bezier(0.34,1.56,0.64,1) forwards' : 'none',
+                opacity: logoSpin ? 1 : 0,
+                filter: halloween ? 'hue-rotate(200deg) saturate(2)' : 'none',
+              }}
+            />
+          </span>
           <span
             className="bg-clip-text text-transparent text-2xl bg-gradient-to-r from-white to-slate-300"
-            style={{ letterSpacing: '-0.06em' }}
+            style={{ letterSpacing: '-0.06em', animation: logoReady ? 'logo-wordmark-slide 400ms ease-out 300ms forwards' : 'none', opacity: 0 }}
           >
             Majestik Magik
           </span>
@@ -394,10 +454,11 @@ const Header: React.FC<HeaderProps> = ({
         <div className="hidden xl:flex items-center">
           <Link
             href="/#contact"
-            className="font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-full px-5 py-2 cursor-pointer font-bold border border-indigo-400/30"
+            className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 hover:px-7 transition-all duration-200 rounded-full px-5 py-2 cursor-pointer font-bold border border-indigo-400/30"
             onClick={(e) => handleNavClick(e, { name: 'Contact', url: '/#contact' })}
           >
-            Book A Call <span className="text-base">↗</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+            Let&apos;s Talk
           </Link>
         </div>
 
@@ -560,13 +621,48 @@ const Header: React.FC<HeaderProps> = ({
             <div className="pt-4 border-t border-[#2a2a3a]">
               <Link
                 href="/#contact"
-                className="block w-full text-center font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-full px-5 py-3 cursor-pointer font-bold border border-indigo-400/30"
+                className="inline-flex items-center justify-center gap-2 w-full font-mono uppercase tracking-wider text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition-all duration-200 rounded-full px-5 py-3 cursor-pointer font-bold border border-indigo-400/30"
                 onClick={(e) => handleNavClick(e, { name: 'Contact', url: '/#contact' })}
               >
-                Book A Call <span className="text-base">↗</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
+                Let&apos;s Talk
               </Link>
             </div>
           </div>
+        </div>
+      )}
+      {/* Witch flyby */}
+      {showWitch && (
+        <div
+          aria-hidden
+          className="fixed z-[998] pointer-events-none"
+          style={{
+            top: '18vh',
+            left: 0,
+            animation: 'witch-fly 3.8s cubic-bezier(0.45,0,0.55,1) forwards',
+            filter: 'drop-shadow(0 0 12px rgba(249,115,22,0.7))',
+          }}
+        >
+          <img src="/img/witch-broom.svg" alt="witch on broom" style={{ width: "120px", height: "auto" }} />
+        </div>
+      )}
+
+      {/* Halloween toast */}
+      {showToast && (
+        <div
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[999] px-5 py-3 rounded-2xl border text-sm font-mono flex items-center gap-3"
+          style={{
+            background: 'rgba(13,10,0,0.95)',
+            borderColor: 'rgba(249,115,22,0.4)',
+            color: '#f97316',
+            backdropFilter: 'blur(12px)',
+            animation: toastOut
+              ? 'toast-out 500ms ease forwards'
+              : 'toast-in 400ms cubic-bezier(0.34,1.56,0.64,1) forwards',
+          }}
+        >
+          <span style={{ animation: 'halloween-flicker 1.5s ease-in-out infinite' }}>🎃</span>
+          Happy Halloween! 🎃 triple-click the logo to escape.
         </div>
       )}
     </header>

@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://majestikmagik.dev',
   },
-  title: 'Majestik Magik — Local-First Enterprise Software Infrastructure & Native Systems',
+  title: 'Majestik Magik — We Build the Platforms Your Business Runs On',
   description:
-    'We architect and ship local-first enterprise software infrastructure, edge-native apps, and offline-capable systems for B2B companies. Client-owned. Zero vendor lock-in. Delivered within 24–72 hours.',
+    'Your site is slow. Your tools are rented. Your leads are dropping. We fix that. Fast builds, fixed prices, and you own everything when we ship.',
   authors: [{ name: 'Majestik Magik' }],
   manifest: '/site.webmanifest',
   icons: {
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     apple: '/img/majestikmagik_logo_indigo-64x64.webp',
   },
   openGraph: {
-    title: 'Majestik Magik — Local-First Enterprise Software Infrastructure & Native Systems',
+    title: 'Majestik Magik — We Build the Platforms Your Business Runs On',
     description:
-      'We architect and ship local-first enterprise software infrastructure, edge-native apps, and offline-capable systems for B2B companies. Client-owned. Zero vendor lock-in.',
+      'Your site is slow. Your tools are rented. Your leads are dropping. We fix that. Fast builds, fixed prices, and you own everything when we ship.',
     url: 'https://majestikmagik.dev',
     siteName: 'Majestik Magik',
     images: [
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Majestik Magik — Local-First Enterprise Software Infrastructure & Native Systems',
+    title: 'Majestik Magik — We Build the Platforms Your Business Runs On',
     description:
-      'We architect and ship local-first enterprise software infrastructure, edge-native apps, and offline-capable systems for B2B companies. Client-owned. Zero vendor lock-in.',
+      'Your site is slow. Your tools are rented. Your leads are dropping. We fix that. Fast builds, fixed prices, and you own everything when we ship.',
     images: ['/img/screenshot_mm_main.webp'],
   },
 };

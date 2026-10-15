@@ -5,29 +5,29 @@ const STEPS = [
   {
     number: '01',
     phase: 'Week 1',
-    title: 'Discovery & Scope',
-    desc: 'Deep-dive workflow scoping, requirements gathering, technical architecture planning, transparent milestone pricing, and formal contract execution.',
+    title: 'We figure out exactly what you need',
+    desc: 'Deep-dive into your workflow, requirements, and goals. We scope it, price it, and put it in writing. No surprises later.',
     color: 'indigo',
   },
   {
     number: '02',
     phase: 'Weeks 1–2',
-    title: 'Core Engineering',
-    desc: 'Full-stack architecture buildout, database design, API integrations, core feature development, and iterative code review against the agreed spec.',
+    title: 'We build it',
+    desc: 'Full-stack architecture, database design, API integrations, core features. You see progress as it happens — not just at the end.',
     color: 'violet',
   },
   {
     number: '03',
     phase: 'Week 3',
-    title: 'Demo & Verification',
-    desc: 'Staging environment walkthrough, QA testing across devices and edge cases, client feedback rounds, and formal sign-off before production deployment.',
+    title: 'You kick the tires',
+    desc: 'Staging walkthrough, QA across devices, your feedback rounds. We don\'t push to production until you sign off.',
     color: 'purple',
   },
   {
     number: '04',
     phase: 'Launch & Beyond',
-    title: 'Production & Handoff',
-    desc: 'Production deployment, custom domain and infrastructure setup, full IP and codebase handoff, documentation, and ongoing support as needed.',
+    title: 'It goes live. You own it.',
+    desc: 'Production deployment, custom domain setup, full codebase handoff. It\'s yours — docs, IP, everything. We stick around if you need us.',
     color: 'emerald',
   },
 ];
@@ -67,15 +67,16 @@ export default function ProcessSection() {
 
         {/* Header */}
         <div className="mb-16">
-          <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#404050] mb-5">Client Journey</p>
+          <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#404050] mb-5">How it works</p>
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
           >
-            What to expect.
+            Here&apos;s what happens
+            <br />
+            <span className="text-[#404050]">after you reach out.</span>
           </h2>
-          <p className="mt-5 text-sm text-[#606070] max-w-lg leading-relaxed">
-            A clear 4-step delivery pipeline engineered to bring enterprise systems online with zero downtime.
+          <p className="mt-5 text-sm text-[#a0a0b0] max-w-lg leading-relaxed"> You know what’s happening at every stage.
           </p>
         </div>
 

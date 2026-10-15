@@ -161,3 +161,26 @@ main > main > article {
     opacity: 0;
   }
 }
+
+@keyframes logo-stamp {
+  0%   { transform: scale(0.6);  opacity: 0; }
+  60%  { transform: scale(1.08); opacity: 1; }
+  80%  { transform: scale(0.96); }
+  100% { transform: scale(1.0);  opacity: 1; }
+}
+
+@keyframes logo-glow-bloom {
+  0%   { opacity: 0;   transform: scale(0.6); }
+  50%  { opacity: 0.9; transform: scale(1.6); }
+  100% { opacity: 0;   transform: scale(2.2); }
+}
+
+@keyframes logo-wordmark-slide {
+  0%   { opacity: 0; transform: translateX(-8px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes logo-glow-breathe {
+  0%,  100% { opacity: 0.18; transform: scale(1.1); }
+  50%        { opacity: 0.45; transform: scale(1.5); }
+}

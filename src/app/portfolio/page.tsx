@@ -6,7 +6,7 @@ import portfolioData from '@/data/portfolio-links.json';
 
 export const metadata: Metadata = {
   title: 'Portfolio – Majestik Magik',
-  description: 'Production applications, deployed systems, and client work by Majestik Magik. Real results across automotive, e-commerce, SaaS, and service industries.',
+  description: 'Real projects. Shipped. See what we’ve built across automotive, e-commerce, SaaS, and service businesses.',
   alternates: { canonical: 'https://majestikmagik.dev/portfolio' },
 };
 

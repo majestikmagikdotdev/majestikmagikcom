@@ -3,7 +3,7 @@ import FAQPage from './FAQClient';
 
 export const metadata: Metadata = {
   title: 'FAQ – Majestik Magik',
-  description: 'Answers to common questions about Majestik Magik services, pricing, process, platforms, SEO, and more.',
+  description: 'Got questions? We’ve got answers. Pricing, process, timelines, platforms, and everything else you actually want to know.',
   alternates: { canonical: 'https://majestikmagik.dev/faq' },
 };
 

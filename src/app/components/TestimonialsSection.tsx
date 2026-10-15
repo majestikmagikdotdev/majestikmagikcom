@@ -43,12 +43,14 @@ export default function TestimonialsSection() {
 
         {/* Header */}
         <div className="mb-14">
-          <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#404050] mb-5">Client Feedback</p>
+          <p className="text-[11px] font-mono font-semibold uppercase tracking-[0.15em] text-[#404050] mb-5">Don&apos;t take our word for it</p>
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
           >
-            What clients say.
+            Real clients.
+            <br />
+            <span className="text-[#404050]">Real results.</span>
           </h2>
         </div>
 

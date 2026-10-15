@@ -52,9 +52,9 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     serviceId: 'ai-code-extraction',
     service: 'AI Code Extraction & Frontend Quick-Fix',
     bullets: [
-      'AI-assisted parsing and scraping of complex codebases into clean, deployable front-end assets',
-      'Fix UI rendering failures, CSS breakages, broken routing, and hydration errors',
-      'Deploy to Vercel, Netlify, or Cloudflare with custom domain DNS and SSL configuration',
+      'Your codebase is a mess. We untangle it and ship something that actually works',
+      'Broken UI, busted routing, hydration errors. We find it, fix it, explain it',
+      'Deployed to your domain with SSL. You don\'t touch a config file',
     ],
     price: '$1,850',
     priceAmount: 1850,
@@ -64,9 +64,9 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     serviceId: 'shopify-email-engine',
     service: 'Shopify Email & Notification Engine',
     bullets: [
-      'Custom transactional Liquid template coding for order, shipping, and account notifications',
-      'Automated flow logic, dynamic variable patching, and A/B-ready template architecture',
-      'High-converting marketing email design optimized for deliverability and open rates',
+      'Your order emails look like they\'re from 2012. We fix that with custom Liquid templates',
+      'Automated flows that actually trigger correctly, every time',
+      'Emails that land in inboxes, not spam folders',
     ],
     price: '$1,250',
     priceAmount: 1250,
@@ -74,12 +74,11 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
   },
   {
     serviceId: 'dns-deliverability',
-    service: 'Domain Protection & Email Deliverability Stabilization (SPF, DKIM, DMARC Audit)',
+    service: 'Domain Protection & Email Deliverability',
     bullets: [
-      '100% Authentication Alignment: Strict configuration of SPF, DKIM, and DMARC (p=quarantine or p=reject deployment)',
-      'Spam & Blacklist Remediation: Diagnostic scan across 50+ global blacklists with manual removal submission',
-      'Reputation Dashboarding: Setup of Google Postmaster Tools and MXToolbox monitoring to track spam rates and domain health',
-      '30-Day Guarantee: Direct monitoring for 30 days to ensure zero inbox deliverability degradation',
+      'SPF, DKIM, DMARC set up correctly so your emails stop getting flagged',
+      'We scan 50+ blacklists and get you removed if you\'re on any of them',
+      '30 days of monitoring so you know it\'s actually staying fixed',
     ],
     price: '$1,450',
     priceAmount: 1450,
@@ -89,9 +88,9 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     serviceId: 'core-web-vitals',
     service: 'Core Web Vitals & Speed Overhaul',
     bullets: [
-      'Guaranteed 90+ Lighthouse and PageSpeed scores across mobile and desktop',
-      'Server-side caching, image optimization pipeline, and script execution overhaul',
-      'Eliminate render-blocking resources and implement lazy hydration strategies',
+      'Guaranteed 90+ on Lighthouse, mobile and desktop, not just one of them',
+      'We kill the render-blocking scripts, lazy-load what doesn\'t need to be eager',
+      'Your site stops feeling slow. Customers stop leaving before it loads',
     ],
     price: '$2,200',
     priceAmount: 2200,
@@ -101,9 +100,9 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     serviceId: 'landing-page-redesign',
     service: 'Landing Page Redesign & Engineering',
     bullets: [
-      'Custom Next.js and Tailwind code with elite animations and sub-second load times',
-      'High-converting layout architecture with full-stack API and backend integrations',
-      'Fully responsive, accessibility-compliant, and production-deployed',
+      'Built in Next.js and Tailwind. Not a template, not a drag-and-drop builder',
+      'Animations, API integrations, backend logic. Whatever the page needs',
+      'Production-deployed, yours to own, no monthly platform fee',
     ],
     price: '$7,000',
     priceAmount: 7000,
@@ -113,9 +112,9 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
     serviceId: 'geo-ai-audit',
     service: 'Technical GEO & AI Visibility Audit',
     bullets: [
-      'Cutting-edge Generative Engine Optimization ensuring your brand ranks inside AI answers',
-      'Inject structured JSON-LD graph schema targeting ChatGPT, Perplexity, and Claude',
-      'Full site audit for AI crawler compatibility, entity coverage, and citation readiness',
+      'When someone asks ChatGPT or Perplexity about your industry, you should show up',
+      'We wire in the structured data and schema that AI crawlers actually read',
+      'Full audit of your entity coverage: what\'s missing, what\'s wrong, what to fix',
     ],
     price: '$3,500',
     priceAmount: 3500,
@@ -123,15 +122,15 @@ const DEFAULT_MICRO_SERVICES: MicroService[] = [
   },
   {
     serviceId: 'webhook-debugging',
-    service: 'Emergency Revenue & Lead-Pipeline Audit (API & Webhook Stabilization)',
+    service: 'Emergency Revenue & Lead-Pipeline Audit',
     bullets: [
-      'Designed for businesses losing qualified leads, missing Stripe webhooks, or dropping form payloads due to broken API integrations, missing headers, or failed serverless functions.',
-      'We will audit your entire lead and revenue pipeline, identify the root cause of the failures, and implement a fix to ensure your business is capturing every qualified lead and revenue opportunity.',
-      'Includes 30 days of free support to ensure your systems are fully functional and stable.',
+      'Leads coming in but nothing showing up in your CRM? We find the break',
+      'Stripe webhooks firing into the void, forms dropping submissions. We trace it all',
+      '30 days of free support after the fix so you\'re not back here in a week',
     ],
     price: '$1,850',
     priceAmount: 1850,
-    turnaround: '12-24 hrs',
+    turnaround: '12–24 hrs',
   },
 ];
 
@@ -180,13 +179,13 @@ const PricingSection: React.FC<PricingSectionProps> = ({
               className="mb-2 text-[2.75rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight"
               style={{ letterSpacing: '-0.04em', color: 'var(--text-primary)' }}
             >
-              Services We{' '}
+              Know what you need?{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 via-indigo-500 to-slate-800">
-                Deliver Fast
+                Here&apos;s the price.
               </span>
             </h2>
             <p id="micro-services-desc" className="mt-4 text-base md:text-lg font-sans leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              The services below are fixed-price—pick one, pay, and we ship it usually within 24–72 hours. For larger projects or custom needs, request a quote and we&apos;ll scope it out together.
+              Fixed-price, no negotiation, no scope creep. Pay and we deliver within 24–72 hours. For bigger builds, just ask.
             </p>
           </div>
 

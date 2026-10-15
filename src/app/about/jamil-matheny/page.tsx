@@ -3,7 +3,7 @@ import JamilMathenyPage from './JamilMathenyClient';
 
 export const metadata: Metadata = {
   title: 'Jamil Matheny, Founder – Majestik Magik',
-  description: 'Learn about Jamil Matheny, Founder of Majestik Magik, Inc. — a digital solutions agency built on a lifelong passion for technology and helping businesses grow.',
+  description: 'Journalist, metal vocalist, self-taught developer, founder. The story behind Majestik Magik.',
   alternates: { canonical: 'https://majestikmagik.dev/about/jamil-matheny' },
 };
 

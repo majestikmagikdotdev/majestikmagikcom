@@ -8,9 +8,9 @@ const SERVICES = [
     service: 'AI Code Extraction & Frontend Quick-Fix',
     price: '$1,850', priceAmount: 1850, turnaround: '48–72 hrs',
     bullets: [
-      'AI-assisted parsing of complex codebases into clean deployable assets',
-      'Fix UI rendering failures, CSS breakages, broken routing, hydration errors',
-      'Deploy to Vercel, Netlify, or Cloudflare with custom domain DNS and SSL',
+      'Your codebase is a mess. We untangle it and ship something that actually works',
+      'Broken UI, busted routing, hydration errors. We find it, fix it, explain it',
+      'Deployed to your domain with SSL. You don\'t touch a config file',
     ],
   },
   {
@@ -18,9 +18,9 @@ const SERVICES = [
     service: 'Shopify Email & Notification Engine',
     price: '$1,250', priceAmount: 1250, turnaround: '24–48 hrs',
     bullets: [
-      'Custom transactional Liquid template coding for all notification types',
-      'Automated flow logic, dynamic variable patching, A/B-ready architecture',
-      'High-converting marketing email design optimized for deliverability',
+      'Your order emails look like they\'re from 2012. We fix that with custom Liquid templates',
+      'Automated flows that actually trigger correctly, every time',
+      'Emails that land in inboxes, not spam folders',
     ],
   },
   {
@@ -28,9 +28,9 @@ const SERVICES = [
     service: 'Domain Protection & Email Deliverability',
     price: '$1,450', priceAmount: 1450, turnaround: '24 hrs',
     bullets: [
-      'Strict SPF, DKIM, and DMARC configuration with p=reject deployment',
-      'Diagnostic scan across 50+ global blacklists with manual removal',
-      '30-day monitoring via Google Postmaster Tools and MXToolbox',
+      'SPF, DKIM, DMARC set up correctly so your emails stop getting flagged',
+      'We scan 50+ blacklists and get you removed if you\'re on any of them',
+      '30 days of monitoring so you know it\'s actually staying fixed',
     ],
   },
   {
@@ -38,9 +38,9 @@ const SERVICES = [
     service: 'Core Web Vitals & Speed Overhaul',
     price: '$2,200', priceAmount: 2200, turnaround: '48–72 hrs',
     bullets: [
-      'Guaranteed 90+ Lighthouse and PageSpeed scores across mobile and desktop',
-      'Server-side caching, image optimization pipeline, script execution overhaul',
-      'Eliminate render-blocking resources, implement lazy hydration strategies',
+      'Guaranteed 90+ on Lighthouse, mobile and desktop, not just one of them',
+      'We kill the render-blocking scripts, lazy-load what doesn\'t need to be eager',
+      'Your site stops feeling slow. Customers stop leaving before it loads',
     ],
   },
   {
@@ -48,9 +48,9 @@ const SERVICES = [
     service: 'Landing Page Redesign & Engineering',
     price: '$7,000', priceAmount: 7000, turnaround: '5–7 days',
     bullets: [
-      'Custom Next.js and Tailwind code with elite animations and sub-second loads',
-      'High-converting layout with full-stack API and backend integrations',
-      'Fully responsive, accessibility-compliant, and production-deployed',
+      'Built in Next.js and Tailwind. Not a template, not a drag-and-drop builder',
+      'Animations, API integrations, backend logic. Whatever the page needs',
+      'Production-deployed, yours to own, no monthly platform fee',
     ],
   },
   {
@@ -58,9 +58,9 @@ const SERVICES = [
     service: 'Technical GEO & AI Visibility Audit',
     price: '$3,500', priceAmount: 3500, turnaround: '3–5 days',
     bullets: [
-      'GEO ensuring your brand ranks inside ChatGPT, Perplexity, and Claude',
-      'Inject structured JSON-LD graph schema for AI crawler compatibility',
-      'Full site audit for entity coverage and citation readiness',
+      'When someone asks ChatGPT or Perplexity about your industry, you should show up',
+      'We wire in the structured data and schema that AI crawlers actually read',
+      'Full audit of your entity coverage: what\'s missing, what\'s wrong, what to fix',
     ],
   },
   {
@@ -68,9 +68,9 @@ const SERVICES = [
     service: 'Emergency Revenue & Lead-Pipeline Audit',
     price: '$1,850', priceAmount: 1850, turnaround: '12–24 hrs',
     bullets: [
-      'Audit your entire lead and revenue pipeline for broken API integrations',
-      'Identify root cause of missing Stripe webhooks or dropped form payloads',
-      '30 days of free support post-fix to ensure full stability',
+      'Leads coming in but nothing showing up in your CRM? We find the break',
+      'Stripe webhooks firing into the void, forms dropping submissions. We trace it all',
+      '30 days of free support after the fix so you\'re not back here in a week',
     ],
   },
 ];
@@ -94,12 +94,11 @@ export default function HomePricing() {
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
           >
-            Pick one.
+            Know what you need?
             <br />
-            <span className="text-[#404050]">We ship it fast.</span>
+            <span className="text-[#404050]">Here&apos;s the price.</span>
           </h2>
-          <p className="mt-5 text-sm text-[#606070] max-w-lg leading-relaxed">
-            Fixed-price — pay and we deliver within 24–72 hours. For larger projects, request a quote.
+          <p className="mt-5 text-sm text-[#a0a0b0] max-w-lg leading-relaxed"> Pay and we deliver within 24–72 hours. For bigger builds, just ask.
           </p>
         </div>
 
@@ -123,7 +122,7 @@ export default function HomePricing() {
                     {s.service}
                   </h3>
                 </div>
-                <ul className="flex flex-wrap gap-x-4 gap-y-1 pl-7">
+                <ul className="flex flex-col gap-y-1 pl-7">
                   {s.bullets.map(b => (
                     <li key={b} className="flex items-center gap-1.5 text-sm text-[#a0a0b0]">
                       <span className="w-0.5 h-0.5 rounded-full bg-[#404050] flex-shrink-0" />

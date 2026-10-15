@@ -130,26 +130,26 @@ function AppMockup() {
 const SERVICES = [
   {
     id: '01', tag: 'INTERFACES', title: 'Web Design & Landing Pages',
-    desc: 'Sharp, fast, and built to drive action. Every layout decision is made with your visitor\'s next move in mind.',
+    desc: 'Your site is the first thing people judge you by. We make sure it\'s not embarrassing. Fast, sharp, and built to actually convert.',
     bullets: ['Copy hierarchy engineered for conversion', 'Mobile-first, sub-second load times', 'Custom Lighthouse audit with llms.txt and robots.txt'],
     mockup: <PerfMockup />, accent: 'indigo',
   },
   {
     id: '02', tag: 'APPLICATIONS', title: 'Web Applications',
-    desc: 'Custom web apps your team will actually use — clean UX, real-time data, and the integrations that keep your operation running.',
+    desc: 'Not another tool your team ignores. We build apps around how your people actually work. Real-time, integrated, and genuinely useful.',
     bullets: ['Auth, roles, and permissions built to your workflow', 'Live data feeds, webhooks, and third-party APIs', 'Stripe billing, subscriptions, and payout logic'],
     mockup: <AppMockup />, accent: 'violet',
   },
   {
     id: '03', tag: 'SYSTEMS', title: 'Systems-as-a-Service',
-    desc: 'Stop renting tools you don\'t control. We build the inventory, fleet, and logistics engines your business runs on — and you own them outright.',
-    bullets: ['Full IP transfer — no subscriptions, no lock-in', 'Managed cloud or local-first deployment', 'Complete handoff docs and onboarding support'],
+    desc: 'You\'re paying monthly for software you\'ll never own. We build the same thing; inventory, fleet, logistics. Then we hand you the keys.',
+    bullets: ['Full IP transfer. No subscriptions, no lock-in', 'Managed cloud or local-first deployment', 'Complete handoff docs and onboarding support'],
     mockup: <SystemsMockup />, accent: 'purple',
   },
   {
     id: '04', tag: 'LOCAL-FIRST', title: 'Local-First & Mobile Apps',
-    desc: 'Apps that run at full speed whether the network is up or not. Encrypted local storage with a deferred sync engine that catches up silently.',
-    bullets: ['Sub-millisecond response — no server round-trip', 'SQLCipher encrypted storage on-device', 'Background sync resumes automatically when online'],
+    desc: 'Works offline. Works fast. Works when the WiFi doesn\'t. Encrypted on-device storage with sync that catches up quietly in the background.',
+    bullets: ['Sub-millisecond response. No server round-trip', 'SQLCipher encrypted storage on-device', 'Background sync resumes automatically when online'],
     mockup: <OfflineMockup />, accent: 'emerald',
   },
 ];
@@ -218,12 +218,10 @@ export default function HomeServices() {
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
           >
-            Built for the work
-            <br />
-            <span className="text-[#404050]">that actually matters.</span>
+            What we actually do.
           </h2>
-          <p className="mt-5 text-sm text-[#606070] max-w-lg leading-relaxed">
-            Full-stack platforms, quick fixes, and everything in between — shipped fast, owned by you.
+          <p className="mt-5 text-sm text-[#a0a0b0] max-w-lg leading-relaxed">
+            Full-stack platforms, quick fixes, and everything in between. Shipped fast, owned by you. No retainers. No surprises.
           </p>
         </div>
 

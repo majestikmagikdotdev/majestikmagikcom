@@ -70,13 +70,13 @@ export default function OfflineDemoSection() {
               • Live Demo
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-[#f0f0f0] tracking-tight" style={{ letterSpacing: '-0.03em' }}>
-              Works When the{' '}
+              Still works when{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-indigo-400">
-                Network Doesn&apos;t.
+                the WiFi goes out.
               </span>
             </h2>
             <p className="mt-3 text-sm text-[#a0a0b0] max-w-lg">
-              Kill the connection. The form still works. The PDF still generates. When you come back online, it silently syncs to the encrypted vault.
+              No connection? The form still submits. The PDF still generates. Come back online and it catches up on its own.
             </p>
           </div>
 

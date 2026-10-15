@@ -8,7 +8,7 @@
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
-  font-weight: 100 700;
+  font-weight: 100 600;
   font-style: normal;
   font-display: swap;
 }
@@ -16,7 +16,7 @@
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
-  font-weight: 100 700;
+  font-weight: 100 600;
   font-style: italic;
   font-display: swap;
 }
@@ -370,7 +370,64 @@ html {
   opacity: 1;
 }
 
+@keyframes witch-fly {
+  0%   { transform: translateX(-150px) translateY(0px) scaleX(-1); opacity: 0; }
+  5%   { opacity: 1; }
+  40%  { transform: translateX(40vw) translateY(-60px) scaleX(-1); }
+  60%  { transform: translateX(65vw) translateY(20px) scaleX(-1); }
+  95%  { opacity: 1; }
+  100% { transform: translateX(110vw) translateY(-30px) scaleX(-1); opacity: 0; }
+}
+
 @keyframes syncBar {
   0%   { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+/* Halloween easter egg theme */
+.halloween body,
+body.halloween {
+  background-color: #141414 !important;
+}
+
+body.halloween {
+  --halloween-orange: #f97316;
+  --halloween-green: #4ade80;
+}
+
+body.halloween :is(h1, h2, h3) {
+  color: #f97316 !important;
+}
+
+body.halloween .bg-indigo-600,
+body.halloween .hover\:bg-indigo-500:hover {
+  background-color: #ea580c !important;
+}
+
+body.halloween ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f97316 0%, #ea580c 50%, #0d0a00 100%) !important;
+}
+
+@keyframes halloween-flicker {
+  0%, 100% { opacity: 1; }
+  45%       { opacity: 0.85; }
+  50%       { opacity: 0.6; }
+  55%       { opacity: 0.9; }
+}
+
+@keyframes logo-spin {
+  0%   { transform: rotate(0deg) scale(1); }
+  30%  { transform: rotate(180deg) scale(1.2); }
+  60%  { transform: rotate(340deg) scale(0.9); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes toast-in {
+  0%   { opacity: 0; transform: translateY(16px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes toast-out {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(8px) scale(0.95); }
 }
