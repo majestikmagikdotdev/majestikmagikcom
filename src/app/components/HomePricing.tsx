@@ -37,6 +37,7 @@ const SERVICES = [
     serviceId: 'core-web-vitals',
     service: 'Core Web Vitals & Speed Overhaul',
     price: '$2,200', priceAmount: 2200, turnaround: '48–72 hrs',
+    recommended: true,
     bullets: [
       'Guaranteed 90+ on Lighthouse, mobile and desktop, not just one of them',
       'We kill the render-blocking scripts, lazy-load what doesn\'t need to be eager',
@@ -97,8 +98,6 @@ export default function HomePricing() {
             <br />
             <span className="text-[#404050]">Here&apos;s the price.</span>
           </h2>
-          <p className="mt-5 text-sm text-[#a0a0b0] max-w-lg leading-relaxed"> Pay and we deliver within 24–72 hours. For bigger builds, just ask.
-          </p>
         </div>
 
         {/* Service rows */}
@@ -120,6 +119,11 @@ export default function HomePricing() {
                   <h3 className="text-base font-semibold text-[#c0c0d0] group-hover:text-[#f0f0f0] transition-colors duration-150 leading-snug">
                     {s.service}
                   </h3>
+                  {'recommended' in s && s.recommended && (
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex-shrink-0">
+                      Most popular
+                    </span>
+                  )}
                 </div>
                 <ul className="flex flex-col gap-y-1 pl-7">
                   {s.bullets.map(b => (

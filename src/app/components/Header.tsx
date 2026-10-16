@@ -533,65 +533,31 @@ const Header: React.FC<HeaderProps> = ({
                             border: '1px solid rgba(99,102,241,0.12)',
                           }}
                         >
-                          {item.name === 'Services' && (
-                            <div className="p-4 space-y-1">
-                              <p className="text-xs font-mono uppercase tracking-widest text-[#404050] mb-3 px-2">Services</p>
-                              {item.children?.map((childItem) => (
-                                <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg">
-                                  <span className="text-sm font-mono text-[#f0f0f0]">{childItem.name}</span>
-                                  {childItem.description && (
-                                    <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
-                                  )}
-                                </div>
-                              ))}
-                              <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(99,102,241,0.1)' }}>
-                                <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2 px-2">Featured</p>
-                                <p className="text-sm font-semibold text-[#f0f0f0] leading-snug mb-1 px-2">From Concept to Edge-Native Launch</p>
-                                <p className="text-xs text-[#606070] leading-relaxed mb-3 px-2">Custom local-first infrastructure, zero latency, maximum privacy.</p>
-                                <a
-                                  href="/start-a-project"
-                                  className="mx-2 inline-flex items-center justify-center text-xs font-mono uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 transition-colors rounded-lg px-3 py-2"
-                                  onClick={(e) => { handleNavClick(e, { name: 'Start a Project', url: '/start-a-project' }); setIsMobileMenuOpen(false); }}
-                                >
-                                  Start a Project →
-                                </a>
-                              </div>
-                            </div>
-                          )}
-                          {item.name === 'Portfolio' && (
-                            <div className="p-4">
-                              <p className="text-xs font-mono uppercase tracking-widest text-[#404050] mb-3 px-2">Recent Work</p>
-                              <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                                {item.children?.map((childItem) => (
-                                  <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg">
-                                    <span className="text-sm font-mono text-[#f0f0f0]">{childItem.name}</span>
-                                    {childItem.description && (
-                                      <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
-                                    )}
-                                  </div>
-                                ))}
-                              </div>
+                          <div className="p-3 space-y-1">
+                            <p className="text-xs font-mono uppercase tracking-widest text-[#404050] mb-2 px-2">{item.name}</p>
+                            {item.children?.map((childItem) => (
                               <a
-                                href="/portfolio"
-                                className="mt-3 inline-flex items-center gap-1 text-xs font-mono text-indigo-400 hover:text-indigo-300 transition-colors px-3"
-                                onClick={(e) => { handleNavClick(e, { name: 'Portfolio', url: '/portfolio' }); setIsMobileMenuOpen(false); }}
+                                key={childItem.name}
+                                href={childItem.url}
+                                className="flex flex-col px-3 py-2.5 rounded-lg hover:bg-indigo-500/5 transition-colors"
+                                onClick={(e) => { handleNavClick(e, childItem); setIsMobileMenuOpen(false); }}
                               >
-                                View all projects →
+                                <span className="text-sm font-mono text-[#f0f0f0] hover:text-indigo-300 transition-colors">{childItem.name}</span>
+                                {childItem.description && (
+                                  <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
+                                )}
                               </a>
-                              <div className="mt-3 pt-3" style={{ borderTop: '1px solid rgba(99,102,241,0.1)' }}>
-                                <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2 px-2">Case Studies</p>
-                                <p className="text-sm font-semibold text-[#f0f0f0] leading-snug mb-1 px-2">Real Clients, Real Results</p>
-                                <p className="text-xs text-[#606070] leading-relaxed mb-3 px-2">Problems solved and measurable outcomes across every project.</p>
-                                <a
-                                  href="/case-studies"
-                                  className="mx-2 inline-flex items-center justify-center text-xs font-mono uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 transition-colors rounded-lg px-3 py-2"
-                                  onClick={(e) => { handleNavClick(e, { name: 'Case Studies', url: '/case-studies' }); setIsMobileMenuOpen(false); }}
-                                >
-                                  Read Case Studies →
-                                </a>
-                              </div>
-                            </div>
-                          )}
+                            ))}
+                            {item.url && (
+                              <a
+                                href={item.url}
+                                className="flex items-center gap-1 px-3 pt-3 mt-1 text-xs font-mono text-indigo-400 hover:text-indigo-300 transition-colors border-t border-[#1e1e2e]"
+                                onClick={(e) => { handleNavClick(e, item); setIsMobileMenuOpen(false); }}
+                              >
+                                View all {item.name.toLowerCase()} →
+                              </a>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </>

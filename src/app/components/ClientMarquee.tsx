@@ -25,17 +25,21 @@ export default function ClientMarquee() {
         {/* Single track — translateX(-50%) lands on pixel-identical frame to 0% */}
         <div
           className="flex w-max gap-16 items-center"
-          style={{ animation: 'marquee-scroll-left 22s linear infinite' }}
+          style={{
+            animation: 'marquee-scroll-left 22s linear infinite',
+            willChange: 'transform',
+            transform: 'translateZ(0)',
+          }}
         >
           {TRACK.map((logo, i) => (
-            <div key={i} className="flex-shrink-0 opacity-40 hover:opacity-80 transition-opacity duration-300 grayscale hover:grayscale-0">
+            <div key={i} className="flex-shrink-0 opacity-40 grayscale">
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 width={logo.width}
                 height={logo.height}
                 className="h-10 w-auto object-contain"
-                loading="lazy"
+                loading="eager"
               />
             </div>
           ))}

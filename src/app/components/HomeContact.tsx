@@ -59,7 +59,7 @@ export default function HomeContact() {
           <br />
           <span className="text-[#404050]">Tell us about it.</span>
         </h2>
-        <p className="text-sm text-[#a0a0b0] leading-relaxed">If it&apos;s a good fit, we&apos;ll get back to you within 24 hours.
+        <p className="text-sm text-[#a0a0b0] leading-relaxed">If it&apos;s a good fit, we&apos;ll get back to you within 24 hours. If it&apos;s not, we&apos;ll tell you that too.
         </p>
       </div>
 

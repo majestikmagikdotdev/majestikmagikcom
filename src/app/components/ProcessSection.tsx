@@ -20,14 +20,14 @@ const STEPS = [
     number: '03',
     phase: 'Week 3',
     title: 'You kick the tires',
-    desc: 'Staging walkthrough, QA across devices, your feedback rounds. We don\'t push to production until you sign off.',
+    desc: "Staging walkthrough, QA across devices, your feedback rounds. We don't push to production until you sign off.",
     color: 'purple',
   },
   {
     number: '04',
     phase: 'Launch & Beyond',
     title: 'It goes live. You own it.',
-    desc: 'Production deployment, custom domain setup, full codebase handoff. It\'s yours. Docs, IP, everything. We stick around if you need us.',
+    desc: "Production deployment, custom domain setup, full codebase handoff. It's yours. Docs, IP, everything. We stick around if you need us.",
     color: 'emerald',
   },
 ];
@@ -45,7 +45,7 @@ export default function ProcessSection() {
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="mb-16">
+        <div className="reveal mb-16">
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
@@ -54,8 +54,6 @@ export default function ProcessSection() {
             <br />
             <span className="text-[#404050]">after you reach out.</span>
           </h2>
-          <p className="mt-5 text-sm text-[#a0a0b0] max-w-lg leading-relaxed"> You know what’s happening at every stage.
-          </p>
         </div>
 
         {/* Steps */}

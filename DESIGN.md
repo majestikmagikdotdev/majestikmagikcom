@@ -358,3 +358,160 @@ Add a `<div className="spin-ring" />` as the first child inside any `relative` c
 - Do not use `overflow: hidden` on the parent. It breaks sticky stacking and spotlight effects.
 - Do not put `.spin-ring` on the card element itself via pseudo-elements if the card uses `transform`, `willChange`, or `position: sticky` — pseudo-elements share the stacking context and will conflict. Use a real child div instead.
 - The gradient arc is intentionally narrow (40%–65%) so it reads as a single glowing sweep, not a full rainbow ring. Keep it that way.
+
+---
+
+## 11. Restraint as a Design Strategy
+
+Source: Crawford (web design practitioner, 800+ sites including Fortune 500)
+
+Premium doesn't come from adding. It comes from removing. The most expensive-looking sites on the internet often sell the most unglamorous things — plumbing, insurance, industrial flow monitoring equipment. The product is dull. The site lands and within two seconds you've decided the company is serious, established, and not the cheapest option. You didn't reason your way there. That's psychology doing what it was built to do.
+
+Most businesses get this backwards. They try to look premium by piling on effects, animations, and copy nobody will read. Trying that hard reads as not being sure of yourself.
+
+### Restraint is the hardest thing to pull off
+
+A stripped-back page can be the work of someone who made a hundred careful decisions, or it can be a template with a stock photo nobody ever touched. Same amount of stuff on screen. Completely different signal. The brain tells them apart even when you can't say how — this is the effort heuristic. We judge quality and trustworthiness by whether we can sense that real work went into something.
+
+The line between premium-minimal and just-lazy is curation:
+
+- Real photography instead of stock
+- A dead black turned into a considered slate or off-white with one confident highlight color
+- Small interactions that take time to get right
+
+You can't fake it with a template. The visitor never sees most of that work, but they register all of it.
+
+### What premium actually does
+
+When a page is calm and sure of itself, the visitor reads that as a company with nothing to prove. When a page is cluttered and shouting, they read it the other way — even if they can't name why. The design goes under the radar. The visitor lands, and without being able to explain it, they relax. They know where they are, who it's for, and what to do next. The design did all of that and they never once looked at it directly.
+
+The test: did the user get where they needed to go without noticing they were being guided? If yes, the design worked — even if they can't call it beautiful.
+
+### The halving rule
+
+Most sites carry two to three times the words, sections, and effects they actually need. Every extra element is one more object between the visitor and a decision.
+
+The rule: if you can halve the content on a page and it still makes sense, good. If you can halve it again, even better. Every section you delete makes the ones that survive look more deliberate. Deliberate is what reads as expensive.
+
+One warning: stripped-back copy is not the same as no copy. What survives the cut has to be properly written sales copy that speaks to the person reading it. A page stripped to a few sentences of generic filler is worse than a bloated page written by someone who knows their audience.
+
+### Animations pull focus at the wrong moment
+
+A big animation, things moving in from off the page, a layout you stop and admire — you remember that design. Which means for a second or two you stopped thinking about the company and started thinking about the website. On a portfolio for a design studio, fine. On a site that has to sell insurance or win a consulting client, that's a problem. You need them thinking about the decision they need to make. A fancy design just pulled them away from it.
+
+### Audience clarity before content volume
+
+The lazy version of a multi-audience homepage crams everything for everyone onto one page and overwhelms all of them. The right move is to split the path so each visitor can quickly identify where they belong. Two audiences, nobody scratching their head.
+
+### Stakes determine how much to show
+
+How far you strip a page back depends on how much the buyer stands to lose.
+
+- **Low stakes** (haircut, coffee, sandwich): minimal copy, clear action. Nobody needs a six-step methodology to buy a sandwich.
+- **High stakes** (wealth management, serious consulting): the visitor needs to see the process, the people, and what happens after they get in touch before they'll trust you. More questions have to be answered on the page before they'll book a call. That looks like the opposite of restraint, but every section still has to earn its place. It's the same principle with more information because the fear is bigger.
+
+Stripping a high-stakes page back to a headline and a button reads as evasive. Getting this wrong in either direction costs customers.
+
+### Who the site is actually for
+
+Look at the average corporate website and count how much of it is the company talking about itself. "We are a leading provider, founded in 19-whatever, our values, our mission, a message from the board." That content usually exists for one reason: it strokes the ego of the people who signed it off.
+
+Every section that exists to impress an executive is a section that isn't answering a customer's real question. The visitor can sense when a page is talking to them and when it's talking to itself.
+
+The test: go through your site section by section and ask one blunt question about each one. Is this here for the buyer, or is it here for me? Everything in the second pile is probably costing you money.
+
+A good designer isn't an order taker. Sometimes the best thing you can do for a client is stop them getting in their own customer's way.
+
+### Validating your own site
+
+You're the most biased person alive about your own site. You made it or you paid for it.
+
+The honest check: stop trusting your eye and measure whether people reach the one action that matters or drop off before it. Pull your visitor numbers, pull how many convert, and compare against your industry average. If you're above it, something is working. If you're below it, no amount of animation will save you.
+
+A rough check while you fix your analytics: show your homepage to a stranger for 5 seconds, then take it away. Can they tell you what you do and where to click next?
+
+### The summary
+
+Boring companies look expensive because boring, done on purpose, is just clarity. Premium is what's left when you strip away everything that isn't helping a buyer decide. Hardly anyone online bothers to get it right.
+
+---
+
+## 12. The Psychology of Web Conversion
+
+Source: Crawford (web design practitioner, 750+ sites including Fortune 500)
+
+There are two kinds of websites. On the first, you land and within a couple of seconds you relax. It just feels right. You trust it before you've read a single word. On the second, something feels off. You can't point to what it is, but you don't quite believe it — so you leave. Most people assume that difference comes down to budget or designer skill. It doesn't. The key difference is psychology. Sites that make people feel something and take action almost never win on looks alone. They win because they're built around how the human brain actually makes decisions.
+
+### Jacob's Law — conventions over originality
+
+Your visitors don't spend their time on your website. They spend it on everyone else's. Thousands of hours on the same shopping sites and apps, every day. By the time they reach you, their brain already holds a firm expectation of where things should be and how they should behave. The basket belongs top right. The logo takes you home. None of that is written down anywhere, but the brain treats it as law because every other site has trained it to.
+
+Designers who try to be original with the parts that need to be invisible — a clever navigation that hides where things are, a checkout that reinvents a process people already know — force the visitor to stop and think. That small jolt of effort creates doubt.
+
+The move: be original with ideas and craft. Be deeply boring with conventions. Put familiar things exactly where the brain expects to find them so the visitor never has to ask a question they shouldn't have to ask.
+
+### Fitts's Law — reachable targets
+
+From 1954, long before websites existed, and it has decided the success of every button ever designed. The time it takes someone to reach a target depends on two things: how big it is and how far away it is. Bigger and closer means faster and more confident. Smaller and farther means more effort — and effort is where people give up.
+
+On mobile, where everything happens under one moving thumb, the cost multiplies. The main action should be large, sitting low on the screen inside the natural arc of the thumb, not crowded by ten competing links at the same size.
+
+The test: look at your primary CTA on a phone held in one hand. If your thumb has to stretch to the top of the screen or hunt between cramped links, you're adding friction at the exact moment you're asking someone to act.
+
+### Social proof — placement over presence
+
+Humans are wired to look at what other people are doing before they decide, and that instinct gets stronger the less certain they feel. Most websites use social proof badly. A testimonials page nobody visits, or a wall of five-star quotes sitting far from any actual decision. The proof is technically present but nowhere near the moment of doubt, so it doesn't work.
+
+The brain needs reassurance at the exact moment of hesitation. Review scores belong on the product detail page when someone is deciding to add to cart. Proof belongs next to the action, not buried in an about page.
+
+The subtler layer: proof is most persuasive when it mirrors the visitor. A quote from someone in their industry, with their job title, facing their problem lands far harder than a famous logo that has nothing to do with them. People are reassured most by people like themselves.
+
+Walk through the site and find every moment where a visitor pauses and wonders whether it's safe. Put the evidence right there, at the second they need it.
+
+### Authority bias — position over existence
+
+The brain gives more weight to anyone it reads as credible or qualified. When a visitor sees real credentials — certifications, press, recognizable clients — the brain upgrades how it trusts everything else on the page.
+
+Most sites either bury their authority or waste it. The founder with 20 years of experience buried three pages deep. The business mentioned somewhere serious that mentions it nowhere near the decision. The credibility exists but it's not standing where it should be doing the work.
+
+Authority signals belong close to the point where you want action taken, not floating where they connect to nothing. If a real person with real authority stands behind an offer, the visitor should feel that presence at the moment they decide.
+
+One warning: the brain is good at spotting fakes. A meaningless badge or a logo you can't back reads as performative and lowers trust instead of raising it. Authority only works when it's real and verifiable.
+
+### Default effect — the starting point carries weight
+
+Whatever option you preselect, most visitors will keep it. We're all wired to take the path of least resistance. Countries where organ donation defaults to opt-out have consent rates around 90%. Countries where you actively opt in sit far lower. Same people, same values — only the default changed.
+
+On a website: the billing toggle that defaults to annual, the plan already marked as recommended, the next episode that plays unless you stop it. None of these force anyone. They simply set the starting point, and the starting point carries enormous weight.
+
+The responsibility: the same power can be used against people, and the brain resents it when it notices. A pre-ticked box that signs someone up to something they didn't want wins the click and loses the trust. Set defaults that serve the visitor — the plan that fits most people, the choice you'd honestly recommend to a friend. The easy path and the right path should be the same path.
+
+### The decoy effect — comparison over absolute value
+
+People are surprisingly bad at judging value on its own. They judge by comparison instead. Add a third option that is deliberately a little worse than the one you want them to choose, and you make the target option look obviously better.
+
+The classic example: a magazine offered web-only at a low price, print-only at a high price, and print-plus-web at the same high price as print-only. Almost nobody wanted print alone — but next to it, print-and-web for the same money looked like an obvious win. Remove the useless middle option and the choices flip.
+
+On a pricing page: three tiers arranged on purpose versus three tiers thrown down at random. The option you want most people to take should sit next to a neighbor that makes it look generous. The decoy earns its place purely by flattering the option beside it.
+
+The line: a decoy that is obviously a trick will annoy people. A pricing structure that genuinely makes your best-value option look like what it is — the best value — is just clarity.
+
+### The Pratfall effect — honesty over perfection
+
+Admitting a flaw can make people trust you more, not less. A person or brand presented as flawless reads as slightly unreal, and the brain stays on guard. The moment a small honest imperfection appears, the whole thing becomes more believable — and believable is what people actually trust.
+
+Almost every website does the opposite. Every review is five stars. Every outcome is perfect. The product is for everyone and there's nothing it can't do. A visitor who's been on the internet for more than a week reads that wall of perfection as exactly what it is, and braces.
+
+The alternative: show the real review average including the threes. Let people read the honest criticism and see how the company handled it. Tell them right on the pricing page who this is not for. That honesty makes every other claim on the site more believable, because clearly this is a business that tells the truth even when it stings.
+
+### The summary
+
+- Conventions make a visitor comfortable.
+- Reachable targets let them act.
+- Proof placed at the point of doubt makes them feel safe.
+- Real authority makes them defer.
+- Sensible defaults carry them forward.
+- A well-arranged choice helps them decide.
+- A little honesty makes them believe.
+
+None of these are tricks. Every one of them is a designer respecting how a real human brain works instead of how we wish it worked. When a site feels effortless and you trust it before you can explain why, that is not one clever touch. That is all of this aligned, working beneath the surface. When a site feels off and you can't pinpoint why, it's almost always because some of these principles are being violated without anyone realizing.

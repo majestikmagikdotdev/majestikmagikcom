@@ -5,14 +5,10 @@ import dynamic from 'next/dynamic';
 import HomeHero from './components/HomeHero';
 import ClientMarquee from './components/ClientMarquee';
 import HomeServices from './components/HomeServices';
-import WhyUsStatement from './components/WhyUsStatement';
 import ProcessSection from './components/ProcessSection';
 import HomePricing from './components/HomePricing';
 import HomeContact from './components/HomeContact';
 import TestimonialsSection from './components/TestimonialsSection';
-import OfflineDemoSection from './components/OfflineDemoSection';
-import NodePipelineSection from './components/NodePipelineSection';
-import ESignCanvas from './components/ESignCanvas';
 
 const ChatbotController = dynamic(() => import('./components/ChatbotController'));
 
@@ -145,27 +141,8 @@ export default function App() {
       >
         <HomeHero />
         <ClientMarquee />
-        <WhyUsStatement />
-        <HomeServices />
         <TestimonialsSection />
-        {/* Demo block intro */}
-        <div className="reveal w-full pb-2 max-w-7xl mx-auto">
-          <h2
-            className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
-            style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
-          >
-            See it working.
-            <br />
-            <span className="text-[#404050]">Not a mockup. Not a screenshot.</span>
-          </h2>
-          <p className="mt-5 text-sm text-[#a0a0b0] max-w-lg leading-relaxed">
-            Every demo below is live code. Offline sync, encrypted pipelines, e-sign capture. This is what we actually ship.
-          </p>
-        </div>
-
-        <OfflineDemoSection />
-        <NodePipelineSection />
-        <ESignCanvas />
+        <HomeServices />
         <ProcessSection />
         <HomePricing />
         <HomeContact />

@@ -1,57 +1,55 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 
-function AnimatedBar({ pct, color }: { pct: number; color: string }) {
-  return (
-    <div className="h-px w-full bg-[#1e1e2e] rounded-full overflow-hidden">
-      <div className={`h-full ${color} rounded-full`} style={{ width: `${pct}%` }} />
-    </div>
-  );
-}
-
 
 function PerfMockup() {
-  const bars = [
-    { label: 'Performance', pct: 97, color: 'bg-emerald-500' },
-    { label: 'SEO', pct: 100, color: 'bg-indigo-500' },
-    { label: 'Best Practices', pct: 95, color: 'bg-violet-500' },
+  const lines = [
+    { label: 'FCP',  value: '0.4s',  note: 'first contentful paint' },
+    { label: 'LCP',  value: '0.9s',  note: 'largest contentful paint' },
+    { label: 'TBT',  value: '12ms',  note: 'total blocking time' },
+    { label: 'CLS',  value: '0.001', note: 'layout shift score' },
   ];
   return (
-    <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-center gap-3">
-      <div className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 mb-0.5">
+    <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono">
+      <div className="flex items-center gap-1.5 text-[10px] text-emerald-400">
         <span className="w-1 h-1 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 4px #34d399' }} />
-        Lighthouse audit complete
+        lighthouse · mobile · after
       </div>
-      {bars.map(({ label, pct, color }) => (
-        <div key={label}>
-          <div className="flex justify-between text-[10px] font-mono text-[#404050] mb-1">
-            <span>{label}</span>
-            <span className="text-[#606070]">{pct}</span>
+      <div className="space-y-1.5">
+        {lines.map(({ label, value, note }) => (
+          <div key={label} className="flex items-baseline gap-2 text-[10px]">
+            <span className="text-[#404050] w-7 flex-shrink-0">{label}</span>
+            <span className="text-emerald-400 font-bold">{value}</span>
+            <span className="text-[#303040] truncate">{note}</span>
           </div>
-          <AnimatedBar pct={pct} color={color} />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
 
 function SystemsMockup() {
-  const bars = [
-    { label: 'Inventory Engine', pct: 92, color: 'bg-violet-500' },
-    { label: 'Fleet Tracker', pct: 78, color: 'bg-indigo-500' },
-    { label: 'Logistics API', pct: 85, color: 'bg-purple-500' },
+  const modules = [
+    { name: 'inventory-api',  status: 'running', uptime: '47d' },
+    { name: 'fleet-tracker',  status: 'running', uptime: '47d' },
+    { name: 'logistics-sync', status: 'running', uptime: '47d' },
   ];
   return (
-    <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-center gap-3">
-      <div className="px-1.5 py-0.5 bg-violet-950/40 border border-violet-500/20 rounded text-[10px] font-mono text-violet-400 w-fit mb-0.5">OWNED INFRA</div>
-      {bars.map(({ label, pct, color }) => (
-        <div key={label}>
-          <div className="flex justify-between text-[10px] font-mono text-[#404050] mb-1">
-            <span>{label}</span><span className="text-[#606070]">{pct}%</span>
+    <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono">
+      <div className="flex items-center gap-1.5">
+        <span className="px-1.5 py-0.5 bg-violet-950/40 border border-violet-500/20 rounded text-[10px] text-violet-400">OWNED INFRA</span>
+        <span className="text-[10px] text-[#303040] ml-auto">self-hosted</span>
+      </div>
+      <div className="space-y-1.5">
+        {modules.map(({ name, status, uptime }) => (
+          <div key={name} className="flex items-center gap-2 text-[10px]">
+            <span className="w-1 h-1 rounded-full bg-emerald-400 flex-shrink-0" />
+            <span className="text-[#606070] flex-1 truncate">{name}</span>
+            <span className="text-emerald-400">{status}</span>
+            <span className="text-[#303040]">{uptime}</span>
           </div>
-          <AnimatedBar pct={pct} color={color} />
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
@@ -206,9 +204,6 @@ export default function HomeServices() {
           >
             What we actually do.
           </h2>
-          <p className="mt-5 text-sm text-[#a0a0b0] max-w-lg leading-relaxed">
-            Full-stack platforms, quick fixes, and everything in between. Shipped fast, owned by you. No retainers. No surprises.
-          </p>
         </div>
 
         {/* Sticky stacking cards */}

@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import portfolioData from '@/data/portfolio-links.json';
+import PortfolioDemos from './PortfolioDemos';
 
 export const metadata: Metadata = {
   title: 'Portfolio – Majestik Magik',
@@ -30,7 +31,7 @@ const YoutubeIcon = () => (
 
 export default function Portfolio() {
   return (
-    <div className="scroll-animate min-h-screen" style={{ background: '#181818', color: '#f0f0f0' }}>
+    <div className="min-h-screen" style={{ background: '#181818', color: '#f0f0f0' }}>
 
       {/* Indigo grid */}
       <div
@@ -45,7 +46,7 @@ export default function Portfolio() {
       <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(52,211,153,0.07) 0%, transparent 50%)' }} />
       <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(167,139,250,0.07) 0%, transparent 50%)' }} />
 
-      <div className="relative z-10 w-full px-6 py-40">
+      <div className="relative z-10 w-full px-6 pt-28 pb-20">
 
         {/* Header */}
         <div className="mb-16">
@@ -183,6 +184,28 @@ export default function Portfolio() {
             </div>
           ))}
         </div>
+
+        {/* Live Demos */}
+        <div className="border-t border-[#2a2a3a] pt-20 mb-20">
+          <div className="mb-4">
+            <span className="inline-block text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
+              Live Demos
+            </span>
+          </div>
+          <h2
+            className="text-4xl md:text-5xl font-black mb-4"
+            style={{ letterSpacing: '-0.04em', color: '#f0f0f0', lineHeight: '1' }}
+          >
+            Not a mockup.
+            <br />
+            <span style={{ color: '#404050' }}>Not a screenshot.</span>
+          </h2>
+          <p className="text-sm max-w-lg leading-relaxed mb-2" style={{ color: '#a0a0b0' }}>
+            Every demo below is live code. Offline sync, encrypted pipelines, e-sign capture. This is what we actually ship.
+          </p>
+        </div>
+
+        <PortfolioDemos />
 
         {/* Social Footer */}
         <div className="border-t border-[#2a2a3a] pt-12 text-center">
