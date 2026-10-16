@@ -141,10 +141,10 @@ export default function App() {
       >
         <HomeHero />
         <ClientMarquee />
-        <TestimonialsSection />
         <HomeServices />
         <ProcessSection />
         <HomePricing />
+        <TestimonialsSection />
         <HomeContact />
 
       </main>

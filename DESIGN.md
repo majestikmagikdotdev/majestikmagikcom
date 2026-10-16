@@ -515,3 +515,77 @@ The alternative: show the real review average including the threes. Let people r
 - A little honesty makes them believe.
 
 None of these are tricks. Every one of them is a designer respecting how a real human brain works instead of how we wish it worked. When a site feels effortless and you trust it before you can explain why, that is not one clever touch. That is all of this aligned, working beneath the surface. When a site feels off and you can't pinpoint why, it's almost always because some of these principles are being violated without anyone realizing.
+
+---
+
+## 13. The Five Shifts Changing Web Design
+
+Source: Crawford (web design practitioner, 750+ sites including Fortune 500)
+
+Web design is about to change forever. Anyone can get a website built in 5 minutes using AI, and it's mostly free. No designer needed. But the people worried about AI are focused on the wrong threat. The real change has nothing to do with AI being able to build websites. It has to do with what separates websites that just exist from the ones that actually drive measurable results.
+
+### Shift 1: Zero-Click Search Is Killing Passive Websites
+
+Nearly 60% of all Google searches now end without a single click to a website. Not 10%, not 20% — 60%. That's from a 2025 SEMrush study. When Google's AI overview kicks in, organic click-through rates drop as much as 61% for queries where those overviews appear.
+
+Google is reading your content, summarizing it, and handing the answer directly to the user. They never visit your site. If your website's primary job is to explain things, that job is being automated away.
+
+The businesses that win are the ones whose websites give people a reason to show up on purpose. A tool, an experience, a community, or a personality that can't be replicated by a paragraph of AI text.
+
+The question every business owner needs to ask: if AI could answer every question on my website, would anyone still need to visit it? If the answer is no, that's a problem that needs to be solved.
+
+### Shift 2: AI-Generated Sameness Is Creating Demand for Human-Made Design
+
+The AI website builder market hit a billion dollars in 2024, growing at more than 25% a year. Platforms like Wix, Squarespace, and Hostinger can generate an entire website from a text prompt. The output looks fine. Clean, professional. It also just works. But it's completely forgettable.
+
+When everyone's website looks exactly the same — same layout, same fonts, same stock imagery, same structure — you stop being a brand. The soul of the business begins to erode. You become a commodity. Commodities compete on price.
+
+As a direct reaction to the flood of AI-generated sites, there's a real movement toward what can be called human-made design. Organic layouts that break the mold. Expressive typography. Real imagery of actual people, not stock photos or AI-generated images. Asymmetry, texture, personality. These things can't be generated from a prompt. They come from a designer who actually understands a brand, its audience, and what needs to be communicated to them.
+
+When every baseline is a 5-minute AI site, intentional design with a real human touch is what separates a website that converts from one that just sits there and exists.
+
+### Shift 3: Psychology Is Now a Core Design Skill
+
+For years, web design was treated like graphic design. Pick your colors, fonts, layouts. Make it look professional. That's the absolute bare minimum now.
+
+The websites that actually perform are built on an understanding of how the brain works.
+
+**First impressions.** A visitor forms their first impression of a site in about half a second. They're not reading copy yet. They're making a gut-level judgment about whether the place is credible, trustworthy, and worth their time. That's the halo effect. A positive first impression carries through everything else they see. A negative or neutral one means you're already fighting uphill. This is why the hero section is the most important piece of real estate on the entire website.
+
+**Cognitive fluency.** The brain prefers things that are easy to process. When a website is clear and intuitive, it creates calm. The user feels smart. When it's cluttered, confusing, or full of jargon, it creates cognitive load. The user feels overwhelmed and leaves. Declare war on cognitive load. Ruthlessly edit every section, every sentence, every design choice. Make the path to the outcome effortless.
+
+**The peak-end rule.** People remember experiences based on their most intense moments and how they ended. Microinteractions matter. A subtle animation on a button hover, a small piece of feedback when a form is completed. These small details create peaks of delight. Delight makes a site feel alive. More importantly, it signals that someone cared about the user experience. That perception of care translates directly into trust.
+
+### Shift 4: Performance Is a Design Responsibility
+
+For a long time, the workflow was: designer creates something beautiful, hands it to the developer, developer builds it, and if it loads slowly, that's a dev problem. That model is gone.
+
+Google's Core Web Vitals are now a direct ranking factor. Site speed, visual stability, and responsiveness are measured and judged. A beautiful website that loads slowly gets penalized in search and loses traffic. Even if it gets traffic, it loses conversions.
+
+Mobile devices account for 60% of all web traffic. During 2025 Cyber Week, mobile was 80% of all digital traffic and 70% of all orders globally. Most designers are still designing desktop first and treating mobile as an afterthought. That approach is completely backwards. Mobile must be the default experience. It is the website that most people see.
+
+A designer now has to be a technical strategist. How many images you use, how complex your animations are, how many third-party scripts you load — all of these have performance consequences. And those performance consequences have business consequences.
+
+### Shift 5: Designers Are Selling Outcomes, Not Pages
+
+Ten years ago, the job of a web designer was to build a website. That was the deliverable. Today, building the website is the easy part. AI can do it.
+
+What AI cannot do:
+
+- Understand a business model and translate it into a system that generates leads and sales
+- Apply psychology to guide user behavior
+- Make the strategic call about what goes in the hero section and why
+- Recognize that a particular client's audience is skeptical, so social proof needs to go higher up
+- Look at a site that's getting traffic but not converting, diagnose why, and implement the fix
+
+That's the real work. And that's what the best designers who will thrive in this new era are selling. They're selling outcomes, not pages.
+
+Customers don't buy websites. They're buying more leads, more sales, more credibility, and more trust. The website is just a vehicle for the outcome. The designer who understands that — who can walk into a conversation and talk about conversion rates, user psychology, and business goals — commands a completely different price point than the one who's just talking about fonts and colors.
+
+**On accessibility.** 75% of organizations now report that better accessibility directly contributes to improved revenue. Designers who treat accessibility as a core principle, not an afterthought, serve their clients better, build websites more people can actually use, and future-proof against a regulatory environment that's only going to get stricter.
+
+### The Summary
+
+The barrier to entry for design has never been lower. The barrier to doing it well — building a website that actually performs, stands out, converts, and serves every user — has never been higher. That gap is the opportunity.
+
+As the internet gets flooded with generic AI-generated noise, websites that are thoughtful, strategic, and human — that actually respect the user's time and intelligence — are starting to stand out more than ever.

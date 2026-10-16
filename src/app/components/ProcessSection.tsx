@@ -41,7 +41,7 @@ const colorMap: Record<string, { num: string; phase: string; bar: string }> = {
 
 export default function ProcessSection() {
   return (
-    <section className="w-full px-4 md:px-6 py-20 md:py-32">
+    <section className="w-full px-4 md:px-6 py-20 md:py-32" aria-label="Our process">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -52,7 +52,7 @@ export default function ProcessSection() {
           >
             Here&apos;s what happens
             <br />
-            <span className="text-[#404050]">after you reach out.</span>
+            <span className="text-[#707080]">after you reach out.</span>
           </h2>
         </div>
 
@@ -73,6 +73,7 @@ export default function ProcessSection() {
                   <div className="relative flex-shrink-0 flex flex-col items-center">
                     <div
                       className={`w-10 h-10 rounded-full bg-[#0a0a12] border border-[#1e1e2e] flex items-center justify-center font-mono text-xs font-bold ${c.num} z-10`}
+                    aria-hidden="true"
                     >
                       {s.number}
                     </div>
@@ -91,7 +92,7 @@ export default function ProcessSection() {
                     >
                       {s.title}
                     </h3>
-                    <p className="text-sm text-[#606070] leading-relaxed max-w-xl">{s.desc}</p>
+                    <p className="text-sm text-[#808090] leading-relaxed max-w-xl">{s.desc}</p>
 
                     {/* Accent bar */}
                     <div className={`mt-4 h-px w-12 ${c.bar} opacity-40 rounded-full`} />

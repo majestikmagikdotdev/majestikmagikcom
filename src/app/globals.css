@@ -461,3 +461,46 @@ body.halloween ::-webkit-scrollbar-thumb {
     0 0 10px rgba(99,102,241,0.3);
   transform: translateY(1px);
 }
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-breathe,
+  .btn-gradient-pulse,
+  .chip-shimmer,
+  .pop-in,
+  .scroll-animate,
+  .stagger-children > * {
+    animation: none !important;
+  }
+
+  .scroll-animate {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .stagger-children > * {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .hero-screenshot-frame::before {
+    animation: none !important;
+  }
+
+  .hero-screenshot-inner {
+    transition: none !important;
+  }
+}

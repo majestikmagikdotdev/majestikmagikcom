@@ -11,7 +11,7 @@ const TRUST_CHIPS = [
 
 export default function HomeHero() {
   return (
-    <div id="home" className="relative flex flex-col px-4 md:px-6 pt-26 sm:pt-30 md:pt-34 pb-24 md:pb-26 max-w-7xl mx-auto w-full">
+    <section id="home" aria-label="Hero" className="relative flex flex-col pt-26 sm:pt-30 md:pt-34 pb-24 md:pb-26 max-w-7xl mx-auto w-full">
 
       <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
         {/* Left: copy */}
@@ -23,7 +23,7 @@ export default function HomeHero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 6px #34d399' }} />
             </span>
-            <span className="text-xs text-[#606070]">Taking new projects</span>
+            <span className="text-xs text-[#808090]">Taking new projects</span>
           </div>
 
           {/* H1 */}
@@ -47,7 +47,7 @@ export default function HomeHero() {
 
           {/* Subheading */}
           <p className="relative z-10 mb-10 max-w-xl text-base md:text-lg text-[#a0a0b0] leading-relaxed" style={{ letterSpacing: '-0.01em' }}>
-            Faster load times, cleaner code, and a site built to convert. Anyone can ship code now. The difference is whether somebody with actual taste made the calls.
+            60% of Google searches now end without a single click. AI answers the question before anyone visits your site. The businesses that survive that are the ones whose websites give people a reason to show up on purpose.
           </p>
 
           {/* CTAs */}
@@ -61,7 +61,7 @@ export default function HomeHero() {
             </Link>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full border border-[#2a2a3a] text-[#606070] hover:border-[#3a3a4a] hover:text-[#a0a0b0] transition-all duration-200"
+              className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full border border-[#2a2a3a] text-[#808090] hover:border-[#3a3a4a] hover:text-[#a0a0b0] transition-all duration-200"
             >
               See the work ↓
             </Link>
@@ -78,7 +78,7 @@ export default function HomeHero() {
                   className="w-1.5 h-1.5 rounded-full flex-shrink-0"
                   style={{ background: color, boxShadow: `0 0 5px ${color}` }}
                 />
-                <span className="text-[11px] font-mono text-[#505060] tracking-wide">{label}</span>
+                <span className="text-[11px] font-mono text-[#707080] tracking-wide">{label}</span>
               </div>
             ))}
           </div>
@@ -89,6 +89,6 @@ export default function HomeHero() {
           <HeroTerminal />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

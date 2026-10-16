@@ -18,9 +18,9 @@ function PerfMockup() {
       <div className="space-y-1.5">
         {lines.map(({ label, value, note }) => (
           <div key={label} className="flex items-baseline gap-2 text-[10px]">
-            <span className="text-[#404050] w-7 flex-shrink-0">{label}</span>
+            <span className="text-[#707080] w-7 flex-shrink-0">{label}</span>
             <span className="text-emerald-400 font-bold">{value}</span>
-            <span className="text-[#303040] truncate">{note}</span>
+            <span className="text-[#808090] truncate">{note}</span>
           </div>
         ))}
       </div>
@@ -38,15 +38,15 @@ function SystemsMockup() {
     <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono">
       <div className="flex items-center gap-1.5">
         <span className="px-1.5 py-0.5 bg-violet-950/40 border border-violet-500/20 rounded text-[10px] text-violet-400">OWNED INFRA</span>
-        <span className="text-[10px] text-[#303040] ml-auto">self-hosted</span>
+        <span className="text-[10px] text-[#808090] ml-auto">self-hosted</span>
       </div>
       <div className="space-y-1.5">
         {modules.map(({ name, status, uptime }) => (
           <div key={name} className="flex items-center gap-2 text-[10px]">
             <span className="w-1 h-1 rounded-full bg-emerald-400 flex-shrink-0" />
-            <span className="text-[#606070] flex-1 truncate">{name}</span>
+            <span className="text-[#808090] flex-1 truncate">{name}</span>
             <span className="text-emerald-400">{status}</span>
-            <span className="text-[#303040]">{uptime}</span>
+            <span className="text-[#808090]">{uptime}</span>
           </div>
         ))}
       </div>
@@ -65,18 +65,18 @@ function OfflineMockup() {
     <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono">
       <div className="flex items-center gap-1.5">
         <span className="w-1 h-1 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 5px #34d399' }} />
-        <span className="text-[10px] text-[#404050]">OFFLINE. SQLite Engine.</span>
+        <span className="text-[10px] text-[#707080]">OFFLINE. SQLite Engine.</span>
       </div>
       <div className="space-y-1">
         {ops.map((op, i) => (
-          <div key={op} className="text-[10px] text-[#404050] transition-opacity duration-500" style={{ opacity: tick % ops.length === i ? 1 : 0.25 }}>
-            <span className="text-[#606070]">›</span> {op}
+          <div key={op} className="text-[10px] text-[#707080] transition-opacity duration-500" style={{ opacity: tick % ops.length === i ? 1 : 0.25 }}>
+            <span className="text-[#808090]">›</span> {op}
           </div>
         ))}
       </div>
       <div className="flex gap-1.5">
         <span className="px-1.5 py-0.5 bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-[9px] rounded font-mono">SQLCipher</span>
-        <span className="px-1.5 py-0.5 bg-[#111120] border border-[#1e1e2e] text-[#404050] text-[9px] rounded font-mono">0ms latency</span>
+        <span className="px-1.5 py-0.5 bg-[#111120] border border-[#1e1e2e] text-[#707080] text-[9px] rounded font-mono">0ms latency</span>
       </div>
     </div>
   );
@@ -93,7 +93,7 @@ function AppMockup() {
     <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono overflow-hidden">
       <div className="flex items-center gap-1.5 mb-1">
         <span className="w-1 h-1 rounded-full bg-violet-400" style={{ boxShadow: '0 0 4px #a78bfa' }} />
-        <span className="text-[10px] text-[#404050]">event log</span>
+        <span className="text-[10px] text-[#707080]">event log</span>
       </div>
       <div className="space-y-1">
         {events.map((e) => (
@@ -101,9 +101,9 @@ function AppMockup() {
             key={e.msg}
             className="flex items-center gap-2 text-[10px]"
           >
-            <span className="text-[#404050] flex-shrink-0">{e.time}</span>
+            <span className="text-[#707080] flex-shrink-0">{e.time}</span>
             <span className="text-violet-400/60">›</span>
-            <span className="text-[#606070] truncate">{e.msg}</span>
+            <span className="text-[#808090] truncate">{e.msg}</span>
             <span className="ml-auto text-emerald-400 flex-shrink-0">✓</span>
           </div>
         ))}
@@ -193,7 +193,7 @@ export default function HomeServices() {
   }, []);
 
   return (
-    <div id="services" className="w-full px-4 md:px-6 py-20 md:py-32">
+    <section id="services" aria-label="Services" className="w-full px-4 md:px-6 py-20 md:py-32">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -204,6 +204,9 @@ export default function HomeServices() {
           >
             What we actually do.
           </h2>
+          <p className="mt-4 max-w-2xl text-sm text-[#808090] leading-relaxed">
+            AI can build a website in 5 minutes. What it can&apos;t do is understand your business, apply psychology to guide your visitors, or diagnose why your site gets traffic but doesn&apos;t convert. That&apos;s the work.
+          </p>
         </div>
 
         {/* Sticky stacking cards */}
@@ -215,6 +218,7 @@ export default function HomeServices() {
                 key={s.id}
                 ref={el => { cardRefs.current[i] = el; }}
                 onMouseMove={handleSpotlight}
+                aria-label={s.title}
                 className="reveal spotlight relative md:sticky rounded-2xl bg-[#0e0e1a] border border-[#1e1e2e] p-6 md:p-8 mb-5 md:mb-[10vh] transition-colors duration-300"
                 style={{
                   top: `${CARD_TOP_BASE + i * CARD_TOP_STEP}px`,
@@ -239,11 +243,6 @@ export default function HomeServices() {
 
                   {/* Content */}
                   <div className="lg:col-span-8">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-[10px] font-mono font-bold tracking-[0.15em] text-[#404050]">{s.id}</span>
-                      <span className="w-px h-3 bg-[#2a2a3a]" />
-                      <span className={`text-[10px] font-mono font-bold tracking-[0.15em] ${a.tag}`}>{s.tag}</span>
-                    </div>
                     <h3 className="mb-3 text-xl md:text-2xl font-bold text-[#f0f0f0]" style={{ letterSpacing: '-0.03em' }}>{s.title}</h3>
                     <p className="text-sm text-[#a0a0b0] leading-relaxed mb-5">{s.desc}</p>
                     <ul className="space-y-2">
@@ -261,6 +260,6 @@ export default function HomeServices() {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

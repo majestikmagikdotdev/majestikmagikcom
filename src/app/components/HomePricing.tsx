@@ -59,7 +59,7 @@ const SERVICES = [
     service: 'Technical GEO & AI Visibility Audit',
     price: '$3,500', priceAmount: 3500, turnaround: '3–5 days',
     bullets: [
-      'When someone asks ChatGPT or Perplexity about your industry, you should show up',
+      '60% of Google searches end without a click. AI answers the question before anyone visits your site. We fix that.',
       'We wire in the structured data and schema that AI crawlers actually read',
       'Full audit of your entity coverage: what\'s missing, what\'s wrong, what to fix',
     ],
@@ -96,16 +96,18 @@ export default function HomePricing() {
           >
             Know what you need?
             <br />
-            <span className="text-[#404050]">Here&apos;s the price.</span>
+            <span className="text-[#707080]">Here&apos;s the price.</span>
           </h2>
         </div>
 
         {/* Service rows */}
         <div className="reveal border border-[#1e1e2e] rounded-2xl overflow-hidden">
           {SERVICES.map((s, i) => (
-            <div
+            <button
               key={s.serviceId}
-              className={`reveal group flex flex-col md:flex-row md:items-center gap-4 px-6 py-5 hover:bg-[#0e0e1a] transition-colors duration-150 cursor-pointer ${
+              type="button"
+              aria-label={`Purchase ${s.service} for ${s.price}`}
+              className={`reveal group w-full text-left flex flex-col md:flex-row md:items-center gap-4 px-6 py-5 hover:bg-[#0e0e1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-inset transition-colors duration-150 ${
                 i < SERVICES.length - 1 ? 'border-b border-[#1e1e2e]' : ''
               }`}
               onClick={() => handleCheckout(s)}
@@ -113,7 +115,7 @@ export default function HomePricing() {
               {/* Service name + bullets */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs font-mono text-[#303040] tabular-nums">
+                  <span className="text-xs font-mono text-[#808090] tabular-nums">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h3 className="text-base font-semibold text-[#c0c0d0] group-hover:text-[#f0f0f0] transition-colors duration-150 leading-snug">
@@ -128,42 +130,39 @@ export default function HomePricing() {
                 <ul className="flex flex-col gap-y-1 pl-7">
                   {s.bullets.map(b => (
                     <li key={b} className="flex items-center gap-1.5 text-sm text-[#a0a0b0]">
-                      <span className="w-0.5 h-0.5 rounded-full bg-[#404050] flex-shrink-0" />
+                      <span className="w-0.5 h-0.5 rounded-full bg-[#606070] flex-shrink-0" aria-hidden="true" />
                       {b}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Right: turnaround + price + CTA */}
+              {/* Right: turnaround + price */}
               <div className="flex items-center gap-4 flex-shrink-0 pl-7 md:pl-0">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-1 h-1 rounded-full bg-emerald-500 flex-shrink-0" />
-                  <span className="text-[11px] font-mono text-[#404050] whitespace-nowrap">{s.turnaround}</span>
+                  <span className="w-1 h-1 rounded-full bg-emerald-500 flex-shrink-0" aria-hidden="true" />
+                  <span className="text-[11px] font-mono text-[#808090] whitespace-nowrap">{s.turnaround}</span>
                 </div>
                 <span className="text-base font-mono font-bold text-indigo-400 whitespace-nowrap">{s.price}</span>
-                <button
-                  onClick={(e) => { e.stopPropagation(); handleCheckout(s); }}
-                  className="text-xs font-mono font-bold uppercase tracking-wider px-4 py-2 rounded-lg bg-[#111120] border border-[#2a2a3a] text-[#606070] hover:border-indigo-500/40 hover:text-indigo-300 transition-all duration-150 whitespace-nowrap cursor-pointer"
-                >
+                <span className="text-xs font-mono font-bold uppercase tracking-wider px-4 py-2 rounded-lg bg-[#111120] border border-[#2a2a3a] text-[#707080] group-hover:border-indigo-500/40 group-hover:text-indigo-300 transition-all duration-150 whitespace-nowrap">
                   Buy Now →
-                </button>
+                </span>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
-        <p className="mt-6 text-[11px] font-mono text-[#303040]">
+        <p className="mt-6 text-[11px] font-mono text-[#808090]">
           Need something not listed?{' '}
           <button
             onClick={() => window.dispatchEvent(new CustomEvent('app:scroll-to', { detail: 'contact' }))}
-            className="text-[#a0a0b0] hover:text-indigo-400 transition-colors cursor-pointer underline underline-offset-2"
+            className="text-[#a0a0b0] hover:text-indigo-400 transition-colors cursor-pointer underline underline-offset-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-indigo-500 rounded"
           >
             Ask us
           </button>
         </p>
 
-        <p className="mt-4 text-[11px] font-mono text-[#303040]">
+        <p className="mt-4 text-[11px] font-mono text-[#808090]">
           If we miss a milestone, you don&apos;t pay for it. Simple as that.
         </p>
       </div>
