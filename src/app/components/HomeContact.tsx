@@ -89,7 +89,7 @@ export default function HomeContact() {
           </div>
 
           <p className="text-xs text-[#a0a0b0] leading-relaxed">
-            Jamil Matheny is the Founder of Majestik Magik, Inc., a digital solutions agency born from a lifelong passion for technology and a deep-seated desire to help businesses achieve their goals.
+            I got tired of watching businesses stuck with outdated, clunky software they couldn&apos;t control or get real support for. So I started building it for them instead.
             <Link href="/about/jamil-matheny" className="inline-flex items-center ml-1 font-mono text-xs text-indigo-300 hover:text-indigo-100 transition-colors">Read More</Link>
           </p>
 

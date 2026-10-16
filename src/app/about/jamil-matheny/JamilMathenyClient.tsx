@@ -110,7 +110,7 @@ const JamilMathenyPage = () => {
               </div>
 
               <p className="text-base font-medium leading-relaxed" style={{ color: '#f0f0f0' }}>
-                Jamil Matheny is the founder of Majestik Magik, Inc. He started the company because he got tired of watching businesses overpay for software they didn&apos;t own and couldn&apos;t control. So he builds it for them instead.
+                Jamil Matheny is the founder of Majestik Magik, Inc. He got tired of watching businesses stuck with outdated, clunky software they couldn&apos;t control or get real support for. So he started building it for them instead.
               </p>
             </div>
 
