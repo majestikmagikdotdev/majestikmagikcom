@@ -114,28 +114,28 @@ function AppMockup() {
 
 const SERVICES = [
   {
-    id: '01', tag: 'INTERFACES', title: 'Web Design & Landing Pages',
+    id: '01', tag: 'LOCAL-FIRST', title: 'Local-First & Mobile Apps',
+    desc: 'Works offline. Works fast. Works when the WiFi doesn\'t. Encrypted on-device storage with sync that catches up quietly in the background.',
+    bullets: ['Sub-millisecond response. No server round-trip', 'SQLCipher encrypted storage on-device', 'Background sync resumes automatically when online'],
+    mockup: <OfflineMockup />, accent: 'emerald',
+  },
+  {
+    id: '02', tag: 'INTERFACES', title: 'Web Design & Landing Pages',
     desc: 'Your site is the first thing people judge you by. We make sure it\'s not embarrassing. Fast, sharp, and built to actually convert.',
     bullets: ['Copy hierarchy engineered for conversion', 'Mobile-first, sub-second load times', 'Custom Lighthouse audit with llms.txt and robots.txt'],
     mockup: <PerfMockup />, accent: 'indigo',
   },
   {
-    id: '02', tag: 'APPLICATIONS', title: 'Web Applications',
+    id: '03', tag: 'APPLICATIONS', title: 'Web Applications',
     desc: 'Not another tool your team ignores. We build apps around how your people actually work. Real-time, integrated, and genuinely useful.',
     bullets: ['Auth, roles, and permissions built to your workflow', 'Live data feeds, webhooks, and third-party APIs', 'Stripe billing, subscriptions, and payout logic'],
     mockup: <AppMockup />, accent: 'violet',
   },
   {
-    id: '03', tag: 'SYSTEMS', title: 'Systems-as-a-Service',
+    id: '04', tag: 'SYSTEMS', title: 'Systems-as-a-Service',
     desc: 'You\'re paying monthly for software you\'ll never own. We build the same thing; inventory, fleet, logistics. Then we hand you the keys.',
     bullets: ['Full IP transfer. No subscriptions, no lock-in', 'Managed cloud or local-first deployment', 'Complete handoff docs and onboarding support'],
     mockup: <SystemsMockup />, accent: 'purple',
-  },
-  {
-    id: '04', tag: 'LOCAL-FIRST', title: 'Local-First & Mobile Apps',
-    desc: 'Works offline. Works fast. Works when the WiFi doesn\'t. Encrypted on-device storage with sync that catches up quietly in the background.',
-    bullets: ['Sub-millisecond response. No server round-trip', 'SQLCipher encrypted storage on-device', 'Background sync resumes automatically when online'],
-    mockup: <OfflineMockup />, accent: 'emerald',
   },
 ];
 
@@ -205,7 +205,7 @@ export default function HomeServices() {
             What we actually do.
           </h2>
           <p className="mt-4 max-w-2xl text-sm text-[#808090] leading-relaxed">
-            AI can build a website in 5 minutes. What it can&apos;t do is understand your business, apply psychology to guide your visitors, or diagnose why your site gets traffic but doesn&apos;t convert. That&apos;s the work.
+            Software that works everywhere. Even when the internet doesn&apos;t. From landing pages that convert to field apps that run in dead zones and sync the moment signal returns.
           </p>
         </div>
 

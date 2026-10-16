@@ -157,7 +157,7 @@ const FAQPage = () => {
       <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.13) 0%, transparent 55%)' }} />
 
       <main className="relative z-10 py-16 md:py-24 px-4 md:px-6">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-7xl mx-auto">
 
           <Link
             href="/"

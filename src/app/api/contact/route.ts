@@ -81,6 +81,11 @@ export async function POST(request: Request) {
       return Response.json({ error: 'Invalid email address' }, { status: 400 });
     }
 
+    const VALID_FORM_TYPES = new Set(['custom-build', 'quote']);
+    if (formType && !VALID_FORM_TYPES.has(formType)) {
+      return Response.json({ error: 'Invalid form type' }, { status: 400 });
+    }
+
     const isCustomBuild = formType === 'custom-build';
 
     const projectType   = sanitize(form.get('projectType'),   FIELD_LIMITS.projectType);

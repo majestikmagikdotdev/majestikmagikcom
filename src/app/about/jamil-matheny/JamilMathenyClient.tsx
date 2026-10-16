@@ -55,7 +55,7 @@ const JamilMathenyPage = () => {
       <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(167,139,250,0.07) 0%, transparent 50%)' }} />
 
       <div className="relative z-10 w-full px-6 py-40">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
 
           <Link
             href="/"
@@ -64,12 +64,7 @@ const JamilMathenyPage = () => {
             ← Back to Home
           </Link>
 
-          {/* Page label */}
-          <div className="mb-4">
-            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
-              About the Founder
-            </span>
-          </div>
+          {/* Page label removed per anti-AI-tell rules */}
 
           <h1
             className="text-5xl md:text-7xl font-bold mb-2"
@@ -78,7 +73,7 @@ const JamilMathenyPage = () => {
             Jamil{' '}
             <span
               className="text-transparent bg-clip-text"
-              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #a78bfa, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #a78bfa, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 1.8s both' }}
             >
               Matheny
             </span>
@@ -87,14 +82,12 @@ const JamilMathenyPage = () => {
             Founder, Majestik Magik Inc.
           </p>
 
-          {/* Article card */}
-          <article
-            className="rounded-2xl border p-8 md:p-12 space-y-6 text-sm leading-relaxed"
-            style={{ background: '#111120', borderColor: '#2a2a3a', color: '#a0a0b0' }}
-          >
-            {/* Photo + intro */}
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-shrink-0">
+          {/* Article */}
+          <div className="max-w-7xl text-base leading-relaxed" style={{ color: '#a0a0b0' }}>
+
+            <div className="flex flex-col md:flex-row gap-6 items-start">
+              {/* Photos */}
+              <div className="flex flex-row md:flex-col gap-4 flex-shrink-0">
                 <div className="relative">
                   <div className="absolute -inset-0.5 rounded-2xl opacity-40" style={{ background: 'linear-gradient(135deg, #6366f1, #a78bfa)', filter: 'blur(8px)' }} />
                   <Image
@@ -107,27 +100,14 @@ const JamilMathenyPage = () => {
                     loading="lazy"
                   />
                 </div>
-              </div>
-
-              <p className="text-base font-medium leading-relaxed" style={{ color: '#f0f0f0' }}>
-                Jamil Matheny is the founder of Majestik Magik, Inc. He got tired of watching businesses stuck with outdated, clunky software they couldn&apos;t control or get real support for. So he started building it for them instead.
-              </p>
-            </div>
-
-            <p>
-              He grew up in Virginia, got his first taste of hardware from a neighbor who worked in IT, and taught himself to code through Myspace and Yahoo Geocities. That&apos;s not a joke. That&apos;s actually how a lot of good developers got started.
-            </p>
-
-            <div className="flex flex-col md:flex-row-reverse gap-8 items-start">
-              <div className="flex-shrink-0">
                 <div className="relative">
                   <div className="absolute -inset-0.5 rounded-2xl opacity-40" style={{ background: 'linear-gradient(135deg, #6366f1, #a78bfa)', filter: 'blur(8px)' }} />
                   <Link href="/img/344705572_03be87188e_b.jpg" target="_blank">
                     <Image
                       src="/img/344705572_03be87188e_b.jpg"
                       alt="Jamil Matheny featured in the Richmond Times-Dispatch"
-                      width={160}
-                      height={240}
+                      width={180}
+                      height={180}
                       className="relative rounded-xl object-cover"
                       style={{ border: '1px solid rgba(99,102,241,0.2)' }}
                       loading="lazy"
@@ -135,71 +115,70 @@ const JamilMathenyPage = () => {
                   </Link>
                 </div>
               </div>
+              {/* Body copy */}
+              <p className="text-base leading-relaxed" style={{ color: '#a0a0b0' }}>
+                <span className="font-medium" style={{ color: '#f0f0f0' }}>Jamil Matheny is the founder of Majestik Magik, Inc.</span> He builds the software that businesses actually depend on: field tools that work without a signal, systems that don&apos;t require a support ticket to understand, and infrastructure that holds up when it matters.
+                <br/><br/>
+                He grew up in Virginia. A neighbor who worked in IT handed him his first piece of hardware. A self-taught programmer, he got his start through Myspace and Yahoo Geocities, which is not a punchline. That&apos;s how a generation of developers got started, and most of them are better for it. He later sharpened his skills with formal education at ECPI University.
+                <br/><br/>
+                Before Majestik Magik, he covered E3 in Los Angeles as a journalist for Advanced Media Network and was featured in the Richmond Times-Dispatch for his writing on gaming culture. He fronted a heavy metal band called Spiral Fracture, won the 2012 Battle of the Bands, and performed at the Rockstar Energy Mayhem Festival on the same bill as Slipknot and Anthrax.
+                <br/><br/>
+                He also ran a photography business, built a solo cleaning operation, and put in time at FedEx and Amazon. None of that was a detour. Every one of those jobs taught him something about how operations actually work at ground level, and that knowledge is in everything he builds.
+                <br/><br/>
+                He&apos;s been building things since he was assembling model cars and soldering circuits as a kid. That instinct never left. It just found a better medium.
+                <br/><br/>
+                He&apos;s a father, a builder, and someone who takes it personally when software fails the people using it.
+              </p>
+            </div>
 
-              <div className="space-y-4">
-                <p>
-                  Before Majestik Magik, Jamil covered E3 in Los Angeles as a journalist for Advanced Media Network (now Gamezone.com) and got featured in the Richmond Times-Dispatch for his take on gaming culture. He also fronted a heavy metal band called Spiral Fracture, won the 2012 Battle of the Bands, and performed at the Rockstar Energy Mayhem Festival on the same bill as Slipknot and Anthrax.
-                </p>
-                <p>
-                  In between, he ran a photography business, built a solo cleaning operation, and worked at FedEx and Amazon. Not as a detour. As research. Every job taught him something about how businesses actually run.
-                </p>
+          </div>
+
+          {/* Stat chips */}
+          <div className="max-w-7xl mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 pt-8">
+            {[
+              { label: 'Company', value: 'Majestik Magik Inc.' },
+              { label: 'Location', value: 'Virginia, USA' },
+              { label: 'Focus', value: 'Local-First Systems' },
+              { label: 'Philosophy', value: 'Align. Build. Ship.' },
+            ].map(({ label, value }) => (
+              <div key={label} className="rounded-lg p-3 border border-[#2a2a3a]" style={{ background: '#0e0e1a' }}>
+                <p className="text-[10px] font-mono uppercase tracking-widest mb-1" style={{ color: '#606070' }}>{label}</p>
+                <p className="text-xs font-mono font-bold" style={{ color: '#f0f0f0' }}>{value}</p>
               </div>
-            </div>
+            ))}
+          </div>
 
-            <p>
-              He&apos;s largely self-taught, obsessive about building things, and has been that way since he was making model cars and soldering circuits as a kid. That same instinct is what drives Majestik Magik. He doesn&apos;t just want to build websites. He wants to build the systems businesses actually depend on.
-            </p>
+          {/* Federal Vendor Credentials */}
+          <div className="max-w-7xl mt-4 space-y-3 pt-8">
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#f0f0f0' }}>Federal Vendor Credentials</p>
+            {['SAM.gov Registered Entity', 'UEI: F1TGDDS92AK3', 'CAGE Code: 14BU8'].map(item => (
+              <div key={item} className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30">
+                <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                <span className="text-xs font-mono text-indigo-300 tracking-wide">{item}</span>
+              </div>
+            ))}
+          </div>
 
-            {/* Pull quote */}
-            <p style={{ color: '#a0a0b0' }}>He&apos;s a father, a builder, and genuinely obsessed with making things work.</p>
-
-            {/* Stat chips */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-[#2a2a3a]">
-              {[
-                { label: 'Company', value: 'Majestik Magik Inc.' },
-                { label: 'Location', value: 'Virginia, USA' },
-                { label: 'Focus', value: 'Local-First Systems' },
-                { label: 'Philosophy', value: 'Align. Build. Ship.' },
-              ].map(({ label, value }) => (
-                <div key={label} className="rounded-lg p-3 border border-[#2a2a3a]" style={{ background: '#0e0e1a' }}>
-                  <p className="text-[10px] font-mono uppercase tracking-widest mb-1" style={{ color: '#606070' }}>{label}</p>
-                  <p className="text-xs font-mono font-bold" style={{ color: '#f0f0f0' }}>{value}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Federal Vendor Credentials */}
-            <div className="pt-4 border-t border-[#2a2a3a] space-y-3">
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#f0f0f0' }}>Federal Vendor Credentials</p>
-              {['SAM.gov Registered Entity', 'UEI: F1TGDDS92AK3', 'CAGE Code: 14BU8'].map(item => (
-                <div key={item} className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30">
-                  <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-                  <span className="text-xs font-mono text-indigo-300 tracking-wide">{item}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Certifications */}
-            <div className="pt-4 border-t border-[#2a2a3a] space-y-3">
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#f0f0f0' }}>Certifications</p>
-              <a href="/majestikmagikai_42433375_20260917185138_30hourconstructionindustryoutreach.pdf" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-colors">
-                <OshaSeal />
-                <div>
-                  <span className="text-xs font-mono text-amber-300 font-bold block">OSHA 30 — Construction Industry Outreach</span>
-                  <span className="text-[11px] text-amber-400/60 mt-0.5 block">U.S. Dept. of Labor • View Certificate →</span>
-                </div>
-              </a>
-              <a href="/Certificate_1004230428-3.pdf" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-colors">
-                <ForkliftSeal />
-                <div>
-                  <span className="text-xs font-mono text-amber-300 font-bold block">Forklift Operator Certification</span>
-                  <span className="text-[11px] text-amber-400/60 mt-0.5 block">Powered Industrial Truck • View Certificate →</span>
-                </div>
-              </a>
-            </div>
-          </article>
+          {/* Certifications */}
+          <div className="max-w-7xl mt-4 space-y-3 pt-8">
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#f0f0f0' }}>Certifications</p>
+            <a href="/majestikmagikai_42433375_20260917185138_30hourconstructionindustryoutreach.pdf" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-4 p-4 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-colors">
+              <OshaSeal />
+              <div>
+                <span className="text-xs font-mono text-amber-300 font-bold block">OSHA 30 — Construction Industry Outreach</span>
+                <span className="text-[11px] text-amber-400/60 mt-0.5 block">U.S. Dept. of Labor • View Certificate →</span>
+              </div>
+            </a>
+            <a href="/Certificate_1004230428-3.pdf" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-4 p-4 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-colors">
+              <ForkliftSeal />
+              <div>
+                <span className="text-xs font-mono text-amber-300 font-bold block">Forklift Operator Certification</span>
+                <span className="text-[11px] text-amber-400/60 mt-0.5 block">Powered Industrial Truck • View Certificate →</span>
+              </div>
+            </a>
+          </div>
 
         </div>
       </div>

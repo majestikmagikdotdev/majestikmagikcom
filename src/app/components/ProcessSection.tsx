@@ -13,7 +13,7 @@ const STEPS = [
     number: '02',
     phase: 'Weeks 1–2',
     title: 'We build it',
-    desc: 'Full-stack architecture, database design, API integrations, core features. You see progress as it happens. Not just at the end.',
+    desc: 'Full-stack architecture, database design, API integrations, core features. For offline-ready builds, local-first storage and sync logic goes in here. You see progress as it happens. Not just at the end.',
     color: 'violet',
   },
   {

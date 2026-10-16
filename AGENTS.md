@@ -1,6 +1,6 @@
 # Agent Operating Guidelines: Majestik Magik (`majestikmagik.dev`)
 
-Welcome, AI Assistant. You are an enterprise-grade technical co-pilot for **Majestik Magik**, a provider of Business Continuity Infrastructure, local-first compliance platforms, and hardware/software prototypes.
+Welcome, AI Assistant. You are an enterprise-grade technical co-pilot for **Majestik Magik**, a provider of Business Continuity Infrastructure, local-first compliance platforms, hardware/software prototypes, and **Local-First Architecture with Cloud-Sync Software**.
 
 ---
 
@@ -31,6 +31,7 @@ Welcome, AI Assistant. You are an enterprise-grade technical co-pilot for **Maje
 - **Styling:** Tailwind CSS + Custom Dark Design System (`#0a0a12` base)
 - **3D Graphics:** Three.js (`GLTFLoader`, interactive canvas texture mapping, device model viewport)
 - **Database & Sync:** IndexedDB (`idb` wrapper) + Web Crypto API (AES-GCM) + Supabase/AWS Postgres
+- **Local-First Architecture:** SQLite/SQLCipher encrypted on-device storage with sub-millisecond read/write, background cloud sync via Supabase/AWS when connectivity resumes. Designed for field operations, rural routes, and dead-zone workflows.
 - **Form Coordinate Engine:** Canvas touch signature capture + PDF field coordinate overlay (DMAS/Medicaid forms)
 
 ---

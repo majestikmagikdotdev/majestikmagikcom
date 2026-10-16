@@ -98,6 +98,9 @@ export default function HomePricing() {
             <br />
             <span className="text-[#707080]">Here&apos;s the price.</span>
           </h2>
+          <p className="mt-4 max-w-2xl text-sm text-[#808090] leading-relaxed">
+            Most business software breaks the second you lose Wi-Fi. We build applications that run locally on the device first, giving field teams instant speed and guaranteed uptime, then sync securely to the cloud when they&apos;re back online.
+          </p>
         </div>
 
         {/* Service rows */}
@@ -128,8 +131,8 @@ export default function HomePricing() {
                   )}
                 </div>
                 <ul className="flex flex-col gap-y-1 pl-7">
-                  {s.bullets.map(b => (
-                    <li key={b} className="flex items-center gap-1.5 text-sm text-[#a0a0b0]">
+                  {s.bullets.map((b, bi) => (
+                    <li key={bi} className="flex items-center gap-1.5 text-sm text-[#a0a0b0]">
                       <span className="w-0.5 h-0.5 rounded-full bg-[#606070] flex-shrink-0" aria-hidden="true" />
                       {b}
                     </li>

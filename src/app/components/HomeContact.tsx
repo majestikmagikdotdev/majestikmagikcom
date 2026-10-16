@@ -133,7 +133,7 @@ export default function HomeContact() {
             </div>
             <div>
               <label className="block text-xs font-mono font-bold uppercase tracking-wide text-[#808090] mb-2">What Do You Need Help With? *</label>
-              <textarea name="projectNeed" value={formData.projectNeed} onChange={handleChange} required disabled={isSubmitting} rows={4} className={inputCls + ' resize-none'} placeholder="e.g., Build a new platform, fix site speed, improve AI visibility..." />
+              <textarea name="projectNeed" value={formData.projectNeed} onChange={handleChange} required disabled={isSubmitting} rows={4} className={inputCls + ' resize-none'} placeholder="e.g., Build a field app that works offline, fix site speed, improve AI visibility..." />
             </div>
 
             <div>
