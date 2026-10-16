@@ -47,7 +47,7 @@ export default function HomeContact() {
     finally { setIsSubmitting(false); }
   };
 
-  const inputCls = "w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#f0f0f0] text-sm placeholder-[#606070] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50";
+  const inputCls = "w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#f0f0f0] text-sm placeholder-[#606070] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:shadow-[0_0_0_3px_rgba(99,102,241,0.12)] transition-all disabled:opacity-50";
 
   return (
     <div id="contact" className="w-full px-4 md:px-6 py-20 md:py-28">

@@ -82,7 +82,7 @@ export default function HeroTerminal() {
         <span className="text-[#404050] text-xs font-mono ml-1">~</span>
         <span className="ml-3 text-xs text-[#404050] tracking-widest uppercase">diagnostics — bash</span>
         <span className="ml-auto flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" style={{ boxShadow: '0 0 5px #34d399' }} />
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 5px #34d399' }} />
           <span className="text-xs text-[#404050]">LIVE</span>
         </span>
       </div>

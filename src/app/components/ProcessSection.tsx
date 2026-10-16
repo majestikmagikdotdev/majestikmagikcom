@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const STEPS = [
   {
@@ -40,6 +40,19 @@ const colorMap: Record<string, { num: string; phase: string; bar: string }> = {
 };
 
 export default function ProcessSection() {
+  const lineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = lineRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { el.classList.add('is-visible'); observer.disconnect(); } },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="w-full px-4 md:px-6 py-20 md:py-32" aria-label="Our process">
       <div className="max-w-7xl mx-auto">
@@ -59,7 +72,7 @@ export default function ProcessSection() {
         {/* Steps */}
         <div className="relative">
           {/* Vertical connector line */}
-          <div className="absolute left-[19px] top-6 bottom-6 w-px bg-[#1e1e2e] hidden md:block" />
+          <div ref={lineRef} className="connector-line absolute left-[19px] top-6 bottom-6 w-px bg-[#1e1e2e] hidden md:block" />
 
           <div className="flex flex-col gap-0">
             {STEPS.map((s) => {

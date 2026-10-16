@@ -107,7 +107,7 @@ export default function HomePricing() {
               key={s.serviceId}
               type="button"
               aria-label={`Purchase ${s.service} for ${s.price}`}
-              className={`reveal group w-full text-left flex flex-col md:flex-row md:items-center gap-4 px-6 py-5 hover:bg-[#0e0e1a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-inset transition-colors duration-150 ${
+              className={`reveal group w-full text-left flex flex-col md:flex-row md:items-center gap-4 px-6 py-5 hover:bg-[#0e0e1a] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-inset transition-all duration-150 ${
                 i < SERVICES.length - 1 ? 'border-b border-[#1e1e2e]' : ''
               }`}
               onClick={() => handleCheckout(s)}
@@ -140,11 +140,20 @@ export default function HomePricing() {
               {/* Right: turnaround + price */}
               <div className="flex items-center gap-4 flex-shrink-0 pl-7 md:pl-0">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-1 h-1 rounded-full bg-emerald-500 flex-shrink-0" aria-hidden="true" />
+                  <span
+                    className="w-1 h-1 rounded-full bg-emerald-500 flex-shrink-0 transition-shadow duration-300"
+                    style={{ boxShadow: '0 0 0 0 rgba(52,211,153,0)' }}
+                    onMouseEnter={e => (e.currentTarget.style.animation = 'dot-pulse-once 0.6s ease forwards')}
+                    onMouseLeave={e => (e.currentTarget.style.animation = '')}
+                    aria-hidden="true"
+                  />
                   <span className="text-[11px] font-mono text-[#808090] whitespace-nowrap">{s.turnaround}</span>
                 </div>
-                <span className="text-base font-mono font-bold text-indigo-400 whitespace-nowrap">{s.price}</span>
-                <span className="text-xs font-mono font-bold uppercase tracking-wider px-4 py-2 rounded-lg bg-[#111120] border border-[#2a2a3a] text-[#707080] group-hover:border-indigo-500/40 group-hover:text-indigo-300 transition-all duration-150 whitespace-nowrap">
+                <span
+                  className="text-base font-mono font-bold text-indigo-400 whitespace-nowrap"
+                  style={{ animation: 'price-slide-in 0.35s cubic-bezier(0.16,1,0.3,1) both', animationDelay: `${i * 40}ms` }}
+                >{s.price}</span>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider px-4 py-2 rounded-lg bg-[#111120] border border-[#2a2a3a] text-[#707080] group-hover:border-indigo-500/40 group-hover:text-indigo-300 transition-all duration-150 whitespace-nowrap cursor-pointer">
                   Buy Now →
                 </span>
               </div>

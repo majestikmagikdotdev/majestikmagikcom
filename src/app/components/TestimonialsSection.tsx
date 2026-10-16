@@ -49,7 +49,7 @@ export default function TestimonialsSection() {
           >
             What clients
             <br />
-            <span className="text-[#404050]">actually said.</span>
+            <span className="text-[#707080]">actually said.</span>
           </h2>
         </div>
 
@@ -75,7 +75,7 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Quote */}
-              <p className="text-sm text-[#606070] leading-relaxed flex-grow mb-6">
+              <p className="text-sm text-[#a0a0b0] leading-relaxed flex-grow mb-6">
                 &ldquo;{t.testimonial}&rdquo;
               </p>
 
@@ -93,7 +93,7 @@ export default function TestimonialsSection() {
                 <div>
                   <p className="text-xs font-mono font-semibold text-[#a0a0b0]">{t.name}</p>
                   {t.location && (
-                    <p className="text-[10px] font-mono text-[#404050]">{t.location}</p>
+                    <p className="text-[10px] font-mono text-[#707080]">{t.location}</p>
                   )}
                 </div>
                 {t.source && (
