@@ -57,12 +57,6 @@ export default function Portfolio() {
             ← Back to Home
           </Link>
 
-          <div className="mb-4">
-            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
-              Portfolio
-            </span>
-          </div>
-
           <h1
             className="text-5xl md:text-7xl font-bold mb-4"
             style={{ letterSpacing: '-0.09em', color: '#f0f0f0' }}
@@ -70,7 +64,7 @@ export default function Portfolio() {
             Engineered Systems &{' '}
             <span
               className="text-transparent bg-clip-text"
-              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #a78bfa, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #a78bfa, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 1.8s both' }}
             >
               Deployed Work
             </span>
@@ -187,11 +181,6 @@ export default function Portfolio() {
 
         {/* Live Demos */}
         <div className="border-t border-[#2a2a3a] pt-20 mb-20">
-          <div className="mb-4">
-            <span className="inline-block text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
-              Live Demos
-            </span>
-          </div>
           <h2
             className="text-4xl md:text-5xl font-black mb-4"
             style={{ letterSpacing: '-0.04em', color: '#f0f0f0', lineHeight: '1' }}

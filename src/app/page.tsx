@@ -140,10 +140,10 @@ export default function App() {
         className="relative z-10"
       >
         <HomeHero />
-        <ClientMarquee />
         <HomeServices />
-        <ProcessSection />
         <HomePricing />
+        <ClientMarquee />
+        <ProcessSection />
         <TestimonialsSection />
         <HomeContact />
 

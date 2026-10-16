@@ -28,20 +28,6 @@ const YoutubeIcon = () => (
   </svg>
 );
 
-const storyHighlights: Record<string, string> = {
-  'cearco-chemicals': 'Cearco Chemicals wanted an upgraded website with the next stage of ecommerce in mind. The new platform was built as a strong digital foundation for product expansion, future ordering workflows, and streamlined lead capture.',
-  'middleman-motors': 'Middleman Motors came to Majestik Magik with a lovable independent dealership website, but the build never made it into production. We bridged the launch gap with a production-ready deployment path, reliable infrastructure, and a polished sales experience.',
-  'noel-customs': 'Noel Customs was having trouble with Shopify email notifications and custom invoice templates for every customer. I fixed the flow so shoppers can see receipts clearly and get notified automatically after each order.',
-  'parris-gainer': 'I built a custom WordPress theme for Parris Gainer to simplify her admin panel and let her manage content for her book on disability and stroke recovery. She wanted a central hub for her message that she can continue promoting through social media.',
-};
-
-const testimonials: Record<string, { quote: string; author: string; role?: string }> = {
-  'middleman-motors': { quote: 'Majestik Magik took our stalled site and made it launch-ready. Reliable, fast, and polished for our customers.', author: 'Owner, Middleman Motors' },
-  'cearco-chemicals': { quote: 'They rebuilt our site with commerce in mind and gave us a foundation to sell products online when we were ready.', author: 'CEO, CEARCO Chemicals' },
-  'noel-customs': { quote: 'Fixed our Shopify emails and invoices so customers always receive clear receipts. A huge reduction in support requests.', author: 'Noel, Noel Customs' },
-  'parris-gainer': { quote: 'The custom WordPress theme made managing my book content simple. Now I have a central hub to share my message.', author: 'Parris Gainer', role: 'Author & Advocate' },
-  'jamil-cleaning-app': { quote: 'Built this booking app as a side project and used it to run my own cleaning business. Practical and dependable.', author: 'Jamil' },
-};
 
 export default function CaseStudies() {
   return (
@@ -71,12 +57,6 @@ export default function CaseStudies() {
             ← Back to Home
           </Link>
 
-          <div className="mb-4">
-            <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
-              Case Studies
-            </span>
-          </div>
-
           <h1
             className="text-5xl md:text-7xl font-bold mb-4"
             style={{ letterSpacing: '-0.09em', color: '#f0f0f0' }}
@@ -84,7 +64,7 @@ export default function CaseStudies() {
             Real Client Work,{' '}
             <span
               className="text-transparent bg-clip-text"
-              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #a78bfa, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
+              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #a78bfa, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 1.8s both' }}
             >
               Real Results
             </span>
@@ -161,22 +141,21 @@ export default function CaseStudies() {
                 <p className="leading-relaxed" style={{ color: '#a0a0b0' }}>{project.description}</p>
 
                 {/* Story */}
-                {storyHighlights[project.id] && (
+                {'story' in project && project.story && (
                   <div className="rounded-lg border border-[#2a2a3a] p-5" style={{ background: '#111120' }}>
-                    <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 mb-3">Project Story</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: '#a0a0b0' }}>{storyHighlights[project.id]}</p>
+                    <p className="text-sm leading-relaxed" style={{ color: '#a0a0b0' }}>{project.story as string}</p>
                   </div>
                 )}
 
                 {/* Testimonial */}
-                {testimonials[project.id] && (
+                {'testimonial' in project && project.testimonial && (
                   <div className="rounded-lg border border-[#2a2a3a] p-5" style={{ background: '#111120' }}>
-                    <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 mb-3">Client Testimonial</h3>
                     <blockquote className="text-sm italic leading-relaxed" style={{ color: '#a0a0b0' }}>
-                      &ldquo;{testimonials[project.id].quote}&rdquo;
+                      &ldquo;{(project.testimonial as { quote: string; author: string; role?: string }).quote}&rdquo;
                     </blockquote>
                     <p className="text-xs font-mono mt-3" style={{ color: '#606070' }}>
-                      {testimonials[project.id].author}{testimonials[project.id].role ? `, ${testimonials[project.id].role}` : ''}
+                      {(project.testimonial as { quote: string; author: string; role?: string }).author}
+                      {(project.testimonial as { quote: string; author: string; role?: string }).role ? `, ${(project.testimonial as { quote: string; author: string; role?: string }).role}` : ''}
                     </p>
                   </div>
                 )}
@@ -185,7 +164,6 @@ export default function CaseStudies() {
                 <div className="grid grid-cols-2 gap-4">
                   {project.metrics && project.metrics.length > 0 && (
                     <div className="rounded-lg border border-[#2a2a3a] p-5" style={{ background: '#111120' }}>
-                      <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 mb-3">Key Outcomes</h3>
                       <div className="space-y-3">
                         {project.metrics.map((metric, i) => (
                           <div key={i} className="flex items-start gap-2">
@@ -201,7 +179,6 @@ export default function CaseStudies() {
                   )}
 
                   <div className="rounded-lg border border-[#2a2a3a] p-5" style={{ background: '#111120' }}>
-                    <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 mb-3">Tech Stack</h3>
                     <div className="flex flex-wrap gap-1.5">
                       {project.techStack.map((tech, i) => (
                         <span key={i} className="text-xs font-mono bg-white/5 border border-white/10 px-2 py-0.5 rounded" style={{ color: '#a0a0b0' }}>

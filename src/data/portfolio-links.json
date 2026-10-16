@@ -1,6 +1,8 @@
 [
   {
     "id": "middleman-motors",
+    "story": "Middleman Motors came to Majestik Magik with a lovable independent dealership website, but the build never made it into production. We bridged the launch gap with a production-ready deployment path, reliable infrastructure, and a polished sales experience.",
+    "testimonial": { "quote": "Majestik Magik took our stalled site and made it launch-ready. Reliable, fast, and polished for our customers.", "author": "Owner, Middleman Motors" },
     "title": "Middleman Motors",
     "subtitle": "Full-Stack Automotive Platform & Data Pipeline",
     "description": "High-performance dealership inventory web app featuring automated inventory ingestion, real-time filtering, dynamic image proxies, and edge-cached server responses.",
@@ -35,6 +37,8 @@
   },
   {
     "id": "cearco-chemicals",
+    "story": "Cearco Chemicals wanted an upgraded website with the next stage of ecommerce in mind. The new platform was built as a strong digital foundation for product expansion, future ordering workflows, and streamlined lead capture.",
+    "testimonial": { "quote": "They rebuilt our site with commerce in mind and gave us a foundation to sell products online when we were ready.", "author": "CEO, CEARCO Chemicals" },
     "title": "CEARCO Chemicals",
     "subtitle": "Specialty Chemical & Cleaning Equipment Hub",
     "description": "Custom high-speed React storefront built for a specialty chemical manufacturer and pressure washer distribution brand, showcasing product lines and service diagnostics.",
@@ -51,6 +55,8 @@
   },
   {
     "id": "parris-gainer",
+    "story": "I built a custom WordPress theme for Parris Gainer to simplify her admin panel and let her manage content for her book on disability and stroke recovery. She wanted a central hub for her message that she can continue promoting through social media.",
+    "testimonial": { "quote": "The custom WordPress theme made managing my book content simple. Now I have a central hub to share my message.", "author": "Parris Gainer", "role": "Author & Advocate" },
     "title": "Dr. Parris Gainer",
     "subtitle": "Consulting & Mental Health Advocacy Portal",
     "description": "Custom WordPress deployment designed for strategic mental health solutions, author publication showcases, disability advocacy counseling, and community engagement.",
@@ -66,6 +72,8 @@
   },
   {
     "id": "noel-customs",
+    "story": "Noel Customs was having trouble with Shopify email notifications and custom invoice templates for every customer. I fixed the flow so shoppers can see receipts clearly and get notified automatically after each order.",
+    "testimonial": { "quote": "Fixed our Shopify emails and invoices so customers always receive clear receipts. A huge reduction in support requests.", "author": "Noel, Noel Customs" },
     "title": "Noel Customs",
     "subtitle": "Custom Apparel & Embroidery Storefront",
     "description": "High-converting Shopify e-commerce platform engineered for custom apparel, embroidered goods, dynamic order processing, and brand positioning.",
@@ -82,6 +90,7 @@
   },
   {
     "id": "jamil-cleaning-app",
+    "testimonial": { "quote": "Built this booking app as a side project and used it to run my own cleaning business. Practical and dependable.", "author": "Jamil" },
     "title": "Jamil Cleaning Services",
     "subtitle": "Commercial & Residential Booking Platform",
     "description": "Custom web application engineered for streamlined cleaning service requests, automated client quotes, interactive scheduling pipelines, and responsive service management.",
