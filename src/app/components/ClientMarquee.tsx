@@ -6,44 +6,28 @@ const LOGOS = [
   { src: '/img/parrisgainer.webp',  alt: 'Parris Gainer', width: 120, height: 48 },
   { src: '/img/cearco.webp',        alt: 'Cearco',        width: 120, height: 48 },
   { src: '/img/agriAI.webp',        alt: 'AgriAI',        width: 120, height: 48 },
+  { src: '/img/father-figure-logo-official-640-C0t24ieq.webp', alt: 'Father Figure', width: 160, height: 48 },
+  { src: '/img/middlemanmotors.png', alt: 'Middle Man Motors', width: 120, height: 48 },
 ];
-
-// Repeat enough times so the track is always wider than any viewport
-const TRACK = [...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS];
 
 export default function ClientMarquee() {
   return (
-    <div className="w-full py-10">
-      <p className="text-center text-[11px] font-mono text-[#303040] mb-8 tracking-widest uppercase">
+    <div className="w-full py-6 px-4 md:px-6">
+      <p className="text-center text-[11px] font-mono text-[#606070] mb-8 tracking-widest uppercase">
         Trusted by
       </p>
-
-      <div
-        className="w-full overflow-hidden"
-        style={{ maskImage: 'linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%)' }}
-      >
-        {/* Single track — translateX(-50%) lands on pixel-identical frame to 0% */}
-        <div
-          className="flex w-max gap-16 items-center"
-          style={{
-            animation: 'marquee-scroll-left 22s linear infinite',
-            willChange: 'transform',
-            transform: 'translateZ(0)',
-          }}
-        >
-          {TRACK.map((logo, i) => (
-            <div key={i} className="flex-shrink-0 opacity-40 grayscale">
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={logo.width}
-                height={logo.height}
-                className="h-10 w-auto object-contain"
-                loading="eager"
-              />
-            </div>
-          ))}
-        </div>
+      <div className="max-w-5xl mx-auto grid grid-cols-3 md:grid-cols-6 justify-items-center items-center gap-8 md:gap-10">
+        {LOGOS.map((logo) => (
+          <Image
+            key={logo.alt}
+            src={logo.src}
+            alt={logo.alt}
+            width={logo.width}
+            height={logo.height}
+            className="h-10 w-auto object-contain opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+            loading="eager"
+          />
+        ))}
       </div>
     </div>
   );
