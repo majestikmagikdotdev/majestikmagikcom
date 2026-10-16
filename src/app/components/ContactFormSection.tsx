@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CheckCircleIcon } from './Icons';
+import Image from 'next/image';
+import Link from 'next/link';
+import { CheckCircleIcon, GithubIcon, LinkedInIcon } from './Icons';
 
 interface ContactFormSectionProps {
   title?: string;
@@ -128,7 +130,55 @@ export default function ContactFormSection({
         </div>
 
         {/* Form Container */}
-        <div className="max-w-2xl mx-auto bg-[#1e293b] border border-[#334155] rounded-lg p-8 md:p-10">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 items-start">
+
+          {/* Founder Credentials */}
+          <div className="bg-[#1e293b] border border-[#334155] rounded-lg p-6 space-y-6">
+
+            {/* Photo + name */}
+            <div className="flex flex-col items-center text-center">
+              <div className="relative mb-4 p-1 rounded-full bg-gradient-to-b from-indigo-500/30 to-transparent border border-slate-800">
+                <Image
+                  src="/img/0-jamil.jpg"
+                  alt="Portrait of Jamil Matheny"
+                  width={100}
+                  height={100}
+                  className="object-cover w-24 h-24 rounded-full border-2 border-slate-950 grayscale hover:grayscale-0 transition-all duration-500"
+                  quality={75}
+                />
+              </div>
+              <h3 className="text-xl font-bold text-slate-100">Jamil Matheny</h3>
+              <p className="font-mono text-xs font-bold uppercase tracking-wider text-indigo-400 mb-1">Founder</p>
+              <a href="mailto:contact@majestikmagik.dev" className="font-mono text-xs text-slate-500 hover:text-indigo-400 transition-colors">contact@majestikmagik.dev</a>
+            </div>
+
+            {/* Signature */}
+            <div className="flex justify-center opacity-80">
+              <Image src="/img/my_signature.webp" alt="Jamil Matheny Signature" width={180} height={72} className="h-16 invert w-auto object-contain" />
+            </div>
+
+            {/* Bio */}
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Jamil Matheny is the Founder of Majestik Magik, Inc., a digital solutions agency born from a lifelong passion for technology and a deep-seated desire to help businesses achieve their goals.
+              <Link href="/about/jamil-matheny" className="inline-flex items-center ml-1 font-mono text-xs text-indigo-300 hover:text-indigo-100 transition-colors">Read More</Link>
+            </p>
+
+            {/* Social links */}
+            <div className="flex gap-3 justify-center border-t border-[#334155] pt-4">
+              {[
+                { name: 'GitHub', url: 'https://github.com/jmathtech', icon: <GithubIcon className="w-4 h-4" /> },
+                { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jamil-matheny', icon: <LinkedInIcon className="w-4 h-4" /> },
+              ].map((s) => (
+                <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.name}
+                  className="text-slate-500 hover:text-indigo-400 p-2 bg-[#0f172a] rounded border border-[#334155] transition-colors">
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+
+          </div>
+
+          <div className="bg-[#1e293b] border border-[#334155] rounded-lg p-8 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Success Message */}
             {submitStatus === 'success' && (
@@ -308,6 +358,7 @@ export default function ContactFormSection({
               {isSubmitting ? 'Sending...' : submitStatus === 'success' ? '✓ Request Sent' : !acknowledgedPolicy ? 'Acknowledge Policy to Continue' : 'Send My Request'}
             </button>            
           </form>
+          </div>
         </div>        
       </div>
     </section>
