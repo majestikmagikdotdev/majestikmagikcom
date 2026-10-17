@@ -187,18 +187,56 @@ export default function RootLayout({
                     "itemListElement": [
                       {
                         "@type": "Offer",
+                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "2200", "maxPrice": "4500" },
                         "itemOffered": {
                           "@type": "Service",
                           "name": "Website Speed Optimization",
-                          "description": "Deep hardware-conscious optimizations to eliminate script execution overhead, maximize Core Web Vitals, and drop mobile latencies by 50% or more."
+                          "description": "Deep hardware-conscious optimizations to eliminate script execution overhead, maximize Core Web Vitals, and drop mobile latencies by 50% or more. Guaranteed 90+ Lighthouse score. Starting at $2,200."
                         }
                       },
                       {
                         "@type": "Offer",
+                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "450", "maxPrice": "1850" },
                         "itemOffered": {
                           "@type": "Service",
                           "name": "Technical Platform Repair",
-                          "description": "Same-day bug fixes and logic debugging for React, WordPress, Shopify, and Webflow ecosystems."
+                          "description": "Same-day bug fixes and logic debugging for React, WordPress, Shopify, and Webflow ecosystems. Contact form and webhook debugging from $450. AI code extraction and frontend quick-fix from $1,850."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "4500", "maxPrice": "12000" },
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Landing Page & Full-Stack Engineering",
+                          "description": "Custom Next.js and Tailwind builds with elite animations, sub-second load times, full-stack API integrations, and production deployment. Starting at $4,500."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "3500", "maxPrice": "7500" },
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Technical GEO & AI Visibility Audit",
+                          "description": "Generative Engine Optimization ensuring your brand is cited inside ChatGPT, Perplexity, and Claude. Includes full JSON-LD schema injection, structured knowledge catalog, and AI citation monitoring. Starting at $3,500."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "600", "maxPrice": "1200" },
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "DNS, SPF, DKIM & Email Deliverability Setup",
+                          "description": "Full domain reputation setup with DMARC alignment, spam flagging elimination, and inbox warm-up strategy. Starting at $600."
+                        }
+                      },
+                      {
+                        "@type": "Offer",
+                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "1250", "maxPrice": "3500" },
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": "Shopify Email & Notification Engine",
+                          "description": "Custom transactional Liquid template coding, automated flow logic, dynamic variable patching, and high-converting marketing email design. Starting at $1,250."
                         }
                       }
                     ]

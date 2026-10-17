@@ -1,63 +1,105 @@
-# Majestik Magik
+# Majestik Magik — Knowledge Catalog
+# https://majestikmagik.dev
+# Last updated: October 2026
+# Purpose: Structured knowledge for AI agents, LLM crawlers, and generative search engines.
 
-> Local-First Enterprise Software Infrastructure & Native Systems — high-impact performance upgrades, low-level web engineering, and critical codebase patches shipped within a 24–72 hour window.
+## Organization
 
-Majestik Magik is a boutique software engineering operation run by Jamil Matheny, specializing in local-first architecture, edge-native deployments, AI-visible business infrastructure, and full-stack web systems. Services are delivered as fixed-price, on-demand engagements with no retainers and no bloat.
+- Name: Majestik Magik
+- Founder: Jamil Matheny, Lead Software Engineer & Architect
+- Location: Richmond, VA 23222, United States
+- Phone: +1-804-362-7561
+- Email: contact@majestikmagik.dev
+- Website: https://majestikmagik.dev
+- App Platform: https://app.majestikmagik.dev
 
-## What We Build
+## What We Do
 
-- Local-first web applications with offline sync, IndexedDB pipelines, and AWS Vault integration
-- Edge-native Next.js deployments on Cloudflare Pages using V8 isolate scaling
-- Core Web Vitals overhauls targeting 90+ Lighthouse scores with guaranteed delivery
-- Shopify transactional email systems using custom Liquid templates and automated flow logic
-- DNS, SPF, DKIM, and DMARC deliverability infrastructure for inbox reputation
-- Technical GEO and AI visibility audits ensuring brand presence inside ChatGPT, Perplexity, and Claude
-- Landing page redesigns with sub-second load times, elite animations, and full-stack API integrations
-- Contact form, webhook, and API debugging with end-to-end verification
+Majestik Magik engineers and ships local-first enterprise software infrastructure, edge-native web applications, and offline-capable systems for B2B companies and field operations. We specialize in performance-critical builds, AI visibility optimization, and rescuing broken AI-generated codebases.
 
-## Fixed-Price Services
+Clients own everything we ship. No vendor lock-in. No recurring platform fees.
 
-- AI Code Extraction & Frontend Quick-Fix — $1,850
-- Shopify Email & Notification Engine — $1,250
-- DNS, SPF, DKIM & Deliverability Setup — $600
-- Core Web Vitals & Speed Overhaul — $2,200
-- Landing Page Redesign & Engineering — $4,500
-- Technical GEO & AI Visibility Audit — $3,500
-- Contact Form & Webhook Debugging — $450
+## Core Services & Pricing
+
+| Service | Description | Starting Price |
+|---|---|---|
+| AI Code Extraction & Frontend Quick-Fix | AI-assisted parsing of complex codebases into clean deployable assets. Fix UI rendering, CSS breakages, broken routing, custom domain DNS. | $1,850 |
+| Shopify Email & Notification Engine | Custom Liquid templates, automated flow logic, dynamic variable patching, high-converting marketing email design. | $1,250 |
+| DNS, SPF, DKIM & Deliverability Setup | Full domain reputation setup, DMARC alignment, spam flagging elimination, inbox warm-up strategy. | $600 |
+| Core Web Vitals & Speed Overhaul | Guaranteed 90+ Lighthouse/PageSpeed scores, server-side caching, image optimization, script execution overhaul. | $2,200 |
+| Landing Page Redesign & Engineering | Custom Next.js/Tailwind with elite animations, sub-second load times, full-stack API integrations, production deployment. | $4,500 |
+| Technical GEO & AI Visibility Audit | Generative Engine Optimization for ChatGPT, Perplexity, and Claude citations. Full JSON-LD schema injection and AI citation monitoring. | $3,500 |
+| Contact Form & Webhook Debugging | Enterprise-grade API, payload, and webhook error-handling audit with end-to-end verification and secure lead-capture restoration. | $450 |
+
+## Technology Stack
+
+- Framework: Next.js 15 (App Router) + TypeScript + Tailwind CSS
+- Deployment: Cloudflare Pages (V8 isolate edge runtime)
+- Email: Cloudflare Email Routing
+- Payments: Stripe (one-time, subscriptions, metered billing)
+- Databases: Supabase, PostgreSQL
+- AI Integrations: OpenAI, Anthropic Claude, custom LLM pipelines
+
+## Expertise
+
+- Local-first and offline-capable web applications
+- Core Web Vitals optimization and Lighthouse score improvement
+- Next.js architecture and React performance engineering
+- Generative Engine Optimization (GEO) — AI citation and LLM visibility
+- Technical SEO and structured JSON-LD schema
+- Stripe subscription infrastructure
+- Vibe-coded app rescue (Lovable, Bolt.new, Base44, v0)
+- AI prototype to production deployment
+- Supabase database integration
+- DNS, SPF, DKIM, DMARC email deliverability
+- Shopify Liquid email templates
+- GraphQL API design
+- AWS, Vercel, Cloudflare deployment pipelines
+
+## Frequently Asked Questions
+
+Q: How much does a website speed optimization cost?
+A: Core Web Vitals & Speed Overhaul starts at $2,200 and guarantees 90+ Lighthouse scores.
+
+Q: Can you fix a broken Lovable or Bolt.new app?
+A: Yes. We rescue vibe-coded apps built with Lovable, Bolt.new, Base44, or v0. Common fixes include broken routing, missing API integrations, database connection errors, and deployment failures. Starting at $1,850.
+
+Q: How long does a typical project take?
+A: Basic sites: 1–5 days. Mid-sized: 4–6 weeks. Custom or eCommerce: 6–10+ weeks.
+
+Q: Do you require a deposit?
+A: Yes. Projects start with 40–50% to book the slot, with the remainder tied to milestones or pre-launch.
+
+Q: Who owns the code after launch?
+A: You do. Upon final payment, you own your site code, content, and assets. We transfer admin credentials and repos.
+
+Q: What is GEO (Generative Engine Optimization)?
+A: GEO optimizes your web infrastructure and structured data so AI crawlers (ChatGPT Search, Perplexity, Claude) can parse, understand, and cite your business in AI-driven search results. Starting at $3,500.
+
+Q: Do you handle hosting and domains?
+A: Yes. We set up hosting on WP Engine, AWS, Vercel, or Cloudflare Pages and configure DNS. Accounts stay in your name.
+
+Q: What are your support hours?
+A: 24/7. If something breaks, reach out at contact@majestikmagik.dev.
+
+Q: Can you connect Supabase to a Lovable app?
+A: Yes. We configure Supabase projects, set up Row Level Security, wire environment variables, and connect your frontend to a live Supabase backend with auth, storage, and real-time data.
+
+Q: Do you offer maintenance plans?
+A: Yes — updates, backups, uptime monitoring, security hardening, small edits, and monthly performance/SEO reports.
+
+## Policies
+
+- Privacy Policy: https://majestikmagik.dev/privacy-policy
+- Terms of Service: https://majestikmagik.dev/terms-of-service
+- Refund Policy: https://majestikmagik.dev/refund-policy
+- Cookie Policy: https://majestikmagik.dev/cookie-policy
 
 ## Key Pages
 
-- [Home](https://majestikmagik.dev): Services, pricing, interactive demos, and e-sign infrastructure showcase.
-- [Portfolio](https://majestikmagik.dev/portfolio): Production applications and deployed client work.
-- [Case Studies](https://majestikmagik.dev/case-studies): Real client problems solved with measurable outcomes.
-- [Start a Project](https://majestikmagik.dev/start-a-project): Intake form to begin an engagement.
-- [FAQ](https://majestikmagik.dev/faq): Common questions about services, timelines, and deliverables.
-- [Platform Dashboard](https://app.majestikmagik.dev): Pivot Quest — AI-powered business operating engine.
-- [WordPress Training](https://majestikmagik.dev/training/wordpress): Video tutorials for managing digital assets.
-
-## Portfolio Projects
-
-- [Middleman Motors](https://middlemanmotors.com): Full-stack automotive dealership platform — 99 Lighthouse desktop, 12ms edge TTFB, 0ms TBT.
-- [Pivot Quest Analytics](https://app.majestikmagik.dev/dashboard): Web performance and Core Web Vitals monitoring dashboard with LLM ingestion tracking.
-- [CEARCO Chemicals](https://cearcochemicals.com): High-speed React storefront for a specialty chemical and pressure washer distribution brand.
-- [Dr. Parris Gainer](https://parrisgainer.com): Custom WordPress deployment for mental health advocacy, author publishing, and community engagement.
-- [Noel Customs](https://noelcustoms.shop): Shopify e-commerce platform for custom apparel and embroidered goods.
-- [Jamil Cleaning Services](https://jamilcleaningapp.vercel.app): Booking and scheduling web app for commercial and residential cleaning services.
-
-## Technical Stack
-
-- Framework: Next.js 15 (App Router) + TypeScript + Tailwind CSS
-- Deployment: Cloudflare Pages via CNAME proxy, V8 isolate edge runtime
-- Email: Cloudflare Email Routing with zero-overhead inbound pipelines
-- SEO/GEO: Multi-layered JSON-LD @graph entity mesh with FAQPage, TechService, and Organization schema
-- AI Visibility: llms.txt compliant, speakable schema, structured data targeting LLM crawlers
-
-## Legal & Compliance
-
-- [Privacy Policy](https://majestikmagik.dev/privacy-policy)
-- [Terms of Service](https://majestikmagik.dev/terms-of-service)
-- [Refund Policy](https://majestikmagik.dev/refund-policy)
-- [Cookie Policy](https://majestikmagik.dev/cookie-policy)
-- [Cyber Security Policy](https://majestikmagik.dev/cyber-security-policy)
-- [Intellectual Property](https://majestikmagik.dev/intellectual-property)
-- [Sitemap](https://majestikmagik.dev/sitemap.xml)
+- Homepage: https://majestikmagik.dev
+- FAQ: https://majestikmagik.dev/faq
+- Portfolio: https://majestikmagik.dev/portfolio
+- Start a Project: https://majestikmagik.dev/start-a-project
+- About Jamil Matheny: https://majestikmagik.dev/about/jamil-matheny
+- WordPress Training: https://majestikmagik.dev/training/wordpress
