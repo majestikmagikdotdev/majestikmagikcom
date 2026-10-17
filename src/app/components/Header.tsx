@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import MagikLogo from './MagikLogo';
 import Link from 'next/link';
-import { Bars3Icon, XMarkIcon } from './Icons';
 
 export interface NavLinkItem {
   name: string;

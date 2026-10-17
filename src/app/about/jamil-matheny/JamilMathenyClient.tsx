@@ -198,14 +198,14 @@ const JamilMathenyPage = () => {
             </div>
 
             {/* Body copy */}
-            <div className="space-y-5 text-[15px] leading-relaxed" style={{ color: '#a0a0b0', fontFamily: '"Libre Baskerville", Georgia, serif' }}>
+            <div className="space-y-5 text-[15px] leading-relaxed" style={{ color: '#a0a0b0', fontFamily: 'var(--font-libre-baskerville), Georgia, serif' }}>
               <p>
                 Matheny grew up in Virginia. When his neighbor came home with an old computer part, he would sit down and teach him what it was and how to install it. That neighbor was the first mentor he ever had. As for coding, he figured that out on his own through Myspace and Yahoo Geocities. Not a punchline, but a credential. That&apos;s how a generation of developers learned to ship, and most of them are better for it. He kept sharpening his skills by building cool websites and apps, and later picked up formal education at ECPI University in 2019.
               </p>
 
               {/* Pull quote */}
               <blockquote className="border-l-2 border-indigo-500 pl-5 py-1 my-6">
-                <p className="text-base italic leading-relaxed" style={{ color: '#d4d4d8', fontFamily: '"Playfair Display", Georgia, serif' }}>
+                <p className="text-base italic leading-relaxed" style={{ color: '#d4d4d8', fontFamily: 'var(--font-playfair-display), Georgia, serif' }}>
                   &ldquo;Every one of those jobs taught him something about how operations actually work at ground level. That knowledge is in everything he builds.&rdquo;
                 </p>
               </blockquote>
