@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: 'Majestik Magik',
     images: [
       {
-        url: '/img/screenshot_mm_main.webp',
+        url: '/img/image.png',
         width: 1200,
         height: 630,
         alt: 'Majestik Magik website screenshot',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: 'Majestik Magik — We Build the Platforms Your Business Runs On',
     description:
       'Your site is slow. Your tools are rented. Your leads are dropping. We fix that. Fast builds, fixed prices, and you own everything when we ship.',
-    images: ['/img/screenshot_mm_main.webp'],
+    images: ['/img/image.png'],
   },
 };
 

@@ -674,3 +674,198 @@ body,
     print-color-adjust: exact !important;
   }
 }
+
+/* ==========================================================================
+   MAJESTIK MAGIK — RESTORED BRAND STYLES
+   ========================================================================== */
+
+/* --- Global Base --- */
+html, body {
+  background-color: #111111 !important;
+  color: #b0b0bc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Keyframes --- */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes chip-shimmer {
+  0%   { background-position: -300% center; }
+  100% { background-position:  300% center; }
+}
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0.5); }
+  70%  { transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-breathe {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50%       { opacity: 1;    transform: scale(1.08); }
+}
+@keyframes mm-glow-pulse {
+  0%, 100% { opacity: 0.7; }
+  50%       { opacity: 1; }
+}
+@keyframes witch-fly {
+  0%   { transform: translateX(-150px) translateY(0px) scaleX(-1); opacity: 0; }
+  5%   { opacity: 1; }
+  40%  { transform: translateX(40vw) translateY(-60px) scaleX(-1); }
+  60%  { transform: translateX(65vw) translateY(20px) scaleX(-1); }
+  95%  { opacity: 1; }
+  100% { transform: translateX(110vw) translateY(-30px) scaleX(-1); opacity: 0; }
+}
+@keyframes connector-draw {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+@keyframes dot-pulse-once {
+  0%   { box-shadow: 0 0 0 0 rgba(52,211,153,0.5); }
+  60%  { box-shadow: 0 0 0 5px rgba(52,211,153,0); }
+  100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
+}
+@keyframes price-slide-in {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes toast-in {
+  0%   { opacity: 0; transform: translateY(16px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes toast-out {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(8px) scale(0.95); }
+}
+
+/* --- Scroll Animate --- */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(8px);
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), filter 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+.scroll-animate.is-blurred {
+  opacity: 0;
+  transform: translateY(34px);
+  filter: blur(14px);
+}
+
+/* --- Stagger Children --- */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(6px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger-children.is-visible > *:nth-child(1) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.05s; }
+.stagger-children.is-visible > *:nth-child(2) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.15s; }
+.stagger-children.is-visible > *:nth-child(3) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.25s; }
+.stagger-children.is-visible > *:nth-child(4) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.35s; }
+.stagger-children.is-visible > *:nth-child(5) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.45s; }
+.stagger-children.is-visible > *:nth-child(6) { opacity: 1; transform: translateY(0); filter: blur(0px); transition-delay: 0.55s; }
+
+/* --- Trust chip shimmer --- */
+.chip-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(165,180,252,0.15) 50%, transparent 100%) no-repeat;
+  background-size: 300% 100%;
+  animation: chip-shimmer 1.4s ease forwards;
+}
+
+/* --- Premium Button --- */
+.btn-premium {
+  background: linear-gradient(180deg, #6d72f6 0%, #4f46e5 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    inset 0 -1px 0 rgba(0,0,0,0.28),
+    0 2px 4px rgba(0,0,0,0.45),
+    0 0 18px rgba(99,102,241,0.45);
+  border: 1px solid rgba(99,102,241,0.5);
+  transition: background 150ms ease, box-shadow 150ms ease, transform 80ms ease;
+}
+.btn-premium:hover {
+  background: linear-gradient(180deg, #7c82f8 0%, #5b52f0 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(0,0,0,0.28),
+    0 2px 6px rgba(0,0,0,0.45),
+    0 0 26px rgba(99,102,241,0.55);
+}
+.btn-premium:active {
+  background: linear-gradient(180deg, #4338ca 0%, #4f46e5 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(0,0,0,0.2),
+    inset 0 -1px 0 rgba(255,255,255,0.06),
+    0 1px 2px rgba(0,0,0,0.5),
+    0 0 10px rgba(99,102,241,0.3);
+  transform: translateY(1px);
+}
+
+/* --- Connector line --- */
+.connector-line {
+  transform-origin: top center;
+  transform: scaleY(0);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.connector-line.is-visible {
+  transform: scaleY(1);
+}
+
+/* --- Spotlight cards --- */
+.spotlight {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: 99, 102, 241;
+}
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    rgba(var(--spotlight-color), 0.07) 0%,
+    rgba(var(--spotlight-color), 0.02) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.spotlight:hover::before { opacity: 1; }
+
+/* --- Page transition --- */
+.page-enter {
+  animation: page-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-animate {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .stagger-children > * {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
