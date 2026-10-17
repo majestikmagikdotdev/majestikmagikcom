@@ -62,11 +62,22 @@ function SyncTerminal() {
             <span style={{ color: valueColor }}>{value}</span>
           </div>
         ))}
-        {visible < TERMINAL_LINES.length && (
+        {visible < TERMINAL_LINES.length ? (
           <span
             className="inline-block w-1.5 h-3.5 bg-indigo-400 align-middle"
             style={{ opacity: blink ? 1 : 0, transition: 'opacity 0.1s' }}
           />
+        ) : (
+          <div className="flex flex-wrap items-baseline gap-x-2 text-[11px] leading-relaxed mt-1 border-t border-[#1e1e2e] pt-2.5">
+            <span className="text-[#505060]">$</span>
+            <span className="text-[#a5b4fc]">ready to fix your stack?</span>
+            <span className="text-[#505060]">→</span>
+            <a href="/#contact" className="text-[#34d399] hover:underline underline-offset-2 transition-colors">get started</a>
+            <span
+              className="inline-block w-1.5 h-3.5 bg-indigo-400 align-middle ml-0.5"
+              style={{ opacity: blink ? 1 : 0, transition: 'opacity 0.1s' }}
+            />
+          </div>
         )}
       </div>
     </div>
