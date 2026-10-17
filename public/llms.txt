@@ -95,11 +95,39 @@ A: Yes — updates, backups, uptime monitoring, security hardening, small edits,
 - Refund Policy: https://majestikmagik.dev/refund-policy
 - Cookie Policy: https://majestikmagik.dev/cookie-policy
 
+## Products & SaaS Platforms
+
+### DMAS Intake Portal
+- URL: https://dmas-intake.majestikmagik.dev
+- Description: Offline-capable digital intake system for Virginia Medicaid waiver agencies. Replaces paper-based DMAS-97A/B, 98R, and 99 forms with a single digital workflow.
+- Target Users: Virginia Medicaid waiver agencies, RNs, care coordinators, agency administrators
+- White-Label: Yes — one config file swaps agency name, NPI, address, and colors. License to any Virginia Medicaid waiver agency as recurring SaaS revenue.
+
+**Features:**
+- Digital DMAS Forms: Auto-fills DMAS-97A/B, 98R, and 99 from a single intake flow. No re-keying data across three forms.
+- Offline-First: Built for rural dead zones. All data stored in IndexedDB on-device. RNs complete visits without a signal and sync when back online.
+- GPS-Verified EVV: Electronic Visit Verification with GPS coordinates and accuracy radius captured at time of visit.
+- AES-256 Encryption: Every record encrypted at rest with AES-256-GCM. Keys derived per-user via PBKDF2. PHI never touches disk unencrypted.
+- PDF Generation: One click produces a pixel-perfect, submission-ready PDF with signatures embedded. Auto-archived to private cloud storage.
+- HIPAA-Ready: Invite-only auth, role-based access, full audit trail, private storage buckets, BAA-eligible Supabase infrastructure.
+- Admin Dashboard: Review, approve, reject, and generate PDFs from a single queue. Full audit export per client. Role-gated admin controls.
+- E-Signature: Client and RN sign directly on-screen. Signatures encrypted and embedded into the final PDF.
+
+**Workflow (4 steps):**
+1. RN opens intake from any device — phone, tablet, or laptop. No app install required.
+2. Complete multi-step assessment capturing participant, provider, clinical, and support system data with smart conditional fields.
+3. Capture on-screen signatures from client and RN.
+4. Admin reviews, approves, and downloads submission-ready DMAS PDFs in one click.
+
+**Tech Stack:** Next.js, Supabase (BAA-eligible), IndexedDB, AES-256-GCM, GPS/Geolocation API, Cloudflare Pages
+
+**Contact for demo:** contact@majestikmagik.dev
+
 ## Key Pages
 
 - Homepage: https://majestikmagik.dev
 - FAQ: https://majestikmagik.dev/faq
 - Portfolio: https://majestikmagik.dev/portfolio
 - Start a Project: https://majestikmagik.dev/start-a-project
-- About Jamil Matheny: https://majestikmagik.dev/about/jamil-matheny
+- DMAS Intake Portal: https://dmas-intake.majestikmagik.dev
 - WordPress Training: https://majestikmagik.dev/training/wordpress
