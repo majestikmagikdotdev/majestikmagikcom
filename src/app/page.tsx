@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import HomeHero from './components/HomeHero';
-import ClientMarquee from './components/ClientMarquee';
 import HomeServices from './components/HomeServices';
 import ProcessSection from './components/ProcessSection';
 import HomePricing from './components/HomePricing';
@@ -142,7 +141,6 @@ export default function App() {
         <HomeHero />
         <div className="scroll-animate"><HomeServices /></div>
         <div className="scroll-animate"><HomePricing /></div>
-        <div className="scroll-animate"><ClientMarquee /></div>
         <div className="scroll-animate"><ProcessSection /></div>
         <div className="scroll-animate"><TestimonialsSection /></div>
         <div className="scroll-animate"><HomeContact /></div>

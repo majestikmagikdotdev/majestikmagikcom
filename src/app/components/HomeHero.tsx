@@ -1,10 +1,20 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+
+const LOGOS = [
+  { src: '/img/noel_customs.webp',  alt: 'Noel Customs',  width: 120, height: 48 },
+  { src: '/img/parrisgainer.webp',  alt: 'Parris Gainer', width: 120, height: 48 },
+  { src: '/img/cearco.webp',        alt: 'Cearco',        width: 120, height: 48 },
+  { src: '/img/agriAI.webp',        alt: 'AgriAI',        width: 120, height: 48 },
+  { src: '/img/father-figure-logo-official-640-C0t24ieq.webp', alt: 'Father Figure', width: 160, height: 48 },
+  { src: '/img/middlemanmotors.png', alt: 'Middle Man Motors', width: 120, height: 48 },
+];
 
 const TRUST_CHIPS = [
   { color: '#34d399', label: 'Works offline. Syncs on reconnect.' },
-  { color: '#34d399', label: 'You own it. Forever.' },
+  { color: '#818cf8', label: 'You own it. Forever.' },
 ];
 
 const TERMINAL_LINES = [
@@ -98,7 +108,7 @@ export default function HomeHero() {
               <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 6px #34d399' }} />
               </span>
-              <span className="text-xs text-[#808090]">Taking new projects</span>
+              <span className="text-xs text-[#808090]">Trusted by Virginia businesses</span>
             </div>
 
             {/* H1 */}
@@ -131,7 +141,7 @@ export default function HomeHero() {
                 href="/#contact"
                 className="btn-premium group inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full text-white font-bold active:scale-[0.97] transition-transform duration-75"
               >
-                Fix my site
+                Contact us today
                 <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Link>
               <Link
@@ -143,7 +153,7 @@ export default function HomeHero() {
             </div>
 
             {/* Trust chips */}
-            <div className="relative z-10 grid grid-cols-2 gap-2">
+            <div className="relative z-10 grid grid-cols-2 gap-2 mb-12">
               {TRUST_CHIPS.map(({ color, label }) => (
                 <div
                   key={label}
@@ -156,6 +166,24 @@ export default function HomeHero() {
                   <span className="text-[11px] font-mono text-[#707080] tracking-wide">{label}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Social proof — logos inline, at point of doubt */}
+            <div className="relative z-10">
+              <p className="text-[10px] font-mono text-[#505060] mb-5 tracking-widest uppercase">Trusted by</p>
+              <div className="grid grid-cols-3 sm:grid-cols-6 items-center gap-6">
+                {LOGOS.map((logo) => (
+                  <Image
+                    key={logo.alt}
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={logo.width}
+                    height={logo.height}
+                    className="h-8 w-auto object-contain opacity-50 grayscale hover:opacity-90 hover:grayscale-0 transition-all duration-300"
+                    loading="eager"
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
