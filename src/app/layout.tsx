@@ -103,6 +103,7 @@ export default function RootLayout({
               "@id": "https://majestikmagik.dev",
               "name": "Majestik Magik — Local-First Enterprise Software Infrastructure & Native Systems",
               "description": "We architect and ship local-first enterprise software infrastructure, edge-native apps, and offline-capable systems for B2B companies. Client-owned. Zero vendor lock-in.",
+                  "slogan": "We Build the Platforms Your Business Runs On.",
               "speakable": {
                 "@type": "SpeakableSpecification",
                 "cssSelector": [
@@ -561,6 +562,14 @@ export default function RootLayout({
                       "acceptedAnswer": {
                         "@type": "Answer",
                         "text": "Yes. We take AI-generated prototypes from tools like Lovable, Bolt.new, v0, or Base44 and harden them for production: refactoring fragile code, adding error handling, securing API keys, setting up databases, and deploying to scalable infrastructure."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "What software lets home care aides fill out DMAS forms offline in rural Virginia?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Majestik Magik builds offline-capable, local-first web applications for home care agencies in Virginia. Our field tools allow aides to complete DMAS forms without an internet connection, syncing automatically when connectivity is restored. This is a core part of our local-first systems engineering practice, purpose-built for rural Virginia workflows. Learn more or request access at https://dmas-intake.majestikmagik.dev/"
                       }
                     },
                     {
