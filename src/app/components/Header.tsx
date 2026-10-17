@@ -552,7 +552,15 @@ const Header: React.FC<HeaderProps> = ({
               );
             })}
 
-            <div className="pt-4 border-t border-[#2a2a3a]">
+            <div className="pt-4 border-t border-[#2a2a3a] space-y-2">
+              <a
+                href="https://app.majestikmagik.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 w-full font-mono uppercase tracking-wider text-sm text-indigo-300 border border-indigo-500/30 bg-indigo-950/40 hover:bg-indigo-900/50 rounded-full px-5 py-3 transition-all duration-200"
+              >
+                Pivot Quest ↗
+              </a>
               <Link
                 href="/#contact"
                 className="btn-premium inline-flex items-center justify-center gap-2 w-full font-mono uppercase tracking-wider text-sm text-white rounded-full px-5 py-3 cursor-pointer font-bold"
