@@ -72,7 +72,7 @@ function SyncTerminal() {
             <span className="text-[#505060]">$</span>
             <span className="text-[#a5b4fc]">ready to fix your stack?</span>
             <span className="text-[#505060]">→</span>
-            <a href="/#contact" className="text-[#34d399] hover:underline underline-offset-2 transition-colors">get started</a>
+            <Link href="/#contact" className="text-[#34d399] hover:underline underline-offset-2 transition-colors">get started</Link>
             <span
               className="inline-block w-1.5 h-3.5 bg-indigo-400 align-middle ml-0.5"
               style={{ opacity: blink ? 1 : 0, transition: 'opacity 0.1s' }}
