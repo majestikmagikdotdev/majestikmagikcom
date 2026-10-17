@@ -592,7 +592,67 @@ As the internet gets flooded with generic AI-generated noise, websites that are 
 
 ---
 
-## 14. 10 Web Design Trends That Define 2026
+## 14. Web Design Fundamentals: Layout, Color, Typography & Images
+
+Source: Web design practitioner (11+ years, 800+ sites)
+
+All web design knowledge reduces to four things: layout, color, typography, and images. Get these right and you know everything you need to build great websites.
+
+### Visual Hierarchy
+
+For every section, ask three questions:
+1. Where does my eye land first?
+2. What gets noticed second?
+3. What gets completely missed?
+
+Test it: show the section to someone for a few seconds and ask what they remember in order. If the most important content gets missed, fix the hierarchy.
+
+### Buttons: Never Use Ghost Buttons for Primary CTAs
+
+Ghost buttons (outline only, no solid background) don't get seen and don't get clicked. The primary CTA must have a solid filled background that stands out from everything else on the page.
+
+- **Primary CTA:** Solid filled button (`btn-premium` — indigo gradient with lighting)
+- **Secondary CTA:** Subtle but still readable — a dark fill (`bg-[#0e0e1a]`) with a visible border, not a pure outline ghost
+
+This was applied to the "See the work" button in `HomeHero.tsx` — changed from a pure ghost to a dark-filled button with `bg-[#0e0e1a]` and text bumped from `#808090` to `#a0a0b0`.
+
+### Color: The 60-30-10 Rule
+
+- **60%** — Background color: deep blacks and slates (`#0a0a12`, `#181818`)
+- **30%** — Text and cards: `#0e0e1a`, `#111120`, `#f0f0f0` body text
+- **10%** — Accent: indigo/emerald/violet on buttons, badges, and active indicators only
+
+Always check contrast. Use [Coolors.co](https://coolors.co) color contrast checker to verify text passes WCAG. High contrast is required — not just for accessibility, but because low-contrast text loses users before they read it.
+
+### Typography: One or Two Typefaces Maximum
+
+Massimo Vignelli built his entire career on six typefaces. Don't overcomplicate it.
+
+- **H1** — Biggest, most prominent. Describes what the entire page is about. (`font-black`, `tracking-tight`, `letter-spacing: -0.04em`)
+- **H2** — Divides the page and guides attention. Smaller than H1, still bold.
+- **P tags** — No decorative fonts. Inter only. Readability over style.
+
+This site uses Inter (body) + JetBrains Mono (telemetry/badges). That's the ceiling. Don't add a third.
+
+### Images: Purpose Over Decoration
+
+Every image must either make users feel something or help them trust you. Random stock photos of people smiling add nothing and signal that nobody thought carefully about the site.
+
+- Use real photography of real people (founder photo in `HomeContact` builds trust)
+- Match photo color temperature to the site palette — mismatched images are a telltale sign of careless design
+- If an image doesn't serve a purpose, remove it
+
+### Conversion Over Aesthetics
+
+A beautiful site that doesn't convert is useless to the client. Good design reduces friction:
+
+- Make it immediately clear who the company is and what to do next
+- Speak to the thing driving the user to say yes — know the ideal client
+- Fancy designs are made for designers, not users. Choose typography, colors, layout, and images based on the target audience, not personal preference
+
+---
+
+## 15. 10 Web Design Trends That Define 2026
 
 ### The Big Picture
 

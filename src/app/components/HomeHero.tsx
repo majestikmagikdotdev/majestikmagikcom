@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const TRUST_CHIPS = [
@@ -7,14 +7,80 @@ const TRUST_CHIPS = [
   { color: '#34d399', label: 'You own it. Forever.' },
 ];
 
+const TERMINAL_LINES = [
+  { prefix: 'Job #4471', label: 'LOADED FROM DEVICE', value: 'offline', valueColor: '#fbbf24' },
+  { prefix: 'Form 14-B', label: 'SAVED LOCALLY', value: '0ms', valueColor: '#34d399' },
+  { prefix: 'GPS Log', label: '3 ENTRIES QUEUED', value: 'syncing when back online', valueColor: '#818cf8' },
+  { prefix: 'Signal', label: 'NO BARS', value: 'app still running', valueColor: '#34d399' },
+];
+
+function SyncTerminal() {
+  const [visible, setVisible] = useState(0);
+  const [blink, setBlink] = useState(true);
+
+  useEffect(() => {
+    if (visible >= TERMINAL_LINES.length) return;
+    const t = setTimeout(() => setVisible(v => v + 1), 520);
+    return () => clearTimeout(t);
+  }, [visible]);
+
+  useEffect(() => {
+    const t = setInterval(() => setBlink(b => !b), 530);
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <div className="w-full rounded-xl bg-[#0a0a12] border border-[#1e1e2e] overflow-hidden font-mono">
+      {/* Titlebar — Ubuntu/GNOME style */}
+      <div className="flex items-center justify-between px-3 py-2 border-b border-[#1e1e2e] bg-[#111120]">
+        <span className="text-[11px] text-[#aaaaaa] tracking-wide font-sans">sync-engine · field-node-07</span>
+        <div className="flex items-center gap-1.5">
+          {/* Minimize */}
+          <button aria-label="Minimize" className="w-4 h-4 rounded-full bg-[#1e1e2e] border border-[#2a2a3a] hover:bg-[#2a2a3a] transition-colors flex items-center justify-center">
+            <span className="block w-2 h-px bg-[#aaaaaa]" />
+          </button>
+          {/* Maximize */}
+          <button aria-label="Maximize" className="w-4 h-4 rounded-full bg-[#1e1e2e] border border-[#2a2a3a] hover:bg-[#2a2a3a] transition-colors flex items-center justify-center">
+            <span className="block w-2 h-2 border border-[#aaaaaa] rounded-sm" />
+          </button>
+          {/* Close */}
+          <button aria-label="Close" className="w-4 h-4 rounded-full bg-[#1e1e2e] border border-[#2a2a3a] hover:bg-[#e05c5c] hover:border-[#e05c5c] transition-colors flex items-center justify-center">
+            <span className="text-[#aaaaaa] text-[9px] leading-none">✕</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Body */}
+      <div className="px-4 py-4 space-y-2.5 min-h-[148px]">
+        {TERMINAL_LINES.slice(0, visible).map(({ prefix, label, value, valueColor }) => (
+          <div key={prefix} className="flex flex-wrap items-baseline gap-x-2 text-[11px] leading-relaxed">
+            <span className="text-[#505060]">[</span>
+            <span className="text-[#a0a0b0]">{prefix}</span>
+            <span className="text-[#505060]">]</span>
+            <span className="text-[#505060]">→</span>
+            <span className="text-[#707080]">{label}:</span>
+            <span style={{ color: valueColor }}>{value}</span>
+          </div>
+        ))}
+        {visible < TERMINAL_LINES.length && (
+          <span
+            className="inline-block w-1.5 h-3.5 bg-indigo-400 align-middle"
+            style={{ opacity: blink ? 1 : 0, transition: 'opacity 0.1s' }}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function HomeHero() {
   return (
     <section id="home" aria-label="Hero" className="relative flex flex-col w-full px-4 md:px-6 pt-28 sm:pt-32 md:pt-40 pb-32 md:pb-40">
       <div className="max-w-7xl mx-auto w-full">
 
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
           {/* Left: copy */}
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start lg:flex-[3]">
 
             {/* Availability indicator */}
             <div className="relative z-10 mb-8 inline-flex items-center gap-2.5">
@@ -59,7 +125,7 @@ export default function HomeHero() {
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full border border-[#2a2a3a] text-[#808090] hover:border-[#3a3a4a] hover:text-[#a0a0b0] active:scale-[0.97] transition-all duration-200"
+                className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full border border-[#2a2a3a] bg-[#0e0e1a] text-[#a0a0b0] hover:border-[#3a3a4a] hover:text-[#c0c0d0] hover:bg-[#111120] active:scale-[0.97] transition-all duration-200"
               >
                 See the work ↓
               </Link>
@@ -79,6 +145,13 @@ export default function HomeHero() {
                   <span className="text-[11px] font-mono text-[#707080] tracking-wide">{label}</span>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Right: sync terminal */}
+          <div className="hidden lg:flex lg:flex-[2] lg:justify-end mt-12 lg:mt-0">
+            <div className="w-full max-w-md">
+              <SyncTerminal />
             </div>
           </div>
         </div>
