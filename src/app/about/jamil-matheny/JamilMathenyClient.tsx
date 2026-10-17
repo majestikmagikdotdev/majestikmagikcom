@@ -56,7 +56,7 @@ function Modal({ content, onClose }: { content: ModalContent; onClose: () => voi
       style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(6px)' }}
       onClick={onClose}
     >
-      <div className="relative w-full" style={{ maxWidth: content.type === 'pdf' ? '56rem' : '42rem' }} onClick={e => e.stopPropagation()}>
+      <div className="relative w-full" style={{ maxWidth: '42rem' }} onClick={e => e.stopPropagation()}>
         <button
           onClick={onClose}
           className="absolute -top-8 right-0 font-mono text-xs text-[#606070] hover:text-[#d4d4d8] transition-colors cursor-pointer"
