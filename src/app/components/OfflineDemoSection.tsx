@@ -58,7 +58,7 @@ export default function OfflineDemoSection() {
     setTimeout(() => { setGenerating(false); setPdfGenerated(true); }, 1200);
   };
 
-  const inputCls = "w-full px-3 py-2 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#f0f0f0] text-xs font-mono placeholder-[#404050] focus:outline-none focus:border-indigo-500 transition-all";
+  const inputCls = "w-full px-3 py-2 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#d4d4d8] text-xs font-mono placeholder-[#404050] focus:outline-none focus:border-indigo-500 transition-all";
 
   return (
     <div className="w-full px-4 md:px-6 py-20">
@@ -69,7 +69,7 @@ export default function OfflineDemoSection() {
             <span className="inline-block text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase mb-3 bg-emerald-950/20 px-3 py-1 rounded border border-emerald-500/20">
               • Live Demo
             </span>
-            <h2 className="text-3xl md:text-5xl font-black text-[#f0f0f0] tracking-tight" style={{ letterSpacing: '-0.03em' }}>
+            <h2 className="text-3xl md:text-5xl font-black text-[#d4d4d8] tracking-tight" style={{ letterSpacing: '-0.03em' }}>
               Still works when{' '}
               <span
                 className="text-transparent bg-clip-text"
@@ -175,9 +175,9 @@ export default function OfflineDemoSection() {
               <div className="flex-1 rounded-xl border border-[#2a2a3a] bg-[#0a0a14] p-4 font-mono text-[11px] space-y-2">
                 {[
                   { key: 'record_id', val: mounted ? recordId : '—', color: 'text-indigo-400' },
-                  { key: 'client_name', val: form.name || '—', color: 'text-[#f0f0f0]' },
-                  { key: 'company', val: form.company || '—', color: 'text-[#f0f0f0]' },
-                  { key: 'scope', val: form.scope || '—', color: 'text-[#f0f0f0]' },
+                  { key: 'client_name', val: form.name || '—', color: 'text-[#d4d4d8]' },
+                  { key: 'company', val: form.company || '—', color: 'text-[#d4d4d8]' },
+                  { key: 'scope', val: form.scope || '—', color: 'text-[#d4d4d8]' },
                   { key: 'storage', val: offline ? 'IndexedDB (local)' : 'AWS Encrypted Vault', color: offline ? 'text-emerald-400' : 'text-violet-400' },
                   { key: 'sync_status', val: synced ? 'SYNCED ✓' : offline ? 'PENDING. Queued.' : 'LIVE', color: synced ? 'text-emerald-400' : offline ? 'text-amber-400' : 'text-emerald-400' },
                   { key: 'encryption', val: 'AES-256-GCM', color: 'text-violet-400' },

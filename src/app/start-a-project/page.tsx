@@ -128,7 +128,7 @@ export default function StartAProjectPage() {
     }
   };
 
-  const inputClass = 'w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#f0f0f0] text-sm placeholder-[#404050] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed';
+  const inputClass = 'w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#d4d4d8] text-sm placeholder-[#404050] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed';
   const labelClass = 'block text-xs font-mono font-bold uppercase tracking-wide text-[#a0a0b0] mb-2';
 
   return (
@@ -155,7 +155,7 @@ export default function StartAProjectPage() {
             Custom Build Intake
           </span>
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#f0f0f0] tracking-tight mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#d4d4d8] tracking-tight mb-4"
             style={{ letterSpacing: '-0.04em' }}
           >
             Start a{' '}
@@ -170,7 +170,7 @@ export default function StartAProjectPage() {
           {/* Pre-qual notice */}
           <div className="mt-6 p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-lg text-left">
             <p className="text-sm text-[#a0a0b0]">
-              <span className="font-semibold text-[#f0f0f0]">Before you submit:</span> We build for founders who have already nailed down their business model, data, and budget. If you&apos;re still working through those pieces,{' '}
+              <span className="font-semibold text-[#d4d4d8]">Before you submit:</span> We build for founders who have already nailed down their business model, data, and budget. If you&apos;re still working through those pieces,{' '}
               <a href="https://app.majestikmagik.dev" className="text-indigo-400 hover:text-indigo-300 underline font-semibold transition-colors" target="_blank" rel="noopener noreferrer">
                 Pivot Quest
               </a>{' '}
@@ -184,7 +184,7 @@ export default function StartAProjectPage() {
           {submitStatus === 'success' ? (
             <div className="py-12 flex flex-col items-center text-center gap-4">
               <CheckCircleIcon className="w-12 h-12 text-green-400" />
-              <h2 className="text-xl font-bold text-[#f0f0f0]">We received your project brief.</h2>
+              <h2 className="text-xl font-bold text-[#d4d4d8]">We received your project brief.</h2>
               <p className="text-[#a0a0b0] text-sm max-w-sm">
                 We&apos;ll review the details and follow up within 24 hours to schedule a discovery call.
               </p>
@@ -313,7 +313,7 @@ export default function StartAProjectPage() {
                   <svg className="w-5 h-5 text-[#606070] group-hover:text-indigo-400 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
                   </svg>
-                  <span className="text-sm text-[#a0a0b0] group-hover:text-[#f0f0f0] transition-colors">Click to upload PDFs</span>
+                  <span className="text-sm text-[#a0a0b0] group-hover:text-[#d4d4d8] transition-colors">Click to upload PDFs</span>
                 </label>
                 <input id="sap-attachment" type="file" accept="application/pdf" multiple onChange={handleFileChange} disabled={isSubmitting} className="sr-only" />
                 {attachments.length > 0 && (
@@ -340,7 +340,7 @@ export default function StartAProjectPage() {
                   className="mt-1 w-4 h-4 rounded border border-indigo-500 bg-[#0e0e1a] text-indigo-600 focus:ring-indigo-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 />
                 <label htmlFor="sap-policy" className="text-xs text-[#a0a0b0] leading-relaxed cursor-pointer">
-                  <span className="font-semibold text-[#f0f0f0]">I confirm that my business model, data sources, and budget are ready for engineering execution according to the</span>{' '}
+                  <span className="font-semibold text-[#d4d4d8]">I confirm that my business model, data sources, and budget are ready for engineering execution according to the</span>{' '}
                   <a href="/ready-to-build-policy" className="text-indigo-400 hover:text-indigo-300 underline font-semibold transition-colors">
                     Ready-to-Build Policy
                   </a>.

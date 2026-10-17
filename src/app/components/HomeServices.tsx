@@ -199,7 +199,7 @@ export default function HomeServices() {
         {/* Header */}
         <div className="reveal mb-16">
           <h2
-            className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
+            className="text-4xl sm:text-5xl md:text-6xl font-black text-[#d4d4d8]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
           >
             What we actually do.
@@ -243,7 +243,7 @@ export default function HomeServices() {
 
                   {/* Content */}
                   <div className="lg:col-span-8">
-                    <h3 className="mb-3 text-xl md:text-2xl font-bold text-[#f0f0f0]" style={{ letterSpacing: '-0.03em' }}>{s.title}</h3>
+                    <h3 className="mb-3 text-xl md:text-2xl font-bold text-[#d4d4d8]" style={{ letterSpacing: '-0.03em' }}>{s.title}</h3>
                     <p className="text-sm text-[#a0a0b0] leading-relaxed mb-5">{s.desc}</p>
                     <ul className="space-y-2">
                       {s.bullets.map(b => (

@@ -140,12 +140,12 @@ export default function App() {
         className="relative z-10"
       >
         <HomeHero />
-        <HomeServices />
-        <HomePricing />
-        <ClientMarquee />
-        <ProcessSection />
-        <TestimonialsSection />
-        <HomeContact />
+        <div className="scroll-animate"><HomeServices /></div>
+        <div className="scroll-animate"><HomePricing /></div>
+        <div className="scroll-animate"><ClientMarquee /></div>
+        <div className="scroll-animate"><ProcessSection /></div>
+        <div className="scroll-animate"><TestimonialsSection /></div>
+        <div className="scroll-animate"><HomeContact /></div>
 
       </main>
 

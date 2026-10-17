@@ -31,7 +31,7 @@ const YoutubeIcon = () => (
 
 export default function CaseStudies() {
   return (
-    <div className="min-h-screen" style={{ background: '#181818', color: '#f0f0f0' }}>
+    <div className="min-h-screen" style={{ background: '#181818', color: '#d4d4d8' }}>
 
       {/* Indigo grid */}
       <div
@@ -59,7 +59,7 @@ export default function CaseStudies() {
 
           <h1
             className="text-5xl md:text-7xl font-bold mb-4"
-            style={{ letterSpacing: '-0.09em', color: '#f0f0f0' }}
+            style={{ letterSpacing: '-0.09em', color: '#d4d4d8' }}
           >
             Real Client Work,{' '}
             <span
@@ -131,7 +131,7 @@ export default function CaseStudies() {
                 <div>
                   <h2
                     className="text-3xl md:text-4xl font-bold mb-2"
-                    style={{ letterSpacing: '-0.05em', color: '#f0f0f0' }}
+                    style={{ letterSpacing: '-0.05em', color: '#d4d4d8' }}
                   >
                     {project.title}
                   </h2>
@@ -232,10 +232,10 @@ export default function CaseStudies() {
           <p className="text-xs font-mono uppercase tracking-widest mb-4" style={{ color: '#606070' }}>Ready to build something?</p>
           <Link
             href="/#contact"
-            className="inline-block font-mono uppercase tracking-wider text-sm py-4 px-10 rounded transition-all duration-200"
-            style={{ background: 'linear-gradient(135deg, #6366f1, #a78bfa)', color: '#f0f0f0', boxShadow: '0 0 30px rgba(99,102,241,0.25)' }}
+            className="btn-premium inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full text-white font-bold active:scale-[0.97] transition-transform duration-75"
           >
             Get In Touch
+            <span>→</span>
           </Link>
         </div>
 

@@ -203,7 +203,7 @@ const Header: React.FC<HeaderProps> = ({
             />
           </span>
           <span
-            className="bg-clip-text text-transparent text-2xl bg-gradient-to-r from-white to-slate-300"
+            className="bg-clip-text text-2xl bg-gradient-to-r text-[#d4d4d8]"
             style={{ letterSpacing: '-0.06em', animation: logoReady ? 'logo-wordmark-slide 400ms ease-out 300ms forwards' : 'none', opacity: 0 }}
           >
             Majestik Magik
@@ -214,7 +214,7 @@ const Header: React.FC<HeaderProps> = ({
         <nav ref={navRef} className="hidden xl:flex items-center relative py-4 space-x-8">
           {/* Animated Hover Line Tracker */}
           <div
-            className="absolute bottom-0 h-[2px] transition-all duration-300 ease-out pointer-events-none z-10 flex justify-center"
+            className="absolute bottom-3 h-[2px] transition-all duration-300 ease-out pointer-events-none z-10 flex justify-center"
             style={{
               transform: `translateX(${hoveredRect.left}px)`,
               width: `${hoveredRect.width}px`,
@@ -315,7 +315,7 @@ const Header: React.FC<HeaderProps> = ({
                           <div className="space-y-1">
                             {item.children?.map((childItem) => (
                               <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg hover:bg-indigo-500/5 transition-colors">
-                                <span className="text-sm font-mono text-[#f0f0f0]">{childItem.name}</span>
+                                <span className="text-sm font-mono text-[#d4d4d8]">{childItem.name}</span>
                                 {childItem.description && (
                                   <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
                                 )}
@@ -332,7 +332,7 @@ const Header: React.FC<HeaderProps> = ({
                         >
                           <div>
                             <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2">Featured</p>
-                            <p className="text-sm font-semibold text-[#f0f0f0] leading-snug mb-2">From Concept to Edge-Native Launch</p>
+                            <p className="text-sm font-semibold text-[#d4d4d8] leading-snug mb-2">From Concept to Edge-Native Launch</p>
                             <p className="text-xs text-[#606070] leading-relaxed">Custom local-first infrastructure, zero latency, maximum privacy.</p>
                           </div>
                           <a
@@ -344,64 +344,6 @@ const Header: React.FC<HeaderProps> = ({
                             }}
                           >
                             Start a Project →
-                          </a>
-                        </div>
-                      </div>
-                    ) : item.name === 'Portfolio' ? (
-                      // Portfolio: project list (no links) on left, Case Studies callout on right
-                      <div
-                        className="flex gap-0 rounded-xl shadow-2xl overflow-hidden"
-                        style={{
-                          background: 'rgba(14,14,20,0.97)',
-                          border: '1px solid rgba(99,102,241,0.12)',
-                          backdropFilter: 'blur(24px)',
-                          minWidth: '560px',
-                        }}
-                      >
-                        <div className="flex-1 p-5">
-                          <p className="text-xs font-mono uppercase tracking-widest text-[#404050] mb-3 px-2">Recent Work</p>
-                          <div className="grid grid-cols-2 gap-x-4 gap-y-1">
-                            {item.children?.map((childItem) => (
-                              <div key={childItem.name} className="flex flex-col px-3 py-2 rounded-lg hover:bg-indigo-500/5 transition-colors">
-                                <span className="text-sm font-mono text-[#f0f0f0]">{childItem.name}</span>
-                                {childItem.description && (
-                                  <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                          <a
-                            href="/portfolio"
-                            className="mt-4 inline-flex items-center gap-1 text-xs font-mono text-indigo-400 hover:text-indigo-300 transition-colors px-3"
-                            onClick={(e) => {
-                              handleNavClick(e, { name: 'Portfolio', url: '/portfolio' });
-                              setOpenDropdown(null);
-                            }}
-                          >
-                            View all projects →
-                          </a>
-                        </div>
-                        <div
-                          className="w-48 p-5 flex flex-col justify-between"
-                          style={{
-                            background: 'linear-gradient(135deg, rgba(20,20,35,0.9) 0%, rgba(14,14,20,0.95) 100%)',
-                            borderLeft: '1px solid rgba(99,102,241,0.1)',
-                          }}
-                        >
-                          <div>
-                            <p className="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-2">Case Studies</p>
-                            <p className="text-sm font-semibold text-[#f0f0f0] leading-snug mb-2">Real Clients, Real Results</p>
-                            <p className="text-xs text-[#606070] leading-relaxed">Problems solved and measurable outcomes across every project.</p>
-                          </div>
-                          <a
-                            href="/case-studies"
-                            className="mt-4 inline-flex items-center justify-center text-xs font-mono uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 transition-colors rounded-lg px-3 py-2"
-                            onClick={(e) => {
-                              handleNavClick(e, { name: 'Case Studies', url: '/case-studies' });
-                              setOpenDropdown(null);
-                            }}
-                          >
-                            Read Case Studies →
                           </a>
                         </div>
                       </div>
@@ -428,7 +370,7 @@ const Header: React.FC<HeaderProps> = ({
                                 setOpenDropdown(null);
                               }}
                             >
-                              <span className="text-sm font-mono text-[#f0f0f0] group-hover:text-indigo-300 transition-colors">{childItem.name}</span>
+                              <span className="text-sm font-mono text-[#d4d4d8] group-hover:text-indigo-300 transition-colors">{childItem.name}</span>
                               {childItem.description && (
                                 <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
                               )}
@@ -446,8 +388,16 @@ const Header: React.FC<HeaderProps> = ({
 
 
 
-        {/* Desktop CTA Button */}
-        <div className="hidden xl:flex items-center">
+        {/* Desktop CTA Buttons */}
+        <div className="hidden xl:flex items-center gap-3">
+          <a
+            href="https://app.majestikmagik.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-sm text-indigo-300 border border-indigo-500/30 bg-indigo-950/40 hover:bg-indigo-900/50 rounded-full px-5 py-2 transition-all duration-200"
+          >
+            Pivot Quest ↗
+          </a>
           <Link
             href="/#contact"
             className="btn-premium inline-flex items-center gap-2 font-mono uppercase tracking-wider text-sm text-white rounded-full px-5 py-2 cursor-pointer font-bold"
@@ -463,17 +413,40 @@ const Header: React.FC<HeaderProps> = ({
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-controls="mobile-menu"
-            className="text-[#a0a0b0] hover:text-indigo-300 focus:outline-none p-1 rounded-md cursor-pointer"
+            className="focus:outline-none p-1 rounded-md cursor-pointer group"
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             type="button"
           >
             <span className="sr-only">{isMobileMenuOpen ? 'Close menu' : 'Open menu'}</span>
-            {isMobileMenuOpen ? (
-              <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-            )}
+            <span className="flex flex-col justify-center items-start w-6 h-6 gap-[5px]">
+              <span
+                className="block h-px bg-[#a0a0b0] origin-center transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+                style={{
+                  width: isMobileMenuOpen ? '22px' : '22px',
+                  transform: isMobileMenuOpen ? 'translateY(6px) rotate(45deg)' : 'translateY(0) rotate(0)',
+                  boxShadow: isMobileMenuOpen ? '0 0 6px #818cf8' : 'none',
+                  background: isMobileMenuOpen ? '#818cf8' : undefined,
+                }}
+              />
+              <span
+                className="block h-px bg-[#a0a0b0] transition-all duration-200 ease-in-out"
+                style={{
+                  width: isMobileMenuOpen ? '0px' : '14px',
+                  opacity: isMobileMenuOpen ? 0 : 1,
+                  transform: isMobileMenuOpen ? 'translateX(8px)' : 'translateX(0)',
+                }}
+              />
+              <span
+                className="block h-px bg-[#a0a0b0] origin-center transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+                style={{
+                  width: isMobileMenuOpen ? '22px' : '18px',
+                  transform: isMobileMenuOpen ? 'translateY(-6px) rotate(-45deg)' : 'translateY(0) rotate(0)',
+                  boxShadow: isMobileMenuOpen ? '0 0 6px #818cf8' : 'none',
+                  background: isMobileMenuOpen ? '#818cf8' : undefined,
+                }}
+              />
+            </span>
           </button>
         </div>
       </div>
@@ -542,7 +515,7 @@ const Header: React.FC<HeaderProps> = ({
                                 className="flex flex-col px-3 py-2.5 rounded-lg hover:bg-indigo-500/5 transition-colors"
                                 onClick={(e) => { handleNavClick(e, childItem); setIsMobileMenuOpen(false); }}
                               >
-                                <span className="text-sm font-mono text-[#f0f0f0] hover:text-indigo-300 transition-colors">{childItem.name}</span>
+                                <span className="text-sm font-mono text-[#d4d4d8] hover:text-indigo-300 transition-colors">{childItem.name}</span>
                                 {childItem.description && (
                                   <span className="text-xs text-[#606070] mt-0.5">{childItem.description}</span>
                                 )}

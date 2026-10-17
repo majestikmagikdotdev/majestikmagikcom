@@ -47,14 +47,14 @@ export default function HomeContact() {
     finally { setIsSubmitting(false); }
   };
 
-  const inputCls = "w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#f0f0f0] text-sm placeholder-[#606070] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:shadow-[0_0_0_3px_rgba(99,102,241,0.12)] transition-all disabled:opacity-50";
+  const inputCls = "w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#d4d4d8] text-sm placeholder-[#606070] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:shadow-[0_0_0_3px_rgba(99,102,241,0.12)] transition-all disabled:opacity-50";
 
   return (
     <div id="contact" className="w-full px-4 md:px-6 py-20 md:py-28">
 
       <div className="reveal max-w-7xl mx-auto mb-10">
         <h2
-          className="text-4xl sm:text-5xl font-black text-[#f0f0f0] mb-4"
+          className="text-4xl sm:text-5xl font-black text-[#d4d4d8] mb-4"
           style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
         >
           Got a project?
@@ -79,7 +79,7 @@ export default function HomeContact() {
                 quality={75}
               />
             </div>
-            <h3 className="text-xl font-bold text-[#f0f0f0]">Jamil Matheny</h3>
+            <h3 className="text-xl font-bold text-[#d4d4d8]">Jamil Matheny</h3>
             <p className="font-mono text-xs font-bold uppercase tracking-wider text-indigo-400 mb-1">Founder</p>
             <a href="mailto:contact@majestikmagik.dev" className="font-mono text-xs text-[#808090] hover:text-indigo-400 transition-colors">contact@majestikmagik.dev</a>
           </div>
@@ -170,7 +170,7 @@ export default function HomeContact() {
                 className="mt-1 w-4 h-4 rounded border border-indigo-500 bg-[#0e0e1a] text-indigo-600 focus:ring-indigo-500 cursor-pointer"
               />
               <label htmlFor="home-policy" className="text-xs text-[#a0a0b0] leading-relaxed cursor-pointer">
-                <span className="font-semibold text-[#f0f0f0]">I confirm my business model, data, and budget are ready</span> per the{' '}
+                <span className="font-semibold text-[#d4d4d8]">I confirm my business model, data, and budget are ready</span> per the{' '}
                 <a href="/ready-to-build-policy" className="text-indigo-400 hover:text-indigo-300 underline">Ready-to-Build Policy</a>.
               </label>
             </div>

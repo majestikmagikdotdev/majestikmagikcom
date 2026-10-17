@@ -23,9 +23,9 @@ const FORM_STAGES = [
     label: 'Digitized Record',
     desc: 'Structured fields, validated inputs, timestamped entry. Ready for processing.',
     fields: [
-      { k: 'client_name', v: 'John Smith', style: 'font-mono text-[#f0f0f0]' },
+      { k: 'client_name', v: 'John Smith', style: 'font-mono text-[#d4d4d8]' },
       { k: 'created_at', v: '2025-07-14T09:32:11Z', style: 'font-mono text-indigo-300' },
-      { k: 'scope', v: 'Build platform...', style: 'font-mono text-[#f0f0f0]' },
+      { k: 'scope', v: 'Build platform...', style: 'font-mono text-[#d4d4d8]' },
       { k: 'status', v: 'PENDING_SIGNATURE', style: 'font-mono text-amber-400' },
     ],
     badge: { text: 'DIGITAL', color: 'text-indigo-400 border-indigo-500/30' },
@@ -34,7 +34,7 @@ const FORM_STAGES = [
     label: 'Cryptographically Signed',
     desc: 'E-signed, hash-locked, audit-trail immutable. Legally binding and tamper-evident.',
     fields: [
-      { k: 'client_name', v: 'John Smith', style: 'font-mono text-[#f0f0f0]' },
+      { k: 'client_name', v: 'John Smith', style: 'font-mono text-[#d4d4d8]' },
       { k: 'signed_at', v: '2025-07-14T09:34:02Z', style: 'font-mono text-emerald-400' },
       { k: 'sig_hash', v: 'sha256:a3f9...c821', style: 'font-mono text-violet-400' },
       { k: 'status', v: 'AUDIT-LOCKED ✓', style: 'font-mono text-emerald-400 font-bold' },
@@ -66,7 +66,7 @@ export default function NodePipelineSection() {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-violet-400 uppercase mb-3 bg-violet-950/20 px-3 py-1 rounded border border-violet-500/20">
             • Architecture
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-[#f0f0f0] tracking-tight" style={{ letterSpacing: '-0.03em' }}>
+          <h2 className="text-3xl md:text-5xl font-black text-[#d4d4d8] tracking-tight" style={{ letterSpacing: '-0.03em' }}>
             From Paper to{' '}
             <span
               className="text-transparent bg-clip-text"
@@ -131,7 +131,7 @@ export default function NodePipelineSection() {
                       </svg>
                     )}
                   </div>
-                  <span className="text-xs font-mono font-bold text-[#f0f0f0] text-center" style={{ color: activeNode === i ? node.color : '#f0f0f0' }}>{node.label}</span>
+                  <span className="text-xs font-mono font-bold text-[#d4d4d8] text-center" style={{ color: activeNode === i ? node.color : '#d4d4d8' }}>{node.label}</span>
                   <span className="text-[10px] font-mono text-[#404050] text-center">{node.sub}</span>
                 </div>
 
@@ -185,7 +185,7 @@ export default function NodePipelineSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
             <div>
-              <p className="text-sm font-bold text-[#f0f0f0] mb-1">{s.label}</p>
+              <p className="text-sm font-bold text-[#d4d4d8] mb-1">{s.label}</p>
               <p className="text-xs text-[#606070] mb-4">{s.desc}</p>
               <div className="space-y-2">
                 {s.fields.map(({ k, v, style }) => (
@@ -209,7 +209,7 @@ export default function NodePipelineSection() {
                   <span className={`w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-mono flex-shrink-0 ${
                     stage === i ? 'border-indigo-400 text-indigo-400' : 'border-[#2a2a3a] text-[#404050]'
                   }`}>{i + 1}</span>
-                  <span className={`text-xs font-mono ${stage === i ? 'text-[#f0f0f0]' : 'text-[#606070]'}`}>
+                  <span className={`text-xs font-mono ${stage === i ? 'text-[#d4d4d8]' : 'text-[#606070]'}`}>
                     {FORM_STAGES[i].label}
                   </span>
                 </button>

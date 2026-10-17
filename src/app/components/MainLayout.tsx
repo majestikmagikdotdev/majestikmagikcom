@@ -6,6 +6,37 @@ import Header from './Header';
 import Footer from './Footer';
 import CookieBanner from './CookieBanner';
 
+function NoiseOverlay() {
+  const ref = React.useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256;
+    canvas.height = 256;
+    const ctx = canvas.getContext('2d')!;
+    const imageData = ctx.createImageData(256, 256);
+    for (let i = 0; i < imageData.data.length; i += 4) {
+      const v = Math.random() * 255;
+      imageData.data[i] = v;
+      imageData.data[i + 1] = v;
+      imageData.data[i + 2] = v;
+      imageData.data[i + 3] = 255;
+    }
+    ctx.putImageData(imageData, 0, 0);
+    if (ref.current) ref.current.style.backgroundImage = `url(${canvas.toDataURL()})`;
+  }, []);
+  return (
+    <div
+      ref={ref}
+      aria-hidden
+      style={{
+        position: 'fixed', inset: 0, width: '100%', height: '100%',
+        backgroundRepeat: 'repeat', backgroundSize: '256px 256px',
+        opacity: 0.02, pointerEvents: 'none', zIndex: 9999,
+      }}
+    />
+  );
+}
+
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const router = useRouter();
@@ -107,7 +138,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       ],
     },
     { name: 'Contact', url: '/#contact' },
-    { name: 'Pivot Quest', url: 'https://app.majestikmagik.dev/', external: true },
   ];
 
   const isPolicyPage = [
@@ -162,7 +192,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <div className="flex flex-col min-h-screen w-full">
+    <div className="relative flex flex-col min-h-screen w-full overflow-x-hidden">
+      <NoiseOverlay />
       <Header
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}

@@ -69,7 +69,7 @@ function OrderSummary({ serviceId, serviceName, price }: { serviceId: string; se
         </span>
       </div>
 
-      <h1 className="text-3xl md:text-4xl font-black mt-4 mb-2 leading-tight" style={{ letterSpacing: '-0.03em', color: '#f0f0f0' }}>
+      <h1 className="text-3xl md:text-4xl font-black mt-4 mb-2 leading-tight" style={{ letterSpacing: '-0.03em', color: '#d4d4d8' }}>
         {serviceName}
       </h1>
 
@@ -91,7 +91,7 @@ function OrderSummary({ serviceId, serviceName, price }: { serviceId: string; se
           <span>Subtotal</span>
           <span>{price}</span>
         </div>
-        <div className="flex items-center justify-between text-base font-mono font-bold mt-3" style={{ color: '#f0f0f0' }}>
+        <div className="flex items-center justify-between text-base font-mono font-bold mt-3" style={{ color: '#d4d4d8' }}>
           <span>Total due today</span>
           <span className="text-indigo-400">{price}</span>
         </div>
@@ -152,7 +152,7 @@ function CheckoutForm({ price }: { serviceName: string; price: string }) {
           placeholder="Jane Smith"
           required
           className="w-full border focus:border-indigo-500 focus:outline-none rounded px-4 py-3 font-mono text-sm transition-colors"
-          style={{ background: '#111120', borderColor: '#2a2a3a', color: '#f0f0f0' }}
+          style={{ background: '#111120', borderColor: '#2a2a3a', color: '#d4d4d8' }}
         />
       </div>
 
@@ -167,7 +167,7 @@ function CheckoutForm({ price }: { serviceName: string; price: string }) {
           placeholder="jane@example.com"
           required
           className="w-full border focus:border-indigo-500 focus:outline-none rounded px-4 py-3 font-mono text-sm transition-colors"
-          style={{ background: '#111120', borderColor: '#2a2a3a', color: '#f0f0f0' }}
+          style={{ background: '#111120', borderColor: '#2a2a3a', color: '#d4d4d8' }}
         />
       </div>
 
@@ -247,7 +247,7 @@ function CheckoutInner() {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
             Secure Checkout
           </span>
-          <h2 className="text-xl font-bold font-mono mt-4" style={{ color: '#f0f0f0' }}>Payment Information</h2>
+          <h2 className="text-xl font-bold font-mono mt-4" style={{ color: '#d4d4d8' }}>Payment Information</h2>
         </div>
 
         {!clientSecret ? (
@@ -264,7 +264,7 @@ function CheckoutInner() {
                 variables: {
                   colorPrimary: '#6366f1',
                   colorBackground: '#111120',
-                  colorText: '#f0f0f0',
+                  colorText: '#d4d4d8',
                   fontFamily: 'monospace',
                   borderRadius: '6px',
                 },

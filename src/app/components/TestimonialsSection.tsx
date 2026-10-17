@@ -44,7 +44,7 @@ export default function TestimonialsSection() {
         {/* Header */}
         <div className="reveal mb-14">
           <h2
-            className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
+            className="text-4xl sm:text-5xl md:text-6xl font-black text-[#d4d4d8]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
           >
             What clients

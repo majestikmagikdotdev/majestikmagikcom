@@ -91,7 +91,7 @@ export default function HomePricing() {
         {/* Header */}
         <div className="reveal mb-14">
           <h2
-            className="text-4xl sm:text-5xl md:text-6xl font-black text-[#f0f0f0]"
+            className="text-4xl sm:text-5xl md:text-6xl font-black text-[#d4d4d8]"
             style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
           >
             Know what you need?
@@ -121,7 +121,7 @@ export default function HomePricing() {
                   <span className="text-xs font-mono text-[#808090] tabular-nums">
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="text-base font-semibold text-[#c0c0d0] group-hover:text-[#f0f0f0] transition-colors duration-150 leading-snug">
+                  <h3 className="text-base font-semibold text-[#c0c0d0] group-hover:text-[#d4d4d8] transition-colors duration-150 leading-snug">
                     {s.service}
                   </h3>
                   {'recommended' in s && s.recommended && (

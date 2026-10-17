@@ -31,7 +31,7 @@ const YoutubeIcon = () => (
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen" style={{ background: '#181818', color: '#f0f0f0' }}>
+    <div className="min-h-screen" style={{ background: '#181818', color: '#d4d4d8' }}>
 
       {/* Indigo grid */}
       <div
@@ -59,7 +59,7 @@ export default function Portfolio() {
 
           <h1
             className="text-5xl md:text-7xl font-bold mb-4"
-            style={{ letterSpacing: '-0.09em', color: '#f0f0f0' }}
+            style={{ letterSpacing: '-0.09em', color: '#d4d4d8' }}
           >
             Engineered Systems &{' '}
             <span
@@ -111,7 +111,7 @@ export default function Portfolio() {
                 {/* Title & Subtitle */}
                 <h2
                   className="text-xl font-bold mb-1"
-                  style={{ letterSpacing: '-0.03em', color: '#f0f0f0' }}
+                  style={{ letterSpacing: '-0.03em', color: '#d4d4d8' }}
                 >
                   {project.title}
                 </h2>
@@ -183,7 +183,7 @@ export default function Portfolio() {
         <div className="border-t border-[#2a2a3a] pt-20 mb-20">
           <h2
             className="text-4xl md:text-5xl font-black mb-4"
-            style={{ letterSpacing: '-0.04em', color: '#f0f0f0', lineHeight: '1' }}
+            style={{ letterSpacing: '-0.04em', color: '#d4d4d8', lineHeight: '1' }}
           >
             Not a mockup.
             <br />

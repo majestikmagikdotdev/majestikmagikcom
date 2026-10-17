@@ -86,7 +86,7 @@ function SyncTerminal() {
 
 export default function HomeHero() {
   return (
-    <section id="home" aria-label="Hero" className="relative flex flex-col w-full px-4 md:px-6 pt-28 sm:pt-32 md:pt-40 pb-32 md:pb-40">
+    <section id="home" aria-label="Hero" className="relative flex flex-col w-full px-4 md:px-6 pt-40 sm:pt-44 md:pt-52 pb-32 md:pb-40">
       <div className="max-w-7xl mx-auto w-full">
 
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
@@ -103,7 +103,7 @@ export default function HomeHero() {
 
             {/* H1 */}
             <h1
-              className="relative z-10 mb-6 text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-black leading-[0.95] text-[#f0f0f0]"
+              className="relative z-10 mb-6 text-5xl sm:text-5xl md:text-7xl lg:text-[88px] font-black leading-[0.95] text-[#d4d4d8]"
               style={{ letterSpacing: '-0.04em' }}
             >
               Your site is slow.

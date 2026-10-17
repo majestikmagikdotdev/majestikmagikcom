@@ -88,7 +88,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
             <div className="mt-1"><PhoneIcon /></div>
             <div>
               <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#404050]">Phone</p>
-              <p className="text-sm mt-1"><a href="tel:8043627561" className="text-[#f0f0f0] transition-colors hover:text-indigo-300 font-mono">(804) 362-7561</a></p>
+              <p className="text-sm mt-1"><a href="tel:8043627561" className="text-[#d4d4d8] transition-colors hover:text-indigo-300 font-mono">(804) 362-7561</a></p>
             </div>
           </div>
 
@@ -97,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
             <div>
               <p className="text-xs font-mono font-bold uppercase tracking-wider text-[#404050]">Email</p>
               <p className="text-sm mt-1">
-                <a href="mailto:contact@majestikmagik.dev" className="text-[#f0f0f0] hover:text-indigo-300 transition-colors py-1 block font-mono">
+                <a href="mailto:contact@majestikmagik.dev" className="text-[#d4d4d8] hover:text-indigo-300 transition-colors py-1 block font-mono">
                   contact@majestikmagik.dev
                 </a>
               </p>

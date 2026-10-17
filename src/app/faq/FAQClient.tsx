@@ -172,7 +172,7 @@ const FAQPage = () => {
               FAQ
             </span>
             <h1
-              className="text-5xl md:text-6xl font-black text-[#f0f0f0] mb-4"
+              className="text-5xl md:text-6xl font-black text-[#d4d4d8] mb-4"
               style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
             >
               Got questions?
@@ -193,7 +193,7 @@ const FAQPage = () => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search — e.g. SEO, refunds, WordPress..."
-                className="w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#f0f0f0] text-sm placeholder-[#404050] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+                className="w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#d4d4d8] text-sm placeholder-[#404050] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
               />
               {query && (
                 <button

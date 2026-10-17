@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -37,151 +37,253 @@ const ForkliftSeal = () => (
   </svg>
 );
 
-const JamilMathenyPage = () => {
+const Rule = () => <hr className="border-none border-t border-[#2a2a3a] my-0" style={{ borderTopWidth: '1px', borderColor: '#2a2a3a' }} />;
+
+type ModalContent = { type: 'image'; src: string; caption: string } | null;
+
+function Modal({ content, onClose }: { content: ModalContent; onClose: () => void }) {
+  useEffect(() => {
+    if (!content) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [content, onClose]);
+
+  if (!content) return null;
   return (
-    <div className="min-h-screen" style={{ background: '#181818', color: '#f0f0f0' }}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(6px)' }}
+      onClick={onClose}
+    >
+      <div className="relative w-full" style={{ maxWidth: content.type === 'pdf' ? '56rem' : '42rem' }} onClick={e => e.stopPropagation()}>
+        <button
+          onClick={onClose}
+          className="absolute -top-8 right-0 font-mono text-xs text-[#606070] hover:text-[#d4d4d8] transition-colors cursor-pointer"
+        >
+          close ✕
+        </button>
+        {content.type === 'image' ? (
+          <Image
+            src={content.src}
+            alt={content.caption}
+            width={800}
+            height={800}
+            className="w-full h-auto rounded-xl"
+            style={{ border: '1px solid rgba(99,102,241,0.2)' }}
+          />
+        ) : null}
+        <p className="mt-3 font-mono text-[11px] text-[#505060] text-center">{content.caption}</p>
+      </div>
+    </div>
+  );
+}
 
-      {/* Indigo grid */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
-        }}
-      />
-      {/* Ambient glows */}
-      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.13) 0%, transparent 55%)' }} />
-      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(52,211,153,0.07) 0%, transparent 50%)' }} />
-      <div className="fixed inset-0 pointer-events-none z-0" style={{ background: 'radial-gradient(ellipse at 100% 100%, rgba(167,139,250,0.07) 0%, transparent 50%)' }} />
+const ROLES = ['Developer', 'Writer', 'Artist', 'Builder'];
 
-      <div className="relative z-10 w-full px-6 py-40">
-        <div className="max-w-7xl mx-auto">
+function useTypewriter(words: string[], typingSpeed = 80, deletingSpeed = 50, pause = 1400) {
+  const [display, setDisplay] = React.useState('');
+  const [wordIndex, setWordIndex] = React.useState(0);
+  const [deleting, setDeleting] = React.useState(false);
 
+  React.useEffect(() => {
+    const word = words[wordIndex];
+    const timeout = setTimeout(() => {
+      if (!deleting) {
+        setDisplay(word.slice(0, display.length + 1));
+        if (display.length + 1 === word.length) setTimeout(() => setDeleting(true), pause);
+      } else {
+        setDisplay(word.slice(0, display.length - 1));
+        if (display.length - 1 === 0) {
+          setDeleting(false);
+          setWordIndex((wordIndex + 1) % words.length);
+        }
+      }
+    }, deleting ? deletingSpeed : typingSpeed);
+    return () => clearTimeout(timeout);
+  }, [display, deleting, wordIndex, words, typingSpeed, deletingSpeed, pause]);
+
+  return display;
+}
+
+const JamilMathenyPage = () => {
+  const [modal, setModal] = React.useState<ModalContent>(null);
+  const role = useTypewriter(ROLES);
+  return (
+    <div className="min-h-screen" style={{ color: '#d4d4d8' }}>
+      <div className="relative z-10 w-full px-6 pt-36 pb-24">
+        <div className="max-w-3xl mx-auto">
+
+          {/* Back */}
           <Link
             href="/"
-            className="inline-flex items-center gap-2 font-mono text-xs text-indigo-300 bg-indigo-400/30 hover:bg-indigo-300/30 border border-indigo-400/30 px-3 py-1.5 rounded-lg transition-colors duration-200 mb-10"
+            className="inline-flex items-center gap-2 font-mono text-xs text-indigo-300 hover:text-indigo-200 transition-colors duration-200 mb-16"
           >
             ← Back to Home
           </Link>
 
-          {/* Page label removed per anti-AI-tell rules */}
+          {/* Dateline + section label */}
+          <div className="flex items-center justify-between mb-6">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#505060]">Profile</span>
+            <span className="font-mono text-[11px] text-[#505060]">Richmond, VA</span>
+          </div>
 
-          <h1
-            className="text-5xl md:text-7xl font-bold mb-2"
-            style={{ letterSpacing: '-0.09em', color: '#f0f0f0' }}
-          >
-            Jamil{' '}
-            <span
-              className="text-transparent bg-clip-text"
-              style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #a78bfa, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 1.8s both' }}
+          <Rule />
+
+          {/* Headline */}
+          <div className="mt-8 mb-3">
+            <h1
+              className="text-5xl md:text-7xl font-black leading-[0.92]"
+              style={{ letterSpacing: '-0.04em', color: '#d4d4d8' }}
             >
-              Matheny
-            </span>
-          </h1>
-          <p className="text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-12">
-            Founder, Majestik Magik Inc.
+              Jamil{' '}
+              <span
+                className="text-transparent bg-clip-text"
+                style={{ backgroundImage: 'linear-gradient(90deg, #818cf8, #a78bfa, #f8fafc, #818cf8)', backgroundSize: '200% auto', animation: 'shimmer 1.8s both' }}
+              >
+                Matheny
+              </span>
+            </h1>
+          </div>
+
+          {/* Byline */}
+          <p className="font-mono text-xs text-[#505060] tracking-widest uppercase mb-8">
+            Founder, Majestik Magik Inc. &nbsp;·&nbsp; <span style={{ color: '#818cf8' }}>{role}<span className="animate-pulse">|</span></span>
           </p>
 
-          {/* Article */}
-          <div className="max-w-7xl text-base leading-relaxed" style={{ color: '#a0a0b0' }}>
+          <Rule />
 
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              {/* Photos */}
-              <div className="flex flex-row md:flex-col gap-4 flex-shrink-0">
-                <div className="relative">
-                  <div className="absolute -inset-0.5 rounded-2xl opacity-40" style={{ background: 'linear-gradient(135deg, #6366f1, #a78bfa)', filter: 'blur(8px)' }} />
+          {/* Lede */}
+          <p
+            className="mt-8 mb-8 text-lg md:text-xl leading-relaxed font-medium"
+            style={{ color: '#d4d4d8', letterSpacing: '-0.01em' }}
+          >
+            He builds the software that businesses actually depend on: field tools that work without a signal, systems that don&apos;t require a support ticket to understand, and infrastructure that holds up when it matters.
+          </p>
+
+          <Rule />
+
+          {/* Photos + body */}
+          <div className="mt-8 flex flex-col md:flex-row gap-8 items-start">
+
+            {/* Photos */}
+            <div className="flex flex-row md:flex-col gap-4 flex-shrink-0">
+              <div className="relative">
+                <div className="absolute -inset-0.5 rounded-xl opacity-30" style={{ background: 'linear-gradient(135deg, #6366f1, #a78bfa)', filter: 'blur(8px)' }} />
+                <Image
+                  src="/img/0-jamil.webp"
+                  alt="Jamil Matheny"
+                  width={160}
+                  height={160}
+                  className="relative rounded-xl object-cover"
+                  style={{ border: '1px solid rgba(99,102,241,0.2)' }}
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative">
+                <div className="absolute -inset-0.5 rounded-xl opacity-30" style={{ background: 'linear-gradient(135deg, #6366f1, #a78bfa)', filter: 'blur(8px)' }} />
+                <button onClick={() => setModal({ type: 'image', src: '/img/344705572_03be87188e_b.jpg', caption: 'Richmond Times-Dispatch, 2007' })} className="cursor-pointer block">
                   <Image
-                    src="/img/0-jamil.webp"
-                    alt="Jamil Matheny"
-                    width={180}
-                    height={180}
-                    className="relative rounded-xl object-cover"
+                    src="/img/344705572_03be87188e_b.jpg"
+                    alt="Jamil Matheny featured in the Richmond Times-Dispatch"
+                    width={160}
+                    height={160}
+                    className="relative rounded-xl object-cover hover:opacity-80 transition-opacity"
                     style={{ border: '1px solid rgba(99,102,241,0.2)' }}
                     loading="lazy"
                   />
-                </div>
-                <div className="relative">
-                  <div className="absolute -inset-0.5 rounded-2xl opacity-40" style={{ background: 'linear-gradient(135deg, #6366f1, #a78bfa)', filter: 'blur(8px)' }} />
-                  <Link href="/img/344705572_03be87188e_b.jpg" target="_blank">
-                    <Image
-                      src="/img/344705572_03be87188e_b.jpg"
-                      alt="Jamil Matheny featured in the Richmond Times-Dispatch"
-                      width={180}
-                      height={180}
-                      className="relative rounded-xl object-cover"
-                      style={{ border: '1px solid rgba(99,102,241,0.2)' }}
-                      loading="lazy"
-                    />
-                  </Link>
-                </div>
+                </button>
+                <p className="mt-2 font-mono text-[10px] text-[#505060] leading-snug">Richmond Times-Dispatch, 2007</p>
               </div>
-              {/* Body copy */}
-              <p className="text-base leading-relaxed" style={{ color: '#a0a0b0' }}>
-                <span className="font-medium" style={{ color: '#f0f0f0' }}>Jamil Matheny is the founder of Majestik Magik, Inc.</span> He builds the software that businesses actually depend on: field tools that work without a signal, systems that don&apos;t require a support ticket to understand, and infrastructure that holds up when it matters.
-                <br/><br/>
-                He grew up in Virginia. A neighbor who worked in IT handed him his first piece of hardware. A self-taught programmer, he got his start through Myspace and Yahoo Geocities, which is not a punchline. That&apos;s how a generation of developers got started, and most of them are better for it. He later sharpened his skills with formal education at ECPI University.
-                <br/><br/>
-                Before Majestik Magik, he covered E3 in Los Angeles as a journalist for Advanced Media Network and was featured in the Richmond Times-Dispatch for his writing on gaming culture. He fronted a heavy metal band called Spiral Fracture, won the 2012 Battle of the Bands, and performed at the Rockstar Energy Mayhem Festival on the same bill as Slipknot and Anthrax.
-                <br/><br/>
-                He also ran a photography business, built a solo cleaning operation, and put in time at FedEx and Amazon. None of that was a detour. Every one of those jobs taught him something about how operations actually work at ground level, and that knowledge is in everything he builds.
-                <br/><br/>
+            </div>
+
+            {/* Body copy */}
+            <div className="space-y-5 text-[15px] leading-relaxed" style={{ color: '#a0a0b0', fontFamily: '"Libre Baskerville", Georgia, serif' }}>
+              <p>
+                Matheny grew up in Virginia. When his neighbor came home with an old computer part, he would sit down and teach him what it was and how to install it. That neighbor was the first mentor he ever had. As for coding, he figured that out on his own through Myspace and Yahoo Geocities. Not a punchline, but a credential. That&apos;s how a generation of developers learned to ship, and most of them are better for it. He kept sharpening his skills by building cool websites and apps, and later picked up formal education at ECPI University in 2019.
+              </p>
+
+              {/* Pull quote */}
+              <blockquote className="border-l-2 border-indigo-500 pl-5 py-1 my-6">
+                <p className="text-base italic leading-relaxed" style={{ color: '#d4d4d8', fontFamily: '"Playfair Display", Georgia, serif' }}>
+                  &ldquo;Every one of those jobs taught him something about how operations actually work at ground level. That knowledge is in everything he builds.&rdquo;
+                </p>
+              </blockquote>
+
+              <p>
+                Before Majestik Magik, he covered E3 in Los Angeles in 2005 and 2006 as a journalist for Advanced Media Network and was featured in the Richmond Times-Dispatch for his writing on gaming culture. He fronted a heavy metal band called Spiral Fracture, won the 2012 Battle of the Bands, and performed at the Rockstar Energy Mayhem Festival on the same bill as Slipknot and Anthrax.
+              </p>
+              <p>
+                He also ran a photography business in 2018, built a solo cleaning operation, and put in time as a delivery driver at FedEx and Amazon. None of that was a detour.
+              </p>
+              <p>
                 He&apos;s been building things since he was assembling model cars and soldering circuits as a kid. That instinct never left. It just found a better medium.
-                <br/><br/>
+              </p>
+              <p style={{ color: '#d4d4d8' }} className="font-medium">
                 He&apos;s a father, a builder, and someone who takes it personally when software fails the people using it.
               </p>
             </div>
-
           </div>
 
           {/* Stat chips */}
-          <div className="max-w-7xl mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 pt-8">
-            {[
-              { label: 'Company', value: 'Majestik Magik Inc.' },
-              { label: 'Location', value: 'Virginia, USA' },
-              { label: 'Focus', value: 'Local-First Systems' },
-              { label: 'Philosophy', value: 'Align. Build. Ship.' },
-            ].map(({ label, value }) => (
-              <div key={label} className="rounded-lg p-3 border border-[#2a2a3a]" style={{ background: '#0e0e1a' }}>
-                <p className="text-[10px] font-mono uppercase tracking-widest mb-1" style={{ color: '#606070' }}>{label}</p>
-                <p className="text-xs font-mono font-bold" style={{ color: '#f0f0f0' }}>{value}</p>
-              </div>
-            ))}
+          <div className="mt-12">
+            <Rule />
+            <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[
+                { label: 'Company', value: 'Majestik Magik Inc.' },
+                { label: 'Location', value: 'Virginia, USA' },
+                { label: 'Focus', value: 'Local-First Systems' },
+                { label: 'Philosophy', value: 'Align. Build. Ship.' },
+              ].map(({ label, value }) => (
+                <div key={label} className="rounded-lg p-3 border border-[#2a2a3a]" style={{ background: '#0e0e1a' }}>
+                  <p className="text-[10px] font-mono uppercase tracking-widest mb-1" style={{ color: '#606070' }}>{label}</p>
+                  <p className="text-xs font-mono font-bold" style={{ color: '#d4d4d8' }}>{value}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Federal Vendor Credentials */}
-          <div className="max-w-7xl mt-4 space-y-3 pt-8">
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#f0f0f0' }}>Federal Vendor Credentials</p>
-            {['SAM.gov Registered Entity', 'UEI: F1TGDDS92AK3', 'CAGE Code: 14BU8'].map(item => (
-              <div key={item} className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30">
-                <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-                <span className="text-xs font-mono text-indigo-300 tracking-wide">{item}</span>
-              </div>
-            ))}
+          <div className="mt-12">
+            <Rule />
+            <p className="mt-6 mb-3 font-mono text-[11px] uppercase tracking-widest" style={{ color: '#505060' }}>Federal Vendor Credentials</p>
+            <div className="space-y-2">
+              {['SAM.gov Registered Entity', 'UEI: F1TGDDS92AK3', 'CAGE Code: 14BU8'].map(item => (
+                <div key={item} className="flex items-center gap-2 p-3 rounded-lg bg-indigo-500/10 border border-indigo-500/30">
+                  <ShieldCheckIcon className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                  <span className="text-xs font-mono text-indigo-300 tracking-wide">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Certifications */}
-          <div className="max-w-7xl mt-4 space-y-3 pt-8">
-            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#f0f0f0' }}>Certifications</p>
-            <a href="/majestikmagikai_42433375_20260917185138_30hourconstructionindustryoutreach.pdf" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-colors">
-              <OshaSeal />
-              <div>
-                <span className="text-xs font-mono text-amber-300 font-bold block">OSHA 30 — Construction Industry Outreach</span>
-                <span className="text-[11px] text-amber-400/60 mt-0.5 block">U.S. Dept. of Labor • View Certificate →</span>
-              </div>
-            </a>
-            <a href="/Certificate_1004230428-3.pdf" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-colors">
-              <ForkliftSeal />
-              <div>
-                <span className="text-xs font-mono text-amber-300 font-bold block">Forklift Operator Certification</span>
-                <span className="text-[11px] text-amber-400/60 mt-0.5 block">Powered Industrial Truck • View Certificate →</span>
-              </div>
-            </a>
+          <div className="mt-12">
+            <Rule />
+            <p className="mt-6 mb-3 font-mono text-[11px] uppercase tracking-widest" style={{ color: '#505060' }}>Certifications</p>
+            <div className="space-y-2">
+              <a href="/majestikmagikai_42433375_20260917185138_30hourconstructionindustryoutreach.pdf" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-colors">
+                <OshaSeal />
+                <div>
+                  <span className="text-xs font-mono text-amber-300 font-bold block">OSHA 30 · Construction Industry Outreach</span>
+                  <span className="text-[11px] text-amber-400/60 mt-0.5 block">U.S. Dept. of Labor · View Certificate →</span>
+                </div>
+              </a>
+              <a href="/Certificate_1004230428-3.pdf" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 transition-colors">
+                <ForkliftSeal />
+                <div>
+                  <span className="text-xs font-mono text-amber-300 font-bold block">Forklift Operator Certification</span>
+                  <span className="text-[11px] text-amber-400/60 mt-0.5 block">Powered Industrial Truck · View Certificate →</span>
+                </div>
+              </a>
+            </div>
           </div>
 
         </div>
       </div>
+      <Modal content={modal} onClose={() => setModal(null)} />
     </div>
   );
 };
