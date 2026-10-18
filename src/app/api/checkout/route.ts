@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 // Server-side price catalog — client-supplied price is ignored
 const SERVICE_CATALOG: Record<string, { name: string; price: number }> = {

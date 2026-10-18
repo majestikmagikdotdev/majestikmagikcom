@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 // Rate limiting: max 20 requests per IP per 60 seconds
 const rateLimitMap = new Map<string, { count: number; reset: number }>();

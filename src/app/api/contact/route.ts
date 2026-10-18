@@ -1,8 +1,6 @@
 import { Resend } from 'resend';
 
-export const runtime = 'edge';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const runtime = 'nodejs';
 
 // Rate limiting: max 5 submissions per IP per 60 seconds
 const rateLimitMap = new Map<string, { count: number; reset: number }>();
@@ -60,6 +58,7 @@ function sanitizeLog(value: string): string {
 }
 
 export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const ip = request.headers.get('cf-connecting-ip') ?? request.headers.get('x-forwarded-for') ?? 'unknown';
   if (!checkRateLimit(ip)) {
     return Response.json({ error: 'Too many requests' }, { status: 429 });
