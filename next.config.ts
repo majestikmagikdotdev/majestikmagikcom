@@ -47,7 +47,6 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
   trailingSlash: false,
 
   async redirects() {
