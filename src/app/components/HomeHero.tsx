@@ -4,12 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const LOGOS = [
-  { src: '/img/noel_customs.webp',  alt: 'Noel Customs',  width: 120, height: 48 },
-  { src: '/img/parrisgainer.webp',  alt: 'Parris Gainer', width: 120, height: 48 },
-  { src: '/img/cearco.webp',        alt: 'Cearco',        width: 120, height: 48 },
-  { src: '/img/agriAI.webp',        alt: 'AgriAI',        width: 120, height: 48 },
-  { src: '/img/father-figure-logo-official-640-C0t24ieq.webp', alt: 'Father Figure', width: 160, height: 48 },
-  { src: '/img/middlemanmotors.png', alt: 'Middle Man Motors', width: 120, height: 48 },
+  { src: '/img/noel_customs.webp',  alt: 'Noel Customs',  width: 120, height: 48, href: 'https://noelcustoms.shop' },
+  { src: '/img/parrisgainer.webp',  alt: 'Parris Gainer', width: 120, height: 48, href: 'https://parrisgainer.com' },
+  { src: '/img/cearco.webp',        alt: 'Cearco',        width: 120, height: 48, href: 'https://cearcochemicals.com' },
+  { src: '/img/father-figure-logo-official-640-C0t24ieq.webp', alt: 'Father Figure', width: 160, height: 48, href: 'https://figurefuel.fit' },
+  { src: '/img/middlemanmotors.png', alt: 'Middle Man Motors', width: 120, height: 48, href: 'https://middlemanmotors.com' },
 ];
 
 const TRUST_CHIPS = [
@@ -173,15 +172,16 @@ export default function HomeHero() {
               <p className="text-[10px] font-mono text-[#505060] mb-5 tracking-widest uppercase">Trusted by</p>
               <div className="grid grid-cols-3 sm:grid-cols-6 items-center gap-6">
                 {LOGOS.map((logo) => (
-                  <Image
-                    key={logo.alt}
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={logo.width}
-                    height={logo.height}
-                    className="h-8 w-auto object-contain opacity-50 grayscale hover:opacity-90 hover:grayscale-0 transition-all duration-300"
-                    loading="eager"
-                  />
+                  <a key={logo.alt} href={logo.href} target="_blank" rel="noopener noreferrer">
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={logo.width}
+                      height={logo.height}
+                      className="h-12 w-auto object-contain opacity-50 grayscale hover:opacity-90 hover:grayscale-0 transition-all duration-300"
+                      loading="eager"
+                    />
+                  </a>
                 ))}
               </div>
             </div>

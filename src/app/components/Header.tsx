@@ -191,7 +191,7 @@ const Header: React.FC<HeaderProps> = ({
               }}
             />
             <MagikLogo
-              className="relative w-8 h-8"
+              className="relative w-10 h-10"
               style={{
                 animation: logoSpin
                   ? 'logo-spin 700ms cubic-bezier(0.34,1.56,0.64,1) forwards'
@@ -203,7 +203,7 @@ const Header: React.FC<HeaderProps> = ({
           </span>
           <span
             className="bg-clip-text text-2xl bg-gradient-to-r text-[#d4d4d8]"
-            style={{ letterSpacing: '-0.06em', animation: logoReady ? 'logo-wordmark-slide 400ms ease-out 300ms forwards' : 'none', opacity: 0 }}
+            style={{ letterSpacing: '0.03em', fontFamily: 'var(--font-im-fell-english)', animation: logoReady ? 'logo-wordmark-slide 400ms ease-out 300ms forwards' : 'none', opacity: 0 }}
           >
             Majestik Magik
           </span>

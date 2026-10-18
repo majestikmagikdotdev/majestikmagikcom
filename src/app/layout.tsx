@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { Libre_Baskerville, Playfair_Display } from 'next/font/google';
+import { Libre_Baskerville, Playfair_Display, IM_Fell_English } from 'next/font/google';
 import MainLayout from './components/MainLayout';
 import './globals.css';
 import '../../public/animations.css';
@@ -19,6 +19,13 @@ const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   style: ['italic'],
   variable: '--font-playfair-display',
+  display: 'swap',
+});
+
+const imFellEnglish = IM_Fell_English({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-im-fell-english',
   display: 'swap',
 });
 
@@ -74,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${libreBaskerville.variable} ${playfairDisplay.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} ${libreBaskerville.variable} ${playfairDisplay.variable} ${imFellEnglish.variable}`} suppressHydrationWarning>
       <head>
         <link
           rel="preload"

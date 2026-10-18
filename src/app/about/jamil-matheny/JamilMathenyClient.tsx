@@ -134,7 +134,7 @@ const JamilMathenyPage = () => {
           <div className="mt-8 mb-3">
             <h1
               className="text-5xl md:text-7xl font-black leading-[0.92]"
-              style={{ letterSpacing: '-0.04em', color: '#d4d4d8' }}
+              style={{ letterSpacing: '0.03em', color: '#d4d4d8', fontFamily: 'var(--font-im-fell-english)' }}
             >
               Jamil{' '}
               <span
