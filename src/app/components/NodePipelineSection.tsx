@@ -66,7 +66,7 @@ export default function NodePipelineSection() {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-violet-400 uppercase mb-3 bg-violet-950/20 px-3 py-1 rounded border border-violet-500/20">
             • Architecture
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-[#d4d4d8] tracking-tight" style={{ letterSpacing: '-0.03em' }}>
+          <h2 className="text-3xl md:text-5xl font-black text-[#d4d4d8] tracking-tight" style={{ letterSpacing: '-0.02em', fontFamily: 'var(--font-im-fell-english)' }}>
             From Paper to{' '}
             <span
               className="text-transparent bg-clip-text"

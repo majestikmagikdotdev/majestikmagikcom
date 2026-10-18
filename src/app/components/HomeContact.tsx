@@ -55,7 +55,7 @@ export default function HomeContact() {
       <div className="reveal max-w-7xl mx-auto mb-10">
         <h2
           className="text-4xl sm:text-5xl font-black text-[#d4d4d8] mb-4"
-          style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
+          style={{ letterSpacing: '-0.02em', lineHeight: '1', fontFamily: 'var(--font-im-fell-english)' }}
         >
           Got a project?
           <br />

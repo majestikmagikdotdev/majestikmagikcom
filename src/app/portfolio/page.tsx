@@ -59,7 +59,7 @@ export default function Portfolio() {
 
           <h1
             className="text-5xl md:text-7xl font-bold mb-4"
-            style={{ letterSpacing: '-0.09em', color: '#d4d4d8' }}
+            style={{ letterSpacing: '-0.04em', color: '#d4d4d8', fontFamily: 'var(--font-im-fell-english)' }}
           >
             Engineered Systems &{' '}
             <span
@@ -111,7 +111,7 @@ export default function Portfolio() {
                 {/* Title & Subtitle */}
                 <h2
                   className="text-xl font-bold mb-1"
-                  style={{ letterSpacing: '-0.03em', color: '#d4d4d8' }}
+                  style={{ letterSpacing: '-0.02em', color: '#d4d4d8', fontFamily: 'var(--font-im-fell-english)' }}
                 >
                   {project.title}
                 </h2>
@@ -140,7 +140,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* Action Links */}
-                <div className="mt-auto flex items-center gap-2 pt-4 border-t border-[#2a2a3a]">
+                <div className="mt-auto flex items-center gap-2 pt-4">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
@@ -180,10 +180,10 @@ export default function Portfolio() {
         </div>
 
         {/* Live Demos */}
-        <div className="border-t border-[#2a2a3a] pt-20 mb-20">
+        <div className="pt-20 mb-20">
           <h2
             className="text-4xl md:text-5xl font-black mb-4"
-            style={{ letterSpacing: '-0.04em', color: '#d4d4d8', lineHeight: '1' }}
+            style={{ letterSpacing: '-0.02em', color: '#d4d4d8', lineHeight: '1', fontFamily: 'var(--font-im-fell-english)' }}
           >
             Not a mockup.
             <br />

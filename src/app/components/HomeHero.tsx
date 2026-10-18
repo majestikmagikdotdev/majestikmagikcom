@@ -113,7 +113,7 @@ export default function HomeHero() {
             {/* H1 */}
             <h1
               className="relative z-10 mb-6 text-5xl sm:text-5xl md:text-7xl lg:text-[88px] font-black leading-[0.95] text-[#d4d4d8]"
-              style={{ letterSpacing: '-0.04em' }}
+              style={{ letterSpacing: '-0.02em', fontFamily: 'var(--font-im-fell-english)' }}
             >
               Your site is slow.
               <br />

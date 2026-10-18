@@ -850,6 +850,41 @@ html, body {
   animation: page-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* --- Logo keyframes --- */
+@keyframes logo-glow-bloom {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes logo-glow-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%       { opacity: 1;    transform: scale(1.15); }
+}
+@keyframes logo-stamp {
+  0%   { opacity: 0; transform: scale(0.5) rotate(-12deg); }
+  70%  { opacity: 1; transform: scale(1.12) rotate(3deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+@keyframes logo-spin {
+  0%   { transform: rotate(0deg)   scale(1); }
+  50%  { transform: rotate(200deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@keyframes logo-wordmark-slide {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Wordmark letter animation --- */
+@keyframes letter-appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes letter-shimmer {
+  0%   { color: #d4d4d8; text-shadow: none; }
+  40%  { color: #a5b4fc; text-shadow: 0 0 12px rgba(165,180,252,0.8), 0 0 24px rgba(139,92,246,0.4); }
+  100% { color: #d4d4d8; text-shadow: none; }
+}
+
 /* --- Reduced Motion --- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

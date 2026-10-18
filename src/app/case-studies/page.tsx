@@ -59,7 +59,7 @@ export default function CaseStudies() {
 
           <h1
             className="text-5xl md:text-7xl font-bold mb-4 pr-2"
-            style={{ letterSpacing: '-0.04em', color: '#d4d4d8' }}
+            style={{ letterSpacing: '-0.02em', color: '#d4d4d8', fontFamily: 'var(--font-im-fell-english)' }}
           >
             Real Client Work,{' '}
             <span

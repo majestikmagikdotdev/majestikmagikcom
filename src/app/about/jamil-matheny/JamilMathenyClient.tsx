@@ -156,7 +156,7 @@ const JamilMathenyPage = () => {
           {/* Lede */}
           <p
             className="mt-8 mb-8 text-lg md:text-xl leading-relaxed font-medium"
-            style={{ color: '#d4d4d8', letterSpacing: '-0.01em' }}
+            style={{ color: '#d4d4d8', letterSpacing: '-0.01em', fontFamily: 'var(--font-libre-baskerville), Georgia, serif' }}
           >
             He builds the software that businesses actually depend on: field tools that work without a signal, systems that don&apos;t require a support ticket to understand, and infrastructure that holds up when it matters.
           </p>
@@ -205,7 +205,7 @@ const JamilMathenyPage = () => {
 
               {/* Pull quote */}
               <blockquote className="border-l-2 border-indigo-500 pl-5 py-1 my-6">
-                <p className="text-base italic leading-relaxed" style={{ color: '#d4d4d8', fontFamily: 'var(--font-playfair-display), Georgia, serif' }}>
+                <p className="text-base italic leading-relaxed" style={{ color: '#d4d4d8', fontFamily: 'var(--font-libre-baskerville), Georgia, serif' }}>
                   &ldquo;Every one of those jobs taught him something about how operations actually work at ground level. That knowledge is in everything he builds.&rdquo;
                 </p>
               </blockquote>

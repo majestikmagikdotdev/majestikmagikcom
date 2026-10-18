@@ -201,11 +201,21 @@ const Header: React.FC<HeaderProps> = ({
               }}
             />
           </span>
-          <span
-            className="bg-clip-text text-2xl bg-gradient-to-r text-[#d4d4d8]"
-            style={{ letterSpacing: '0.03em', fontFamily: 'var(--font-im-fell-english)', animation: logoReady ? 'logo-wordmark-slide 400ms ease-out 300ms forwards' : 'none', opacity: 0 }}
-          >
-            Majestik Magik
+          <span aria-label="Majestik Magik" className="text-2xl text-[#d4d4d8] flex" style={{ letterSpacing: '0.03em', fontFamily: 'var(--font-im-fell-english)' }}>
+            {'Majestik Magik'.split('').map((char, i) => (
+              <span
+                key={i}
+                aria-hidden
+                style={{
+                  display: 'inline-block',
+                  whiteSpace: char === ' ' ? 'pre' : undefined,
+                  opacity: logoReady ? undefined : 0,
+                  animation: logoReady ? `letter-appear 380ms cubic-bezier(0.16,1,0.3,1) ${180 + i * 42}ms both, letter-shimmer 600ms ease-out ${180 + i * 42 + 200}ms both` : 'none',
+                }}
+              >
+                {char}
+              </span>
+            ))}
           </span>
         </button>
 
@@ -245,7 +255,7 @@ const Header: React.FC<HeaderProps> = ({
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-indigo-950/40 hover:bg-indigo-900/50 text-indigo-300 border border-indigo-500/30 font-mono uppercase tracking-wider text-sm py-2 px-4 rounded-lg transition-all duration-200"
+                    className="bg-indigo-950/40 hover:bg-indigo-900/50 text-indigo-300 border border-indigo-500/30 font-mono uppercase tracking-wider text-sm py-2 px-4 rounded-lg transition-all duration-200" style={{ fontFamily: 'var(--font-cinzel)', fontWeight: 600 }}
                     onMouseEnter={handleTopLevelMouseEnter}
                     onMouseLeave={handleTopLevelMouseLeave}
                   >
@@ -254,7 +264,7 @@ const Header: React.FC<HeaderProps> = ({
                 ) : (
                   <Link
                     href={item.url || '#'}
-                    className="text-[#a0a0b0] hover:text-indigo-300 transition-colors font-mono uppercase text-sm tracking-wider duration-200 py-1 flex items-center"
+                    className="text-[#a0a0b0] hover:text-indigo-300 transition-colors font-mono uppercase text-sm tracking-wider duration-200 py-1 flex items-center" style={{ fontFamily: 'var(--font-cinzel)', fontWeight: 600 }}
                     onClick={(e) => {
                       if (isDropdown && !item.url) {
                         e.preventDefault();

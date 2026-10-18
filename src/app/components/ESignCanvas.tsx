@@ -104,7 +104,7 @@ export default function ESignCanvas() {
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-3 bg-indigo-950/20 px-3 py-1 rounded border border-indigo-500/20">
             • E-Sign Engine
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-[#d4d4d8] tracking-tight" style={{ letterSpacing: '-0.03em' }}>
+          <h2 className="text-3xl md:text-5xl font-black text-[#d4d4d8] tracking-tight" style={{ letterSpacing: '-0.02em', fontFamily: 'var(--font-im-fell-english)' }}>
             Sign It.{' '}
             <span
               className="text-transparent bg-clip-text"

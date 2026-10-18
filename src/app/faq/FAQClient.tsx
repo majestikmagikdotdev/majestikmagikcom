@@ -173,7 +173,7 @@ const FAQPage = () => {
             </span>
             <h1
               className="text-5xl md:text-6xl font-black text-[#d4d4d8] mb-4"
-              style={{ letterSpacing: '-0.04em', lineHeight: '1' }}
+              style={{ letterSpacing: '-0.02em', lineHeight: '1', fontFamily: 'var(--font-im-fell-english)' }}
             >
               Got questions?
               <br />
