@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import Image from 'next/image';
+import Image from '@/app/components/Img';
 import Link from 'next/link';
 
 export default function HomeContact() {

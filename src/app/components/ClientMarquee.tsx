@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import Image from '@/app/components/Img';
 
 const LOGOS = [
   { src: '/img/noel_customs.webp',  alt: 'Noel Customs',  width: 120, height: 48 },
