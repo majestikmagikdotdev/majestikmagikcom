@@ -114,7 +114,7 @@ export default function ESignCanvas() {
             </span>
           </h2>
           <p className="mt-3 text-sm text-[#a0a0b0] max-w-lg">
-            Draw your signature below with your mouse or finger. Watch the live metadata render in real time: coordinates, timestamp, device hash, audit status.
+            Draw your signature below with a mouse or finger and watch the live metadata render in real time, including coordinates, timestamp, device hash, and audit status.
           </p>
         </div>
 

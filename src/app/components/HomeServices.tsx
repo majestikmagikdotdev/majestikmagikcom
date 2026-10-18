@@ -115,25 +115,25 @@ function AppMockup() {
 const SERVICES = [
   {
     id: '01', tag: 'LOCAL-FIRST', title: 'Local-First & Mobile Apps',
-    desc: 'Works offline. Works fast. Works when the WiFi doesn\'t. Encrypted on-device storage with sync that catches up quietly in the background.',
+    desc: 'It runs on the device, responds instantly, and keeps working when the WiFi drops. Your data stays encrypted on-device and syncs quietly in the background the moment connectivity returns.',
     bullets: ['Sub-millisecond response. No server round-trip', 'SQLCipher encrypted storage on-device', 'Background sync resumes automatically when online'],
     mockup: <OfflineMockup />, accent: 'emerald',
   },
   {
     id: '02', tag: 'INTERFACES', title: 'Web Design & Landing Pages',
-    desc: 'Your site is the first thing people judge you by. We make sure it\'s not embarrassing. Fast, sharp, and built to actually convert.',
+    desc: 'Your site is the first thing people judge you by, and most sites fail that test in under three seconds. We build pages that are fast, sharp, and engineered to convert visitors into paying customers.',
     bullets: ['Copy hierarchy engineered for conversion', 'Mobile-first, sub-second load times', 'Custom Lighthouse audit with llms.txt and robots.txt'],
     mockup: <PerfMockup />, accent: 'indigo',
   },
   {
     id: '03', tag: 'APPLICATIONS', title: 'Web Applications',
-    desc: 'Not another tool your team ignores. We build apps around how your people actually work. Real-time, integrated, and genuinely useful.',
+    desc: 'We build applications around how your people actually work, not around what was easiest to ship. Everything is real-time, integrated with the tools you already use, and built to be genuinely useful on day one.',
     bullets: ['Auth, roles, and permissions built to your workflow', 'Live data feeds, webhooks, and third-party APIs', 'Stripe billing, subscriptions, and payout logic'],
     mockup: <AppMockup />, accent: 'violet',
   },
   {
     id: '04', tag: 'SYSTEMS', title: 'Systems-as-a-Service',
-    desc: 'You\'re paying monthly for software you\'ll never own. We build the same thing; inventory, fleet, logistics. Then we hand you the keys.',
+    desc: 'Most businesses pay monthly for software they will never own. We build the same inventory, fleet, and logistics systems you are already renting, then hand you the keys and walk away with nothing on the meter.',
     bullets: ['Full IP transfer. No subscriptions, no lock-in', 'Managed cloud or local-first deployment', 'Complete handoff docs and onboarding support'],
     mockup: <SystemsMockup />, accent: 'purple',
   },
@@ -205,7 +205,7 @@ export default function HomeServices() {
             What we actually do.
           </h2>
           <p className="mt-4 max-w-2xl text-sm text-[#808090] leading-relaxed">
-            Software that works everywhere. Even when the internet doesn&apos;t. From landing pages that convert to field apps that run in dead zones and sync the moment signal returns.
+            We build software that works everywhere your business operates, whether that is a landing page that needs to convert on the first visit or a field application that keeps running when the signal drops and syncs automatically the moment it returns.
           </p>
         </div>
 

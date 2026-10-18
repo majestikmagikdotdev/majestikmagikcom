@@ -190,7 +190,7 @@ export default function Portfolio() {
             <span style={{ color: '#404050' }}>Not a screenshot.</span>
           </h2>
           <p className="text-sm max-w-lg leading-relaxed mb-2" style={{ color: '#a0a0b0' }}>
-            Every demo below is live code. Offline sync, encrypted pipelines, e-sign capture. This is what we actually ship.
+            Every demo below is running live code, not a mockup or a screenshot. Offline sync, encrypted pipelines, and e-sign capture are all things that get shipped to production.
           </p>
         </div>
 

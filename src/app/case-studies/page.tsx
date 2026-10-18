@@ -58,8 +58,8 @@ export default function CaseStudies() {
           </Link>
 
           <h1
-            className="text-5xl md:text-7xl font-bold mb-4"
-            style={{ letterSpacing: '-0.09em', color: '#d4d4d8' }}
+            className="text-5xl md:text-7xl font-bold mb-4 pr-2"
+            style={{ letterSpacing: '-0.04em', color: '#d4d4d8' }}
           >
             Real Client Work,{' '}
             <span
@@ -80,14 +80,14 @@ export default function CaseStudies() {
           {portfolioData.map((project, index) => (
             <article
               key={project.id}
-              className="scroll-animate grid gap-10 lg:grid-cols-2 lg:items-start border-t border-[#2a2a3a] pt-16"
+              className="scroll-animate grid gap-10 lg:grid-cols-2 lg:items-start pt-16"
             >
               {/* Screenshot */}
               <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                 <div className="rounded-lg overflow-hidden border border-[#2a2a3a]" style={{ background: '#111120' }}>
 
                   {/* Browser chrome */}
-                  <div className="flex items-center gap-2 px-4 py-3 border-b border-[#2a2a3a]" style={{ background: '#0e0e1a' }}>
+                  <div className="flex items-center gap-2 px-4 py-3" style={{ background: '#0e0e1a' }}>
                     <span className="w-3 h-3 rounded-full bg-[#2a2a3a]" />
                     <span className="w-3 h-3 rounded-full bg-[#2a2a3a]" />
                     <span className="w-3 h-3 rounded-full bg-[#2a2a3a]" />
@@ -228,7 +228,7 @@ export default function CaseStudies() {
         </div>
 
         {/* Footer CTA */}
-        <div className="mt-24 border-t border-[#2a2a3a] pt-12 text-center">
+        <div className="mt-24 pt-12 text-center">
           <p className="text-xs font-mono uppercase tracking-widest mb-4" style={{ color: '#606070' }}>Ready to build something?</p>
           <Link
             href="/#contact"

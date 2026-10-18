@@ -79,7 +79,7 @@ export default function OfflineDemoSection() {
               </span>
             </h2>
             <p className="mt-3 text-sm text-[#a0a0b0] max-w-lg">
-              No connection? The form still submits. The PDF still generates. Come back online and it catches up on its own.
+              When there is no connection, the form still submits, the PDF still generates, and everything queues locally. Come back online and it catches up on its own.
             </p>
           </div>
 

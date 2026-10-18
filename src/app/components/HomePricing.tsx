@@ -99,7 +99,7 @@ export default function HomePricing() {
             <span className="text-[#707080]">Here&apos;s the price.</span>
           </h2>
           <p className="mt-4 max-w-2xl text-sm text-[#808090] leading-relaxed">
-            Most business software breaks the second you lose Wi-Fi. We build applications that run locally on the device first, giving field teams instant speed and guaranteed uptime, then sync securely to the cloud when they&apos;re back online.
+These are fixed-price engagements for when something is broken and you need it fixed fast. Server errors, dead APIs, emails landing in spam, a site that loads in six seconds and costs you every time it does. Each service has a defined scope, a defined price, and a turnaround window you can hold us to.
           </p>
         </div>
 
