@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 
 async function verifyStripeSignature(body: string, sig: string, secret: string): Promise<boolean> {
   const parts = Object.fromEntries(sig.split(',').map(p => p.split('=')));

@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 
 // Rate limiting: max 5 submissions per IP per 60 seconds
 const rateLimitMap = new Map<string, { count: number; reset: number }>();
