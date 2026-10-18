@@ -49,4 +49,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.early.coverage
+.early.coverage.open-next
