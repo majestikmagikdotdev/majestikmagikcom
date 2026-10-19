@@ -18,7 +18,7 @@ const TRUST_CHIPS = [
 
 const TERMINAL_LINES = [
   { prefix: 'Visit #0091', label: 'LOADED FROM DEVICE', value: 'offline', valueColor: '#fbbf24' },
-  { prefix: 'DMAS-98', label: 'SAVED LOCALLY', value: '0ms', valueColor: '#34d399' },
+  { prefix: 'DMAS-98R', label: 'SAVED LOCALLY', value: '0ms', valueColor: '#34d399' },
   { prefix: 'EVV GPS', label: '3 ENTRIES QUEUED', value: 'syncing when back online', valueColor: '#818cf8' },
   { prefix: 'Signal', label: 'NO BARS', value: 'app still running', valueColor: '#34d399' },
 ];
@@ -131,7 +131,7 @@ export default function HomeHero() {
 
             {/* Subheading */}
             <p className="relative z-10 mb-10 text-base md:text-lg text-[#a0a0b0] leading-relaxed" style={{ letterSpacing: '-0.01em' }}>
-              We build local-first compliance engines for rural field operations. Local-first architecture, AES-256 encryption, and automatic sync when connectivity returns.
+              We build local-first compliance engines for rural field operations. Built with WebAssembly engines, AES-256 encryption, and automatic sync the moment connectivity returns.
             </p>
 
             {/* CTAs */}
@@ -144,10 +144,12 @@ export default function HomeHero() {
                 <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Link>
               <Link
-                href="/portfolio"
+                href="https://dmas-intake.majestikmagik.dev"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-2 px-4 sm:py-3 sm:px-6 rounded-full border border-[#2a2a3a] bg-[#0e0e1a] text-[#a0a0b0] hover:border-[#3a3a4a] hover:text-[#c0c0d0] hover:bg-[#111120] active:scale-[0.97] transition-all duration-200"
               >
-                See the work ↓
+                Get DMAS Intake ↗
               </Link>
             </div>
 
@@ -173,10 +175,19 @@ export default function HomeHero() {
             </div>
           </div>
 
-          {/* Right: sync terminal */}
-          <div className="hidden lg:flex lg:flex-[2] lg:justify-end mt-12 lg:mt-0">
-            <div className="w-full max-w-md">
-              <SyncTerminal />
+          {/* Right: hero image */}
+          <div className="flex lg:flex-[2] justify-center lg:justify-end mt-12 lg:mt-0">
+            <div className="relative w-full max-w-md rounded-2xl p-[2px]" style={{ background: 'linear-gradient(135deg, #6366f1, #a78bfa, #6366f1)', boxShadow: '0 0 40px rgba(99,102,241,0.35), 0 0 80px rgba(99,102,241,0.15)' }}>
+              <div className="rounded-2xl overflow-hidden">
+                <Image
+                  src="/img/dmas-intake-homecare.jpg"
+                  alt="Home health aide using DMAS Intake on a tablet in a rural home"
+                  width={600}
+                  height={480}
+                  className="w-full h-auto object-cover"
+                  loading="eager"
+                />
+              </div>
             </div>
           </div>
         </div>

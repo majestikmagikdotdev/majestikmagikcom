@@ -4,8 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 function PerfMockup() {
   const rows = [
-    { label: 'DMAS-97', value: '14 submitted',  note: 'this week' },
-    { label: 'DMAS-98', value: '9 submitted',   note: 'this week' },
+    { label: 'DMAS-97A/B', value: '14 submitted',  note: 'this week' },
+    { label: 'DMAS-98R', value: '9 submitted',   note: 'this week' },
     { label: 'EVV',     value: '0 gaps',        note: 'audit-ready' },
     { label: 'Export',  value: 'state report',  note: 'ready' },
   ];
@@ -85,7 +85,7 @@ function OfflineMockup() {
 function AppMockup() {
   const events = [
     { time: '09:14', msg: 'Care coordinator logged in', status: 'ok' },
-    { time: '09:14', msg: 'DMAS-97 submitted', status: 'ok' },
+    { time: '09:14', msg: 'DMAS-97A/B submitted', status: 'ok' },
     { time: '09:15', msg: 'EVV audit log exported', status: 'ok' },
     { time: '09:15', msg: 'State report generated', status: 'ok' },
   ];

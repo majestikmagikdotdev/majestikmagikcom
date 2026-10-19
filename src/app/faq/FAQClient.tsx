@@ -6,7 +6,7 @@ import Link from 'next/link';
 const faqs = [
   {
     question: 'What is DMAS Intake?',
-    answer: 'DMAS Intake is an offline-first Electronic Visit Verification and compliance platform built for Virginia home health agencies. Care aides capture DMAS-97, DMAS-98, and DMAS-99 forms with GPS logging and AES-256 encrypted signatures directly on their device — no internet connection required. Records sync automatically to the agency dashboard when connectivity is restored.',
+    answer: 'DMAS Intake is an offline-first Electronic Visit Verification and compliance platform built for Virginia home health agencies. Care aides capture DMAS-97A/B, DMAS-98R, and DMAS-99 forms with GPS logging and AES-256 encrypted signatures directly on their device — no internet connection required. Records sync automatically to the agency dashboard when connectivity is restored.',
   },
   {
     question: 'What problem does DMAS Intake solve?',
@@ -17,8 +17,8 @@ const faqs = [
     answer: 'DMAS Intake is a local-first Progressive Web App. All visit data — GPS coordinates, aide signatures, visit start and end times, and DMAS form entries — is written to encrypted on-device storage the moment it is captured. When the device reconnects to the internet, all queued records sync to the agency compliance dashboard automatically. Zero manual intervention required.',
   },
   {
-    question: 'What are DMAS-97, DMAS-98, and DMAS-99?',
-    answer: 'These are Virginia Medicaid documentation forms required for home health and personal care services. DMAS-97 is the Personal Care Assessment, DMAS-98 is the Aide Plan of Care, and DMAS-99 is the Aide Record used to document each visit. Accurate completion is required for Medicaid reimbursement and state compliance audits. DMAS Intake digitizes and encrypts all three for offline capture.',
+    question: 'What are DMAS-97A/B, DMAS-98R, and DMAS-99?',
+    answer: 'These are Virginia Medicaid documentation forms required for home health and personal care services. DMAS-97A/B is the Personal Care Assessment, DMAS-98R is the Aide Plan of Care, and DMAS-99 is the Aide Record used to document each visit. Accurate completion is required for Medicaid reimbursement and state compliance audits. DMAS Intake digitizes and encrypts all three for offline capture.',
   },
   {
     question: 'What is the federal EVV mandate?',

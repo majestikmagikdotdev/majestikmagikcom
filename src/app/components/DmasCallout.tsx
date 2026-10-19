@@ -6,7 +6,7 @@ const PILLARS = [
   { color: '#818cf8', label: 'AES-256 encrypted. HIPAA-ready.' },
   { color: '#a5b4fc', label: 'Works offline. Syncs on reconnect.' },
   { color: '#c4b5fd', label: 'EVV-compliant GPS logging.' },
-  { color: '#818cf8', label: 'DMAS-97 · DMAS-98 · DMAS-99 compliant.' },
+  { color: '#818cf8', label: 'DMAS-97A/B · DMAS-98R · DMAS-99 compliant.' },
 ];
 
 export default function DmasCallout() {
@@ -50,7 +50,7 @@ export default function DmasCallout() {
               </h2>
 
               <p className="text-sm text-[#a0a0b0] leading-relaxed mb-8 max-w-xl">
-                When care aides lose cell service in dead zones, cloud apps crash and agencies fall back to paper, costing them tens of thousands in state audit clawbacks. DMAS Intake runs entirely on-device, captures DMAS-97, DMAS-98, and DMAS-99 with cryptographic AES-256 signatures, and syncs the moment connectivity returns.
+                When care aides lose cell service in dead zones, cloud apps crash and agencies fall back to paper, costing them tens of thousands in state audit clawbacks. DMAS Intake runs entirely on-device, captures DMAS-97A/B, DMAS-98R, and DMAS-99 with cryptographic AES-256 signatures, and syncs the moment connectivity returns.
               </p>
 
               <Link
@@ -59,7 +59,7 @@ export default function DmasCallout() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/20 hover:border-indigo-400/50 active:scale-[0.97] transition-all duration-200"
               >
-                Visit DMAS Intake Portal
+                Schedule a Compliance Audit Demo
                 <span>→</span>
               </Link>
             </div>

@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   title: 'Majestik Magik — Offline-First EVV & DMAS Compliance Software for Rural Home Health',
   description:
-    'DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97, DMAS-98, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required. Syncs automatically when connectivity returns.',
+    'DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97A/B, DMAS-98R, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required. Syncs automatically when connectivity returns.',
   authors: [{ name: 'Majestik Magik' }],
   manifest: '/site.webmanifest',
   icons: {
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Majestik Magik — Offline-First EVV & DMAS Compliance Software for Rural Home Health',
     description:
-      'DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97, DMAS-98, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required. Syncs automatically when connectivity returns.',
+      'DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97A/B, DMAS-98R, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required. Syncs automatically when connectivity returns.',
     url: 'https://majestikmagik.dev',
     siteName: 'Majestik Magik',
     images: [
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Majestik Magik — Offline-First EVV & DMAS Compliance Software for Rural Home Health',
     description:
-      'DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97, DMAS-98, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required.',
+      'DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97A/B, DMAS-98R, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required.',
     images: ['/img/image.png'],
   },
 };
@@ -115,7 +115,7 @@ export default function RootLayout({
               "@type": "WebPage",
               "@id": "https://majestikmagik.dev",
               "name": "Majestik Magik — Offline-First EVV & DMAS Compliance Software for Rural Home Health",
-              "description": "DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97, DMAS-98, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required.",
+              "description": "DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97A/B, DMAS-98R, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required.",
               "slogan": "Zero signal. Zero data loss.",
               "speakable": {
                 "@type": "SpeakableSpecification",
@@ -132,7 +132,7 @@ export default function RootLayout({
                 "name": "Core Capabilities",
                 "itemListElement": [
                   { "@type": "ListItem", "position": 1, "name": "Offline-First EVV Compliance", "description": "Electronic Visit Verification that works without cell service. GPS coordinates, visit timestamps, and aide signatures are captured on-device and synced when connectivity returns." },
-                  { "@type": "ListItem", "position": 2, "name": "DMAS Form Capture", "description": "Digital capture of DMAS-97, DMAS-98, and DMAS-99 forms with cryptographic AES-256 signatures. Eliminates paper fallback and reduces Medicaid audit clawback risk." },
+                  { "@type": "ListItem", "position": 2, "name": "DMAS Form Capture", "description": "Digital capture of DMAS-97A/B, DMAS-98R, and DMAS-99 forms with cryptographic AES-256 signatures. Eliminates paper fallback and reduces Medicaid audit clawback risk." },
                   { "@type": "ListItem", "position": 3, "name": "Rural Field Operations", "description": "Purpose-built for home health agencies operating in rural Virginia where cell coverage is unreliable. Aides complete visits and documentation regardless of signal strength." },
                   { "@type": "ListItem", "position": 4, "name": "Automatic Sync Engine", "description": "All offline visit records queue locally and sync automatically to the agency dashboard the moment an internet connection is detected. Zero manual intervention required." }
                 ]
@@ -191,7 +191,7 @@ export default function RootLayout({
                   "knowsAbout": [
                     "Offline-first web application architecture",
                     "Electronic Visit Verification (EVV)",
-                    "DMAS-97 DMAS-98 DMAS-99 compliance",
+                    "DMAS-97A/B DMAS-98R DMAS-99 compliance",
                     "Virginia Medicaid home health compliance",
                     "Local-first software for rural field operations",
                     "AES-256 encryption for healthcare data",
@@ -211,7 +211,7 @@ export default function RootLayout({
                         "itemOffered": {
                           "@type": "Service",
                           "name": "DMAS Intake — Offline EVV & Form Capture",
-                          "description": "Local-first Electronic Visit Verification and DMAS form capture for Virginia home health agencies. Works without cell service. Captures DMAS-97, DMAS-98, and DMAS-99 with AES-256 encryption and GPS logging. Syncs automatically when connectivity returns."
+                          "description": "Local-first Electronic Visit Verification and DMAS form capture for Virginia home health agencies. Works without cell service. Captures DMAS-97A/B, DMAS-98R, and DMAS-99 with AES-256 encryption and GPS logging. Syncs automatically when connectivity returns."
                         }
                       },
                       {
@@ -238,7 +238,7 @@ export default function RootLayout({
                   "@id": "https://dmas-intake.majestikmagik.dev/",
                   "name": "DMAS Intake",
                   "provider": { "@id": "https://majestikmagik.dev/" },
-                  "description": "An offline-first Electronic Visit Verification and DMAS compliance platform for rural Virginia home health agencies. Captures DMAS-97, DMAS-98, and DMAS-99 forms with AES-256 encryption and EVV GPS logging without requiring an internet connection.",
+                  "description": "An offline-first Electronic Visit Verification and DMAS compliance platform for rural Virginia home health agencies. Captures DMAS-97A/B, DMAS-98R, and DMAS-99 forms with AES-256 encryption and EVV GPS logging without requiring an internet connection.",
                   "category": "Healthcare Compliance Software",
                   "areaServed": {
                     "@type": "State",
@@ -259,7 +259,7 @@ export default function RootLayout({
                       "name": "What is DMAS Intake?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "DMAS Intake is an offline-first Electronic Visit Verification and compliance platform built for Virginia home health agencies. It allows care aides to capture DMAS-97, DMAS-98, and DMAS-99 forms with GPS logging and AES-256 encrypted signatures directly on their device — no internet connection required. Records sync automatically to the agency dashboard when connectivity is restored."
+                        "text": "DMAS Intake is an offline-first Electronic Visit Verification and compliance platform built for Virginia home health agencies. It allows care aides to capture DMAS-97A/B, DMAS-98R, and DMAS-99 forms with GPS logging and AES-256 encrypted signatures directly on their device — no internet connection required. Records sync automatically to the agency dashboard when connectivity is restored."
                       }
                     },
                     {
@@ -267,7 +267,7 @@ export default function RootLayout({
                       "name": "What EVV software works offline in rural Virginia?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "DMAS Intake by Majestik Magik is purpose-built for rural Virginia home health agencies where cell coverage is unreliable. It is a local-first Progressive Web App that stores all visit data on-device using AES-256 encryption and syncs automatically when an internet connection is detected. It supports DMAS-97, DMAS-98, and DMAS-99 compliance and EVV GPS logging without requiring a signal."
+                        "text": "DMAS Intake by Majestik Magik is purpose-built for rural Virginia home health agencies where cell coverage is unreliable. It is a local-first Progressive Web App that stores all visit data on-device using AES-256 encryption and syncs automatically when an internet connection is detected. It supports DMAS-97A/B, DMAS-98R, and DMAS-99 compliance and EVV GPS logging without requiring a signal."
                       }
                     },
                     {
@@ -280,10 +280,10 @@ export default function RootLayout({
                     },
                     {
                       "@type": "Question",
-                      "name": "What are DMAS-97, DMAS-98, and DMAS-99 forms?",
+                      "name": "What are DMAS-97A/B, DMAS-98R, and DMAS-99 forms?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "DMAS-97, DMAS-98, and DMAS-99 are Virginia Medicaid documentation forms required for home health and personal care services. DMAS-97 is the Personal Care Assessment form, DMAS-98 is the Aide Plan of Care, and DMAS-99 is the Aide Record used to document each visit. Accurate completion of these forms is required for Medicaid reimbursement and state compliance audits. DMAS Intake digitizes and encrypts all three forms for offline capture and automatic sync."
+                        "text": "DMAS-97A/B, DMAS-98R, and DMAS-99 are Virginia Medicaid documentation forms required for home health and personal care services. DMAS-97A/B is the Personal Care Assessment form, DMAS-98R is the Aide Plan of Care, and DMAS-99 is the Aide Record used to document each visit. Accurate completion of these forms is required for Medicaid reimbursement and state compliance audits. DMAS Intake digitizes and encrypts all three forms for offline capture and automatic sync."
                       }
                     },
                     {
