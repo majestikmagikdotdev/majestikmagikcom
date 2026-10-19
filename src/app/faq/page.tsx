@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import FAQPage from './FAQClient';
 
 export const metadata: Metadata = {
-  title: 'FAQ – Majestik Magik',
-  description: 'Got questions? We’ve got answers. Pricing, process, timelines, platforms, and everything else you actually want to know.',
+  title: 'FAQ — DMAS Intake | Offline EVV & Medicaid Compliance for Virginia Home Health',
+  description: 'Answers to the most common questions about DMAS Intake — offline-first EVV, DMAS-97/98/99 form capture, HIPAA readiness, Medicaid audit clawbacks, and how to request a demo.',
   alternates: { canonical: 'https://majestikmagik.dev/faq' },
 };
 

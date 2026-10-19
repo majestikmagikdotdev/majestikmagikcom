@@ -5,69 +5,26 @@ import Image from '@/app/components/Img';
 import Link from 'next/link';
 import { CheckCircleIcon, GithubIcon, LinkedInIcon } from './Icons';
 
-interface ContactFormSectionProps {
-  title?: string;
-  subtitle?: string;
-  showBusiness?: boolean;
-}
-
-export default function ContactFormSection({
-  title = 'Ready to Get Started?',
-  subtitle = "Tell us about your project, and we'll get back to you within 24 hours with a quote and next steps.",
-  showBusiness = true,
-}: ContactFormSectionProps) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    business: '',
-    projectNeed: '',
-  });
-  const [attachments, setAttachments] = useState<File[]>([]);
-  const [attachmentError, setAttachmentError] = useState('');
+export default function ContactFormSection() {
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', agencyName: '', locations: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [acknowledgedPolicy, setAcknowledgedPolicy] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAttachmentError('');
-    const incoming = Array.from(e.target.files ?? []);
-    const invalid = incoming.find((f) => f.type !== 'application/pdf');
-    if (invalid) { setAttachmentError('Only PDF files are accepted.'); e.target.value = ''; return; }
-    const oversized = incoming.find((f) => f.size > 5 * 1024 * 1024);
-    if (oversized) { setAttachmentError(`"${oversized.name}" exceeds the 5MB limit.`); e.target.value = ''; return; }
-    setAttachments((prev) => {
-      const existing = prev.map((f) => f.name);
-      return [...prev, ...incoming.filter((f) => !existing.includes(f.name))];
-    });
-    e.target.value = '';
-  };
-
-  const removeAttachment = (name: string) =>
-    setAttachments((prev) => prev.filter((f) => f.name !== name));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       const payload = new FormData();
       Object.entries(formData).forEach(([k, v]) => payload.append(k, v));
-      attachments.forEach((f) => payload.append('attachments', f));
-
       const response = await fetch('/api/contact', { method: 'POST', body: payload });
-
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', business: '', projectNeed: '' });
-        setAttachments([]);
+        setFormData({ name: '', email: '', phone: '', agencyName: '', locations: '' });
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
         setSubmitStatus('error');
@@ -91,42 +48,18 @@ export default function ContactFormSection({
         {/* Heading */}
         <div className="mb-12 text-center">
           <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#1e293b] px-3 py-1 rounded border border-[#334155]">
-            Ready to Start?
+            DMAS Intake
           </span>
           <h2
             id="contact-heading"
             className="text-[2.5rem] sm:text-3xl md:text-5xl lg:text-7xl font-bold text-slate-100 tracking-tight mb-4"
             style={{ letterSpacing: '-0.06em' }}
           >
-            {title.includes('Great Together') ? (
-              <>
-                {title.replace('Great Together', '')}
-                <span
-                  className="bg-clip-text text-transparent"
-                  style={{ backgroundImage: 'linear-gradient(90deg, #a5b4fc, #818cf8, #6366f1, #a5b4fc)', backgroundSize: '200% auto', animation: 'shimmer 4s linear infinite' }}
-                >Great Together</span>
-              </>
-            ) : (
-              title
-            )}
+            Interested in DMAS Intake? Let&apos;s talk.
           </h2>
-          <p
-            id="contact-desc"
-            className="text-slate-400 text-base mb-8"
-          >
-            {subtitle}
+          <p id="contact-desc" className="text-slate-400 text-base mb-8">
+            We&apos;ll reach back out within 24 hours to schedule a demo.
           </p>
-
-          {/* Ready-to-Build Policy Pre-Qualification Message */}
-          <div className="mx-auto max-w-2xl mb-8 p-4 bg-amber-500/10 border border-amber-500/30 rounded-lg">
-            <p className="text-sm text-amber-100/90">
-              <span className="font-semibold text-amber-300">About Our Process:</span> We build high-performance software for founders who&apos;ve already nailed down their business model, data, and budget. If you&apos;re still working through those pieces, the {' '}
-              <a href="https://app.majestikmagik.dev" className="text-amber-300 hover:text-amber-200 underline font-semibold transition-colors" target="_blank" rel="noopener noreferrer">
-                Pivot Quest
-              </a>
-              {' '} chat can help you get there first; then come back when you&apos;re ready to build.
-            </p>
-          </div>          
         </div>
 
         {/* Form Container */}
@@ -210,153 +143,50 @@ export default function ContactFormSection({
               </div>
             )}
 
-            {/* Name Field */}
+            {/* Name */}
             <div>
-              <label htmlFor="contact-name" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">
-                Your Name *
-              </label>
-              <input
-                id="contact-name"
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                disabled={isSubmitting}
-                className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                placeholder="John Smith"
-              />
+              <label htmlFor="contact-name" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">Name *</label>
+              <input id="contact-name" type="text" name="name" value={formData.name} onChange={handleChange} required disabled={isSubmitting} className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50" placeholder="John Smith" />
             </div>
 
-            {/* Email Field */}
+            {/* Email */}
             <div>
-              <label htmlFor="contact-email" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">
-                Email Address *
-              </label>
-              <input
-                id="contact-email"
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                disabled={isSubmitting}
-                className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                placeholder="you@company.com"
-              />
+              <label htmlFor="contact-email" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">Email *</label>
+              <input id="contact-email" type="email" name="email" value={formData.email} onChange={handleChange} required disabled={isSubmitting} className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50" placeholder="you@agency.com" />
             </div>
 
-            {/* Business Field - Conditional */}
-            {showBusiness && (
-              <div>
-                <label htmlFor="contact-business" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">
-                  Business Name *
-                </label>
-                <input
-                  id="contact-business"
-                  type="text"
-                  name="business"
-                  value={formData.business}
-                  onChange={handleChange}
-                  required={showBusiness}
-                  disabled={isSubmitting}
-                  className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                  placeholder="Your Business Name"
-                />
-              </div>
-            )}
-
-            {/* Project Need Field */}
+            {/* Phone */}
             <div>
-              <label htmlFor="contact-need" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">
-                What Do You Need Help With? *
-              </label>
-              <textarea
-                id="contact-need"
-                name="projectNeed"
-                value={formData.projectNeed}
-                onChange={handleChange}
-                required
-                disabled={isSubmitting}
-                rows={4}
-                className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed resize-none"
-                placeholder="e.g., Build a new website, fix our site speed, improve Google visibility, increase leads..."
-              />
+              <label htmlFor="contact-phone" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">Phone *</label>
+              <input id="contact-phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} required disabled={isSubmitting} className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50" placeholder="(555) 000-0000" />
             </div>
 
-            {/* Attachment Field */}
+            {/* Agency Name */}
             <div>
-              <label htmlFor="contact-attachment" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">
-                Attach Documents <span className="normal-case font-normal text-slate-500">(PDF only, max 5MB each — optional)</span>
-              </label>
-              <label
-                htmlFor="contact-attachment"
-                className="flex items-center gap-3 w-full px-4 py-3 bg-slate-800/60 border border-dashed border-[#334155] hover:border-indigo-500 rounded-lg cursor-pointer transition-colors group"
-              >
-                <svg className="w-5 h-5 text-slate-500 group-hover:text-indigo-400 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
-                </svg>
-                <span className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
-                  Click to upload PDFs
-                </span>
-              </label>
-              <input
-                id="contact-attachment"
-                type="file"
-                accept="application/pdf"
-                multiple
-                onChange={handleFileChange}
-                disabled={isSubmitting}
-                className="sr-only"
-              />
-              {attachments.length > 0 && (
-                <ul className="mt-2 space-y-1">
-                  {attachments.map((f) => (
-                    <li key={f.name} className="flex items-center justify-between px-3 py-1.5 bg-slate-800/60 border border-[#334155] rounded text-xs text-slate-300">
-                      <span className="truncate">📎 {f.name} <span className="text-slate-500">({(f.size / 1024).toFixed(0)} KB)</span></span>
-                      <button
-                        type="button"
-                        onClick={() => removeAttachment(f.name)}
-                        className="ml-3 text-slate-500 hover:text-red-400 transition-colors flex-shrink-0"
-                        aria-label={`Remove ${f.name}`}
-                      >
-                        ✕
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {attachmentError && (
-                <p className="mt-1.5 text-xs text-red-400">{attachmentError}</p>
-              )}
+              <label htmlFor="contact-agency" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">Agency Name *</label>
+              <input id="contact-agency" type="text" name="agencyName" value={formData.agencyName} onChange={handleChange} required disabled={isSubmitting} className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50" placeholder="Your Agency Name" />
             </div>
 
-            {/* Ready-to-Build Policy Acknowledgment Checkbox */}
-            <div className="flex items-start space-x-3 p-4 bg-indigo-500/5 border border-indigo-500/20 rounded-lg">
-              <input
-                id="policy-acknowledgment"
-                type="checkbox"
-                checked={acknowledgedPolicy}
-                onChange={(e) => setAcknowledgedPolicy(e.target.checked)}
-                disabled={isSubmitting}
-                className="mt-1 w-4 h-4 rounded border border-indigo-500 bg-slate-800 text-indigo-600 focus:ring-indigo-500 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-              />
-              <label htmlFor="policy-acknowledgment" className="text-xs text-slate-300 leading-relaxed cursor-pointer">
-                <span className="font-semibold text-slate-200">I confirm that my business model, data sources, and budget are ready for engineering execution according to the</span>{' '}
-                <a href="/ready-to-build-policy" className="text-indigo-400 hover:text-indigo-300 underline font-semibold transition-colors">
-                  Ready-to-Build Policy
-                </a>.
-              </label>
+            {/* Number of Locations */}
+            <div>
+              <label htmlFor="contact-locations" className="block text-xs font-mono font-bold uppercase tracking-wide text-slate-400 mb-2">Number of Locations *</label>
+              <select id="contact-locations" name="locations" value={formData.locations} onChange={e => setFormData(prev => ({ ...prev, locations: e.target.value }))} required disabled={isSubmitting} className="w-full px-4 py-3 bg-slate-800/60 border border-[#334155] rounded-lg text-slate-100 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all disabled:opacity-50">
+                <option value="" disabled>Select...</option>
+                <option value="1">1</option>
+                <option value="2-5">2–5</option>
+                <option value="6-10">6–10</option>
+                <option value="10+">10+</option>
+              </select>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit */}
             <button
               type="submit"
-              disabled={isSubmitting || submitStatus === 'success' || !acknowledgedPolicy}
+              disabled={isSubmitting || submitStatus === 'success'}
               className="btn-premium w-full py-3 px-6 text-white font-mono text-sm font-bold uppercase tracking-wide rounded-lg cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none"
             >
-              {isSubmitting ? 'Sending...' : submitStatus === 'success' ? '✓ Request Sent' : !acknowledgedPolicy ? 'Acknowledge Policy to Continue' : 'Send My Request'}
-            </button>            
+              {isSubmitting ? 'Sending...' : submitStatus === 'success' ? '✓ Demo Requested' : 'Request a Demo'}
+            </button>
           </form>
           </div>
         </div>        

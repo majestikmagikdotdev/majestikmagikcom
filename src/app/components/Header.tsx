@@ -147,7 +147,7 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed top-[32px] left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         isScrolled || isMobileMenuOpen
           ? 'backdrop-blur-xl border-b border-[#2a2a3a] shadow-2xl'
           : 'bg-transparent border-b border-transparent shadow-none'
@@ -399,14 +399,6 @@ const Header: React.FC<HeaderProps> = ({
 
         {/* Desktop CTA Buttons */}
         <div className="hidden xl:flex items-center gap-3">
-          <a
-            href="https://app.majestikmagik.dev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-sm text-indigo-300 border border-indigo-500/30 bg-indigo-950/40 hover:bg-indigo-900/50 rounded-full px-5 py-2 transition-all duration-200"
-          >
-            Pivot Quest ↗
-          </a>
           <Link
             href="/#contact"
             className="btn-premium inline-flex items-center gap-2 font-mono uppercase tracking-wider text-sm text-white rounded-full px-5 py-2 cursor-pointer font-bold"
@@ -563,14 +555,6 @@ const Header: React.FC<HeaderProps> = ({
             })}
 
             <div className="pt-4 border-t border-[#2a2a3a] space-y-2">
-              <a
-                href="https://app.majestikmagik.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 w-full font-mono uppercase tracking-wider text-sm text-indigo-300 border border-indigo-500/30 bg-indigo-950/40 hover:bg-indigo-900/50 rounded-full px-5 py-3 transition-all duration-200"
-              >
-                Pivot Quest ↗
-              </a>
               <Link
                 href="/#contact"
                 className="btn-premium inline-flex items-center justify-center gap-2 w-full font-mono uppercase tracking-wider text-sm text-white rounded-full px-5 py-3 cursor-pointer font-bold"

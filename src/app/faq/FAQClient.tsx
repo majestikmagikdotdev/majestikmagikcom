@@ -5,119 +5,63 @@ import Link from 'next/link';
 
 const faqs = [
   {
-    question: 'What do you actually build?',
-    answer: 'Websites, web apps, custom software systems, and everything in between. React, Next.js, WordPress, Shopify, local-first apps, AI integrations. If your business runs on it digitally, we can build it.',
+    question: 'What is DMAS Intake?',
+    answer: 'DMAS Intake is an offline-first Electronic Visit Verification and compliance platform built for Virginia home health agencies. Care aides capture DMAS-97, DMAS-98, and DMAS-99 forms with GPS logging and AES-256 encrypted signatures directly on their device — no internet connection required. Records sync automatically to the agency dashboard when connectivity is restored.',
   },
   {
-    question: 'How do I get a quote?',
-    answer: 'Email contact@majestikmagik.dev or use the contact form. We\'ll do a quick 15-20 min call and get you a proposal within 2-3 business days.',
+    question: 'What problem does DMAS Intake solve?',
+    answer: 'Rural Virginia home health agencies operate in areas with unreliable or no cell service. Standard cloud-based EVV tools fail without a signal, forcing aides to fall back to paper. Incomplete or missing EVV records trigger Medicaid audit clawbacks — agencies lose reimbursement for visits they actually completed. DMAS Intake eliminates that risk by working entirely offline.',
   },
   {
-    question: 'What industries do you work with?',
-    answer: 'Local service businesses, startups, SaaS, and e-commerce. HVAC, plumbing, roofing, manufacturing, professional services. If you have customers and a website, we can help.',
+    question: 'How does offline EVV work?',
+    answer: 'DMAS Intake is a local-first Progressive Web App. All visit data — GPS coordinates, aide signatures, visit start and end times, and DMAS form entries — is written to encrypted on-device storage the moment it is captured. When the device reconnects to the internet, all queued records sync to the agency compliance dashboard automatically. Zero manual intervention required.',
   },
   {
-    question: 'How long does a project take?',
-    answer: 'Simple sites: a few days to a week. Mid-sized projects: 4-6 weeks. Custom builds or e-commerce: 6-10+ weeks. Mostly depends on how fast you can get us feedback and content.',
+    question: 'What are DMAS-97, DMAS-98, and DMAS-99?',
+    answer: 'These are Virginia Medicaid documentation forms required for home health and personal care services. DMAS-97 is the Personal Care Assessment, DMAS-98 is the Aide Plan of Care, and DMAS-99 is the Aide Record used to document each visit. Accurate completion is required for Medicaid reimbursement and state compliance audits. DMAS Intake digitizes and encrypts all three for offline capture.',
   },
   {
-    question: 'What does the process look like?',
-    answer: 'Discovery, scope, design, build, review, launch, handoff. You have one point of contact the whole way through. No handoffs to a junior team halfway in.',
+    question: 'What is the federal EVV mandate?',
+    answer: 'The 21st Century Cures Act requires all Medicaid-funded personal care and home health services to use Electronic Visit Verification. Virginia enforces this through DMAS. Agencies that cannot produce compliant EVV records risk claim denials and audit clawbacks. Rural agencies are disproportionately affected because standard cloud-based EVV tools fail without cell service.',
   },
   {
-    question: 'Do you require a deposit?',
-    answer: 'Yes. Usually 40-50% upfront to book your spot, with the rest tied to milestones or due before launch.',
+    question: 'Is DMAS Intake HIPAA compliant?',
+    answer: 'DMAS Intake is built with HIPAA-readiness as a core design principle. All patient and visit data is encrypted at rest using AES-256 and transmitted over TLS. Data is stored locally on the aide\'s device in an encrypted IndexedDB store and is never exposed to third-party services. Agencies retain full ownership of their data.',
   },
   {
-    question: 'What platforms do you work with?',
-    answer: 'Next.js, React, WordPress, Shopify, headless CMS setups. We recommend based on what actually fits your goals, not what\'s easiest for us.',
+    question: 'What causes Medicaid audit clawbacks?',
+    answer: 'Clawbacks occur when an agency cannot produce complete EVV records or properly completed DMAS forms for a billed visit. Common causes: paper documentation that was lost or incomplete, cloud EVV apps that failed to record visits when the aide had no signal, and missing GPS verification data. DMAS Intake captures all required data offline and syncs it automatically.',
   },
   {
-    question: 'Do you offer WordPress training?',
-    answer: 'Yes. Video tutorials and live walkthroughs. You can find them at majestikmagik.dev/training/wordpress.',
+    question: 'Does it work without Wi-Fi or cell service?',
+    answer: 'Yes. That is the entire point. DMAS Intake runs entirely on-device. Aides can complete full visit documentation — forms, GPS, signatures — with zero bars of signal. The app queues everything locally and syncs the moment any internet connection is detected.',
   },
   {
-    question: 'Who owns the site after launch?',
-    answer: 'You do. Full stop. Code, content, assets, credentials. Everything transfers to you on final payment.',
+    question: 'What devices does it run on?',
+    answer: 'DMAS Intake is a Progressive Web App, so it runs on any modern smartphone or tablet — iOS or Android — without requiring an app store download. Aides access it through their browser and can add it to their home screen for a native app experience.',
   },
   {
-    question: 'Do you handle hosting and domains?',
-    answer: 'We can set it all up. Hosting stays in your name, we just help configure it. You\'re never locked into us for infrastructure.',
+    question: 'How does the agency dashboard work?',
+    answer: 'Agency directors and compliance officers get a real-time dashboard to monitor visit records, EVV sync status, aide activity, and audit readiness across all locations. When aides sync, records appear immediately with GPS verification, timestamps, and form data attached.',
   },
   {
-    question: 'Do you offer maintenance plans?',
-    answer: 'Yes. Updates, backups, uptime monitoring, security, small edits, and monthly performance reports. Tailored to what your site actually needs.',
+    question: 'Does DMAS Intake support multiple locations?',
+    answer: 'Yes. DMAS Intake is built to scale across single and multi-location home health agencies. Directors get centralized oversight with per-location visit tracking and compliance reporting.',
   },
   {
-    question: 'Can you fix my site speed?',
-    answer: 'Yes. We audit images, scripts, caching, CDN, and server config. Guaranteed 90+ Lighthouse scores on the speed overhaul package.',
+    question: 'How is visit data secured?',
+    answer: 'All data is encrypted at rest with AES-256 on the aide\'s device and transmitted over TLS. No visit data touches third-party servers. The agency owns all records and can export them for audit purposes at any time.',
   },
   {
-    question: 'Do you do SEO?',
-    answer: 'Technical SEO, on-page optimization, schema markup, and content guidance. We also set up analytics and goal tracking so you can see what\'s working.',
+    question: 'How do I request a demo?',
+    answer: 'Fill out the intake form at majestikmagik.dev with your name, agency name, phone, and number of locations. We\'ll reach back out within 24 hours to schedule a walkthrough. You can also visit the live portal at dmas-intake.majestikmagik.dev or email contact@majestikmagik.dev directly.',
   },
   {
-    question: 'What about accessibility?',
-    answer: 'We follow WCAG 2.1 AA standards. Proper structure, contrast, keyboard navigation, and ARIA. Not an afterthought.',
+    question: 'Who built DMAS Intake?',
+    answer: 'DMAS Intake was built by Jamil Matheny, founder of Majestik Magik, Inc., based in Richmond, Virginia. It was developed after identifying that existing EVV solutions fail in low-connectivity rural environments, leaving agencies exposed to Medicaid audit clawbacks for visits their aides actually completed.',
   },
   {
-    question: 'How many revisions do I get?',
-    answer: 'Two rounds per page or template in the base scope. More are welcome and billed at our hourly rate or via a change order.',
-  },
-  {
-    question: 'Can you migrate my existing site?',
-    answer: 'Yes. We audit your current stack, plan the migration, and move everything with minimal downtime. We can redesign during the move if needed.',
-  },
-  {
-    question: 'Do you set up payments and subscriptions?',
-    answer: 'Yes. Stripe for one-time payments, subscriptions, and marketplaces. Security and compliance best practices included.',
-  },
-  {
-    question: 'How do you handle security?',
-    answer: 'Hardened hosting, HTTPS, least-privilege access, regular updates, WAF and CDN options, backups, and monitoring. Standard on every build.',
-  },
-  {
-    question: 'What analytics will I have?',
-    answer: 'GA4 or a privacy-friendly alternative, Search Console, optional heatmaps, and event tracking. Monthly summaries if you\'re on a maintenance plan.',
-  },
-  {
-    question: 'Do you write copy?',
-    answer: 'We can refine yours or write new. We also offer brand voice frameworks if you\'d rather handle it in-house.',
-  },
-  {
-    question: 'What if I need something urgent after launch?',
-    answer: 'We offer expedited support and on-call options. For actual emergencies like downtime, we prioritize immediately.',
-  },
-  {
-    question: 'Can you connect my CRM or marketing tools?',
-    answer: 'Yes. HubSpot, Mailchimp, Brevo, Zapier, Meta and Google pixels, custom APIs. If it has an integration, we can wire it up.',
-  },
-  {
-    question: 'How do you price projects?',
-    answer: 'Fixed-price packages for common builds. Custom quotes for complex work. You get clear deliverables, a timeline, and a payment schedule before anything starts.',
-  },
-  {
-    question: 'Do you offer refunds?',
-    answer: 'See our Refund Policy at /refund-policy. We scope carefully and communicate at every milestone so there are no surprises.',
-  },
-  {
-    question: 'What are your support hours?',
-    answer: '24/7. If something breaks, reach out.',
-  },
-  {
-    question: 'Can you help with branding?',
-    answer: 'Yes. Brand discovery, logo kits, typography, color systems, and usage guidelines. Everything you need to stay consistent across channels.',
-  },
-  {
-    question: 'How do I send files and credentials securely?',
-    answer: 'We\'ll send a secure upload link or a password manager request. Don\'t email passwords. We use least-privilege access and revoke everything when we\'re done.',
-  },
-  {
-    question: 'Can you audit my current site?',
-    answer: 'Yes. Tech, UX, SEO, and conversion audits with a prioritized roadmap and quick-win recommendations.',
-  },
-  {
-    question: 'Where are your policies?',
+    question: 'Where can I read your privacy and data policies?',
     answer: 'Privacy, Terms, Cookies, Refunds, IP, and Cybersecurity policies are all linked in the site footer.',
   },
 ];
@@ -169,18 +113,18 @@ const FAQPage = () => {
           {/* Header */}
           <div className="mb-10">
             <span className="inline-block text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-4 bg-[#111120] px-3 py-1 rounded border border-[#2a2a3a]">
-              FAQ
+              DMAS Intake FAQ
             </span>
             <h1
               className="text-5xl md:text-6xl font-black text-[#d4d4d8] mb-4"
               style={{ letterSpacing: '-0.02em', lineHeight: '1', fontFamily: 'var(--font-im-fell-english)' }}
             >
-              Got questions?
+              Questions about
               <br />
-              <span className="text-[#404050]">We&apos;ve got answers.</span>
+              <span className="text-[#404050]">DMAS Intake & EVV.</span>
             </h1>
             <p className="text-sm text-[#a0a0b0] leading-relaxed max-w-lg">
-              Everything you actually want to know about working with us.
+              Everything a home health agency director or compliance officer needs to know about offline-first EVV and DMAS compliance.
             </p>
           </div>
 
@@ -192,7 +136,7 @@ const FAQPage = () => {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search — e.g. SEO, refunds, WordPress..."
+                placeholder="Search — e.g. offline, HIPAA, clawbacks, DMAS-99..."
                 className="w-full px-4 py-3 bg-[#0e0e1a] border border-[#2a2a3a] rounded-lg text-[#d4d4d8] text-sm placeholder-[#404050] focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
               />
               {query && (
@@ -215,7 +159,7 @@ const FAQPage = () => {
           <div className="border border-[#1e1e2e] rounded-2xl overflow-hidden">
             {filteredFaqs.length === 0 ? (
               <div className="px-6 py-10 text-center text-sm text-[#606070]">
-                Nothing found. Try <span className="text-indigo-400">SEO</span>, <span className="text-indigo-400">refund</span>, or <span className="text-indigo-400">hosting</span>.
+                Nothing found. Try <span className="text-indigo-400">offline</span>, <span className="text-indigo-400">HIPAA</span>, or <span className="text-indigo-400">clawback</span>.
               </div>
             ) : (
               filteredFaqs.map((faq, index) => {
@@ -249,7 +193,7 @@ const FAQPage = () => {
           <p className="mt-8 text-center text-xs font-mono text-[#404050]">
             Still have a question?{' '}
             <Link href="/#contact" className="text-[#a0a0b0] hover:text-indigo-400 transition-colors underline underline-offset-2">
-              Ask us directly
+              Request a demo
             </Link>
           </p>
 

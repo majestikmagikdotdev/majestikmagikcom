@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from '@/app/components/Img';
 
 const FacebookIcon = () => (
@@ -51,14 +51,6 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
-  const [isClient, setIsClient] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-    setIsDesktop(window.innerWidth >= 768);
-  }, []);
-
   return (
     <footer id="contact" aria-labelledby="contact-heading" className="relative z-0 text-[#a0a0b0] border-t border-[#2a2a3a] font-sans overflow-hidden" style={{ background: '#181818' }}>
 
@@ -175,22 +167,10 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
 
       {/* Bottom Copyright Bar built inside full deep canvas layout */}
       <div className="relative border-t border-[#2a2a3a] py-6 z-20" style={{ background: '#181818' }}>
-        <div className="w-full px-6 mx-auto flex flex-col items-center justify-between text-xs font-mono text-[#606070] md:flex-row">
+        <div className="w-full px-6 mx-auto flex items-center justify-center text-xs font-mono text-[#606070]">
           <p className="mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Majestik Magik, Inc. All rights reserved.
           </p>
-
-          {isClient && isDesktop && (
-            <div className="text-center md:text-right max-w-md">
-              <div className="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6a67624122933556471da38c" data-style-height="52px" data-style-width="100%" data-token="d76c4f8c-d0c3-4fa3-a72b-cc2de3857170">
-                <a href="https://www.trustpilot.com/review/majestikmagik.dev" target="_blank" rel="noopener">Trustpilot</a>
-              </div>
-
-              <div className="mt-2 text-[11px] leading-relaxed text-[#606070] italic">
-                &ldquo;Majestik Magik didn&apos;t just build a website. They built a platform that empowers my voice and mission.&rdquo; <span className="text-[#606070] not-italic font-sans block mt-0.5">&ndash; Dr. Parris Gainer</span>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </footer>

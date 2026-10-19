@@ -64,7 +64,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
         {/* Chat Header */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-[#1e1e2e]">
           <div>
-            <p id="chat-assistant-heading" className="text-sm font-semibold text-[#d4d4d8]">Got a question?</p>
+            <p id="chat-assistant-heading" className="text-sm font-semibold text-[#d4d4d8]">Ask about DMAS Intake</p>
             <p className="text-[11px] text-[#404050] mt-0.5">Usually replies in a few seconds.</p>
           </div>
           <button
@@ -141,7 +141,7 @@ const Chatbot: React.FC<ChatbotProps> = ({
             type="text"
             value={chatInput}
             onChange={handleChatInputChange}
-            placeholder={isAIInitialized ? "Ask about Majestik Magik..." : "Chat unavailable..."}
+            placeholder={isAIInitialized ? "Ask about DMAS Intake, EVV, compliance..." : "Chat unavailable..."}
             className="flex-grow px-3.5 py-2.5 text-xs font-mono transition-all duration-200 border rounded bg-[#0e0e1a] text-[#d4d4d8] border-[#2a2a3a] focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30 placeholder-[#404050] outline-none"
             aria-label="Chat message input"
             disabled={isChatLoading || !isAIInitialized}

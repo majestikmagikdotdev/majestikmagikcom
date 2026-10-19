@@ -3,23 +3,23 @@ import React, { useEffect, useRef, useState } from 'react';
 
 
 function PerfMockup() {
-  const lines = [
-    { label: 'FCP',  value: '0.4s',  note: 'first contentful paint' },
-    { label: 'LCP',  value: '0.9s',  note: 'largest contentful paint' },
-    { label: 'TBT',  value: '12ms',  note: 'total blocking time' },
-    { label: 'CLS',  value: '0.001', note: 'layout shift score' },
+  const rows = [
+    { label: 'DMAS-97', value: '14 submitted',  note: 'this week' },
+    { label: 'DMAS-98', value: '9 submitted',   note: 'this week' },
+    { label: 'EVV',     value: '0 gaps',        note: 'audit-ready' },
+    { label: 'Export',  value: 'state report',  note: 'ready' },
   ];
   return (
     <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono">
-      <div className="flex items-center gap-1.5 text-[10px] text-emerald-400">
-        <span className="w-1 h-1 rounded-full bg-emerald-400" style={{ boxShadow: '0 0 4px #34d399' }} />
-        lighthouse · mobile · after
+      <div className="flex items-center gap-1.5 text-[10px] text-indigo-400">
+        <span className="w-1 h-1 rounded-full bg-indigo-400" style={{ boxShadow: '0 0 4px #818cf8' }} />
+        compliance dashboard · director view
       </div>
       <div className="space-y-1.5">
-        {lines.map(({ label, value, note }) => (
+        {rows.map(({ label, value, note }) => (
           <div key={label} className="flex items-baseline gap-2 text-[10px]">
-            <span className="text-[#707080] w-7 flex-shrink-0">{label}</span>
-            <span className="text-emerald-400 font-bold">{value}</span>
+            <span className="text-[#707080] w-12 flex-shrink-0">{label}</span>
+            <span className="text-indigo-400 font-bold">{value}</span>
             <span className="text-[#808090] truncate">{note}</span>
           </div>
         ))}
@@ -30,9 +30,9 @@ function PerfMockup() {
 
 function SystemsMockup() {
   const modules = [
-    { name: 'inventory-api',  status: 'running', uptime: '47d' },
-    { name: 'fleet-tracker',  status: 'running', uptime: '47d' },
-    { name: 'logistics-sync', status: 'running', uptime: '47d' },
+    { name: 'dmas-intake',    status: 'running', uptime: '47d' },
+    { name: 'evv-logger',     status: 'running', uptime: '47d' },
+    { name: 'audit-sync',     status: 'running', uptime: '47d' },
   ];
   return (
     <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono">
@@ -60,7 +60,7 @@ function OfflineMockup() {
     const id = setInterval(() => setTick(t => t + 1), 1800);
     return () => clearInterval(id);
   }, []);
-  const ops: string[] = ['READ  users       0ms', 'WRITE fleet_log   0ms', 'SYNC  deferred    0ms', 'QUERY inventory   0ms'];
+  const ops: string[] = ['READ  visit_log   0ms', 'WRITE dmas_98     0ms', 'SYNC  evv_queue   0ms', 'QUERY care_plan   0ms'];
   return (
     <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono">
       <div className="flex items-center gap-1.5">
@@ -84,10 +84,10 @@ function OfflineMockup() {
 
 function AppMockup() {
   const events = [
-    { time: '09:14', msg: 'Stripe webhook received', status: 'ok' },
-    { time: '09:14', msg: 'Subscription activated', status: 'ok' },
-    { time: '09:15', msg: 'Welcome email queued', status: 'ok' },
-    { time: '09:15', msg: 'Slack notification sent', status: 'ok' },
+    { time: '09:14', msg: 'Care coordinator logged in', status: 'ok' },
+    { time: '09:14', msg: 'DMAS-97 submitted', status: 'ok' },
+    { time: '09:15', msg: 'EVV audit log exported', status: 'ok' },
+    { time: '09:15', msg: 'State report generated', status: 'ok' },
   ];
   return (
     <div className="w-full h-36 rounded-xl bg-[#0a0a12] border border-[#1e1e2e] p-4 flex flex-col justify-between font-mono overflow-hidden">
@@ -114,27 +114,27 @@ function AppMockup() {
 
 const SERVICES = [
   {
-    id: '01', tag: 'LOCAL-FIRST', title: 'Local-First & Mobile Apps',
-    desc: 'It runs on the device, responds instantly, and keeps working when the WiFi drops. Your data stays encrypted on-device and syncs quietly in the background the moment connectivity returns.',
-    bullets: ['Sub-millisecond response. No server round-trip', 'SQLCipher encrypted storage on-device', 'Background sync resumes automatically when online'],
+    id: '01', tag: 'LOCAL-FIRST', title: 'Offline-First Field Applications',
+    desc: 'Built for care aides who lose signal in rural dead zones. The app runs entirely on-device, captures intake forms and EVV logs instantly, and syncs everything the moment connectivity returns. No crashes. No lost records. No clawbacks.',
+    bullets: ['AES-256 encrypted storage on-device. Zero cloud dependency', 'EVV-compliant GPS logging queued and synced automatically', 'Sub-millisecond response. Works with zero bars'],
     mockup: <OfflineMockup />, accent: 'emerald',
   },
   {
-    id: '02', tag: 'INTERFACES', title: 'Web Design & Landing Pages',
-    desc: 'Your site is the first thing people judge you by, and most sites fail that test in under three seconds. We build pages that are fast, sharp, and engineered to convert visitors into paying customers.',
-    bullets: ['Copy hierarchy engineered for conversion', 'Mobile-first, sub-second load times', 'Custom Lighthouse audit with llms.txt and robots.txt'],
+    id: '02', tag: 'PORTALS', title: 'Compliance Dashboards & Agency Portals',
+    desc: 'The director-facing side of your compliance operation. Role-based access for care coordinators, supervisors, and billing staff. Audit trails, state reporting exports, and real-time visibility into every field submission.',
+    bullets: ['Role-based access: coordinators, supervisors, billing', 'Audit trail on every form submission and EVV entry', 'State reporting exports built to DMAS spec'],
     mockup: <PerfMockup />, accent: 'indigo',
   },
   {
-    id: '03', tag: 'APPLICATIONS', title: 'Web Applications',
-    desc: 'We build applications around how your people actually work, not around what was easiest to ship. Everything is real-time, integrated with the tools you already use, and built to be genuinely useful on day one.',
-    bullets: ['Auth, roles, and permissions built to your workflow', 'Live data feeds, webhooks, and third-party APIs', 'Stripe billing, subscriptions, and payout logic'],
+    id: '03', tag: 'APPLICATIONS', title: 'Regulated Field Operations Software',
+    desc: 'We build applications around how your field staff actually operates, not around what was easiest to ship. Everything is built for high-stakes regulated environments where a dropped record costs real money.',
+    bullets: ['Auth, roles, and permissions built to your compliance workflow', 'EVV audit logging, care plan management, and visit verification', 'State reporting exports and HIPAA-ready data handling'],
     mockup: <AppMockup />, accent: 'violet',
   },
   {
-    id: '04', tag: 'SYSTEMS', title: 'Systems-as-a-Service',
-    desc: 'Most businesses pay monthly for software they will never own. We build the same inventory, fleet, and logistics systems you are already renting, then hand you the keys and walk away with nothing on the meter.',
-    bullets: ['Full IP transfer. No subscriptions, no lock-in', 'Managed cloud or local-first deployment', 'Complete handoff docs and onboarding support'],
+    id: '04', tag: 'SYSTEMS', title: 'Owned Compliance Infrastructure',
+    desc: 'Most agencies pay $400 to $800 a month forever to platforms like HHAeXchange or PointClickCare for software they will never own. We build the same intake, EVV, and audit systems, then hand you the keys with nothing on the meter.',
+    bullets: ['Full IP transfer. No subscriptions, no platform lock-in', 'Self-hosted or managed cloud. Your data stays yours', 'Complete handoff docs and onboarding support'],
     mockup: <SystemsMockup />, accent: 'purple',
   },
 ];
@@ -202,10 +202,10 @@ export default function HomeServices() {
             className="text-4xl sm:text-5xl md:text-6xl font-black text-[#d4d4d8]"
             style={{ letterSpacing: '-0.02em', lineHeight: '1', fontFamily: 'var(--font-im-fell-english)' }}
           >
-            What we actually do.
+            Built for regulated field operations.
           </h2>
           <p className="mt-4 max-w-2xl text-sm text-[#808090] leading-relaxed">
-            We build software that works everywhere your business operates, whether that is a landing page that needs to convert on the first visit or a field application that keeps running when the signal drops and syncs automatically the moment it returns.
+            We build local-first compliance infrastructure for home health agencies, personal care operators, and field teams working in cellular dead zones. Every system runs on-device, encrypts at rest, and syncs the moment signal returns.
           </p>
         </div>
 

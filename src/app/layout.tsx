@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://majestikmagik.dev',
   },
-  title: 'Majestik Magik — We Build the Platforms Your Business Runs On',
+  title: 'Majestik Magik — Offline-First EVV & DMAS Compliance Software for Rural Home Health',
   description:
-    'Your site is slow. Your tools are rented. Your leads are dropping. We fix that. Fast builds, fixed prices, and you own everything when we ship.',
+    'DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97, DMAS-98, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required. Syncs automatically when connectivity returns.',
   authors: [{ name: 'Majestik Magik' }],
   manifest: '/site.webmanifest',
   icons: {
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
     apple: '/img/majestikmagik_logo_indigo-64x64.webp',
   },
   openGraph: {
-    title: 'Majestik Magik — We Build the Platforms Your Business Runs On',
+    title: 'Majestik Magik — Offline-First EVV & DMAS Compliance Software for Rural Home Health',
     description:
-      'Your site is slow. Your tools are rented. Your leads are dropping. We fix that. Fast builds, fixed prices, and you own everything when we ship.',
+      'DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97, DMAS-98, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required. Syncs automatically when connectivity returns.',
     url: 'https://majestikmagik.dev',
     siteName: 'Majestik Magik',
     images: [
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
         url: '/img/image.png',
         width: 1200,
         height: 630,
-        alt: 'Majestik Magik website screenshot',
+        alt: 'DMAS Intake — Offline-First EVV Compliance Software',
       },
     ],
     locale: 'en_US',
@@ -75,9 +75,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Majestik Magik — We Build the Platforms Your Business Runs On',
+    title: 'Majestik Magik — Offline-First EVV & DMAS Compliance Software for Rural Home Health',
     description:
-      'Your site is slow. Your tools are rented. Your leads are dropping. We fix that. Fast builds, fixed prices, and you own everything when we ship.',
+      'DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97, DMAS-98, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required.',
     images: ['/img/image.png'],
   },
 };
@@ -100,13 +100,12 @@ export default function RootLayout({
       </head>
       <body className="bg-[#07080e] text-slate-200 antialiased">
         <MainLayout>{children}</MainLayout>
-        {/*- loaded after page is fully idle */}
         <Script
           strategy="lazyOnload"
           src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
         />
 
-        {/* Speakable Schema — signals key chunks to AI crawlers */}
+        {/* Speakable Schema */}
         <script
           type="application/ld+json"
           id="speakable-structured-data"
@@ -115,9 +114,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebPage",
               "@id": "https://majestikmagik.dev",
-              "name": "Majestik Magik — Local-First Enterprise Software Infrastructure & Native Systems",
-              "description": "We architect and ship local-first enterprise software infrastructure, edge-native apps, and offline-capable systems for B2B companies. Client-owned. Zero vendor lock-in.",
-                  "slogan": "We Build the Platforms Your Business Runs On.",
+              "name": "Majestik Magik — Offline-First EVV & DMAS Compliance Software for Rural Home Health",
+              "description": "DMAS Intake is a local-first compliance engine for Virginia home health agencies. Capture DMAS-97, DMAS-98, and DMAS-99 with AES-256 encryption and EVV GPS logging — no signal required.",
+              "slogan": "Zero signal. Zero data loss.",
               "speakable": {
                 "@type": "SpeakableSpecification",
                 "cssSelector": [
@@ -130,15 +129,12 @@ export default function RootLayout({
               },
               "mainEntity": {
                 "@type": "ItemList",
-                "name": "Core Services",
+                "name": "Core Capabilities",
                 "itemListElement": [
-                  { "@type": "ListItem", "position": 1, "name": "AI Infrastructure & Growth Systems", "description": "Custom AI workflow integrations, scalable infrastructure on AWS and Cloudflare, automated pipelines, and new revenue streams through AI-driven precision." },
-                  { "@type": "ListItem", "position": 2, "name": "Custom Website Engineering", "description": "React and Next.js architecture optimized for speed and SEO, tailored UI/UX, full-stack API integrations, deployed to Vercel, Cloudflare, or AWS." },
-                  { "@type": "ListItem", "position": 3, "name": "Technical SEO & AI Visibility", "description": "Structured JSON-LD schema for Google and LLM crawlers, Core Web Vitals optimization, GEO strategy for ChatGPT Search and Perplexity." },
-                  { "@type": "ListItem", "position": 4, "name": "Digital Marketing & Paid Campaigns", "description": "Meta and Google campaign setup, CRM integrations, conversion tracking, and monthly performance reporting." },
-                  { "@type": "ListItem", "position": 5, "name": "AI Code Extraction & Frontend Quick-Fix", "description": "AI-assisted parsing of complex codebases into clean deployable assets. Fix UI rendering, CSS breakages, broken routing, and deploy with custom DNS. Starting at $1,850." },
-                  { "@type": "ListItem", "position": 6, "name": "Core Web Vitals & Speed Overhaul", "description": "Guaranteed 90+ Lighthouse and PageSpeed scores, server-side caching, image optimization pipeline, and script execution overhaul. Starting at $2,200." },
-                  { "@type": "ListItem", "position": 7, "name": "Technical GEO & AI Visibility Audit", "description": "Cutting-edge Generative Engine Optimization ensuring your brand ranks inside ChatGPT, Perplexity, and Claude answers with full JSON-LD schema injection. Starting at $3,500." }
+                  { "@type": "ListItem", "position": 1, "name": "Offline-First EVV Compliance", "description": "Electronic Visit Verification that works without cell service. GPS coordinates, visit timestamps, and aide signatures are captured on-device and synced when connectivity returns." },
+                  { "@type": "ListItem", "position": 2, "name": "DMAS Form Capture", "description": "Digital capture of DMAS-97, DMAS-98, and DMAS-99 forms with cryptographic AES-256 signatures. Eliminates paper fallback and reduces Medicaid audit clawback risk." },
+                  { "@type": "ListItem", "position": 3, "name": "Rural Field Operations", "description": "Purpose-built for home health agencies operating in rural Virginia where cell coverage is unreliable. Aides complete visits and documentation regardless of signal strength." },
+                  { "@type": "ListItem", "position": 4, "name": "Automatic Sync Engine", "description": "All offline visit records queue locally and sync automatically to the agency dashboard the moment an internet connection is detected. Zero manual intervention required." }
                 ]
               }
             })
@@ -189,85 +185,49 @@ export default function RootLayout({
                   "founder": {
                     "@type": "Person",
                     "name": "Jamil Matheny",
-                    "jobTitle": "Lead Software Engineer & Architect",
+                    "jobTitle": "Founder & Lead Software Engineer",
                     "url": "https://github.com/jmathtech"
                   },
                   "knowsAbout": [
-                    "Low-level web engineering",
-                    "Core Web Vitals optimization",
-                    "Next.js architecture",
-                    "GraphQL API design",
-                    "Generative Engine Optimization",
-                    "Performance troubleshooting",
-                    "Stripe subscription infrastructure",
-                    "Technical SEO",
-                    "E-commerce deployment",
-                    "Lovable code export and migration",
-                    "Base44 app rescue service",
-                    "Fix broken vibe coded app",
-                    "Connect Supabase database to Lovable",
-                    "Deploy Bolt.new to AWS and Vercel",
-                    "AI prototype to production deployment",
-                    "Vibe coding rescue and repair",
-                    "AI-generated app debugging",
-                    "No-code to production migration"
+                    "Offline-first web application architecture",
+                    "Electronic Visit Verification (EVV)",
+                    "DMAS-97 DMAS-98 DMAS-99 compliance",
+                    "Virginia Medicaid home health compliance",
+                    "Local-first software for rural field operations",
+                    "AES-256 encryption for healthcare data",
+                    "HIPAA-ready mobile field tools",
+                    "Medicaid audit clawback prevention",
+                    "IndexedDB offline data persistence",
+                    "Progressive Web App development",
+                    "Home care agency software Virginia",
+                    "Rural broadband gap compliance solutions"
                   ],
                   "hasOfferCatalog": {
                     "@type": "OfferCatalog",
-                    "name": "Engineering & Optimization Services",
+                    "name": "DMAS Intake — Offline-First EVV & Compliance Platform",
                     "itemListElement": [
                       {
                         "@type": "Offer",
-                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "2200", "maxPrice": "4500" },
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "Website Speed Optimization",
-                          "description": "Deep hardware-conscious optimizations to eliminate script execution overhead, maximize Core Web Vitals, and drop mobile latencies by 50% or more. Guaranteed 90+ Lighthouse score. Starting at $2,200."
+                          "name": "DMAS Intake — Offline EVV & Form Capture",
+                          "description": "Local-first Electronic Visit Verification and DMAS form capture for Virginia home health agencies. Works without cell service. Captures DMAS-97, DMAS-98, and DMAS-99 with AES-256 encryption and GPS logging. Syncs automatically when connectivity returns."
                         }
                       },
                       {
                         "@type": "Offer",
-                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "450", "maxPrice": "1850" },
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "Technical Platform Repair",
-                          "description": "Same-day bug fixes and logic debugging for React, WordPress, Shopify, and Webflow ecosystems. Contact form and webhook debugging from $450. AI code extraction and frontend quick-fix from $1,850."
+                          "name": "Agency Compliance Dashboard",
+                          "description": "Real-time dashboard for home health agency directors to monitor visit records, EVV sync status, aide activity, and Medicaid audit readiness across all locations."
                         }
                       },
                       {
                         "@type": "Offer",
-                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "4500", "maxPrice": "12000" },
                         "itemOffered": {
                           "@type": "Service",
-                          "name": "Landing Page & Full-Stack Engineering",
-                          "description": "Custom Next.js and Tailwind builds with elite animations, sub-second load times, full-stack API integrations, and production deployment. Starting at $4,500."
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "3500", "maxPrice": "7500" },
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "Technical GEO & AI Visibility Audit",
-                          "description": "Generative Engine Optimization ensuring your brand is cited inside ChatGPT, Perplexity, and Claude. Includes full JSON-LD schema injection, structured knowledge catalog, and AI citation monitoring. Starting at $3,500."
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "600", "maxPrice": "1200" },
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "DNS, SPF, DKIM & Email Deliverability Setup",
-                          "description": "Full domain reputation setup with DMARC alignment, spam flagging elimination, and inbox warm-up strategy. Starting at $600."
-                        }
-                      },
-                      {
-                        "@type": "Offer",
-                        "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "1250", "maxPrice": "3500" },
-                        "itemOffered": {
-                          "@type": "Service",
-                          "name": "Shopify Email & Notification Engine",
-                          "description": "Custom transactional Liquid template coding, automated flow logic, dynamic variable patching, and high-converting marketing email design. Starting at $1,250."
+                          "name": "Multi-Location Deployment",
+                          "description": "DMAS Intake scales across single and multi-location home health agencies in Virginia. Centralized oversight with per-location visit tracking and compliance reporting."
                         }
                       }
                     ]
@@ -275,15 +235,19 @@ export default function RootLayout({
                 },
                 {
                   "@type": "TechService",
-                  "@id": "https://app.majestikmagik.dev/",
-                  "name": "Pivot Quest",
+                  "@id": "https://dmas-intake.majestikmagik.dev/",
+                  "name": "DMAS Intake",
                   "provider": { "@id": "https://majestikmagik.dev/" },
-                  "description": "An AI-powered business operating engine featuring multi-model chat environments, dynamic data tables, and scalable asynchronous API infrastructure.",
-                  "category": "SaaS Platform",
-                  "offers": {
-                    "@type": "Offer",
-                    "priceCurrency": "USD",
-                    "description": "Usage-based metered token billing via integrated Stripe infrastructure."
+                  "description": "An offline-first Electronic Visit Verification and DMAS compliance platform for rural Virginia home health agencies. Captures DMAS-97, DMAS-98, and DMAS-99 forms with AES-256 encryption and EVV GPS logging without requiring an internet connection.",
+                  "category": "Healthcare Compliance Software",
+                  "areaServed": {
+                    "@type": "State",
+                    "name": "Virginia",
+                    "addressCountry": "US"
+                  },
+                  "audience": {
+                    "@type": "Audience",
+                    "audienceType": "Home health agencies, DMAS providers, Medicaid waiver service providers in Virginia"
                   }
                 },
                 {
@@ -292,306 +256,74 @@ export default function RootLayout({
                   "mainEntity": [
                     {
                       "@type": "Question",
-                      "name": "What services does Majestik Magik offer?",
+                      "name": "What is DMAS Intake?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Custom web design & development (React/Next.js/WordPress), eCommerce, SEO, analytics, CRM tools, AI integrations, and ongoing support/maintenance for professional services, e-commerce, and small businesses. We work with industries such as manufacturing, professional services, HVAC, plumbing, roofing, etc to deliver high-quality digital and AI solutions."
+                        "text": "DMAS Intake is an offline-first Electronic Visit Verification and compliance platform built for Virginia home health agencies. It allows care aides to capture DMAS-97, DMAS-98, and DMAS-99 forms with GPS logging and AES-256 encrypted signatures directly on their device — no internet connection required. Records sync automatically to the agency dashboard when connectivity is restored."
                       }
                     },
                     {
                       "@type": "Question",
-                      "name": "How do I request a quote?",
+                      "name": "What EVV software works offline in rural Virginia?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Email contact@majestikmagik.dev or use the contact form on our site. We’ll schedule a 15–20 min discovery call and send a proposal within 2–3 business days."
+                        "text": "DMAS Intake by Majestik Magik is purpose-built for rural Virginia home health agencies where cell coverage is unreliable. It is a local-first Progressive Web App that stores all visit data on-device using AES-256 encryption and syncs automatically when an internet connection is detected. It supports DMAS-97, DMAS-98, and DMAS-99 compliance and EVV GPS logging without requiring a signal."
                       }
                     },
                     {
                       "@type": "Question",
-                      "name": "What industries do you specialize in?",
+                      "name": "How does offline EVV compliance work for home health agencies?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Local service businesses, startups/SaaS, and eCommerce. We tailor deliverables to your industry’s workflow."
+                        "text": "DMAS Intake uses a local-first architecture where all visit data — including GPS coordinates, aide signatures, visit start and end times, and DMAS form entries — is written to encrypted on-device storage the moment it is captured. When the device reconnects to the internet, all queued records sync to the agency's compliance dashboard automatically. This eliminates paper fallback and protects agencies from Medicaid audit clawbacks caused by missing EVV data."
                       }
                     },
                     {
                       "@type": "Question",
-                      "name": "How does Majestik Magik fix slow mobile page load times?",
+                      "name": "What are DMAS-97, DMAS-98, and DMAS-99 forms?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "We employ low-level engineering tactics such as custom delayed script-hydration engines and third-party script deferrals. This isolates primary CPU threads, raising mobile performance benchmarks efficiently."
+                        "text": "DMAS-97, DMAS-98, and DMAS-99 are Virginia Medicaid documentation forms required for home health and personal care services. DMAS-97 is the Personal Care Assessment form, DMAS-98 is the Aide Plan of Care, and DMAS-99 is the Aide Record used to document each visit. Accurate completion of these forms is required for Medicaid reimbursement and state compliance audits. DMAS Intake digitizes and encrypts all three forms for offline capture and automatic sync."
                       }
                     },
                     {
                       "@type": "Question",
-                      "name": "What is Generative Engine Optimization or GEO?",
+                      "name": "Is DMAS Intake HIPAA compliant?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "GEO optimizes technical web infrastructure and structured semantics so real-time AI crawlers (like ChatGPT Search and Perplexity) can parse, understand, and cite your business in chat-driven searches."
+                        "text": "DMAS Intake is built with HIPAA-readiness as a core design principle. All patient and visit data is encrypted at rest using AES-256 and transmitted over TLS. Data is stored locally on the aide's device in an encrypted IndexedDB store and is never exposed to third-party services. Agencies retain full ownership of their data."
                       }
                     },
                     {
                       "@type": "Question",
-                      "name": "How long does a typical website project take?",
+                      "name": "What causes Medicaid audit clawbacks for home health agencies?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Basic sites: ~1–5+ days. Mid-sized: 4–6 weeks. Custom/complex or eCommerce: 6–10+ weeks. Timelines depend on content readiness and feedback speed."
+                        "text": "Medicaid audit clawbacks occur when a home health agency cannot produce complete EVV records or properly completed DMAS forms for a billed visit. Common causes include paper documentation that was lost or incomplete, cloud-based EVV apps that failed to record visits when the aide had no cell service, and missing GPS verification data. DMAS Intake eliminates these gaps by capturing all required data offline and syncing it automatically."
                       }
                     },
                     {
                       "@type": "Question",
-                      "name": "What does your process look like?",
+                      "name": "What is the federal EVV mandate and how does it affect Virginia home health agencies?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Discovery → Scope/Proposal → Design → Build → Review/QA → Launch → Training & post-launch support. You’ll have a single point of contact throughout."
+                        "text": "The 21st Century Cures Act requires all Medicaid-funded personal care and home health services to use Electronic Visit Verification. Virginia enforces this mandate through DMAS. Agencies that cannot produce compliant EVV records risk claim denials and audit clawbacks. Rural agencies are disproportionately affected because standard cloud-based EVV tools fail without cell service. DMAS Intake solves this with offline-first EVV that works regardless of connectivity."
                       }
                     },
                     {
                       "@type": "Question",
-                      "name": "Do you require a deposit?",
+                      "name": "How do I request a demo of DMAS Intake?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Yes. Projects usually start with 40–50% to book the slot, with the remainder tied to milestones or pre-launch."
+                        "text": "You can request a demo at https://majestikmagik.dev or visit the live portal at https://dmas-intake.majestikmagik.dev. Fill out the intake form with your agency name, number of locations, and contact information and the team will reach back out within 24 hours to schedule a walkthrough."
                       }
                     },
                     {
                       "@type": "Question",
-                      "name": "What platforms/CMS do you support?",
+                      "name": "Who built DMAS Intake?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "WordPress (with performance/security best practices), custom Next.js sites, and headless setups. We recommend based on your goals and team capacity."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Do you provide WordPress training?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes—video tutorials and live walkthroughs. Start here: https://majestikmagik.dev/training/wordpress"
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Who owns my website and content after launch?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "You do. Upon final payment, you own your site code (per contract), content, and assets. We’ll transfer admin credentials and repos as needed."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Do you handle hosting and domains?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We can set up hosting (e.g., WP Engine, AWS) and configure your domain/DNS. You can keep accounts in your name; we’ll help manage access securely."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Do you offer maintenance plans?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes—updates, backups, uptime monitoring, security hardening, small edits, and monthly performance/SEO reports. Plans are tailored to your site."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Can you improve my site speed and Core Web Vitals?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Absolutely. We optimize images, code-split, cache, tune servers/CDN, and audit third-party scripts to lift CWV scores."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Do you do SEO?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes—technical SEO, on-page optimization, schema, and content guidance. We also set up analytics, goals, and dashboards."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "What about accessibility (ADA/WCAG)?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We follow WCAG 2.1 AA best practices in structure, contrast, keyboard navigation, and ARIA. We can add ongoing monitoring if needed."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "How many design revisions are included?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Typically two rounds per page/template in the base scope. Additional revisions are welcome and billed at our hourly rate or via a change order."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Can you migrate my current site?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. We’ll audit your stack, create a migration plan, and move content with minimum downtime. We can modernize the design during the move."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Do you integrate payments and subscriptions?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes—Stripe for one-time payments, subscriptions, and marketplaces. We also implement best practices for security and compliance."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "How do you handle security?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Hardened hosting, least-privilege access, HTTPS, regular updates, WAF/CDN options, backups, and security monitoring are standard in our builds."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "What analytics will I get?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "GA4 or privacy-friendly analytics, Search Console, heatmaps (optional), and goal/event tracking with monthly summaries in maintenance plans."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Do you write copy or create content?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We can refine your copy or create new content. We also offer guided prompts and brand voice frameworks if you prefer to draft in-house."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "What if I need urgent changes after launch?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We offer expedited support windows and on-call options. For emergencies (e.g., downtime), we prioritize incident response immediately."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Can you connect my CRM or marketing tools?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes—HubSpot, Mailchimp/Brevo, Zapier, Meta/Google pixels, and custom APIs. For local businesses, we can also onboard you to our Community CRM."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "How do you price projects?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Fixed-scope packages for common builds and customized quotes for complex work. We’ll provide clear deliverables, timeline, and payment schedule."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Do you offer refunds?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "See our Refund Policy at /refund-policy. We scope carefully and communicate milestones to avoid surprises."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "What are your support hours?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "24/7. If something breaks, reach out."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Can you help with branding or logos?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes—brand discovery, logo kits, typography/color systems, and usage guidelines to keep your brand consistent across channels."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "How do I send files and credentials securely?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "We’ll share a secure upload link or password manager request. Avoid emailing passwords; we use least-privilege access and revoke when finished."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Can you help with site audits and roadmaps?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes—tech, UX, SEO, and conversion audits with priority roadmaps and quick-win recommendations."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Can you export and migrate a Lovable app to a real codebase?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. We specialize in Lovable code export and migration — taking your AI-generated project and moving it into a clean, production-ready Next.js or React codebase with proper routing, environment variables, and deployment pipelines."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Do you offer a Base44 app rescue service?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. If your Base44 app is broken, stalled, or needs to be migrated off the platform, we can audit the generated code, patch logic errors, and redeploy it as a standalone production application."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Can you fix a broken vibe coded app?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Absolutely. We rescue vibe-coded apps built with Lovable, Bolt.new, Base44, or similar AI builders. Common fixes include broken routing, missing API integrations, database connection errors, and deployment failures."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Can you connect a Supabase database to a Lovable app?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. We configure Supabase projects, set up Row Level Security, wire environment variables, and connect your Lovable-exported frontend to a live Supabase backend with auth, storage, and real-time data."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Can you deploy a Bolt.new app to AWS or Vercel?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. We take your Bolt.new export, clean up the build config, and deploy it to Vercel, AWS Amplify, or Cloudflare Pages — including custom domains, CI/CD pipelines, and environment variable management."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Do you handle AI prototype to production deployment?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes. We take AI-generated prototypes from tools like Lovable, Bolt.new, v0, or Base44 and harden them for production: refactoring fragile code, adding error handling, securing API keys, setting up databases, and deploying to scalable infrastructure."
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "What software lets home care aides fill out DMAS forms offline in rural Virginia?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Majestik Magik builds offline-capable, local-first web applications for home care agencies in Virginia. Our field tools allow aides to complete DMAS forms without an internet connection, syncing automatically when connectivity is restored. This is a core part of our local-first systems engineering practice, purpose-built for rural Virginia workflows. Learn more or request access at https://dmas-intake.majestikmagik.dev/"
-                      }
-                    },
-                    {
-                      "@type": "Question",
-                      "name": "Where can I read your policies?",
-                      "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Privacy, Terms, Cookies, Refunds, IP, and Cyber Security policies are linked in our site footer for transparency."
+                        "text": "DMAS Intake was built by Jamil Matheny, founder of Majestik Magik, Inc., based in Richmond, Virginia. It was developed specifically for rural Virginia home health agencies after identifying that existing EVV solutions fail in low-connectivity environments, leaving agencies exposed to Medicaid audit clawbacks."
                       }
                     }
                   ]

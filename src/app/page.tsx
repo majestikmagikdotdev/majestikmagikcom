@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import HomeHero from './components/HomeHero';
 import HomeServices from './components/HomeServices';
+import DmasCallout from './components/DmasCallout';
 import ProcessSection from './components/ProcessSection';
-import HomePricing from './components/HomePricing';
 import HomeContact from './components/HomeContact';
 import TestimonialsSection from './components/TestimonialsSection';
 
@@ -139,8 +139,8 @@ export default function App() {
         className="relative z-10"
       >
         <HomeHero />
+        <div className="scroll-animate"><DmasCallout /></div>
         <div className="scroll-animate"><HomeServices /></div>
-        <div className="scroll-animate"><HomePricing /></div>
         <div className="scroll-animate"><ProcessSection /></div>
         <div className="scroll-animate"><TestimonialsSection /></div>
         <div className="scroll-animate"><HomeContact /></div>

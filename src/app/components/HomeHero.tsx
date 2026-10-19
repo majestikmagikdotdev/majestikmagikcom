@@ -17,9 +17,9 @@ const TRUST_CHIPS = [
 ];
 
 const TERMINAL_LINES = [
-  { prefix: 'Job #4471', label: 'LOADED FROM DEVICE', value: 'offline', valueColor: '#fbbf24' },
-  { prefix: 'Form 14-B', label: 'SAVED LOCALLY', value: '0ms', valueColor: '#34d399' },
-  { prefix: 'GPS Log', label: '3 ENTRIES QUEUED', value: 'syncing when back online', valueColor: '#818cf8' },
+  { prefix: 'Visit #0091', label: 'LOADED FROM DEVICE', value: 'offline', valueColor: '#fbbf24' },
+  { prefix: 'DMAS-98', label: 'SAVED LOCALLY', value: '0ms', valueColor: '#34d399' },
+  { prefix: 'EVV GPS', label: '3 ENTRIES QUEUED', value: 'syncing when back online', valueColor: '#818cf8' },
   { prefix: 'Signal', label: 'NO BARS', value: 'app still running', valueColor: '#34d399' },
 ];
 
@@ -79,9 +79,9 @@ function SyncTerminal() {
         ) : (
           <div className="flex flex-wrap items-baseline gap-x-2 text-[11px] leading-relaxed mt-1 border-t border-[#1e1e2e] pt-2.5">
             <span className="text-[#505060]">$</span>
-            <span className="text-[#a5b4fc]">ready to fix your stack?</span>
+            <span className="text-[#a5b4fc]">zero signal. zero data loss.</span>
             <span className="text-[#505060]">→</span>
-            <Link href="/#contact" className="text-[#34d399] hover:underline underline-offset-2 transition-colors">get started</Link>
+            <Link href="https://dmas-intake.majestikmagik.dev" target="_blank" rel="noopener noreferrer" className="text-[#34d399] hover:underline underline-offset-2 transition-colors">see DMAS Intake</Link>
             <span
               className="inline-block w-1.5 h-3.5 bg-indigo-400 align-middle ml-0.5"
               style={{ opacity: blink ? 1 : 0, transition: 'opacity 0.1s' }}
@@ -115,7 +115,7 @@ export default function HomeHero() {
               className="relative z-10 mb-6 text-5xl sm:text-5xl md:text-7xl lg:text-[88px] font-black leading-[0.95] text-[#d4d4d8]"
               style={{ letterSpacing: '-0.02em', fontFamily: 'var(--font-im-fell-english)' }}
             >
-              Your site is slow.
+              Your software stops working when the signal drops.
               <br />
               <span
                 className="text-transparent bg-clip-text"
@@ -125,13 +125,13 @@ export default function HomeHero() {
                   animation: 'shimmer 1.8s cubic-bezier(0.16,1,0.3,1) 0.3s both',
                 }}
               >
-                We fix that.
+                Ours doesn&apos;t.
               </span>
             </h1>
 
             {/* Subheading */}
             <p className="relative z-10 mb-10 text-base md:text-lg text-[#a0a0b0] leading-relaxed" style={{ letterSpacing: '-0.01em' }}>
-              For field crews and rural operations. Your software should work where you work.
+              We build local-first compliance engines for rural field operations. Local-first architecture, AES-256 encryption, and automatic sync when connectivity returns.
             </p>
 
             {/* CTAs */}
@@ -151,25 +151,11 @@ export default function HomeHero() {
               </Link>
             </div>
 
-            {/* Trust chips */}
-            <div className="relative z-10 grid grid-cols-2 gap-2 mb-12">
-              {TRUST_CHIPS.map(({ color, label }) => (
-                <div
-                  key={label}
-                  className="flex items-center gap-2 px-5.5 py-2 rounded-full border border-[#1e1e2e] bg-[#0e0e1a]/60"
-                >
-                  <span
-                    className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                    style={{ background: color, boxShadow: `0 0 5px ${color}` }}
-                  />
-                  <span className="text-[11px] font-mono text-[#707080] tracking-wide">{label}</span>
-                </div>
-              ))}
-            </div>
+
 
             {/* Social proof — logos inline, at point of doubt */}
             <div className="relative z-10">
-              <p className="text-[10px] font-mono text-[#505060] mb-5 tracking-widest uppercase">Trusted by</p>
+              <p className="text-[10px] font-mono text-[#505060] mb-5 tracking-widest uppercase">Built by the team behind</p>
               <div className="grid grid-cols-3 sm:grid-cols-6 items-center gap-6">
                 {LOGOS.map((logo) => (
                   <a key={logo.alt} href={logo.href} target="_blank" rel="noopener noreferrer">

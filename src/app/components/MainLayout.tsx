@@ -194,6 +194,23 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className="relative flex flex-col min-h-screen w-full overflow-x-hidden">
       <NoiseOverlay />
+      {/* DMAS announcement banner — sits above the fixed header */}
+      <a
+        href="https://dmas-intake.majestikmagik.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed top-0 left-0 right-0 z-[60] flex items-center justify-center gap-2 w-full px-4 py-2 bg-indigo-950/80 border-b border-indigo-500/20 text-[11px] font-mono text-indigo-300 hover:bg-indigo-950 hover:text-indigo-200 transition-colors duration-200"
+        style={{ backdropFilter: 'blur(12px)' }}
+      >
+        <span
+          className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"
+          style={{ boxShadow: '0 0 6px #818cf8' }}
+        />
+        <span>Powering mission-critical offline utilities.</span>
+        <span className="hidden sm:inline text-indigo-600">&middot;</span>
+        <span className="hidden sm:inline">See our flagship healthcare product: DMAS Intake &rarr;</span>
+        <span className="sm:hidden text-indigo-400">&nbsp;Learn More &rarr;</span>
+      </a>
       <Header
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
