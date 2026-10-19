@@ -131,16 +131,6 @@ const Footer: React.FC<FooterProps> = ({ isAlwaysVisible }) => {
               <ul className="flex flex-wrap items-center gap-10 opacity-40 hover:opacity-75 transition-opacity duration-300">
                 <li>
                   <Image
-                    src="/img/partners/wpengine_member-badge.webp"
-                    alt="WP Engine Partner"
-                    width={160}
-                    height={80}
-                    loading="lazy"
-                    className="h-20 w-auto grayscale object-contain"
-                  />
-                </li>
-                <li>
-                  <Image
                     src="/img/partners/gcp-logo.webp"
                     alt="Google Cloud Startup"
                     width={220}

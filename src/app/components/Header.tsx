@@ -147,7 +147,7 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header
       ref={headerRef}
-      className={`fixed top-[32px] left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed top-[32px] xl:top-[32px] left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         isScrolled || isMobileMenuOpen
           ? 'backdrop-blur-xl border-b border-[#2a2a3a] shadow-2xl'
           : 'bg-transparent border-b border-transparent shadow-none'
