@@ -743,3 +743,48 @@ Meticulously optimized images. Clean, efficient code. The right hosting environm
 ### The Summary
 
 The barrier to entry for design has never been lower. The barrier to doing it *well* — building something that performs, stands out, converts, and serves every user — has never been higher. That gap is the opportunity. The designers who understand that are the ones who will define what the web looks like in 2026 and beyond.
+
+---
+
+## 16. Color Application: The 60-30-10 Rule in Practice
+
+Source: Matt (Flux Academy)
+
+### The Core Problem
+
+Color in web design fails in one of two directions: too dim and uninspiring, or chaotic like a toddler with a 24-pack of crayons. The fix is a structured framework borrowed from interior design, fashion, and film.
+
+### Start With Black and White
+
+Before applying any color, strip your layout to grayscale. If the hierarchy doesn't work in black and white, it won't work in color either. A layout that reads clearly in grayscale has a structural problem. A layout that reads clearly in grayscale but looks wrong in color has a color application problem. Know which one you're solving.
+
+### The 60-30-10 Rule
+
+Apply your palette in three proportions:
+
+- **60%** — Dominant neutral. The background. Walls, floor, canvas. On this site: `#07080e`, `#0a0a12`, `#181818`.
+- **30%** — Secondary tone. Text, cards, structural elements. On this site: `#0e0e1a`, `#111120`, `#d4d4d8` body text.
+- **10%** — Accent. The color that pops. Used only on buttons, badges, active indicators, and key highlights. On this site: indigo (`#818cf8`), emerald (`#34d399`).
+
+The accent earns its power from restraint. If indigo is everywhere, it stops being an accent and becomes noise. Reserve it for the moments that need to direct attention.
+
+### Real-World References
+
+This rule appears across every visual discipline:
+
+- **Interior design:** 60% wall color, 30% furniture and wood tones, 10% brass fixtures and accent objects.
+- **Fashion:** 60% black coat, 30% brown trousers, 10% yellow bag — which pops because it's a complementary color to blue and sits on the opposite side of the color wheel.
+- **Film (Wes Anderson):** Every frame is a painting. In *The Grand Budapest Hotel*, red walls are 60%, purple uniforms are 30%, brass elevator controls are 10%. In *Isle of Dogs*, yellow walls, light brown at 30%, pink and purple accents at 10%.
+
+The accent doesn't have to be a single color. Two colors can share the 10% together — as long as they're used sparingly and work together.
+
+### Applying It to a Web Layout
+
+1. Choose a neutral for the background (60%).
+2. Assign your darkest text and card surfaces as the 30%.
+3. Reserve your brand accent strictly for the 10% — primary CTAs, status indicators, key labels.
+4. Check contrast. Low-contrast text loses users before they read it. Use a contrast checker (e.g. [Coolors.co](https://coolors.co)) to verify WCAG compliance.
+
+### The Test
+
+If you can identify more than three distinct colors competing for attention on a single screen, you have too many. The eye should land on the accent immediately because everything else is calm. If the accent doesn't pop, either the accent is too dim or the background isn't neutral enough.

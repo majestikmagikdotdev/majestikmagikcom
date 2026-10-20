@@ -3,10 +3,10 @@ import React from 'react';
 import Link from 'next/link';
 
 const PILLARS = [
-  { color: '#818cf8', label: 'AES-256 encrypted. HIPAA-ready.' },
-  { color: '#a5b4fc', label: 'Works offline. Syncs on reconnect.' },
-  { color: '#c4b5fd', label: 'EVV-compliant GPS logging.' },
-  { color: '#818cf8', label: 'DMAS-97A/B · DMAS-98R · DMAS-99 compliant.' },
+  { label: 'AES-256 encrypted. HIPAA-ready.' },
+  { label: 'Works offline. Syncs on reconnect.' },
+  { label: 'EVV-compliant GPS logging.' },
+  { label: 'DMAS-97A/B · DMAS-98R · DMAS-99 compliant.' },
 ];
 
 export default function DmasCallout() {
@@ -66,14 +66,14 @@ export default function DmasCallout() {
 
             {/* Right: pillars */}
             <div className="flex-shrink-0 grid grid-cols-1 sm:grid-cols-2 gap-3 lg:w-80">
-              {PILLARS.map(({ color, label }) => (
+              {PILLARS.map(({ label }) => (
                 <div
                   key={label}
                   className="flex items-center gap-3 px-4 py-3 rounded-xl border border-[#1e1e2e] bg-[#0e0e1a]"
                 >
                   <span
                     className="w-2 h-2 rounded-full flex-shrink-0"
-                    style={{ background: color, boxShadow: `0 0 6px ${color}` }}
+                    style={{ background: '#818cf8', boxShadow: '0 0 6px #818cf8' }}
                   />
                   <span className="text-[11px] font-mono text-[#707080] leading-snug">{label}</span>
                 </div>
