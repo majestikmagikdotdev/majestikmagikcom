@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     question: 'How do I request a demo?',
-    answer: 'Fill out the intake form at majestikmagik.dev with your name, agency name, phone, and number of locations. We\'ll reach back out within 24 hours to schedule a walkthrough. You can also visit the live portal at dmas-intake.majestikmagik.dev or email contact@majestikmagik.dev directly.',
+    answer: 'Fill out the intake form at majestikmagik.dev with your name, agency name, phone, and number of locations. We\'ll reach back out within 24 hours to schedule a walkthrough. You can also visit the live portal at dmas.majestikmagik.dev or email contact@majestikmagik.dev directly.',
   },
   {
     question: 'Who built DMAS Intake?',

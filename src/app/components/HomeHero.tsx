@@ -81,7 +81,7 @@ function SyncTerminal() {
             <span className="text-[#505060]">$</span>
             <span className="text-[#a5b4fc]">zero signal. zero data loss.</span>
             <span className="text-[#505060]">→</span>
-            <Link href="https://dmas-intake.majestikmagik.dev" target="_blank" rel="noopener noreferrer" className="text-[#34d399] hover:underline underline-offset-2 transition-colors">see DMAS Intake</Link>
+            <Link href="https://dmas.majestikmagik.dev" target="_blank" rel="noopener noreferrer" className="text-[#34d399] hover:underline underline-offset-2 transition-colors">see DMAS Intake</Link>
             <span
               className="inline-block w-1.5 h-3.5 bg-indigo-400 align-middle ml-0.5"
               style={{ opacity: blink ? 1 : 0, transition: 'opacity 0.1s' }}
@@ -144,7 +144,7 @@ export default function HomeHero() {
                 <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Link>
               <Link
-                href="https://dmas-intake.majestikmagik.dev"
+                href="https://dmas.majestikmagik.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-2 px-4 sm:py-3 sm:px-6 rounded-full border border-[#2a2a3a] bg-[#0e0e1a] text-[#a0a0b0] hover:border-[#3a3a4a] hover:text-[#c0c0d0] hover:bg-[#111120] active:scale-[0.97] transition-all duration-200"

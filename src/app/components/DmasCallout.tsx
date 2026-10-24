@@ -54,7 +54,7 @@ export default function DmasCallout() {
               </p>
 
               <Link
-                href="https://dmas-intake.majestikmagik.dev"
+                href="https://dmas.majestikmagik.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-3 px-6 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/20 hover:border-indigo-400/50 active:scale-[0.97] transition-all duration-200"

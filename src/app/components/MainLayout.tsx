@@ -196,7 +196,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <NoiseOverlay />
       {/* DMAS announcement banner — sits above the fixed header */}
       <a
-        href="https://dmas-intake.majestikmagik.dev"
+        href="https://dmas.majestikmagik.dev"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed top-0 left-0 right-0 z-[60] flex items-center justify-center gap-2 w-full h-8 px-4 bg-indigo-950/80 border-b border-indigo-500/20 text-[11px] font-mono text-indigo-200 hover:bg-indigo-950 hover:text-white transition-colors duration-200 overflow-hidden"

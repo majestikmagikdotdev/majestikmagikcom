@@ -38,7 +38,7 @@ Key Facts:
 - Solution: Local-first PWA that captures DMAS-97A/B, DMAS-98R, DMAS-99 forms and EVV GPS data on-device with AES-256 encryption, syncing automatically when connectivity returns
 - Mandate: The 21st Century Cures Act requires EVV for all Medicaid-funded home health services. Virginia enforces this through DMAS.
 - Builder: Jamil Matheny, Founder of Majestik Magik, Inc., Richmond VA
-- Demo: https://dmas-intake.majestikmagik.dev
+- Demo: https://dmas.majestikmagik.dev
 - Contact: contact@majestikmagik.dev
 
 Guidelines:
