@@ -137,19 +137,19 @@ export default function HomeHero() {
             {/* CTAs */}
             <div className="relative z-10 flex flex-row items-start gap-3 mb-10">
               <Link
-                href="/#contact"
-                className="btn-premium group inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-2 px-4 sm:py-3 sm:px-6 rounded-full text-white font-bold active:scale-[0.97] transition-transform duration-75"
-              >
-                Contact us today
-                <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-              </Link>
-              <Link
                 href="https://dmas.majestikmagik.dev"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="btn-premium group inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-2 px-4 sm:py-3 sm:px-6 rounded-full text-white font-bold active:scale-[0.97] transition-transform duration-75"
+              >
+                Get DMAS Intake
+                <span className="transition-transform duration-200 group-hover:translate-x-0.5">↗</span>
+              </Link>
+              <Link
+                href="/#contact"
                 className="inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-2 px-4 sm:py-3 sm:px-6 rounded-full border border-[#2a2a3a] bg-[#0e0e1a] text-[#a0a0b0] hover:border-[#3a3a4a] hover:text-[#c0c0d0] hover:bg-[#111120] active:scale-[0.97] transition-all duration-200"
               >
-                Get DMAS Intake ↗
+                Contact us today →
               </Link>
             </div>
 

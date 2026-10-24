@@ -123,13 +123,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     { name: 'Home', url: '/#home' },
     { name: 'Services', url: '/#services' },
     {
-      name: 'Portfolio',
-      url: '/portfolio',
-      children: [
-        { name: 'Case Studies', url: '/case-studies', description: 'Real clients, real results.' },
-      ],
-    },
-    {
       name: 'About',
       url: '/about/jamil-matheny',
       children: [

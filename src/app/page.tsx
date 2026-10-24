@@ -7,7 +7,7 @@ import HomeServices from './components/HomeServices';
 import DmasCallout from './components/DmasCallout';
 import ProcessSection from './components/ProcessSection';
 import HomeContact from './components/HomeContact';
-import TestimonialsSection from './components/TestimonialsSection';
+
 
 const ChatbotController = dynamic(() => import('./components/ChatbotController'));
 
@@ -142,7 +142,6 @@ export default function App() {
         <div className="scroll-animate"><DmasCallout /></div>
         <div className="scroll-animate"><HomeServices /></div>
         <div className="scroll-animate"><ProcessSection /></div>
-        <div className="scroll-animate"><TestimonialsSection /></div>
         <div className="scroll-animate"><HomeContact /></div>
 
       </main>
