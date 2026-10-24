@@ -192,7 +192,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <div className="relative flex flex-col min-h-screen w-full overflow-x-hidden">
+    <div className="relative flex flex-col min-h-screen w-full">
       <NoiseOverlay />
       {/* DMAS announcement banner — sits above the fixed header */}
       <a
