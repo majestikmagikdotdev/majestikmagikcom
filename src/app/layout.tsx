@@ -235,7 +235,7 @@ export default function RootLayout({
                 },
                 {
                   "@type": "TechService",
-                  "@id": "https://dmas.majestikmagik.dev/",
+                  "@id": "https://vadmas.majestikmagik.dev/",
                   "name": "DMAS Intake",
                   "provider": { "@id": "https://majestikmagik.dev/" },
                   "description": "An offline-first Electronic Visit Verification and DMAS compliance platform for rural Virginia home health agencies. Captures DMAS-97A/B, DMAS-98R, and DMAS-99 forms with AES-256 encryption and EVV GPS logging without requiring an internet connection.",
@@ -315,7 +315,7 @@ export default function RootLayout({
                       "name": "How do I request a demo of DMAS Intake?",
                       "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "You can request a demo at https://majestikmagik.dev or visit the live portal at https://dmas.majestikmagik.dev. Fill out the intake form with your agency name, number of locations, and contact information and the team will reach back out within 24 hours to schedule a walkthrough."
+                        "text": "You can request a demo at https://majestikmagik.dev or visit the live portal at https://vadmas.majestikmagik.dev. Fill out the intake form with your agency name, number of locations, and contact information and the team will reach back out within 24 hours to schedule a walkthrough."
                       }
                     },
                     {

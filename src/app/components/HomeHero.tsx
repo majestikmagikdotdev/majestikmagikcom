@@ -81,7 +81,7 @@ function SyncTerminal() {
             <span className="text-[#505060]">$</span>
             <span className="text-[#a5b4fc]">zero signal. zero data loss.</span>
             <span className="text-[#505060]">→</span>
-            <Link href="https://dmas.majestikmagik.dev" target="_blank" rel="noopener noreferrer" className="text-[#34d399] hover:underline underline-offset-2 transition-colors">see DMAS Intake</Link>
+            <Link href="https://vadmas.majestikmagik.dev" target="_blank" rel="noopener noreferrer" className="text-[#34d399] hover:underline underline-offset-2 transition-colors">see DMAS Intake</Link>
             <span
               className="inline-block w-1.5 h-3.5 bg-indigo-400 align-middle ml-0.5"
               style={{ opacity: blink ? 1 : 0, transition: 'opacity 0.1s' }}
@@ -137,7 +137,7 @@ export default function HomeHero() {
             {/* CTAs */}
             <div className="relative z-10 flex flex-row items-start gap-3 mb-10">
               <Link
-                href="https://dmas.majestikmagik.dev"
+                href="https://vadmas.majestikmagik.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-premium group inline-flex items-center gap-2 font-mono uppercase tracking-wider text-xs py-2 px-4 sm:py-3 sm:px-6 rounded-full text-white font-bold active:scale-[0.97] transition-transform duration-75"
@@ -152,8 +152,6 @@ export default function HomeHero() {
                 Contact us today →
               </Link>
             </div>
-
-
 
             {/* Social proof — logos inline, at point of doubt */}
             <div className="relative z-10">
