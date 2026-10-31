@@ -154,6 +154,7 @@ export default function HomeHero() {
             </div>
 
             {/* Social proof — logos inline, at point of doubt */}
+            {/*
             <div className="relative z-10">
               <p className="text-[10px] font-mono text-[#505060] mb-5 tracking-widest uppercase">Built by the team behind</p>
               <div className="grid grid-cols-3 sm:grid-cols-6 items-center gap-6">
@@ -171,6 +172,7 @@ export default function HomeHero() {
                 ))}
               </div>
             </div>
+            */}
           </div>
 
           {/* Right: hero image */}
