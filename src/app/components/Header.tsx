@@ -30,10 +30,10 @@ const Header: React.FC<HeaderProps> = ({
   const [logoReady, setLogoReady] = useState(false);
   const [logoGlowBreath, setLogoGlowBreath] = useState(false);
   const [logoSpin, setLogoSpin] = useState(false);
-  const [halloween, setHalloween] = useState(false);
+  const [thanksgiving, setThanksgiving] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastOut, setToastOut] = useState(false);
-  const [showWitch, setShowWitch] = useState(false);
+  const [showLeaves, setShowLeaves] = useState(false);
   const clickCount = useRef(0);
   const clickTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -53,13 +53,13 @@ const Header: React.FC<HeaderProps> = ({
       clickCount.current = 0;
       setLogoSpin(true);
       setTimeout(() => setLogoSpin(false), 700);
-      const next = !halloween;
-      setHalloween(next);
-      document.body.classList.toggle('halloween', next);
-      window.dispatchEvent(new CustomEvent('app:halloween'));
+      const next = !thanksgiving;
+      setThanksgiving(next);
+      document.body.classList.toggle('thanksgiving', next);
+      window.dispatchEvent(new CustomEvent('app:thanksgiving'));
       if (next) {
-        setShowWitch(true);
-        setTimeout(() => setShowWitch(false), 4000);
+        setShowLeaves(true);
+        setTimeout(() => setShowLeaves(false), 5000);
       }
       setShowToast(true);
       setTimeout(() => setToastOut(true), 3800);
@@ -197,7 +197,7 @@ const Header: React.FC<HeaderProps> = ({
                   ? 'logo-spin 700ms cubic-bezier(0.34,1.56,0.64,1) forwards'
                   : logoReady ? 'logo-stamp 600ms cubic-bezier(0.34,1.56,0.64,1) forwards' : 'none',
                 opacity: logoSpin ? 1 : 0,
-                color: halloween ? '#22c55e' : '#6366f1',
+                color: thanksgiving ? '#f59e0b' : '#6366f1',
               }}
             />
           </span>
@@ -567,38 +567,42 @@ const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
       )}
-      {/* Witch flyby */}
-      {showWitch && (
-        <div
-          aria-hidden
-          className="fixed z-[998] pointer-events-none"
-          style={{
-            top: '18vh',
-            left: 0,
-            animation: 'witch-fly 3.8s cubic-bezier(0.45,0,0.55,1) forwards',
-            filter: 'drop-shadow(0 0 12px rgba(249,115,22,0.7))',
-          }}
-        >
-          <Image src="/img/witch-broom.svg" alt="witch on broom" width={120} height={120} style={{ height: 'auto' }} unoptimized />
+      {/* Falling leaves */}
+      {showLeaves && (
+        <div aria-hidden className="fixed inset-0 z-[998] pointer-events-none overflow-hidden">
+          {[...Array(12)].map((_, i) => (
+            <span
+              key={i}
+              className="absolute text-2xl"
+              style={{
+                left: `${8 + i * 8}%`,
+                top: '-40px',
+                animation: `leaf-fall ${3 + (i % 3)}s ease-in-out ${i * 0.3}s forwards`,
+                opacity: 0,
+              }}
+            >
+              {['🍂', '🍁', '🍃'][i % 3]}
+            </span>
+          ))}
         </div>
       )}
 
-      {/* Halloween toast */}
+      {/* Thanksgiving toast */}
       {showToast && (
         <div
           className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[999] px-5 py-3 rounded-2xl border text-sm font-mono flex items-center gap-3"
           style={{
-            background: 'rgba(13,10,0,0.95)',
-            borderColor: 'rgba(249,115,22,0.4)',
-            color: '#f97316',
+            background: 'rgba(20,10,0,0.95)',
+            borderColor: 'rgba(245,158,11,0.4)',
+            color: '#f59e0b',
             backdropFilter: 'blur(12px)',
             animation: toastOut
               ? 'toast-out 500ms ease forwards'
               : 'toast-in 400ms cubic-bezier(0.34,1.56,0.64,1) forwards',
           }}
         >
-          <span style={{ animation: 'halloween-flicker 1.5s ease-in-out infinite' }}>🎃</span>
-          Happy Halloween! 🎃 triple-click the logo to escape.
+          <span>🦃</span>
+          Happy Thanksgiving! 🍂 triple-click the logo to return.
         </div>
       )}
     </header>

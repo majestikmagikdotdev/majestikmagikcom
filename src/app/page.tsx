@@ -120,16 +120,16 @@ function AmbientGlows() {
 }
 
 export default function App() {
-  const [halloween, setHalloween] = useState(false);
+  const [thanksgiving, setThanksgiving] = useState(false);
 
   useEffect(() => {
-    const onToggle = () => setHalloween(document.body.classList.contains('halloween'));
-    window.addEventListener('app:halloween', onToggle);
-    return () => window.removeEventListener('app:halloween', onToggle);
+    const onToggle = () => setThanksgiving(document.body.classList.contains('thanksgiving'));
+    window.addEventListener('app:thanksgiving', onToggle);
+    return () => window.removeEventListener('app:thanksgiving', onToggle);
   }, []);
 
   return (
-    <div className="relative min-h-screen" style={{ background: halloween ? '#141414' : '#181818' }}>
+    <div className="relative min-h-screen" style={{ background: thanksgiving ? '#1a1408' : '#181818' }}>
       <GridCanvas />
       <GridBeams />
       <AmbientGlows />
